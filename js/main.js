@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       addIcons: false,
     },
     breakpoints: {
-      768: { slidesPerView: 1.6, spaceBetween: 24 },
+      768: { slidesPerView: 1, spaceBetween: 24 },
       1200: { slidesPerView: 2, spaceBetween: 32 },
     },
   });
