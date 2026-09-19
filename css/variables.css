@@ -1,0 +1,120 @@
+:root {
+  /* --- Color-style --- */
+
+  /* Фон и поверхности */
+  /* --color-bg: #F6F1EB; */
+  --color-bg: #eef1ed;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f9f8f6;
+
+  /* Текст */
+  --color-text: #222222;
+  --color-text-muted: #5c6b5f;
+  --color-text-inverse: #ffffff;
+  --color-text-disabled: #a8b3aa;
+
+  /* Акцент */
+  --color-accent: #1b3021;
+  --color-accent-hover: #142419;
+  --color-accent-active: #0d1710;
+  --color-accent-muted: #dce3dd;
+
+  /* Границы */
+  --color-border: #d8ded9;
+
+  /* Статусы */
+  --color-success: #2e7d4f;
+  --color-error: #a8452e;
+  --color-warning: #8a7a2e;
+
+  /* Оверлей */
+  --color-overlay: rgba(27, 48, 33, 0.45);
+
+  /* Фокус */
+  --color-focus-ring: #4a7856;
+
+  /* Инпуты */
+  --input-border: var(--color-border);
+  --input-border-focus: var(--color-accent);
+  --input-border-error: var(--color-error);
+  --input-bg: var(--color-surface);
+  --input-placeholder: var(--color-text-disabled);
+
+  /* --- Typography-style --- */
+  --font-main: "Rawline", sans-serif;
+
+  --fs-h1: clamp(2rem, 1.6rem + 1.8vw, 3.25rem);
+  --lh-h1: 110%;
+  --fw-h1: 600;
+
+  --fs-h2: clamp(1.75rem, 1.45rem + 1.3vw, 2.5rem);
+  --lh-h2: 1.2;
+  --fw-h2: 600;
+
+  --fs-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --lh-h3: 1.25;
+  --fw-h3: 600;
+
+  --fs-h4: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --lh-h4: 1.3;
+  --fw-h4: 500;
+
+  --fs-h5: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --lh-h5: 1.35;
+  --fw-h5: 500;
+
+  --fs-h6: 0.875rem;
+  --lh-h6: 1.4;
+  --fw-h6: 500;
+
+  --fs-subtitle: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --lh-subtitle: 1.4;
+  --fw-subtitle: 500;
+
+  --fs-body: 1rem;
+  --lh-body: 1.5;
+  --fw-body: 400;
+
+  --fs-body-sm: clamp(0.8125rem, 0.7875rem + 0.125vw, 0.875rem);
+  --lh-body-sm: 1.4;
+
+  --fs-body-lg: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --lh-body-sm: 1.6;
+
+  --fs-button: clamp(0.875rem, 0.8375rem + 0.1875vw, 0.9375rem);
+  --lh-button: 1;
+  --fw-button: 500;
+  --ls-button: 0.01em;
+
+  /* --- Indent-style --- */
+  --space-xs: 0.5rem; /* 8px, фиксированный */
+  --space-sm: 0.75rem; /* 12px, фиксированный */
+  --space-md: clamp(1rem, 0.9rem + 0.5vw, 1.5rem); /* 16 → 24px */
+  --space-lg: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem); /* 24 → 40px */
+  --space-xl: clamp(2.5rem, 1.8rem + 3.5vw, 5rem); /* 40 → 80px */
+  --space-2xl: clamp(3rem, 2rem + 5vw, 7rem); /* 48 → 112px */
+
+  /* --- Radius-style --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* --- Shadow-style --- */
+  --shadow-card: 0 4px 16px rgba(27, 48, 33, 0.08);
+
+  /* --- Контейнер --- */
+  --container-max: 1320px;
+  --container-padding: 12px;
+  --bottom-nav-height: 64px;
+
+  /* --- Icons --- */
+  --icon-size: clamp(18px, 1rem + 0.3vw, 22px);
+
+  /* --- Image --- */
+  --product-image-ratio: 3 / 2;
+
+  /* --- Animation --- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-base: 300ms;
+}

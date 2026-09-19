@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Дукан - продукты Северного Кавказа</title>
+  </head>
+  <body>
+    <header class="header">
+      <!-- Top Bar -->
+      <div class="header__top-bar">
+        <div class="container header__top-container">
+          <nav class="header__top-nav">
+            <ul class="header__top-list">
+              <li class="header__top-item">
+                <a href="/about" class="header__top-link">О нас</a>
+              </li>
+              <li class="header__top-item">
+                <a href="/reviews" class="header__top-link">Отзывы</a>
+              </li>
+              <li class="header__top-item">
+                <a href="/delivery" class="header__top-link"
+                  >Доставка и оплата</a
+                >
+              </li>
+              <li class="header__top-item">
+                <a href="/contacts" class="header__top-link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__top-info">
+            <!-- Локация: остаётся видимой и на мобилке -->
+            <div class="header__top-info-item header__top-info-item--location">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 7h-3V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h1c0 1.66 1.34 3 3 3s3-1.34 3-3h4c0 1.66 1.34 3 3 3s3-1.34 3-3h1c1.1 0 2-.9 2-2v-5l-3-3zM8 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm10 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM19 12h-2.5V9H18l1 3z"
+                />
+              </svg>
+              <span>Доставка по Москве</span>
+            </div>
+
+            <!-- Телефон: заглушка, в проде выводится через ACF -->
+            <a
+              href="tel:+79997777777"
+              class="header__top-info-item header__top-info-item--phone"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path
+                  d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                />
+              </svg>
+              <span class="header__phone-number">+7 999 777 77 77</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Header -->
+      <div class="header__main">
+        <div class="container header__main-container">
+          <!-- Логотип -->
+          <a href="/" class="header__logo">
+            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <span class="header__logo-subtitle"
+              >Продукты Северного Кавказа</span
+            >
+          </a>
+
+          <!-- Кнопка каталога (Десктоп) -->
+          <button
+            type="button"
+            class="catalog__btn btn btn--primary"
+            id="catalogBtn"
+            aria-expanded="false"
+            aria-controls="catalogMenu"
+          >
+            <svg
+              class="catalog__btn-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span>Каталог</span>
+          </button>
+
+          <!-- Поисковая строка (Десктоп) -->
+          <form class="header__search" action="/search" method="GET">
+            <input
+              type="text"
+              name="q"
+              class="header__search-input"
+              placeholder="Поиск по каталогу..."
+              autocomplete="off"
+            />
+            <button
+              type="submit"
+              class="header__search-btn"
+              aria-label="Искать"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Иконки действий (Десктоп) -->
+          <div class="header__actions">
+            <a href="/profile" class="header__action-link" aria-label="Профиль">
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </a>
+
+            <a
+              href="/cart"
+              class="header__cart-btn"
+              aria-label="Корзина, товаров: 0, сумма 0 рублей"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                ></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span class="header__cart-price">0 ₽</span>
+              <span class="header__cart-badge">0</span>
+            </a>
+          </div>
+
+          <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
+          <button
+            class="header__burger-btn"
+            id="burgerBtn"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="mobileDrawer"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
+        <div class="catalog__menu" id="catalogMenu" hidden>
+          <div class="container">
+            <ul class="catalog__list">
+              <li>
+                <a href="/catalog/#" class="category-card">
+                  <img
+                    src="img/content/bakalei-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Бакалея</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/myaso" class="category-card">
+                  <img
+                    src="img/content/meet-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label"
+                    >Говядина, птица, кролик</span
+                  >
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/vypechka" class="category-card">
+                  <img
+                    src="img/content/milk-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Молочные продукты</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/sousy" class="category-card">
+                  <img
+                    src="img/content/veget-fruit-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Овощи и фрукты</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/sladosti" class="category-card">
+                  <img
+                    src="img/content/kolbasi-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Колбасные изделия</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/napitki" class="category-card">
+                  <img
+                    src="img/content/kopchenosti-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Мясные копчёности</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/napitki" class="category-card">
+                  <img
+                    src="img/content/konservi-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Консервы</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/napitki" class="category-card">
+                  <img
+                    src="img/content/med-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Мёд и варенье</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Мобильное выпадающее инфо-меню -->
+      <div class="header__mobile-drawer" id="mobileDrawer" hidden>
+        <nav class="header__mobile-nav">
+          <ul class="header__mobile-list">
+            <li><a href="/about" class="header__mobile-link">О нас</a></li>
+            <li><a href="/reviews" class="header__mobile-link">Отзывы</a></li>
+            <li>
+              <a href="/delivery" class="header__mobile-link"
+                >Доставка и оплата</a
+              >
+            </li>
+            <li>
+              <a href="/contacts" class="header__mobile-link">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__mobile-phone">
+          <!-- Телефон: заглушка, в проде вывод через ACF -->
+          <a href="tel:+79997777777" class="header__phone-number"
+            >+7 999 777 77 77</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+      <!-- Главный экран: начало -->
+      <section
+        class="hero"
+        style="background-image: url(&quot;/img/content/hero-bg.webp&quot;)"
+      >
+        <div class="container">
+          <div class="hero__inner">
+            <span class="hero__subtitle">Вкусы Кавказа на вашем столе</span>
+            <h1 class="hero__title">
+              Фермерские продукты Кавказа с доставкой по Москве
+            </h1>
+            <p class="hero__description">
+              Мясо, сыры, мёд и домашние копчёности — напрямую от фермеров КБР,
+              Осетии и Дагестана. Отбираем только то, что попробовали сами.
+              Натурально, свежо, без посредников.
+            </p>
+            <a href="#dukan-choice" class="hero__anchor btn btn--primary">
+              Смотреть подборку лучших продуктов
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M6 9l6 6l6 -6" />
+              </svg>
+            </a>
+            <div class="hero__utp">
+              <div class="hero__utp-item">
+                <span class="hero__utp-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-rosette-discount-check"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1"
+                    />
+                    <path d="M9 12l2 2l4 -4" />
+                  </svg>
+                </span>
+                <span class="hero__utp-text">Халяль-сертификат</span>
+              </div>
+              <div class="hero__utp-item">
+                <span class="hero__utp-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-credit-card-hand"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M2 4h9.914a3 3 0 0 1 1.92 .695l5.166 4.305" />
+                    <path
+                      d="M11.15 9h8.85a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-13a2 2 0 0 1 -2 -2v-8.7"
+                    />
+                    <path d="M3 8l7.2 4.7a1.803 1.803 0 0 0 2 -3l-4.2 -2.7" />
+                    <path d="M5 16h17" />
+                  </svg>
+                </span>
+                <span class="hero__utp-text">Оплата при получении</span>
+              </div>
+              <div class="hero__utp-item">
+                <span class="hero__utp-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-package"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                    <path d="M12 12l8 -4.5" />
+                    <path d="M12 12l0 9" />
+                    <path d="M12 12l-8 -4.5" />
+                    <path d="M16 5.25l-8 4.5" />
+                  </svg>
+                </span>
+                <span class="hero__utp-text"
+                  >Свежая партия продуктов каждую неделю</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Главный экран: конец -->
+
+      <!-- Промо-баннеры: начало -->
+      <section class="promo">
+        <div class="container">
+          <div class="promo__slider-wrap">
+            <div class="swiper promo__slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide promo__slide">
+                  <div class="promo__content">
+                    <span class="promo__tag">Халяльный продукт</span>
+                    <h3 class="promo__title">Копчёная говядина</h3>
+                    <p class="promo__text">
+                      Далеко-далеко за словесными горами в стране гласных и
+                      согласных живут.
+                    </p>
+                    <a href="#" class="promo__btn btn btn--primary">Купить</a>
+                  </div>
+                  <img
+                    class="promo__img"
+                    src="/img/content/meet.webp"
+                    alt="Копчёная говядина"
+                  />
+                </div>
+                <div class="swiper-slide promo__slide">
+                  <div class="promo__content">
+                    <span class="promo__tag">Попробуйте новинку</span>
+                    <h3 class="promo__title">Свежая баранина</h3>
+                    <p class="promo__text">
+                      Далеко-далеко за словесными горами в стране гласных и
+                      согласных живут.
+                    </p>
+                    <a href="#" class="promo__btn btn btn--primary">Купить</a>
+                  </div>
+                  <img
+                    class="promo__img"
+                    src="/img/content/meet.webp"
+                    alt="Свежая баранина"
+                  />
+                </div>
+                <div class="swiper-slide promo__slide">
+                  <div class="promo__content">
+                    <span class="promo__tag">Попробуйте новинку</span>
+                    <h3 class="promo__title">Свежая баранина</h3>
+                    <p class="promo__text">
+                      Далеко-далеко за словесными горами в стране гласных и
+                      согласных живут.
+                    </p>
+                    <a href="#" class="promo__btn btn btn--primary">Купить</a>
+                  </div>
+                  <img
+                    class="promo__img"
+                    src="/img/content/meet.webp"
+                    alt="Свежая баранина"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev promo__arrow promo__arrow--prev">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 6l-6 6l6 6" />
+              </svg>
+            </div>
+            <div class="swiper-button-next promo__arrow promo__arrow--next">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 6l6 6l-6 6" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Промо-баннеры: конец -->
+
+      <!-- Категории продуктов: начало -->
+      <section class="category">
+        <div class="container">
+          <div class="category__inner">
+            <ul class="category__list">
+              <li>
+                <a href="/catalog/#" class="category-card">
+                  <img
+                    src="img/content/bakalei-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Бакалея</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/myaso" class="category-card">
+                  <img
+                    src="img/content/meet-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label"
+                    >Говядина, птица, кролик</span
+                  >
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/vypechka" class="category-card">
+                  <img
+                    src="img/content/milk-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Молочные продукты</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/sousy" class="category-card">
+                  <img
+                    src="img/content/veget-fruit-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Овощи и фрукты</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/sladosti" class="category-card">
+                  <img
+                    src="img/content/kolbasi-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Колбасные изделия</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/napitki" class="category-card">
+                  <img
+                    src="img/content/kopchenosti-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Мясные копчёности</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/napitki" class="category-card">
+                  <img
+                    src="img/content/konservi-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Консервы</span>
+                </a>
+              </li>
+              <li>
+                <a href="/catalog/napitki" class="category-card">
+                  <img
+                    src="img/content/med-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Мёд и варенье</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Категории продуктов: конец -->
+    </main>
+
+    <!-- Мобильный Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <a href="/" class="bottom-nav__item bottom-nav__item--active">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        </svg>
+        <span class="bottom-nav__label">Главная</span>
+      </a>
+      <button
+        type="button"
+        class="bottom-nav__item"
+        id="mobileCatalogBtn"
+        aria-expanded="false"
+        aria-controls="catalogMenu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span class="bottom-nav__label">Каталог</span>
+      </button>
+
+      <a href="/cart" class="bottom-nav__item">
+        <div class="bottom-nav__icon-wrapper">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="bottom-nav__badge">0</span>
+        </div>
+        <span class="bottom-nav__label">Корзина</span>
+      </a>
+
+      <a href="/profile" class="bottom-nav__item">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="bottom-nav__label">Профиль</span>
+      </a>
+    </nav>
+
+    <!-- Оверлей для закрытия меню по клику вне элемента -->
+    <div class="overlay" id="overlay" hidden></div>
+    <footer></footer>
+    <script src="swiper/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

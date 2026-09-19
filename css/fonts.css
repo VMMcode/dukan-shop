@@ -1,0 +1,216 @@
+/* --- fonts --- */
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Thin Regular"),
+    local("Rawline-Thin"),
+    url("../fonts/Rawline-Thin.woff2") format("woff2"),
+    url("../fonts/Rawline-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Thin Italic"),
+    local("Rawline-ThinItalic"),
+    url("../fonts/Rawline-ThinItalic.woff2") format("woff2"),
+    url("../fonts/Rawline-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline ExtraLight Regular"),
+    local("Rawline-ExtraLight"),
+    url("../fonts/Rawline-ExtraLight.woff2") format("woff2"),
+    url("../fonts/Rawline-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline ExtraLight Italic"),
+    local("Rawline-ExtraLightItalic"),
+    url("../fonts/Rawline-ExtraLightItalic.woff2") format("woff2"),
+    url("../fonts/Rawline-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Light"),
+    local("Rawline-Light"),
+    url("../fonts/Rawline-Light.woff2") format("woff2"),
+    url("../fonts/Rawline-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Light Italic"),
+    local("Rawline-LightItalic"),
+    url("../fonts/Rawline-LightItalic.woff2") format("woff2"),
+    url("../fonts/Rawline-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Regular"),
+    local("Rawline-Regular"),
+    url("../fonts/Rawline-Regular.woff2") format("woff2"),
+    url("../fonts/Rawline-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Italic"),
+    local("Rawline-Italic"),
+    url("../fonts/Rawline-Italic.woff2") format("woff2"),
+    url("../fonts/Rawline-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Medium Regular"),
+    local("Rawline-Medium"),
+    url("../fonts/Rawline-Medium.woff2") format("woff2"),
+    url("../fonts/Rawline-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Medium Italic"),
+    local("Rawline-Medium"),
+    url("../fonts/Rawline-Medium_1.woff2") format("woff2"),
+    url("../fonts/Rawline-Medium_1.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline SemiBold Regular"),
+    local("Rawline-SemiBold"),
+    url("../fonts/Rawline-SemiBold.woff2") format("woff2"),
+    url("../fonts/Rawline-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline SemiBold Italic"),
+    local("Rawline-SemiBoldItalic"),
+    url("../fonts/Rawline-SemiBoldItalic.woff2") format("woff2"),
+    url("../fonts/Rawline-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Bold"),
+    local("Rawline-Bold"),
+    url("../fonts/Rawline-Bold.woff2") format("woff2"),
+    url("../fonts/Rawline-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Bold Italic"),
+    local("Rawline-BoldItalic"),
+    url("../fonts/Rawline-BoldItalic.woff2") format("woff2"),
+    url("../fonts/Rawline-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline ExtraBold Regular"),
+    local("Rawline-ExtraBold"),
+    url("../fonts/Rawline-ExtraBold.woff2") format("woff2"),
+    url("../fonts/Rawline-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline ExtraBold Italic"),
+    local("Rawline-ExtraBoldItalic"),
+    url("../fonts/Rawline-ExtraBoldItalic.woff2") format("woff2"),
+    url("../fonts/Rawline-ExtraBoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Black Regular"),
+    local("Rawline-Black"),
+    url("../fonts/Rawline-Black.woff2") format("woff2"),
+    url("../fonts/Rawline-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rawline";
+  src:
+    local("Rawline Black Italic"),
+    local("Rawline-BlackItalic"),
+    url("../fonts/Rawline-BlackItalic.woff2") format("woff2"),
+    url("../fonts/Rawline-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
