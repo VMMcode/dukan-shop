@@ -101,7 +101,7 @@
   --radius-full: 999px;
 
   /* --- Shadow-style --- */
-  --shadow-card: 0 4px 16px rgba(27, 48, 33, 0.08);
+  --shadow-card: 0 0px 20px rgba(27, 48, 33, 0.2);
 
   /* --- Контейнер --- */
   --container-max: 1320px;

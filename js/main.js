@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   new Swiper('.promo__slider', {
     direction: 'horizontal',
-    slidesPerView: 1.15,
+    slidesPerView: 1,
     spaceBetween: 16,
     loop: true,
     autoHeight: true,
@@ -83,12 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
       addIcons: false,
     },
     breakpoints: {
-      768: { slidesPerView: 1, spaceBetween: 24 },
+      768: { slidesPerView: 1.6, spaceBetween: 24 },
       1200: { slidesPerView: 2, spaceBetween: 32 },
     },
   });
 });
-
 
 
 // анти ресайз окна для скейла
