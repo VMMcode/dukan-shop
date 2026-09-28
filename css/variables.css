@@ -43,7 +43,7 @@
   /* --- Typography-style --- */
   --font-main: "Rawline", sans-serif;
 
-  --fs-h1: clamp(2rem, 1.6rem + 1.8vw, 3.25rem);
+  --fs-h1: clamp(1.75rem, 1.15rem + 2.4vw, 3.25rem);
   --lh-h1: 110%;
   --fw-h1: 600;
 

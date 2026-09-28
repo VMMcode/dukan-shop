@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="stylesheet" href="nice-select2/nice-select2.css" />
+    <link rel="stylesheet" href="css/reviews.css" />
+    <title>Отзывы — Дукан</title>
+  </head>
+  <body>
+    <header class="header">
+      <!-- Top Bar -->
+      <div class="header__top-bar">
+        <div class="container header__top-container">
+          <nav class="header__top-nav">
+            <ul class="header__top-list">
+              <li class="header__top-item">
+                <a href="about.html" class="header__top-link">О нас</a>
+              </li>
+              <li class="header__top-item">
+                <a href="reviews.html" class="header__top-link">Отзывы</a>
+              </li>
+              <li class="header__top-item">
+                <a href="delivery.html" class="header__top-link">Доставка и оплата</a>
+              </li>
+              <li class="header__top-item">
+                <a href="contacts.html" class="header__top-link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__top-info">
+            <div class="header__top-info-item header__top-info-item--location">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 7h-3V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h1c0 1.66 1.34 3 3 3s3-1.34 3-3h4c0 1.66 1.34 3 3 3s3-1.34 3-3h1c1.1 0 2-.9 2-2v-5l-3-3zM8 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm10 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM19 12h-2.5V9H18l1 3z"
+                />
+              </svg>
+              <span>Доставка по Москве</span>
+            </div>
+
+            <!-- Телефон: заглушка, в проде выводится через ACF -->
+            <a
+              href="tel:+79997777777"
+              class="header__top-info-item header__top-info-item--phone"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path
+                  d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                />
+              </svg>
+              <span class="header__phone-number">+7 999 777 77 77</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Header -->
+      <div class="header__main">
+        <div class="container header__main-container">
+          <!-- Логотип -->
+          <a href="index.html" class="logo header__logo">
+            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <span class="logo__subtitle header__logo-subtitle"
+              >Продукты Северного Кавказа</span
+            >
+          </a>
+
+          <!-- Кнопка каталога (Десктоп) -->
+          <button
+            type="button"
+            class="catalog__btn btn btn--primary"
+            id="catalogBtn"
+            aria-expanded="false"
+            aria-controls="catalogMenu"
+          >
+            <svg
+              class="catalog__btn-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span>Каталог</span>
+          </button>
+
+          <!-- Поисковая строка (Десктоп) -->
+          <form class="header__search" action="/search" method="GET">
+            <input
+              type="text"
+              name="q"
+              class="header__search-input"
+              placeholder="Поиск по каталогу..."
+              autocomplete="off"
+            />
+            <button
+              type="submit"
+              class="header__search-btn"
+              aria-label="Искать"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Иконки действий (Десктоп) -->
+          <div class="header__actions">
+            <a href="account.html" class="header__action-link" aria-label="Профиль">
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </a>
+
+            <a
+              href="checkout.html"
+              class="header__cart-btn btn btn--primary"
+              aria-label="Корзина, товаров: 3, сумма 2 440 ₽"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                ></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span class="header__cart-price">2 440 ₽</span>
+              <span class="header__cart-badge">3</span>
+            </a>
+          </div>
+
+          <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
+          <button
+            class="header__burger-btn"
+            id="burgerBtn"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="mobileDrawer"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
+        <div class="catalog__menu" id="catalogMenu" hidden>
+          <div class="container">
+            <ul class="catalog__list">
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/bakalei-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Бакалея</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/meet-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label"
+                    >Говядина, птица, кролик</span
+                  >
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/milk-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Молочные продукты</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/veget-fruit-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Овощи и фрукты</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/kolbasi-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Колбасные изделия</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/kopchenosti-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Мясные копчёности</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/konservi-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Консервы</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/med-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Мёд и варенье</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Мобильное выпадающее инфо-меню -->
+      <div class="header__mobile-drawer" id="mobileDrawer" hidden>
+        <nav class="header__mobile-nav">
+          <ul class="header__mobile-list">
+            <li><a href="about.html" class="header__mobile-link">О нас</a></li>
+            <li>
+              <a href="reviews.html" class="header__mobile-link">Отзывы</a>
+            </li>
+            <li>
+              <a href="delivery.html" class="header__mobile-link">Доставка и оплата</a>
+            </li>
+            <li>
+              <a href="contacts.html" class="header__mobile-link">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__mobile-phone">
+          <!-- Телефон: заглушка, в проде вывод через ACF -->
+          <a href="tel:+79997777777" class="header__phone-number"
+            >+7 999 777 77 77</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+      <div class="breadcrumbs-strip">
+        <div class="container">
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="index.html" class="breadcrumbs__link">Главная</a>
+              </li>
+              <li class="breadcrumbs__sep">/</li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current">Отзывы</span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <section class="reviews">
+        <div class="container">
+          <div class="reviews__header">
+            <h1 class="reviews__title">Отзывы</h1>
+            <p class="reviews__subtitle">
+              Что говорят покупатели о продуктах и доставке «Дукан»
+            </p>
+          </div>
+
+          <div class="reviews__layout">
+            <!-- .reviews__row содержит ТОЛЬКО сетку отзывов и форму — больше в этом гриде ничего нет,
+                 поэтому sticky-форма физически не может выйти за пределы высоты сетки -->
+            <div class="reviews__row">
+              <!-- Отзывы ниже — примеры-заглушки, бизнес ещё не запущен. Заменить на реальные после первых заказов -->
+              <ul class="review-grid">
+                <!-- Сводная оценка: всегда первым блоком в сетке, placeholder-цифры -->
+                <li>
+                  <article class="review-card review-card--summary">
+                    <span class="review-card__score">4.8</span>
+                    <div class="review-card__stars" aria-hidden="true">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star">★</span>
+                    </div>
+                    <span class="review-card__count">На основе 127 отзывов</span>
+                  </article>
+                </li>
+
+                <li>
+                  <article class="review-card">
+                    <div class="review-card__meta">
+                      <span class="review-card__author">Анна К.</span>
+                      <span class="review-card__date">12 сентября 2026</span>
+                    </div>
+                    <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                    </div>
+                    <p class="review-card__text">
+                      Осетинский сыр — как у бабушки в деревне, ничего общего с
+                      магазинным. Взяла ещё сулугуни, тоже отличный.
+                    </p>
+                    <a href="product.html" class="review-card__product">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
+                        <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+                      </svg>
+                      Осетинский сыр
+                    </a>
+                  </article>
+                </li>
+
+                <li>
+                  <article class="review-card">
+                    <div class="review-card__meta">
+                      <span class="review-card__author">Марат Т.</span>
+                      <span class="review-card__date">5 сентября 2026</span>
+                    </div>
+                    <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                    </div>
+                    <p class="review-card__text">
+                      Бастурма — огонь, в меру солёная и не пересушена. Заказываю
+                      третий раз подряд, всегда одинаково хорошо.
+                    </p>
+                    <a href="product.html" class="review-card__product">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
+                        <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+                      </svg>
+                      Бастурма из говядины
+                    </a>
+                  </article>
+                </li>
+
+                <li>
+                  <article class="review-card">
+                    <div class="review-card__meta">
+                      <span class="review-card__author">Елена С.</span>
+                      <span class="review-card__date">28 августа 2026</span>
+                    </div>
+                    <div class="review-card__stars" aria-label="Оценка 4 из 5">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star">★</span>
+                    </div>
+                    <p class="review-card__text">
+                      Курьер приехал точно в выбранный интервал, всё было
+                      свежее и холодное. Единственное — хотелось бы окно
+                      доставки поуже.
+                    </p>
+                  </article>
+                </li>
+
+                <li>
+                  <article class="review-card">
+                    <div class="review-card__meta">
+                      <span class="review-card__author">Давид Г.</span>
+                      <span class="review-card__date">20 августа 2026</span>
+                    </div>
+                    <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                    </div>
+                    <p class="review-card__text">
+                      Майский мёд настоящий, густой, с ярким вкусом разнотравья.
+                      Взял банку в подарок родителям — просили привезти ещё.
+                    </p>
+                    <a href="product.html" class="review-card__product">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
+                        <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+                      </svg>
+                      Майский мёд
+                    </a>
+                  </article>
+                </li>
+
+                <li>
+                  <article class="review-card">
+                    <div class="review-card__meta">
+                      <span class="review-card__author">Ольга П.</span>
+                      <span class="review-card__date">14 августа 2026</span>
+                    </div>
+                    <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                    </div>
+                    <p class="review-card__text">
+                      Баранина нежная, без запаха, готовила шашлык — гости
+                      оценили. Понравилось, что на упаковке честно указан вес
+                      и состав.
+                    </p>
+                    <a href="product.html" class="review-card__product">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
+                        <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+                      </svg>
+                      Баранина
+                    </a>
+                  </article>
+                </li>
+
+                <li>
+                  <article class="review-card">
+                    <div class="review-card__meta">
+                      <span class="review-card__author">Руслан Б.</span>
+                      <span class="review-card__date">2 августа 2026</span>
+                    </div>
+                    <div class="review-card__stars" aria-label="Оценка 4 из 5">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star">★</span>
+                    </div>
+                    <p class="review-card__text">
+                      Яйца свежие, желток яркий. Заказывал вместе с овощами —
+                      помидоры чуть помялись при доставке, но на вкус не
+                      повлияло.
+                    </p>
+                    <a href="product.html" class="review-card__product">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
+                        <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+                      </svg>
+                      Свежие яйца
+                    </a>
+                  </article>
+                </li>
+
+                <li>
+                  <article class="review-card">
+                    <div class="review-card__meta">
+                      <span class="review-card__author">Наталья К.</span>
+                      <span class="review-card__date">27 июля 2026</span>
+                    </div>
+                    <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                    </div>
+                    <p class="review-card__text">
+                      Оформила заказ вечером, приехало на следующий день в
+                      указанный интервал. Упаковка аккуратная, ничего не
+                      потекло и не помялось.
+                    </p>
+                  </article>
+                </li>
+
+                <li>
+                  <article class="review-card">
+                    <div class="review-card__meta">
+                      <span class="review-card__author">Ибрагим Ц.</span>
+                      <span class="review-card__date">19 июля 2026</span>
+                    </div>
+                    <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                      <span class="review-card__star review-card__star--filled">★</span>
+                    </div>
+                    <p class="review-card__text">
+                      Пшено рассыпчатое, каша получилась отличная. Порадовало,
+                      что в карточке товара сразу видно, с какой фермы продукт.
+                    </p>
+                    <a href="product.html" class="review-card__product">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
+                        <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
+                      </svg>
+                      Пшено
+                    </a>
+                  </article>
+                </li>
+              </ul>
+
+            <!-- Форма отзыва — в боковой колонке, стики только в пределах сетки отзывов (не включая нумерацию) -->
+            <aside class="reviews__aside">
+              <form class="checkout-block review-form" id="reviewForm" novalidate>
+              <div>
+                <h2 class="checkout-block__title">Оставить отзыв о товаре</h2>
+                <p class="review-form__hint">
+                  Ваш отзыв увидят другие покупатели
+                </p>
+              </div>
+
+              <div class="form-field">
+                <label class="form-field__label" for="reviewName">Имя</label>
+                <input
+                  class="form-field__input"
+                  type="text"
+                  id="reviewName"
+                  placeholder="Например: Анна Кайтукова"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label class="form-field__label" for="reviewProduct"
+                  >Товар</label
+                >
+                <!-- Обычный select неудобен при большом каталоге — тот же nice-select2 (searchable), что и район доставки в checkout.html -->
+                <select class="review-form__product-select" id="reviewProduct" required>
+                  <option value="" selected disabled>Начните вводить название товара</option>
+                  <option>Осетинский сыр</option>
+                  <option>Сулугуни</option>
+                  <option>Чечил</option>
+                  <option>Кавказская брынза</option>
+                  <option>Бастурма из говядины</option>
+                  <option>Майский мёд</option>
+                  <option>Горный мёд</option>
+                  <option>Баранина</option>
+                  <option>Мясо кролика</option>
+                  <option>Свежие яйца</option>
+                  <option>Кахунские помидоры</option>
+                  <option>Пшено</option>
+                  <option>Осетинский пирог с картофелем и сыром</option>
+                  <option>Другой товар / доставка</option>
+                </select>
+              </div>
+
+              <fieldset class="star-input">
+                <legend class="form-field__label">Оценка</legend>
+                <div class="star-input__stars">
+                  <input
+                    class="star-input__radio"
+                    type="radio"
+                    name="reviewRating"
+                    id="rate5"
+                    value="5"
+                  />
+                  <label class="star-input__star" for="rate5" aria-label="5 звёзд">★</label>
+                  <input
+                    class="star-input__radio"
+                    type="radio"
+                    name="reviewRating"
+                    id="rate4"
+                    value="4"
+                  />
+                  <label class="star-input__star" for="rate4" aria-label="4 звезды">★</label>
+                  <input
+                    class="star-input__radio"
+                    type="radio"
+                    name="reviewRating"
+                    id="rate3"
+                    value="3"
+                  />
+                  <label class="star-input__star" for="rate3" aria-label="3 звезды">★</label>
+                  <input
+                    class="star-input__radio"
+                    type="radio"
+                    name="reviewRating"
+                    id="rate2"
+                    value="2"
+                  />
+                  <label class="star-input__star" for="rate2" aria-label="2 звезды">★</label>
+                  <input
+                    class="star-input__radio"
+                    type="radio"
+                    name="reviewRating"
+                    id="rate1"
+                    value="1"
+                  />
+                  <label class="star-input__star" for="rate1" aria-label="1 звезда">★</label>
+                </div>
+              </fieldset>
+
+              <div class="form-field">
+                <label class="form-field__label" for="reviewText"
+                  >Текст отзыва</label
+                >
+                <textarea
+                  class="form-field__textarea"
+                  id="reviewText"
+                  placeholder="Расскажите о вкусе, свежести, упаковке"
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn--primary btn--lg review-form__submit"
+              >
+                Отправить отзыв
+              </button>
+              </form>
+            </aside>
+            </div>
+
+            <!-- Пагинация вынесена в отдельный грид с той же колоночной сеткой, что и .reviews__row —
+                 её ширина совпадает с шириной сетки отзывов, но она не делит с формой общую ячейку -->
+            <div class="reviews__pagination-row">
+              <nav class="pagination" aria-label="Страницы отзывов">
+                <a
+                  href="#"
+                  class="pagination__link pagination__link--disabled"
+                  aria-label="Предыдущая страница"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M15 6l-6 6l6 6" />
+                  </svg>
+                </a>
+                <a href="#" class="pagination__link pagination__link--active">1</a>
+                <a href="#" class="pagination__link">2</a>
+                <a href="#" class="pagination__link">3</a>
+                <a
+                  href="#"
+                  class="pagination__link"
+                  aria-label="Следующая страница"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M9 6l6 6l-6 6" />
+                  </svg>
+                </a>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Форма пожелания владельцу — отдельным блоком под отзывами, на всю ширину, визуально обособлена от публичных отзывов -->
+          <form class="checkout-block owner-form" id="ownerForm" novalidate>
+            <div class="owner-form__header">
+              <span class="owner-form__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="4" y="10" width="16" height="10" rx="2" />
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                </svg>
+              </span>
+              <div>
+                <h2 class="owner-form__title">
+                  Написать пожелание владельцу
+                </h2>
+                <p class="owner-form__hint">
+                  Личное сообщение владельцу — публично не показывается
+                </p>
+              </div>
+            </div>
+
+            <div class="owner-form__fields">
+              <div class="form-field">
+                <label class="form-field__label" for="ownerName">Имя</label>
+                <input
+                  class="form-field__input"
+                  type="text"
+                  id="ownerName"
+                  placeholder="Например: Иван Иванов"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label class="form-field__label" for="ownerContact"
+                  >Телефон или email</label
+                >
+                <input
+                  class="form-field__input"
+                  type="text"
+                  id="ownerContact"
+                  placeholder="+7 999 999-99-99 или email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="ownerMessage"
+                >Сообщение</label
+              >
+              <textarea
+                class="form-field__textarea"
+                id="ownerMessage"
+                placeholder="Жалоба, идея по ассортименту или личный комментарий"
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn--primary btn--lg owner-form__submit"
+            >
+              Отправить пожелание
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Оверлей для закрытия меню по клику вне элемента -->
+    <div class="overlay" id="overlay" hidden></div>
+    <!-- Мобильный Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav__item">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        </svg>
+        <span class="bottom-nav__label">Главная</span>
+      </a>
+      <button
+        type="button"
+        class="bottom-nav__item"
+        id="mobileCatalogBtn"
+        aria-expanded="false"
+        aria-controls="catalogMenu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span class="bottom-nav__label">Каталог</span>
+      </button>
+
+      <a href="checkout.html" class="bottom-nav__item">
+        <div class="bottom-nav__icon-wrapper">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="bottom-nav__badge">3</span>
+        </div>
+        <span class="bottom-nav__label">Корзина</span>
+      </a>
+
+      <a href="account.html" class="bottom-nav__item">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="bottom-nav__label">Профиль</span>
+      </a>
+    </nav>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__top">
+            <div class="footer__brand">
+              <a href="index.html" class="logo footer__logo">
+                <img
+                  src="img/logo/dukan-logo-inverse.svg"
+                  alt="Логотип сайта"
+                />
+                <span class="logo__subtitle"
+                  >Фермерские продукты Кавказа с доставкой по Москве</span
+                >
+              </a>
+            </div>
+
+            <nav class="footer__nav">
+              <span class="footer__col-title">Меню</span>
+              <a href="catalog.html" class="footer__link dot-link">Каталог</a>
+              <a href="about.html" class="footer__link dot-link">О нас</a>
+              <a href="delivery.html" class="footer__link dot-link">Доставка и оплата</a>
+              <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
+            </nav>
+
+            <div class="footer__delivery">
+              <span class="footer__col-title">Доставка</span>
+              <span class="footer__info-line">Приём заказов: 9:00–20:00</span>
+              <span class="footer__info-line">Только по Москве</span>
+              <span class="footer__info-line">Мин. сумма заказа — 1500 ₽</span>
+            </div>
+
+            <div class="footer__contacts">
+              <span class="footer__col-title">Контакты</span>
+              <a href="tel:+79999999999" class="footer__link dot-link"
+                >+7 999 999-99-99</a
+              >
+              <a href="mailto:info@dukan.ru" class="footer__link dot-link"
+                >info@dukan.ru</a
+              >
+              <a href="https://wa.me/79999999999" class="footer__link dot-link"
+                >Написать в WhatsApp</a
+              >
+            </div>
+
+            <div class="footer__legal">
+              <span class="footer__col-title">Документы</span>
+              <a href="privacy.html" class="footer__link dot-link"
+                >Политика конфиденциальности</a
+              >
+              <a href="consent.html" class="footer__link dot-link"
+                >Согласие на обработку ПД</a
+              >
+            </div>
+          </div>
+
+          <div class="footer__bar">
+            <span class="footer__copy">© 2026 Дукан. Все права защищены.</span>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener"
+              class="footer__dev-link"
+            >
+              Сайт разработан: vmmcode.ru
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="nice-select2/nice-select2.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

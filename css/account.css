@@ -1,0 +1,326 @@
+/* --- Каркас личного кабинета ---
+   Десктоп: 2 колонки через grid-template-areas —
+   слева "Приветствие" + "Мои данные", справа "Активный заказ",
+   снизу на всю ширину "История заказов". На мобилке (см. медиа ниже)
+   все блоки идут одной колонкой в том же порядке areas. */
+.account {
+  padding-top: var(--space-md);
+}
+
+.account__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  grid-template-areas:
+    "welcome tracker"
+    "data tracker"
+    "history history";
+  gap: var(--space-md);
+  /* align-items оставлен на дефолтном stretch: .order-tracker растягивается
+     на высоту welcome+data, чтобы карточки слева и справа были одной длины. */
+}
+
+.account-welcome {
+  grid-area: welcome;
+}
+
+.account-data {
+  grid-area: data;
+}
+
+.account-history {
+  grid-area: history;
+}
+
+.account-logout {
+  grid-column: 1 / -1;
+  padding-top: var(--space-xs);
+}
+
+/* --- Приветствие --- */
+.account-welcome__title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-h4);
+  color: var(--color-text);
+}
+
+.account-welcome__phone {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- Мои данные --- */
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.account-form__submit {
+  width: 100%;
+  max-width: none;
+}
+
+/* --- Активный заказ: вертикальный трекер статусов ---
+   Без sticky — просто растягивается на высоту левой колонки (welcome + data),
+   чтобы карточка была одной длины с ней. */
+.order-tracker {
+  grid-area: tracker;
+}
+
+/* [hidden] по умолчанию даёт display:none, но .checkout-block выше
+   переключает его на display:flex — тот же баг, что уже чинили для
+   .checkout-account__step[hidden] в checkout.css. Без этого правила
+   заглушка "нет активных заказов" рисуется поверх реального трекера. */
+.order-tracker[hidden] {
+  display: none;
+}
+
+.order-tracker__number {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+  margin-top: calc(-1 * var(--space-xs));
+}
+
+.order-tracker__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-tracker__step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-md);
+}
+.order-tracker__step:last-child {
+  padding-bottom: 0;
+}
+
+/* Соединительная линия между шагами, от центра текущего маркера до следующего */
+.order-tracker__step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: calc(0.875rem - 1px);
+  top: 1.75rem;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.order-tracker__marker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-muted);
+  color: var(--color-text-disabled);
+}
+
+.order-tracker__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding-top: 0.2rem;
+  min-width: 0;
+}
+
+.order-tracker__label {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text);
+}
+
+.order-tracker__time {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* Пройденные шаги — заполненный маркер-галочка и акцентная линия к ним */
+.order-tracker__step--done .order-tracker__marker {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+.order-tracker__step--done::before {
+  background-color: var(--color-accent);
+}
+
+/* Текущий шаг — контурный маркер с точкой, подпись выделена акцентом */
+.order-tracker__step--current .order-tracker__marker {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-accent);
+}
+.order-tracker__step--current .order-tracker__marker::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+}
+.order-tracker__step--current .order-tracker__label {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Будущие шаги — приглушены */
+.order-tracker__step--upcoming .order-tracker__label,
+.order-tracker__step--upcoming .order-tracker__time {
+  color: var(--color-text-disabled);
+}
+
+.order-tracker__note {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-muted);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+
+/* --- Активный заказ: заглушка на случай отсутствия активного заказа --- */
+.order-tracker--empty {
+  align-items: center;
+  text-align: center;
+}
+.order-tracker--empty .link-btn {
+  margin: 0 auto;
+}
+
+.order-tracker__empty-text {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- История заказов --- */
+.order-history__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.order-history__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+.order-history__item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.order-history__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.order-history__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.order-history__number {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.order-history__date {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.order-history__items {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.order-history__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.order-history__sum {
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.order-history__repeat {
+  width: auto;
+  max-width: none;
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-xs);
+}
+
+/* --- Статус заказа: цвет через color-mix от токенов статусов, без хардкода hex --- */
+.order-status {
+  flex-shrink: 0;
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  padding: 0.3rem var(--space-sm);
+  border-radius: var(--radius-full);
+}
+
+.order-status--delivered {
+  color: var(--color-success);
+  background-color: color-mix(in srgb, var(--color-success) 14%, transparent);
+}
+
+.order-status--in-transit {
+  color: var(--color-warning);
+  background-color: color-mix(in srgb, var(--color-warning) 14%, transparent);
+}
+
+.order-status--cancelled {
+  color: var(--color-error);
+  background-color: color-mix(in srgb, var(--color-error) 14%, transparent);
+}
+
+/* --- Выход --- */
+.account-logout__btn {
+  width: 100%;
+  max-width: none;
+}
+
+/* --- Адаптив: на мобилке всё в одну колонку, в том же порядке areas --- */
+@media (max-width: 900px) {
+  .account__layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "welcome"
+      "tracker"
+      "data"
+      "history";
+  }
+}
+
+@media (max-width: 640px) {
+  .checkout-block {
+    padding: var(--space-sm);
+  }
+  .order-history__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+  .order-history__footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+  .order-history__repeat {
+    width: 100%;
+  }
+}

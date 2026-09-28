@@ -1,0 +1,552 @@
+/* --- Каркас страницы оформления заказа --- */
+.checkout {
+  padding-top: var(--space-md);
+}
+
+.checkout__title {
+  margin-bottom: var(--space-lg);
+}
+
+.checkout__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.checkout__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+/* --- Карточка-блок раздела (Состав заказа / Доставка / Контакты и т.д.) --- */
+.checkout-block {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.checkout-block__title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-h4);
+  color: var(--color-text);
+}
+
+.checkout-block__title-hint {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-body);
+  color: var(--color-text-muted);
+}
+
+.checkout-block__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* --- Состав заказа: список товаров строкой --- */
+.order-items__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.order-items__item {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-sm);
+}
+.order-items__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Модификатор карточки товара под компактную строку в чекауте:
+   переиспользуем .product-card 1-в-1, меняем только направление и без бейджей/ссылки. */
+.product-card--order {
+  flex-direction: row;
+  align-items: stretch;
+  background-color: transparent;
+  border-radius: 0;
+}
+.product-card--order:hover {
+  box-shadow: none;
+}
+
+.product-card--order .product-card__media {
+  width: 38%;
+  max-width: 140px;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.product-card--order .product-card__body {
+  flex: 1;
+  min-width: 0;
+  padding: 0 0 0 var(--space-md);
+  gap: 0.3rem;
+}
+
+.product-card--order .product-card__title {
+  font-size: var(--fs-body);
+  -webkit-line-clamp: 1;
+}
+
+.product-card--order .product-card__footer {
+  margin-top: var(--space-xs);
+  align-items: center;
+}
+
+.order-items__item-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.order-items__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  transition: color ease-in 0.2s, background-color ease-in 0.2s;
+}
+.order-items__remove:hover {
+  color: var(--color-error);
+  background-color: var(--color-surface-muted);
+}
+
+/* --- Доставка --- */
+.delivery__note {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+.delivery__note svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.delivery__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.delivery__form .form-field:first-child {
+  grid-column: 1 / -1;
+}
+
+.delivery__price-note {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text);
+  background-color: var(--color-surface-muted);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+
+/* --- Поля формы --- */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-field__label {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.form-field__input,
+.form-field__select,
+.form-field__textarea {
+  width: 100%;
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  font-family: inherit;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+}
+
+.form-field__textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+/* --- Район Москвы: nice-select2, тот же вид, что у сортировки в каталоге --- */
+.delivery__select.nice-select {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  line-height: normal;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--input-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--fs-body);
+}
+.delivery__select.nice-select:hover,
+.delivery__select.nice-select.open {
+  border-color: var(--color-accent);
+}
+.delivery__select.nice-select:after {
+  border-color: var(--color-text-muted);
+  right: var(--space-md);
+}
+.delivery__select.nice-select.open:after {
+  border-color: var(--color-accent);
+}
+.delivery__select.nice-select .nice-select-dropdown {
+  width: 100%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  z-index: 30;
+}
+.delivery__select.nice-select .list {
+  border-radius: var(--radius-sm);
+  padding: 4px 0;
+}
+.delivery__select.nice-select .option {
+  font-size: var(--fs-body-sm);
+  line-height: 2.2;
+  padding-left: 14px;
+  padding-right: 14px;
+  color: var(--color-text);
+}
+.delivery__select.nice-select .option.selected {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+.delivery__select.nice-select .option:hover,
+.delivery__select.nice-select .option.focus {
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+/* --- Оплата --- */
+.payment-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-surface-muted);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+.payment-info__icon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+/* --- Согласие на обработку ПД --- */
+.agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.agreement__checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  position: relative;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color ease-in 0.2s, background-color ease-in 0.2s;
+}
+.agreement__checkbox::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--color-surface);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform ease-in 0.15s;
+}
+.agreement__checkbox:hover {
+  border-color: var(--color-accent);
+}
+.agreement__checkbox:checked {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+}
+.agreement__checkbox:checked::after {
+  transform: rotate(45deg) scale(1);
+}
+
+/* --- Итоговый блок (сайдбар) --- */
+.checkout__aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: sticky;
+  top: calc(var(--header-height, 0px) + var(--space-md));
+}
+
+.checkout-summary {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.checkout-summary__title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-h4);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.checkout-summary__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.checkout-summary__row--total {
+  padding-top: var(--space-sm);
+  margin-top: var(--space-xs);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.checkout-summary__warning {
+  font-size: var(--fs-body-sm);
+  color: var(--color-error);
+  background-color: rgba(168, 69, 46, 0.08);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+}
+
+.checkout-summary__submit {
+  width: 100%;
+  max-width: none;
+  margin-top: var(--space-xs);
+}
+.checkout-summary__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Экран "Заказ принят" --- */
+.order-success {
+  padding: var(--space-2xl) 0;
+}
+
+.order-success__inner {
+  max-width: 35rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+}
+
+.order-success__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.order-success__title {
+  color: var(--color-text);
+}
+
+.order-success__number,
+.order-success__sum {
+  color: var(--color-text-muted);
+}
+
+.order-success__text {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.order-success__home {
+  width: auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+  font-size: var(--fs-body-lg);
+}
+
+/* --- Предложение создать аккаунт после заказа --- */
+.checkout-account {
+  width: 100%;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin: var(--space-xs) 0;
+}
+
+.checkout-account__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+/* .hidden-атрибут по умолчанию перебивается display: flex выше —
+   возвращаем браузерное поведение, иначе все шаги видны одновременно. */
+.checkout-account__step[hidden] {
+  display: none;
+}
+
+.checkout-account__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+.checkout-account__title {
+  font-size: var(--fs-h5);
+  line-height: var(--lh-h5);
+  font-weight: var(--fw-h5);
+  color: var(--color-text);
+}
+
+.checkout-account__text {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* Общая ширина для полей/кнопок/OTP внутри блока — чтобы шаги были
+   одинаковой ширины и центрировались как единая колонка. */
+.checkout-account__panel {
+  width: 100%;
+  max-width: 22rem;
+}
+
+.checkout-account__field {
+  text-align: left;
+}
+.checkout-account__field .form-field__label {
+  /* Лейбл нужен для доступности, визуально скрыт —
+     плейсхолдера в поле достаточно на этом мягком блоке-предложении. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.checkout-account__actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+.checkout-account__actions .btn {
+  width: auto;
+  flex: 1;
+}
+
+.checkout-account__resend {
+  --dot-link-color: var(--color-text-muted);
+  font-size: var(--fs-body-sm);
+}
+
+.checkout-account__otp {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.checkout-account__otp-input {
+  width: 2.75rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: var(--fs-h5);
+  color: var(--color-text);
+}
+
+@media (max-width: 480px) {
+  .checkout-account__actions {
+    flex-direction: column;
+  }
+  .checkout-account__otp-input {
+    width: 2.25rem;
+    height: 2.5rem;
+  }
+}
+
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+  .checkout__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .checkout__aside {
+    position: static;
+  }
+  .checkout-block__form-row {
+    grid-template-columns: 1fr;
+  }
+  .delivery__form {
+    grid-template-columns: 1fr;
+  }
+  .delivery__form .form-field:first-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .checkout-block {
+    padding: var(--space-sm);
+  }
+  .product-card--order .product-card__media {
+    width: 34%;
+    max-width: none;
+  }
+  .order-items__item-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}

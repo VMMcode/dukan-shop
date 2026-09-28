@@ -27,6 +27,13 @@ textarea::placeholder {
   color: var(--input-placeholder);
 }
 
+/* nice-select2 прячет исходный <select> классом .hidden-select, но оставляет
+   его в потоке (просто схлопывает до 0×0) — во flex-колонке .form-field это
+   добавляет лишний gap между лейблом и видимым .nice-select. */
+.hidden-select {
+  display: none;
+}
+
 /* Скроллбар — Webkit */
 ::-webkit-scrollbar {
   width: 10px;
@@ -135,19 +142,24 @@ h6 {
 .btn {
   max-width: 500px;
   width: 100%;
-  padding: var(--space-md) var(--space-lg);
-  border-radius: var(--radius-lg);
+  /* padding: var(--space-md) var(--space-lg); */
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
   font-size: var(--fs-button);
   font-weight: var(--fw-button);
   line-height: var(--lh-button);
   letter-spacing: var(--ls-button);
   cursor: pointer;
+  transition: all ease-in 0.2s;
+}
+
+.btn--lg {
+  padding: var(--space-md) var(--space-lg);
 }
 
 .btn--primary {
   background-color: var(--color-accent);
   color: var(--color-text-inverse);
-  transition: color ease-in 0.2s;
 }
 .btn--primary:hover {
   background-color: var(--color-accent-hover);
@@ -160,11 +172,55 @@ h6 {
   background: transparent;
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
-  transition: background-color ease-in .2s, color ease-in .2s;
+  transition:
+    background-color ease-in 0.2s,
+    color ease-in 0.2s;
 }
 .btn--outline:hover {
   background-color: var(--color-accent);
   color: var(--color-text-inverse);
+}
+
+.btn--inverse {
+  background-color: var(--color-surface);
+  color: var(--color-accent);
+}
+.btn--inverse:hover {
+  background-color: var(--color-surface-muted);
+}
+
+.btn--subtle {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  transition:
+    background-color ease-in 0.2s,
+    border-color ease-in 0.2s;
+}
+.btn--subtle:hover {
+  background-color: var(--color-surface-muted);
+  border-color: var(--color-text-muted);
+}
+
+/* --- Компонент: кнопка-ссылка со стрелкой ---
+   Смотреть все / Подробнее / Узнать больше — везде одна и та же
+   пара классов: .link-btn (структура) + .btn.btn--outline (цвет) */
+.link-btn {
+  width: fit-content;
+  max-width: fit-content;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.link-btn svg {
+  width: 1rem;
+  height: 1rem;
+  stroke: currentColor;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.link-btn:hover svg {
+  transform: translateX(3px);
 }
 
 /* Overlay */
@@ -173,6 +229,123 @@ h6 {
   inset: 0;
   background-color: var(--color-overlay);
   z-index: 90;
+}
+
+/* --- Компонент: логотип + подпись --- */
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--logo-gap, 0.25rem);
+  max-width: var(--logo-max-width, 12.5rem);
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.logo__subtitle {
+  font-size: var(--fs-body-sm);
+  color: var(--logo-subtitle-color, var(--color-text));
+}
+
+/* --- Компонент: ссылка с точкой при ховере --- */
+.dot-link {
+  display: inline-block;
+  position: relative;
+  color: var(--dot-link-color, var(--color-text));
+  text-decoration: none;
+  transition: color 0.2s ease-in;
+}
+
+.dot-link::before {
+  content: "";
+  position: absolute;
+  left: -0.875rem;  
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: var(--radius-full);
+  background-color: var(--dot-link-dot, var(--color-accent));
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.dot-link:hover {
+  color: var(--dot-link-hover, var(--color-accent));
+}
+
+.dot-link:hover::before {
+  opacity: 1;
+}
+
+/* --- Компонент: ссылка с подчёркиванием, линия появляется/исчезает при ховере ---
+   Для ссылок внутри обычного текста (согласие на ПД и т.п.), где точка
+   из .dot-link смотрится неуместно и наезжает на соседний текст. */
+.underline-link {
+  position: relative;
+  display: inline-block;
+  color: var(--underline-link-color, var(--color-accent));
+  text-decoration: none;
+}
+
+.underline-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.05em;
+  height: 1px;
+  background-color: var(--underline-link-color, var(--color-accent));
+  opacity: 0;
+  transform: scaleX(0.9);
+  transform-origin: left;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.underline-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* --- Заголовок секции --- */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.section-header__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-h2);
+  color: var(--color-text);
+}
+
+/* --- Сетка карточек товара --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.product-grid > * {
+  min-width: 0;
+}
+
+@media (max-width: 1199px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
 }
 
 /* Карточка товара */
@@ -201,19 +374,42 @@ h6 {
   object-fit: cover;
 }
 
-.product-card__badge {
+.product-card__badges {
   position: absolute;
   top: var(--space-sm);
   right: var(--space-sm);
-  padding: 0.25rem 0.6rem;
+  display: flex;
+  gap: 0.4rem;
+  z-index: 1;
+}
+
+.product-card__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
   border-radius: var(--radius-full);
   background-color: var(--color-surface);
   color: var(--color-accent);
-  font-size: var(--fs-body-sm);
+  box-shadow: var(--shadow-card);
+}
+
+.product-card__badge svg {
+  width: 55%;
+  height: 55%;
+  stroke: currentColor;
+}
+
+.product-card__badge--pick {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
 }
 
 .product-card__body {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 0.4rem;
   padding: var(--space-md);
@@ -221,6 +417,11 @@ h6 {
 
 .product-card__title {
   font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .product-card__link {
@@ -240,6 +441,14 @@ h6 {
   flex-direction: column;
   font-size: var(--fs-body-sm);
   color: var(--color-text-muted);
+}
+
+.product-card__producer,
+.product-card__region {
+  min-height: calc(var(--lh-body-sm) * 1em);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .product-card__weight {
@@ -277,8 +486,63 @@ h6 {
   width: 1.25rem;
   height: 1.25rem;
   stroke: var(--color-text-inverse);
+  stroke-width: 1.5;
 }
 
 .product-card__add:hover {
   background-color: var(--color-accent-hover);
+}
+
+/* Вертикальная палочка плюса поворачивается на 90° и ложится на
+   горизонтальную — получается минус. Тот же переход в обратную сторону
+   возвращает плюс. Переключается кликом (JS добавляет/убирает модификатор). */
+.product-card__add svg path:nth-child(2) {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.product-card__add--in-cart svg path:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.product-card__add--in-cart {
+  background-color: var(--color-accent-active);
+}
+/* --- Хлебные крошки --- */
+.breadcrumbs {
+  padding: var(--space-md) 0;
+}
+
+.breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-body-sm);
+}
+
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.breadcrumbs__link {
+  color: var(--color-text-muted);
+  transition: color ease-in 0.2s;
+}
+.breadcrumbs__link:hover {
+  color: var(--color-accent);
+}
+
+.breadcrumbs__current {
+  color: var(--color-text);
+}
+
+.breadcrumbs__sep {
+  color: var(--color-text-disabled);
 }

@@ -20,24 +20,21 @@
           <nav class="header__top-nav">
             <ul class="header__top-list">
               <li class="header__top-item">
-                <a href="/about" class="header__top-link">О нас</a>
+                <a href="about.html" class="header__top-link">О нас</a>
               </li>
               <li class="header__top-item">
-                <a href="/reviews" class="header__top-link">Отзывы</a>
+                <a href="reviews.html" class="header__top-link">Отзывы</a>
               </li>
               <li class="header__top-item">
-                <a href="/delivery" class="header__top-link"
-                  >Доставка и оплата</a
-                >
+                <a href="delivery.html" class="header__top-link">Доставка и оплата</a>
               </li>
               <li class="header__top-item">
-                <a href="/contacts" class="header__top-link">Контакты</a>
+                <a href="contacts.html" class="header__top-link">Контакты</a>
               </li>
             </ul>
           </nav>
 
           <div class="header__top-info">
-            <!-- Локация: остаётся видимой и на мобилке -->
             <div class="header__top-info-item header__top-info-item--location">
               <svg
                 viewBox="0 0 24 24"
@@ -77,9 +74,9 @@
       <div class="header__main">
         <div class="container header__main-container">
           <!-- Логотип -->
-          <a href="/" class="header__logo">
+          <a href="index.html" class="logo header__logo">
             <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
-            <span class="header__logo-subtitle"
+            <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
           </a>
@@ -138,7 +135,7 @@
 
           <!-- Иконки действий (Десктоп) -->
           <div class="header__actions">
-            <a href="/profile" class="header__action-link" aria-label="Профиль">
+            <a href="account.html" class="header__action-link" aria-label="Профиль">
               <svg
                 viewBox="0 0 24 24"
                 width="24"
@@ -153,9 +150,9 @@
             </a>
 
             <a
-              href="/cart"
-              class="header__cart-btn"
-              aria-label="Корзина, товаров: 0, сумма 0 рублей"
+              href="checkout.html"
+              class="header__cart-btn btn btn--primary"
+              aria-label="Корзина, товаров: 3, сумма 2 440 ₽"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -171,8 +168,8 @@
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <path d="M16 10a4 4 0 0 1-8 0"></path>
               </svg>
-              <span class="header__cart-price">0 ₽</span>
-              <span class="header__cart-badge">0</span>
+              <span class="header__cart-price">2 440 ₽</span>
+              <span class="header__cart-badge">3</span>
             </a>
           </div>
 
@@ -195,7 +192,7 @@
           <div class="container">
             <ul class="catalog__list">
               <li>
-                <a href="/catalog/#" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/bakalei-category.webp"
                     alt=""
@@ -205,7 +202,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/myaso" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/meet-category.webp"
                     alt=""
@@ -217,7 +214,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/vypechka" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/milk-category.webp"
                     alt=""
@@ -227,7 +224,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/sousy" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/veget-fruit-category.webp"
                     alt=""
@@ -237,7 +234,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/sladosti" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/kolbasi-category.webp"
                     alt=""
@@ -247,7 +244,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/napitki" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/kopchenosti-category.webp"
                     alt=""
@@ -257,7 +254,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/napitki" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/konservi-category.webp"
                     alt=""
@@ -267,7 +264,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/napitki" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/med-category.webp"
                     alt=""
@@ -285,15 +282,15 @@
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
         <nav class="header__mobile-nav">
           <ul class="header__mobile-list">
-            <li><a href="/about" class="header__mobile-link">О нас</a></li>
-            <li><a href="/reviews" class="header__mobile-link">Отзывы</a></li>
+            <li><a href="about.html" class="header__mobile-link">О нас</a></li>
             <li>
-              <a href="/delivery" class="header__mobile-link"
-                >Доставка и оплата</a
-              >
+              <a href="reviews.html" class="header__mobile-link">Отзывы</a>
             </li>
             <li>
-              <a href="/contacts" class="header__mobile-link">Контакты</a>
+              <a href="delivery.html" class="header__mobile-link">Доставка и оплата</a>
+            </li>
+            <li>
+              <a href="contacts.html" class="header__mobile-link">Контакты</a>
             </li>
           </ul>
         </nav>
@@ -311,111 +308,129 @@
       <!-- Главный экран: начало -->
       <section
         class="hero"
-        style="background-image: url(&quot;/img/content/hero-bg.webp&quot;)"
+        style="background-image: url(&quot;img/content/hero-bg.webp&quot;)"
       >
         <div class="container">
           <div class="hero__inner">
-            <span class="hero__subtitle">Вкусы Кавказа на вашем столе</span>
             <h1 class="hero__title">
               Фермерские продукты Кавказа с доставкой по Москве
             </h1>
             <p class="hero__description">
-              Мясо, сыры, мёд и домашние копчёности — напрямую от фермеров КБР,
+              Мясо, сыры, мёд и домашние копчёности — напрямую от фермеров КБР,
               Осетии и Дагестана. Отбираем только то, что попробовали сами.
               Натурально, свежо, без посредников.
             </p>
-            <a href="#dukan-choice" class="hero__anchor btn btn--primary">
-              Смотреть подборку лучших продуктов
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M6 9l6 6l6 -6" />
-              </svg>
+            <a href="#dukan-choice" class="hero__anchor btn btn--primary btn--lg">
+              Попробовать наши продукты
             </a>
-            <div class="hero__utp">
-              <div class="hero__utp-item">
-                <span class="hero__utp-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-rosette-discount-check"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1"
-                    />
-                    <path d="M9 12l2 2l4 -4" />
-                  </svg>
-                </span>
-                <span class="hero__utp-text">Халяль-сертификат</span>
-              </div>
-              <div class="hero__utp-item">
-                <span class="hero__utp-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-credit-card-hand"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M2 4h9.914a3 3 0 0 1 1.92 .695l5.166 4.305" />
-                    <path
-                      d="M11.15 9h8.85a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-13a2 2 0 0 1 -2 -2v-8.7"
-                    />
-                    <path d="M3 8l7.2 4.7a1.803 1.803 0 0 0 2 -3l-4.2 -2.7" />
-                    <path d="M5 16h17" />
-                  </svg>
-                </span>
-                <span class="hero__utp-text">Оплата при получении</span>
-              </div>
-              <div class="hero__utp-item">
-                <span class="hero__utp-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-package"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                    <path d="M12 12l8 -4.5" />
-                    <path d="M12 12l0 9" />
-                    <path d="M12 12l-8 -4.5" />
-                    <path d="M16 5.25l-8 4.5" />
-                  </svg>
-                </span>
-                <span class="hero__utp-text"
-                  >Свежая партия продуктов каждую неделю</span
+          </div>
+        </div>
+
+        <div class="hero__utp">
+          <div class="container hero__utp-inner">
+            <div class="hero__utp-item">
+              <span class="hero__utp-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-              </div>
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1"
+                  />
+                  <path d="M9 12l2 2l4 -4" />
+                </svg>
+              </span>
+              <span class="hero__utp-text">
+                <span class="hero__utp-title">Халяль-сертификат</span>
+                <span class="hero__utp-desc">Все продукты сертифицированы</span>
+              </span>
+            </div>
+            <div class="hero__utp-item">
+              <span class="hero__utp-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M2 4h9.914a3 3 0 0 1 1.92 .695l5.166 4.305" />
+                  <path
+                    d="M11.15 9h8.85a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-13a2 2 0 0 1 -2 -2v-8.7"
+                  />
+                  <path d="M3 8l7.2 4.7a1.803 1.803 0 0 0 2 -3l-4.2 -2.7" />
+                  <path d="M5 16h17" />
+                </svg>
+              </span>
+              <span class="hero__utp-text">
+                <span class="hero__utp-title">Оплата при получении</span>
+                <span class="hero__utp-desc">Наличными или картой</span>
+              </span>
+            </div>
+            <div class="hero__utp-item">
+              <span class="hero__utp-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                  <path d="M12 12l8 -4.5" />
+                  <path d="M12 12l0 9" />
+                  <path d="M12 12l-8 -4.5" />
+                  <path d="M16 5.25l-8 4.5" />
+                </svg>
+              </span>
+              <span class="hero__utp-text">
+                <span class="hero__utp-title">Свежая партия</span>
+                <span class="hero__utp-desc">Привозим каждую неделю</span>
+              </span>
+            </div>
+            <div class="hero__utp-item">
+              <span class="hero__utp-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                  <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                  <path
+                    d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"
+                  />
+                </svg>
+              </span>
+              <span class="hero__utp-text">
+                <span class="hero__utp-title">Доставка по Москве</span>
+                <span class="hero__utp-desc">В удобное для вас время</span>
+              </span>
             </div>
           </div>
         </div>
@@ -431,49 +446,81 @@
                 <div class="swiper-slide promo__slide">
                   <div class="promo__content">
                     <span class="promo__tag">Халяльный продукт</span>
-                    <h3 class="promo__title">Копчёная говядина</h3>
+                    <h3 class="promo__title">Домашняя аджика</h3>
                     <p class="promo__text">
-                      Далеко-далеко за словесными горами в стране гласных и
-                      согласных живут.
+                      По рецепту дагестанских хозяек — без консервантов
                     </p>
-                    <a href="#" class="promo__btn btn btn--primary">Купить</a>
+                    <a href="catalog.html" class="promo__btn link-btn btn btn--inverse">
+                      Купить
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </a>
                   </div>
                   <img
                     class="promo__img"
-                    src="/img/content/meet.webp"
-                    alt="Копчёная говядина"
+                    src="img/content/adjika.webp"
+                    alt="Домашняя аджика"
                   />
                 </div>
                 <div class="swiper-slide promo__slide">
                   <div class="promo__content">
-                    <span class="promo__tag">Попробуйте новинку</span>
-                    <h3 class="promo__title">Свежая баранина</h3>
+                    <span class="promo__tag">Сезонная новинка</span>
+                    <h3 class="promo__title">Абрикосовая пастила</h3>
                     <p class="promo__text">
-                      Далеко-далеко за словесными горами в стране гласных и
-                      согласных живут.
+                      Из абрикосов урожая этого лета, без сахара
                     </p>
-                    <a href="#" class="promo__btn btn btn--primary">Купить</a>
+                    <a href="catalog.html" class="promo__btn link-btn btn btn--inverse">
+                      Купить
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </a>
                   </div>
                   <img
                     class="promo__img"
-                    src="/img/content/meet.webp"
-                    alt="Свежая баранина"
+                    src="img/content/pastila.webp"
+                    alt="Абрикосовая пастила"
                   />
                 </div>
                 <div class="swiper-slide promo__slide">
                   <div class="promo__content">
-                    <span class="promo__tag">Попробуйте новинку</span>
-                    <h3 class="promo__title">Свежая баранина</h3>
+                    <span class="promo__tag">Новинка</span>
+                    <h3 class="promo__title">Топлёное сливочное масло</h3>
                     <p class="promo__text">
-                      Далеко-далеко за словесными горами в стране гласных и
-                      согласных живут.
+                      Томим на медленном огне по домашнему рецепту
                     </p>
-                    <a href="#" class="promo__btn btn btn--primary">Купить</a>
+                    <a href="catalog.html" class="promo__btn link-btn btn btn--inverse">
+                      Купить
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </a>
                   </div>
                   <img
                     class="promo__img"
-                    src="/img/content/meet.webp"
-                    alt="Свежая баранина"
+                    src="img/content/maslo.webp"
+                    alt="Топлёное сливочное масло"
+                  />
+                </div>
+                <div class="swiper-slide promo__slide">
+                  <div class="promo__content">
+                    <span class="promo__tag">Сезон шашлыков</span>
+                    <h3 class="promo__title">Мясо для шашлыка</h3>
+                    <p class="promo__text">
+                      Баранина и говядина — привозим свежими партиями
+                    </p>
+                    <a href="catalog.html" class="promo__btn link-btn btn btn--inverse">
+                      Купить
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </a>
+                  </div>
+                  <img
+                    class="promo__img"
+                    src="img/content/myaso.webp"
+                    alt="Мясо для шашлыка"
                   />
                 </div>
               </div>
@@ -510,6 +557,7 @@
                 <path d="M9 6l6 6l-6 6" />
               </svg>
             </div>
+            <div class="swiper-pagination promo__pagination"></div>
           </div>
         </div>
       </section>
@@ -521,7 +569,7 @@
           <div class="category__inner">
             <ul class="category__list">
               <li>
-                <a href="/catalog/#" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/bakalei-category.webp"
                     alt=""
@@ -531,7 +579,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/myaso" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/meet-category.webp"
                     alt=""
@@ -543,7 +591,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/vypechka" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/milk-category.webp"
                     alt=""
@@ -553,7 +601,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/sousy" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/veget-fruit-category.webp"
                     alt=""
@@ -563,7 +611,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/sladosti" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/kolbasi-category.webp"
                     alt=""
@@ -573,7 +621,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/napitki" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/kopchenosti-category.webp"
                     alt=""
@@ -583,7 +631,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/napitki" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/konservi-category.webp"
                     alt=""
@@ -593,7 +641,7 @@
                 </a>
               </li>
               <li>
-                <a href="/catalog/napitki" class="category-card">
+                <a href="catalog.html" class="category-card">
                   <img
                     src="img/content/med-category.webp"
                     alt=""
@@ -609,44 +657,52 @@
       <!-- Категории продуктов: конец -->
 
       <!-- Популярные товары: начало -->
-      <section class="choice">
+      <section class="choice" id="dukan-choice">
         <div class="container">
           <div class="choice__inner">
-            <div class="choice__header">
-              <h2 class="choice__title">Выбор Дукан</h2>
-              <a href="#" class="choice__link">
+            <div class="section-header">
+              <h2 class="section-header__title">Выбор Дукан</h2>
+              <a href="catalog.html" class="link-btn btn btn--outline">
                 Смотреть все
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  stroke-width="2"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M9 6l6 6l-6 6" />
+                  <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
             </div>
 
-            <div class="choice__grid">
+            <div class="product-grid">
               <article class="product-card">
                 <div class="product-card__media">
                   <img
                     class="product-card__img"
-                    src="/img/products/sir.webp"
+                    src="img/products/sir.webp"
                     alt="Осетинский сыр"
                   />
-                  <span class="product-card__badge">Халяль</span>
+                  <div class="product-card__badges">
+                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                        <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </span>
+                    <span class="product-card__badge product-card__badge--pick" title="Выбор Дукан" aria-label="Выбор Дукан">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
 
                 <div class="product-card__body">
                   <h3 class="product-card__title">
-                    <a href="/product/osetinskiy-syr" class="product-card__link"
+                    <a href="product.html" class="product-card__link"
                       >Осетинский сыр</a
                     >
                   </h3>
@@ -688,15 +744,23 @@
                 <div class="product-card__media">
                   <img
                     class="product-card__img"
-                    src="/img/products/basturma.webp"
+                    src="img/products/basturma.webp"
                     alt="Сушёное мясо"
                   />
-                  <span class="product-card__badge">Халяль</span>
+                  <div class="product-card__badges">
+                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                        <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
 
                 <div class="product-card__body">
                   <h3 class="product-card__title">
-                    <a href="/product/sushenoe-myaso" class="product-card__link"
+                    <a href="product.html" class="product-card__link"
                       >Сушеное мясо</a
                     >
                   </h3>
@@ -738,14 +802,22 @@
                 <div class="product-card__media">
                   <img
                     class="product-card__img"
-                    src="/img/products/eggs.webp"
+                    src="img/products/eggs.webp"
                     alt="Свежие яйца"
                   />
-                  <span class="product-card__badge">Халяль</span>
+                  <div class="product-card__badges">
+                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                        <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div class="product-card__body">
                   <h3 class="product-card__title">
-                    <a href="/product/svezhie-yayca" class="product-card__link"
+                    <a href="product.html" class="product-card__link"
                       >Свежие яйца</a
                     >
                   </h3>
@@ -786,14 +858,22 @@
                 <div class="product-card__media">
                   <img
                     class="product-card__img"
-                    src="/img/products/med.webp"
+                    src="img/products/med.webp"
                     alt="Свежие яйца"
                   />
-                  <span class="product-card__badge">Халяль</span>
+                  <div class="product-card__badges">
+                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                        <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div class="product-card__body">
                   <h3 class="product-card__title">
-                    <a href="/product/svezhie-yayca" class="product-card__link"
+                    <a href="product.html" class="product-card__link"
                       >Майский мёд</a
                     >
                   </h3>
@@ -834,14 +914,22 @@
                 <div class="product-card__media">
                   <img
                     class="product-card__img"
-                    src="/img/products/baranina.webp"
+                    src="img/products/baranina.webp"
                     alt="Свежие яйца"
                   />
-                  <span class="product-card__badge">Халяль</span>
+                  <div class="product-card__badges">
+                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                        <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div class="product-card__body">
                   <h3 class="product-card__title">
-                    <a href="/product/svezhie-yayca" class="product-card__link"
+                    <a href="product.html" class="product-card__link"
                       >Баранина</a
                     >
                   </h3>
@@ -882,14 +970,22 @@
                 <div class="product-card__media">
                   <img
                     class="product-card__img"
-                    src="/img/products/pomidori.webp"
+                    src="img/products/pomidori.webp"
                     alt="Свежие яйца"
                   />
-                  <span class="product-card__badge">Халяль</span>
+                  <div class="product-card__badges">
+                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                        <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div class="product-card__body">
                   <h3 class="product-card__title">
-                    <a href="/product/svezhie-yayca" class="product-card__link"
+                    <a href="product.html" class="product-card__link"
                       >Кахунские помидоры</a
                     >
                   </h3>
@@ -930,14 +1026,22 @@
                 <div class="product-card__media">
                   <img
                     class="product-card__img"
-                    src="/img/products/krolik.webp"
+                    src="img/products/krolik.webp"
                     alt="Свежие яйца"
                   />
-                  <span class="product-card__badge">Халяль</span>
+                  <div class="product-card__badges">
+                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                        <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div class="product-card__body">
                   <h3 class="product-card__title">
-                    <a href="/product/svezhie-yayca" class="product-card__link"
+                    <a href="product.html" class="product-card__link"
                       >Мясо кролика</a
                     >
                   </h3>
@@ -978,16 +1082,22 @@
                 <div class="product-card__media">
                   <img
                     class="product-card__img"
-                    src="/img/products/psheno.webp"
+                    src="img/products/psheno.webp"
                     alt="Свежие яйца"
                   />
-                  <span class="product-card__badge">Халяль</span>
+                  <div class="product-card__badges">
+                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                        <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div class="product-card__body">
                   <h3 class="product-card__title">
-                    <a href="/product/svezhie-yayca" class="product-card__link"
-                      >Пшено</a
-                    >
+                    <a href="product.html" class="product-card__link">Пшено</a>
                   </h3>
                   <p class="product-card__source">
                     <span class="product-card__producer">Ферма Цаликовых</span>
@@ -1032,9 +1142,9 @@
       <section class="about">
         <div class="container">
           <div class="about__inner">
-            <div class="about__header">
-              <h2 class="about__title">О нас</h2>
-              <a href="/o-nas" class="about__btn btn btn--outline">
+            <div class="section-header">
+              <h2 class="section-header__title">О нас</h2>
+              <a href="about.html" class="link-btn btn btn--outline">
                 Подробнее
                 <svg
                   viewBox="0 0 24 24"
@@ -1134,11 +1244,140 @@
       </section>
       <!-- О нас: конец -->
 
+      <!-- Регионы поставщиков: начало -->
+      <section class="regions">
+        <div class="container">
+          <div class="regions__inner">
+            <div class="section-header">
+              <h2 class="section-header__title">Откуда наши продукты</h2>
+              <a href="catalog.html" class="link-btn btn btn--outline">
+                Узнать больше
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+            <p class="about__manifest">
+              Работаем с локальными производителями из республик Северного
+              Кавказа. Поддерживаем малый бизнес и привозим в Москву настоящие
+              продукты региона.
+            </p>
+
+            <ul class="regions__grid">
+              <li>
+                <a
+                  href="catalog.html?region=severnaya-osetiya"
+                  class="region-card"
+                >
+                  <img
+                    src="img/content/milk-category.webp"
+                    alt="Северная Осетия"
+                    class="region-card__img"
+                  />
+                  <span class="region-card__overlay">
+                    <span class="region-card__title">Северная Осетия</span>
+                    <span class="region-card__text"
+                      >Сыры, мясные деликатесы, выпечка</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html?region=kbr" class="region-card">
+                  <img
+                    src="img/content/med-category.webp"
+                    alt="Кабардино-Балкария"
+                    class="region-card__img"
+                  />
+                  <span class="region-card__overlay">
+                    <span class="region-card__title">Кабардино-Балкария</span>
+                    <span class="region-card__text"
+                      >Мёд, молочная продукция, напитки</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html?region=kchr" class="region-card">
+                  <img
+                    src="img/content/meet-category.webp"
+                    alt="Карачаево-Черкесия"
+                    class="region-card__img"
+                  />
+                  <span class="region-card__overlay">
+                    <span class="region-card__title">Карачаево-Черкесия</span>
+                    <span class="region-card__text"
+                      >Мясо, сыры, травяные сборы</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html?region=chechnya" class="region-card">
+                  <img
+                    src="img/content/kopchenosti-category.webp"
+                    alt="Чеченская Республика"
+                    class="region-card__img"
+                  />
+                  <span class="region-card__overlay">
+                    <span class="region-card__title">Чеченская Республика</span>
+                    <span class="region-card__text"
+                      >Мясные деликатесы, специи, соусы</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html?region=dagestan" class="region-card">
+                  <img
+                    src="img/content/bakalei-category.webp"
+                    alt="Республика Дагестан"
+                    class="region-card__img"
+                  />
+                  <span class="region-card__overlay">
+                    <span class="region-card__title">Республика Дагестан</span>
+                    <span class="region-card__text"
+                      >Урбеч, орехи, сладости</span
+                    >
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Регионы поставщиков: конец -->
+      <!-- Плавающая панель корзины (см. комментарий в css/style.css) -->
+      <div class="cart-bar">
+        <div class="cart-bar__info">
+          <span class="cart-bar__count">3</span>
+          <span class="cart-bar__text">
+            <span class="cart-bar__count-label">3 товара</span>
+            <span class="cart-bar__total">2 190 ₽</span>
+          </span>
+        </div>
+        <a href="checkout.html" class="link-btn btn btn--inverse">
+          <span class="cart-bar__btn-label">Перейти к оформлению</span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </div>
     </main>
 
     <!-- Мобильный Bottom Navigation Bar -->
     <nav class="bottom-nav">
-      <a href="/" class="bottom-nav__item bottom-nav__item--active">
+      <a href="index.html" class="bottom-nav__item bottom-nav__item--active">
         <svg
           viewBox="0 0 24 24"
           width="20"
@@ -1173,7 +1412,7 @@
         <span class="bottom-nav__label">Каталог</span>
       </button>
 
-      <a href="/cart" class="bottom-nav__item">
+      <a href="checkout.html" class="bottom-nav__item">
         <div class="bottom-nav__icon-wrapper">
           <svg
             viewBox="0 0 24 24"
@@ -1187,12 +1426,12 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span class="bottom-nav__badge">0</span>
+          <span class="bottom-nav__badge">3</span>
         </div>
         <span class="bottom-nav__label">Корзина</span>
       </a>
 
-      <a href="/profile" class="bottom-nav__item">
+      <a href="account.html" class="bottom-nav__item">
         <svg
           viewBox="0 0 24 24"
           width="20"
@@ -1210,7 +1449,76 @@
 
     <!-- Оверлей для закрытия меню по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
-    <footer></footer>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__top">
+            <div class="footer__brand">
+              <a href="index.html" class="logo footer__logo">
+                <img
+                  src="img/logo/dukan-logo-inverse.svg"
+                  alt="Логотип сайта"
+                />
+                <span class="logo__subtitle"
+                  >Фермерские продукты Кавказа с доставкой по Москве</span
+                >
+              </a>
+            </div>
+
+            <nav class="footer__nav">
+              <span class="footer__col-title">Меню</span>
+              <a href="catalog.html" class="footer__link dot-link">Каталог</a>
+              <a href="about.html" class="footer__link dot-link">О нас</a>
+              <a href="delivery.html" class="footer__link dot-link">Доставка и оплата</a>
+              <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
+            </nav>
+
+            <div class="footer__delivery">
+              <span class="footer__col-title">Доставка</span>
+              <span class="footer__info-line">Приём заказов: 9:00–20:00</span>
+              <span class="footer__info-line">Только по Москве</span>
+              <span class="footer__info-line">Мин. сумма заказа — 1500 ₽</span>
+            </div>
+
+            <div class="footer__contacts">
+              <span class="footer__col-title">Контакты</span>
+              <a href="tel:+79999999999" class="footer__link dot-link"
+                >+7 999 999-99-99</a
+              >
+              <a href="mailto:info@dukan.ru" class="footer__link dot-link"
+                >info@dukan.ru</a
+              >
+              <a href="https://wa.me/79999999999" class="footer__link dot-link"
+                >Написать в WhatsApp</a
+              >
+            </div>
+
+            <div class="footer__legal">
+              <span class="footer__col-title">Документы</span>
+              <a href="privacy.html" class="footer__link dot-link"
+                >Политика конфиденциальности</a
+              >
+              <a href="consent.html" class="footer__link dot-link"
+                >Согласие на обработку ПД</a
+              >
+            </div>
+          </div>
+
+          <div class="footer__bar">
+            <span class="footer__copy">© 2026 Дукан. Все права защищены.</span>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener"
+              class="footer__dev-link"
+            >
+              Сайт разработан: vmmcode.ru
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="swiper/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
   </body>

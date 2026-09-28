@@ -1,11 +1,1455 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дукан - каталог</title>
-</head>
-<body>
-  <h1>Каталог</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="nice-select2/nice-select2.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+    <title>Дукан - каталог продуктов Северного Кавказа</title>
+  </head>
+  <body>
+    <header class="header">
+      <!-- Top Bar -->
+      <div class="header__top-bar">
+        <div class="container header__top-container">
+          <nav class="header__top-nav">
+            <ul class="header__top-list">
+              <li class="header__top-item">
+                <a href="about.html" class="header__top-link">О нас</a>
+              </li>
+              <li class="header__top-item">
+                <a href="reviews.html" class="header__top-link">Отзывы</a>
+              </li>
+              <li class="header__top-item">
+                <a href="delivery.html" class="header__top-link">Доставка и оплата</a>
+              </li>
+              <li class="header__top-item">
+                <a href="contacts.html" class="header__top-link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__top-info">
+            <div class="header__top-info-item header__top-info-item--location">
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 7h-3V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h1c0 1.66 1.34 3 3 3s3-1.34 3-3h4c0 1.66 1.34 3 3 3s3-1.34 3-3h1c1.1 0 2-.9 2-2v-5l-3-3zM8 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm10 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM19 12h-2.5V9H18l1 3z"
+                />
+              </svg>
+              <span>Доставка по Москве</span>
+            </div>
+
+            <!-- Телефон: заглушка, в проде выводится через ACF -->
+            <a
+              href="tel:+79997777777"
+              class="header__top-info-item header__top-info-item--phone"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path
+                  d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                />
+              </svg>
+              <span class="header__phone-number">+7 999 777 77 77</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Header -->
+      <div class="header__main">
+        <div class="container header__main-container">
+          <!-- Логотип -->
+          <a href="index.html" class="logo header__logo">
+            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <span class="logo__subtitle header__logo-subtitle"
+              >Продукты Северного Кавказа</span
+            >
+          </a>
+
+          <!-- Кнопка каталога (Десктоп) -->
+          <button
+            type="button"
+            class="catalog__btn btn btn--primary"
+            id="catalogBtn"
+            aria-expanded="false"
+            aria-controls="catalogMenu"
+          >
+            <svg
+              class="catalog__btn-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span>Каталог</span>
+          </button>
+
+          <!-- Поисковая строка (Десктоп) -->
+          <form class="header__search" action="/search" method="GET">
+            <input
+              type="text"
+              name="q"
+              class="header__search-input"
+              placeholder="Поиск по каталогу..."
+              autocomplete="off"
+            />
+            <button
+              type="submit"
+              class="header__search-btn"
+              aria-label="Искать"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Иконки действий (Десктоп) -->
+          <div class="header__actions">
+            <a href="account.html" class="header__action-link" aria-label="Профиль">
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </a>
+
+            <a
+              href="checkout.html"
+              class="header__cart-btn btn btn--primary"
+              aria-label="Корзина, товаров: 3, сумма 2 440 ₽"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                ></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span class="header__cart-price">2 440 ₽</span>
+              <span class="header__cart-badge">3</span>
+            </a>
+          </div>
+
+          <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
+          <button
+            class="header__burger-btn"
+            id="burgerBtn"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="mobileDrawer"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
+        <div class="catalog__menu" id="catalogMenu" hidden>
+          <div class="container">
+            <ul class="catalog__list">
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/bakalei-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Бакалея</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/meet-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label"
+                    >Говядина, птица, кролик</span
+                  >
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/milk-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Молочные продукты</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/veget-fruit-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Овощи и фрукты</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/kolbasi-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Колбасные изделия</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/kopchenosti-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Мясные копчёности</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/konservi-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Консервы</span>
+                </a>
+              </li>
+              <li>
+                <a href="catalog.html" class="category-card">
+                  <img
+                    src="img/content/med-category.webp"
+                    alt=""
+                    class="category-card__image"
+                  />
+                  <span class="category-card__label">Мёд и варенье</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Мобильное выпадающее инфо-меню -->
+      <div class="header__mobile-drawer" id="mobileDrawer" hidden>
+        <nav class="header__mobile-nav">
+          <ul class="header__mobile-list">
+            <li><a href="about.html" class="header__mobile-link">О нас</a></li>
+            <li>
+              <a href="reviews.html" class="header__mobile-link">Отзывы</a>
+            </li>
+            <li>
+              <a href="delivery.html" class="header__mobile-link">Доставка и оплата</a>
+            </li>
+            <li>
+              <a href="contacts.html" class="header__mobile-link">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__mobile-phone">
+          <!-- Телефон: заглушка, в проде вывод через ACF -->
+          <a href="tel:+79997777777" class="header__phone-number"
+            >+7 999 777 77 77</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+      <!-- Hero каталога: тот же блок, что на главной, компактнее и со своим контентом -->
+      <section
+        class="hero hero--catalog"
+        style="background-image: url(&quot;img/content/hero-bg.webp&quot;)"
+      >
+        <div class="container">
+          <div class="hero__inner">
+            <nav class="breadcrumbs hero__breadcrumbs" aria-label="Хлебные крошки">
+              <ol class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                  <a href="index.html" class="breadcrumbs__link">Главная</a>
+                </li>
+                <li class="breadcrumbs__sep">/</li>
+                <li class="breadcrumbs__item">
+                  <span class="breadcrumbs__current">Каталог</span>
+                </li>
+              </ol>
+            </nav>
+            <h1 class="hero__title">Каталог</h1>
+            <p class="hero__description">
+              Только свежие и натуральные продукты от фермеров Северного
+              Кавказа
+            </p>
+            <div class="hero__stats">
+              <span class="hero__stats-item">Более 200 товаров</span>
+              <span class="hero__stats-sep">·</span>
+              <span class="hero__stats-item">От 50 фермеров</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog">
+        <div class="container">
+          <div class="catalog__layout">
+            <!-- Фильтры -->
+            <aside class="filters" id="filters" hidden>
+              <div class="filters__header">
+                <span class="filters__title">
+                  <svg
+                    class="filters__title-icon"
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                    <circle cx="9" cy="6" r="1.5" fill="currentColor"></circle>
+                    <circle cx="15" cy="12" r="1.5" fill="currentColor"></circle>
+                    <circle cx="7" cy="18" r="1.5" fill="currentColor"></circle>
+                  </svg>
+                  Фильтры
+                </span>
+                <button type="button" class="filters__reset" id="filtersReset">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M20 11A8.1 8.1 0 0 0 4.5 9M4 5v4h4" />
+                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4" />
+                  </svg>
+                  Сбросить
+                </button>
+                <button
+                  type="button"
+                  class="filters__close"
+                  id="filtersClose"
+                  aria-label="Закрыть фильтры"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <div class="filters__accordion filters__accordion--open">
+                <button
+                  type="button"
+                  class="filters__accordion-toggle"
+                  aria-expanded="true"
+                  aria-controls="filterCategoryPanel"
+                >
+                  Категория
+                  <svg
+                    class="filters__accordion-chevron"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6l6 -6" />
+                  </svg>
+                </button>
+                <div class="filters__accordion-panel" id="filterCategoryPanel">
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Бакалея
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Говядина, птица, кролик
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Молочные продукты
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Овощи и фрукты
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Колбасные изделия
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Мясные копчёности
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Консервы
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Мёд и варенье
+                  </label>
+                </div>
+              </div>
+
+              <div class="filters__accordion">
+                <button
+                  type="button"
+                  class="filters__accordion-toggle"
+                  aria-expanded="false"
+                  aria-controls="filterRegionPanel"
+                >
+                  Регион
+                  <svg
+                    class="filters__accordion-chevron"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6l6 -6" />
+                  </svg>
+                </button>
+                <div class="filters__accordion-panel" id="filterRegionPanel" hidden>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Северная Осетия
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Кабардино-Балкария
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Карачаево-Черкесия
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Чеченская Республика
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Республика Дагестан
+                  </label>
+                </div>
+              </div>
+
+              <div class="filters__accordion">
+                <button
+                  type="button"
+                  class="filters__accordion-toggle"
+                  aria-expanded="false"
+                  aria-controls="filterFarmerPanel"
+                >
+                  Производитель
+                  <svg
+                    class="filters__accordion-chevron"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6l6 -6" />
+                  </svg>
+                </button>
+                <div class="filters__accordion-panel" id="filterFarmerPanel" hidden>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Ферма Цаликовых
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Хозяйство Тедеевых
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Пасека Кочиевых
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Хозяйство Мусаевых
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Ферма Габуевых
+                  </label>
+                  <label class="filters__option">
+                    <input type="checkbox" class="filters__checkbox" />
+                    Пекарня «Нарт»
+                  </label>
+                </div>
+              </div>
+
+              <div class="filters__group">
+                <span class="filters__group-title">Цена, ₽</span>
+                <div class="price-range" id="priceRange">
+                  <div class="price-range__track"></div>
+                  <div class="price-range__fill" id="priceRangeFill"></div>
+                  <input
+                    type="range"
+                    class="price-range__input price-range__input--min"
+                    id="priceMin"
+                    min="100"
+                    max="5000"
+                    step="50"
+                    value="150"
+                    aria-label="Цена от"
+                  />
+                  <input
+                    type="range"
+                    class="price-range__input price-range__input--max"
+                    id="priceMax"
+                    min="100"
+                    max="5000"
+                    step="50"
+                    value="3000"
+                    aria-label="Цена до"
+                  />
+                </div>
+                <div class="price-range__values">
+                  <span id="priceMinValue">150 ₽</span>
+                  <span id="priceMaxValue">3000 ₽</span>
+                </div>
+              </div>
+
+              <div class="filters__group">
+                <label class="filters__option">
+                  <input type="checkbox" class="filters__checkbox" />
+                  Только Халяль
+                </label>
+                <label class="filters__option">
+                  <input type="checkbox" class="filters__checkbox" />
+                  Только «Выбор Дукан»
+                </label>
+              </div>
+
+              <button
+                type="button"
+                class="filters__apply-btn btn btn--primary"
+                id="filtersApply"
+              >
+                Показать товары
+              </button>
+            </aside>
+
+            <!-- Товары -->
+            <div class="catalog__content">
+              <div class="catalog__toolbar">
+                <span class="catalog__count">Найдено 42 товара</span>
+
+                <button
+                  type="button"
+                  class="catalog__filters-btn btn btn--subtle"
+                  id="filtersOpen"
+                  aria-label="Открыть фильтры"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                    <circle cx="9" cy="6" r="1.5" fill="currentColor"></circle>
+                    <circle
+                      cx="15"
+                      cy="12"
+                      r="1.5"
+                      fill="currentColor"
+                    ></circle>
+                    <circle cx="7" cy="18" r="1.5" fill="currentColor"></circle>
+                  </svg>
+                  <span class="catalog__filters-btn-label">Фильтры</span>
+                </button>
+
+                <label class="catalog__sort">
+                  <span class="catalog__sort-label">Сортировка:</span>
+                  <select class="catalog__sort-select" aria-label="Сортировка">
+                    <option selected>По популярности</option>
+                    <option>Сначала дешевле</option>
+                    <option>Сначала дороже</option>
+                    <option>Сначала новые</option>
+                  </select>
+                </label>
+
+                <div
+                  class="catalog__view-toggle"
+                  role="group"
+                  aria-label="Вид списка товаров"
+                >
+                  <button
+                    type="button"
+                    class="catalog__view-btn catalog__view-btn--active"
+                    data-view="grid"
+                    aria-label="Сеткой"
+                    aria-pressed="true"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="4" y="4" width="7" height="7" rx="1.5" />
+                      <rect x="13" y="4" width="7" height="7" rx="1.5" />
+                      <rect x="4" y="13" width="7" height="7" rx="1.5" />
+                      <rect x="13" y="13" width="7" height="7" rx="1.5" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="catalog__view-btn"
+                    data-view="list"
+                    aria-label="Списком"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="4" y="5" width="16" height="4" rx="1" />
+                      <rect x="4" y="15" width="16" height="4" rx="1" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <ul class="catalog__grid">
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/sir.webp"
+                        alt="Осетинский сыр"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                        <span class="product-card__badge product-card__badge--pick" title="Выбор Дукан" aria-label="Выбор Дукан">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Осетинский сыр</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Ферма Цаликовых</span
+                        >
+                        <span class="product-card__region"
+                          >Республика Северная Осетия</span
+                        >
+                      </p>
+                      <span class="product-card__weight">300 г</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">450 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/basturma.webp"
+                        alt="Бастурма из говядины"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Бастурма из говядины</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Хозяйство Тедеевых</span
+                        >
+                        <span class="product-card__region"
+                          >Карачаево-Черкесия</span
+                        >
+                      </p>
+                      <span class="product-card__weight">100 г</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">590 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/eggs.webp"
+                        alt="Свежие яйца"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Свежие яйца</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Ферма Цаликовых</span
+                        >
+                        <span class="product-card__region"
+                          >Республика Северная Осетия</span
+                        >
+                      </p>
+                      <span class="product-card__weight">10 шт.</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">180 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/med.webp"
+                        alt="Майский мёд"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Майский мёд</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Пасека Кочиевых</span
+                        >
+                        <span class="product-card__region"
+                          >Кабардино-Балкария</span
+                        >
+                      </p>
+                      <span class="product-card__weight">250 г</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">650 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/baranina.webp"
+                        alt="Баранина"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Баранина</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Хозяйство Мусаевых</span
+                        >
+                        <span class="product-card__region"
+                          >Чеченская Республика</span
+                        >
+                      </p>
+                      <span class="product-card__weight">1 кг</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">1290 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/pomidori.webp"
+                        alt="Кахунские помидоры"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Кахунские помидоры</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Ферма Цаликовых</span
+                        >
+                        <span class="product-card__region"
+                          >Республика Северная Осетия</span
+                        >
+                      </p>
+                      <span class="product-card__weight">1 кг</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">320 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/krolik.webp"
+                        alt="Мясо кролика"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Мясо кролика</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Ферма Габуевых</span
+                        >
+                        <span class="product-card__region"
+                          >Республика Северная Осетия</span
+                        >
+                      </p>
+                      <span class="product-card__weight">1 кг</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">780 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/psheno.webp"
+                        alt="Пшено"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Пшено</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Хозяйство Тедеевых</span
+                        >
+                        <span class="product-card__region"
+                          >Карачаево-Черкесия</span
+                        >
+                      </p>
+                      <span class="product-card__weight">900 г</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">150 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article class="product-card">
+                    <div class="product-card__media">
+                      <img
+                        class="product-card__img"
+                        src="img/products/sir.webp"
+                        alt="Осетинский пирог с картофелем и сыром"
+                      />
+                      <div class="product-card__badges">
+                        <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1" />
+                            <path d="M9 12l2 2l4 -4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-card__body">
+                      <h3 class="product-card__title">
+                        <a href="product.html" class="product-card__link"
+                          >Осетинский пирог с картофелем и сыром</a
+                        >
+                      </h3>
+                      <p class="product-card__source">
+                        <span class="product-card__producer"
+                          >Пекарня «Нарт»</span
+                        >
+                        <span class="product-card__region"
+                          >Республика Северная Осетия</span
+                        >
+                      </p>
+                      <span class="product-card__weight">800 г</span>
+                      <div class="product-card__footer">
+                        <span class="product-card__price">790 ₽</span>
+                        <button
+                          class="product-card__add"
+                          type="button"
+                          aria-label="Добавить в корзину"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 5l0 14" />
+                            <path d="M5 12l14 0" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+
+              <nav class="pagination" aria-label="Страницы каталога">
+                <a
+                  href="#"
+                  class="pagination__link pagination__link--disabled"
+                  aria-label="Предыдущая страница"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M15 6l-6 6l6 6" />
+                  </svg>
+                </a>
+                <a href="#" class="pagination__link pagination__link--active"
+                  >1</a
+                >
+                <a href="#" class="pagination__link">2</a>
+                <a href="#" class="pagination__link">3</a>
+                <a href="#" class="pagination__link">4</a>
+                <a
+                  href="#"
+                  class="pagination__link"
+                  aria-label="Следующая страница"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M9 6l6 6l-6 6" />
+                  </svg>
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Плавающая панель корзины (см. комментарий в css/style.css) -->
+      <div class="cart-bar">
+        <div class="cart-bar__info">
+          <span class="cart-bar__count">3</span>
+          <span class="cart-bar__text">
+            <span class="cart-bar__count-label">3 товара</span>
+            <span class="cart-bar__total">2 190 ₽</span>
+          </span>
+        </div>
+        <a href="checkout.html" class="link-btn btn btn--inverse">
+          <span class="cart-bar__btn-label">Перейти к оформлению</span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </div>
+    </main>
+
+    <!-- Оверлей для закрытия меню/фильтров по клику вне элемента -->
+    <div class="overlay" id="overlay" hidden></div>
+    <!-- Мобильный Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav__item">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        </svg>
+        <span class="bottom-nav__label">Главная</span>
+      </a>
+      <button
+        type="button"
+        class="bottom-nav__item"
+        id="mobileCatalogBtn"
+        aria-expanded="false"
+        aria-controls="catalogMenu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span class="bottom-nav__label">Каталог</span>
+      </button>
+
+      <a href="checkout.html" class="bottom-nav__item">
+        <div class="bottom-nav__icon-wrapper">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="bottom-nav__badge">3</span>
+        </div>
+        <span class="bottom-nav__label">Корзина</span>
+      </a>
+
+      <a href="account.html" class="bottom-nav__item">
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="bottom-nav__label">Профиль</span>
+      </a>
+    </nav>
+
+    <!-- Оверлей для закрытия меню по клику вне элемента -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__top">
+            <div class="footer__brand">
+              <a href="index.html" class="logo footer__logo">
+                <img
+                  src="img/logo/dukan-logo-inverse.svg"
+                  alt="Логотип сайта"
+                />
+                <span class="logo__subtitle"
+                  >Фермерские продукты Кавказа с доставкой по Москве</span
+                >
+              </a>
+            </div>
+
+            <nav class="footer__nav">
+              <span class="footer__col-title">Меню</span>
+              <a href="catalog.html" class="footer__link dot-link">Каталог</a>
+              <a href="about.html" class="footer__link dot-link">О нас</a>
+              <a href="delivery.html" class="footer__link dot-link">Доставка и оплата</a>
+              <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
+            </nav>
+
+            <div class="footer__delivery">
+              <span class="footer__col-title">Доставка</span>
+              <span class="footer__info-line">Приём заказов: 9:00–20:00</span>
+              <span class="footer__info-line">Только по Москве</span>
+              <span class="footer__info-line">Мин. сумма заказа — 1500 ₽</span>
+            </div>
+
+            <div class="footer__contacts">
+              <span class="footer__col-title">Контакты</span>
+              <a href="tel:+79999999999" class="footer__link dot-link"
+                >+7 999 999-99-99</a
+              >
+              <a href="mailto:info@dukan.ru" class="footer__link dot-link"
+                >info@dukan.ru</a
+              >
+              <a href="https://wa.me/79999999999" class="footer__link dot-link"
+                >Написать в WhatsApp</a
+              >
+            </div>
+
+            <div class="footer__legal">
+              <span class="footer__col-title">Документы</span>
+              <a href="privacy.html" class="footer__link dot-link"
+                >Политика конфиденциальности</a
+              >
+              <a href="consent.html" class="footer__link dot-link"
+                >Согласие на обработку ПД</a
+              >
+            </div>
+          </div>
+
+          <div class="footer__bar">
+            <span class="footer__copy">© 2026 Дукан. Все права защищены.</span>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener"
+              class="footer__dev-link"
+            >
+              Сайт разработан: vmmcode.ru
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="nice-select2/nice-select2.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

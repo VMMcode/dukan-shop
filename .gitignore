@@ -1,0 +1,7 @@
+# Claude Code — локальные файлы ассистента, не для репозитория
+.claude/
+
+# Мусор ОС / OneDrive
+.DS_Store
+Thumbs.db
+desktop.ini
