@@ -9,8 +9,55 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/page-stub.css" />
-    <title>Профиль фермера — Дукан</title>
+    <link rel="stylesheet" href="css/farmer.css" />
+
+    <!-- В WordPress: title/description генерируются из полей хозяйства (farm_name, регион, категории) -->
+    <title>
+      Семейная ферма Дадэ — фермерские молочные продукты из Кабардино-Балкарии | Дукан
+    </title>
+    <meta
+      name="description"
+      content="Домашние молоко, айран, сметана и сыр от семейной фермы Дадэ из Чегемского района Кабардино-Балкарии. Традиционные рецепты, ручная работа. Доставка по Москве."
+    />
+    <meta property="og:title" content="Семейная ферма Дадэ — Дукан" />
+    <meta
+      property="og:description"
+      content="Кабардинские молочные продукты ручной работы из села Шалушка: молоко, айран, сметана и сыр по семейным рецептам."
+    />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://dukan.ru/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Наши фермеры",
+            "item": "https://dukan.ru/farmers.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Кабардино-Балкария",
+            "item": "https://dukan.ru/farmers.html#kbr"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Семейная ферма Дадэ",
+            "item": "https://dukan.ru/farmer.html"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -21,6 +68,9 @@
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О нас</a>
+              </li>
+              <li class="header__top-item">
+                <a href="farmers.html" class="header__top-link">Наши фермеры</a>
               </li>
               <li class="header__top-item">
                 <a href="reviews.html" class="header__top-link">Отзывы</a>
@@ -283,6 +333,7 @@
         <nav class="header__mobile-nav">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О нас</a></li>
+            <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
             <li>
               <a href="reviews.html" class="header__mobile-link">Отзывы</a>
             </li>
@@ -302,39 +353,411 @@
         </div>
       </div>
     </header>
-    <!-- ПЛАН (не сверстано): один файл-шаблон профиля фермера — по аналогии
-         с product.html (один файл на все карточки товаров). Контент:
-         полное описание фермы, история, регион, фото, список продуктов
-         этой фермы со ссылками на product.html. По сути — разворот блока
-         "О производителе" с product.html в отдельную страницу. Сюда ведёт
-         "Подробнее о ферме" с таба "О производителе" на product.html. -->
+
     <!-- Основной контент -->
     <main class="main-content">
-      <section class="page-stub">
+      <div class="breadcrumbs-strip">
         <div class="container">
-          <div class="page-stub__inner">
-            <span class="page-stub__icon">
-              <svg
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 8v4l3 2" />
-              </svg>
-            </span>
-            <h1 class="page-stub__title">Страница ещё в разработке</h1>
-            <a href="index.html" class="btn btn--primary btn--lg page-stub__home"
-              >Вернуться на главную</a
-            >
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="index.html" class="breadcrumbs__link">Главная</a>
+              </li>
+              <li class="breadcrumbs__sep">/</li>
+              <li class="breadcrumbs__item">
+                <a href="farmers.html" class="breadcrumbs__link">Наши фермеры</a>
+              </li>
+              <li class="breadcrumbs__sep">/</li>
+              <li class="breadcrumbs__item">
+                <a href="farmers.html#kbr" class="breadcrumbs__link">Кабардино-Балкария</a>
+              </li>
+              <li class="breadcrumbs__sep">/</li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current" aria-current="page"
+                  >Семейная ферма Дадэ</span
+                >
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Hero хозяйства -->
+      <section class="farmer-hero" aria-labelledby="farmerHeroTitle">
+        <div class="container">
+          <div class="farmer-hero__inner">
+            <!-- В WordPress: farm_photo, если есть, иначе farm-cover--placeholder с farm_name -->
+            <div class="farmer-hero__cover farm-cover">
+              <img src="img/logo/logo-dade.svg" alt="Логотип: Семейная ферма Дадэ, Кабардино-Балкария" class="farm-cover__img farmer-hero__logo" />
+            </div>
+
+            <div class="farmer-hero__info">
+              <p class="farmer-hero__location">
+                <svg class="farmer-hero__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                <span
+                  >с.&nbsp;Шалушка, Чегемский район ·
+                  <a href="farmers.html#kbr" class="underline-link">Кабардино-Балкария</a></span
+                >
+              </p>
+              <h1 id="farmerHeroTitle" class="farmer-hero__title">Семейная ферма Дадэ</h1>
+              <p class="farmer-hero__lead">
+                Традиционные кабардинские молочные продукты из&nbsp;села Шалушка&nbsp;— по&nbsp;рецептам, которые в&nbsp;семье передаются из&nbsp;поколения в&nbsp;поколение.
+              </p>
+              <ul class="farmer-hero__tags" aria-label="Категории продуктов">
+                <li class="farmer-hero__tag">Молочные продукты</li>
+              </ul>
+              <a href="#farm-products" class="farmer-hero__btn btn btn--primary btn--lg">Смотреть продукты хозяйства</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- О хозяйстве -->
+      <section class="farmer-about" aria-labelledby="farmerAboutTitle">
+        <div class="container">
+          <div class="farmer-about__inner">
+            <div class="section-header">
+              <h2 id="farmerAboutTitle" class="section-header__title">О хозяйстве</h2>
+            </div>
+            <p class="farmer-about__text">
+              Семейная ферма Дадэ&nbsp;— хозяйство в&nbsp;селе Шалушка Чегемского района Кабардино-Балкарии. Здесь делают традиционные кабардинские молочные продукты&nbsp;— по&nbsp;тем&nbsp;же рецептам, что в&nbsp;семье готовили и&nbsp;20, и&nbsp;40, и&nbsp;60&nbsp;лет назад.
+            </p>
+            <p class="farmer-about__text">
+              На&nbsp;ферме нет заводских линий и&nbsp;промышленных шаблонов: каждый продукт делают вручную, без&nbsp;добавок. Поэтому у&nbsp;молока, айрана, сметаны и&nbsp;сыра Дадэ тот самый домашний вкус, каким его помнят в&nbsp;кабардинских семьях.
+            </p>
+
+            <ul class="farmer-about__list">
+              <li class="farmer-about__item">
+                <span class="farmer-about__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </span>
+                <h3 class="farmer-about__item-title">Семейные рецепты</h3>
+                <p class="farmer-about__item-text">Рецепты передаются в&nbsp;роду из&nbsp;поколения в&nbsp;поколение.</p>
+              </li>
+              <li class="farmer-about__item">
+                <span class="farmer-about__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 11V6a2 2 0 0 0-4 0M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+                  </svg>
+                </span>
+                <h3 class="farmer-about__item-title">Ручная работа</h3>
+                <p class="farmer-about__item-text">Без&nbsp;технологичного оборудования и&nbsp;заводских стандартов.</p>
+              </li>
+              <li class="farmer-about__item">
+                <span class="farmer-about__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+                    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                  </svg>
+                </span>
+                <h3 class="farmer-about__item-title">Без добавок</h3>
+                <p class="farmer-about__item-text">Натуральный продукт, как в&nbsp;деревенском доме.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Что производят -->
+      <section class="farmer-produce" aria-labelledby="farmerProduceTitle">
+        <div class="container">
+          <div class="farmer-produce__inner">
+            <div class="section-header">
+              <h2 id="farmerProduceTitle" class="section-header__title">Что производит хозяйство</h2>
+            </div>
+            <p class="farmer-produce__lead">Названия продуктов на&nbsp;кабардинском&nbsp;— так их называют в&nbsp;семье.</p>
+            <ul class="farmer-produce__list">
+              <li class="farmer-produce__item">
+                <span class="farmer-produce__name" lang="kbd">ШЭ</span>
+                <span class="farmer-produce__translation">молоко</span>
+              </li>
+              <li class="farmer-produce__item">
+                <span class="farmer-produce__name" lang="kbd">ШХУ</span>
+                <span class="farmer-produce__translation">айран</span>
+              </li>
+              <li class="farmer-produce__item">
+                <span class="farmer-produce__name" lang="kbd">ШАТЭ</span>
+                <span class="farmer-produce__translation">сметана</span>
+              </li>
+              <li class="farmer-produce__item">
+                <span class="farmer-produce__name" lang="kbd">КХЪУЕ</span>
+                <span class="farmer-produce__translation">сыр</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Продукты хозяйства -->
+      <section id="farm-products" class="farmer-products" aria-labelledby="farmerProductsTitle">
+        <div class="container">
+          <div class="farmer-products__inner">
+            <div class="section-header">
+              <h2 id="farmerProductsTitle" class="section-header__title">Продукты хозяйства</h2>
+            </div>
+
+            <!-- Демо: названия, объёмы и цены условные. В WordPress: товары, у которых в поле farm выбрано это хозяйство -->
+            <div class="product-grid farmer-products__grid">
+              <article class="product-card">
+                <div class="product-card__media">
+                  <img
+                    class="product-card__img"
+                    src="img/content/milk-category.webp"
+                    alt="Айран домашний"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="product-card__body">
+                  <h3 class="product-card__title">
+                    <a href="product.html" class="product-card__link"
+                      >Айран домашний</a
+                    >
+                  </h3>
+                  <p class="product-card__source">
+                    <span class="product-card__producer">Семейная ферма Дадэ</span>
+                    <span class="product-card__region"
+                      >Кабардино-Балкарская Республика</span
+                    >
+                  </p>
+                  <span class="product-card__weight">1&nbsp;л</span>
+
+                  <div class="product-card__footer">
+                    <span class="product-card__price">250&nbsp;₽</span>
+                    <button
+                      class="product-card__add"
+                      type="button"
+                      aria-label="Добавить в корзину"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 5l0 14" />
+                        <path d="M5 12l14 0" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="product-card">
+                <div class="product-card__media">
+                  <img
+                    class="product-card__img"
+                    src="img/content/milk-category.webp"
+                    alt="Сметана домашняя"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="product-card__body">
+                  <h3 class="product-card__title">
+                    <a href="product.html" class="product-card__link"
+                      >Сметана домашняя</a
+                    >
+                  </h3>
+                  <p class="product-card__source">
+                    <span class="product-card__producer">Семейная ферма Дадэ</span>
+                    <span class="product-card__region"
+                      >Кабардино-Балкарская Республика</span
+                    >
+                  </p>
+                  <span class="product-card__weight">400&nbsp;г</span>
+
+                  <div class="product-card__footer">
+                    <span class="product-card__price">380&nbsp;₽</span>
+                    <button
+                      class="product-card__add"
+                      type="button"
+                      aria-label="Добавить в корзину"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 5l0 14" />
+                        <path d="M5 12l14 0" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="product-card">
+                <div class="product-card__media">
+                  <img
+                    class="product-card__img"
+                    src="img/products/sir.webp"
+                    alt="Сыр кабардинский"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="product-card__body">
+                  <h3 class="product-card__title">
+                    <a href="product.html" class="product-card__link"
+                      >Сыр кабардинский</a
+                    >
+                  </h3>
+                  <p class="product-card__source">
+                    <span class="product-card__producer">Семейная ферма Дадэ</span>
+                    <span class="product-card__region"
+                      >Кабардино-Балкарская Республика</span
+                    >
+                  </p>
+                  <span class="product-card__weight">500&nbsp;г</span>
+
+                  <div class="product-card__footer">
+                    <span class="product-card__price">650&nbsp;₽</span>
+                    <button
+                      class="product-card__add"
+                      type="button"
+                      aria-label="Добавить в корзину"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 5l0 14" />
+                        <path d="M5 12l14 0" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="product-card">
+                <div class="product-card__media">
+                  <img
+                    class="product-card__img"
+                    src="img/content/milk-category.webp"
+                    alt="Молоко фермерское"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="product-card__body">
+                  <h3 class="product-card__title">
+                    <a href="product.html" class="product-card__link"
+                      >Молоко фермерское</a
+                    >
+                  </h3>
+                  <p class="product-card__source">
+                    <span class="product-card__producer">Семейная ферма Дадэ</span>
+                    <span class="product-card__region"
+                      >Кабардино-Балкарская Республика</span
+                    >
+                  </p>
+                  <span class="product-card__weight">1&nbsp;л</span>
+
+                  <div class="product-card__footer">
+                    <span class="product-card__price">200&nbsp;₽</span>
+                    <button
+                      class="product-card__add"
+                      type="button"
+                      aria-label="Добавить в корзину"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 5l0 14" />
+                        <path d="M5 12l14 0" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- В WordPress — фильтр каталога по хозяйству -->
+            <a href="catalog.html?farm=dade" class="farmer-products__more link-btn btn btn--outline btn--lg">
+              Все продукты хозяйства в&nbsp;каталоге
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Другие хозяйства региона -->
+      <section class="farmer-related" aria-labelledby="farmerRelatedTitle">
+        <div class="container">
+          <div class="farmer-related__inner">
+            <div class="section-header">
+              <h2 id="farmerRelatedTitle" class="section-header__title">Другие хозяйства Кабардино-Балкарии</h2>
+            </div>
+
+            <!-- В WordPress: другие записи farmer с тем же термином region, текущее хозяйство исключить -->
+            <ul class="farmer-related__grid">
+              <li class="farmer-related__item">
+                <article class="farm-card">
+                    <div class="farm-card__media">
+                      <img src="img/logo/logo-bashorov.webp" alt="Мясной дом Башоровъ, Кабардино-Балкария" class="farm-card__img" loading="lazy" />
+                    </div>
+                    <div class="farm-card__body">
+                      <h3 class="farm-card__title">
+                        <a href="farmer.html" class="farm-card__link">Мясной дом Башоровъ</a>
+                      </h3>
+                      <p class="farm-card__location">
+                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        Прохладненский район
+                      </p>
+                      <p class="farm-card__text">Халяльные колбасы и&nbsp;деликатесы полного цикла&nbsp;— с&nbsp;2006&nbsp;года.</p>
+                      <ul class="farm-card__tags" aria-label="Категории продуктов">
+                        <li class="farm-card__tag">Колбасные изделия</li>
+                        <li class="farm-card__tag">Мясные копчёности</li>
+                      </ul>
+                      <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
+                        Смотреть хозяйство
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      </span>
+                    </div>
+                  </article>
+              </li>
+            </ul>
+
+            <a href="farmers.html" class="farmer-related__more link-btn btn btn--outline btn--lg">
+              Все фермеры
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
           </div>
         </div>
       </section>
     </main>
-
     <!-- Оверлей для закрытия меню по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
     <!-- Мобильный Bottom Navigation Bar -->
@@ -431,6 +854,7 @@
               <a href="about.html" class="footer__link dot-link">О нас</a>
               <a href="delivery.html" class="footer__link dot-link">Доставка и оплата</a>
               <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
+              <a href="farmers.html#partners" class="footer__link dot-link">Фермерам</a>
             </nav>
 
             <div class="footer__delivery">
@@ -460,6 +884,9 @@
               >
               <a href="consent.html" class="footer__link dot-link"
                 >Согласие на обработку ПД</a
+              >
+              <a href="offer.html" class="footer__link dot-link"
+                >Публичная оферта</a
               >
             </div>
           </div>

@@ -9,8 +9,53 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/page-stub.css" />
-    <title>О нас — Дукан</title>
+    <link rel="stylesheet" href="css/about.css" />
+
+    <title>
+      О магазине Дукан — фермерские продукты Кавказа с доставкой по Москве
+    </title>
+    <meta
+      name="description"
+      content="Дукан — фермерская лавка Кавказа в Москве. Привозим продукты напрямую из хозяйств Кабардино-Балкарии, Северной Осетии и Дагестана своей машиной и доставляем до двери. Оплата при получении."
+    />
+    <meta property="og:title" content="О магазине — Дукан" />
+    <meta
+      property="og:description"
+      content="Привозим фермерские продукты из Кабардино-Балкарии, Северной Осетии и Дагестана напрямую из хозяйств и доставляем по Москве до двери. Платите только при получении."
+    />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://dukan.ru/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "О магазине",
+            "item": "https://dukan.ru/about.html"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Дукан",
+        "url": "https://dukan.ru",
+        "logo": "https://dukan.ru/img/logo/dukan-logo.svg",
+        "description": "Дукан — фермерская лавка Кавказа в Москве. Привозим продукты напрямую из хозяйств Кабардино-Балкарии, Северной Осетии и Дагестана своей машиной и доставляем до двери. Оплата при получении.",
+        "areaServed": "Москва"
+      }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -21,6 +66,9 @@
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О нас</a>
+              </li>
+              <li class="header__top-item">
+                <a href="farmers.html" class="header__top-link">Наши фермеры</a>
               </li>
               <li class="header__top-item">
                 <a href="reviews.html" class="header__top-link">Отзывы</a>
@@ -283,6 +331,7 @@
         <nav class="header__mobile-nav">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О нас</a></li>
+            <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
             <li>
               <a href="reviews.html" class="header__mobile-link">Отзывы</a>
             </li>
@@ -305,26 +354,363 @@
 
     <!-- Основной контент -->
     <main class="main-content">
-      <section class="page-stub">
+      <div class="breadcrumbs-strip">
         <div class="container">
-          <div class="page-stub__inner">
-            <span class="page-stub__icon">
-              <svg
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 8v4l3 2" />
-              </svg>
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="index.html" class="breadcrumbs__link">Главная</a>
+              </li>
+              <li class="breadcrumbs__sep">/</li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current" aria-current="page"
+                  >О магазине</span
+                >
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <section class="about-hero">
+        <div class="container about-hero__inner">
+          <div class="about-hero__content">
+            <h1 class="about-hero__title">О магазине «Дукан»</h1>
+            <p class="about-hero__lead">
+              Фермерская лавка Кавказа в Москве — продукты напрямую из хозяйств,
+              своей машиной и без перекупщиков
+            </p>
+            <ul class="about-hero__facts">
+              <li class="about-hero__fact">
+                <span class="about-hero__fact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span class="about-hero__fact-value">3 республики</span>
+                <span class="about-hero__fact-label"
+                  >КБР, Северная Осетия, Дагестан</span
+                >
+              </li>
+              <li class="about-hero__fact">
+                <span class="about-hero__fact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </span>
+                <span class="about-hero__fact-value">Раз в неделю</span>
+                <span class="about-hero__fact-label"
+                  >свежий рейс с ферм в Москву</span
+                >
+              </li>
+              <li class="about-hero__fact">
+                <span class="about-hero__fact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+                </span>
+                <span class="about-hero__fact-value">0 ₽ предоплаты</span>
+                <span class="about-hero__fact-label"
+                  >платите только при получении</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="about-hero__media">
+            <!-- заменить на фото от заказчика -->
+            <img
+              class="about-hero__img"
+              src="img/content/hero-bg.webp"
+              alt="Горное хозяйство на Кавказе"
+            />
+            <p class="about-hero__badge">
+              <span class="about-hero__badge-word">Дукан</span> по-осетински —
+              «лавка»
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Кто мы -->
+      <section class="about-story" aria-labelledby="aboutStoryTitle">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="aboutStoryTitle" class="section-header__title">Кто мы</h2>
+          </div>
+          <p class="about-story__lead">
+            «Дукан» — это лавка, куда на Кавказе ходят за сыром, мясом и молоком
+            к знакомому фермеру. Мы перенесли эту лавку в Москву: убрали всё
+            лишнее и сократили путь от кавказской фермы до московского стола.
+          </p>
+          <div class="about-story__compare">
+            <article class="about-story__card">
+              <span class="about-story__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></span>
+              <h3 class="about-story__card-title">На Кавказе</h3>
+              <p class="about-story__card-text">
+                Хорошие продукты не ищут на полках супермаркета. Сыр берут у
+                соседки, которая варит его по бабушкиному рецепту, мясо — у
+                знакомого фермера, чьё стадо пасётся на горных лугах. Здесь
+                каждый знает, откуда его еда и кто её сделал.
+              </p>
+            </article>
+            <article class="about-story__card about-story__card--muted">
+              <span class="about-story__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><rect x="5" y="10" width="6" height="11"/><rect x="11" y="4" width="8" height="17"/><path d="M14 8h2M14 12h2M14 16h2"/></svg></span>
+              <h3 class="about-story__card-title">В Москве</h3>
+              <p class="about-story__card-text">
+                Такой возможности почти нет: между фермой и покупателем стоят
+                оптовики, склады и сетевые магазины, а от настоящего вкуса
+                остаётся только надпись «фермерский» на упаковке.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Как продукт попадает к вам -->
+      <section class="about-path" aria-labelledby="aboutPathTitle">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="aboutPathTitle" class="section-header__title">
+              Как продукт попадает к вам
+            </h2>
+          </div>
+          <ol class="about-path__list">
+            <li class="about-path__item">
+              <span class="about-path__number" aria-hidden="true">1</span>
+              <h3 class="about-path__title">Находим хозяйство</h3>
+              <p class="about-path__text">
+                Ищем семейные фермы и небольших производителей в горных сёлах и
+                долинах Кавказа.
+              </p>
+            </li>
+            <li class="about-path__item">
+              <span class="about-path__number" aria-hidden="true">2</span>
+              <h3 class="about-path__title">Пробуем и проверяем</h3>
+              <p class="about-path__text">
+                Знакомимся с фермерами, пробуем продукцию и проверяем документы.
+                В каталог попадает только то, что понравилось нам самим.
+              </p>
+            </li>
+            <li class="about-path__item">
+              <span class="about-path__number" aria-hidden="true">3</span>
+              <h3 class="about-path__title">Везём сами</h3>
+              <p class="about-path__text">
+                Раз в неделю наша машина с холодильным оборудованием забирает
+                продукты прямо с ферм и едет в Москву.
+              </p>
+            </li>
+            <li class="about-path__item">
+              <span class="about-path__number" aria-hidden="true">4</span>
+              <h3 class="about-path__title">Привозим к вам</h3>
+              <p class="about-path__text">
+                Курьеры сразу развозят заказы по адресам Москвы.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Принцип -->
+      <section class="principle" aria-label="Наш главный принцип">
+        <div class="container">
+          <figure class="principle__figure">
+            <blockquote class="principle__quote">
+              <p>Мы продаём только то, что сами покупали бы для своей семьи.</p>
+            </blockquote>
+            <figcaption class="principle__author">— Команда Дукан</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Что мы обещаем -->
+      <section class="about-promises" aria-labelledby="aboutPromisesTitle">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="aboutPromisesTitle" class="section-header__title">
+              Что мы обещаем
+            </h2>
+          </div>
+          <ul class="about-promises__list">
+            <li class="about-promises__item">
+              <span class="about-promises__icon" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  />
+                  <polyline points="9 22 9 12 15 12 15 22" /></svg
+              ></span>
+              <h3 class="about-promises__title">
+                Вы знаете, кто сделал ваш продукт
+              </h3>
+              <p class="about-promises__text">
+                У каждого товара на сайте указаны хозяйство и республика, а о
+                фермерах мы рассказываем открыто.
+              </p>
+            </li>
+            <li class="about-promises__item">
+              <span class="about-promises__icon" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+              ></span>
+              <h3 class="about-promises__title">
+                Вы платите, только когда увидели заказ
+              </h3>
+              <p class="about-promises__text">
+                Никакой предоплаты. Если какая-то позиция не устроила при
+                курьере — просто откажитесь от неё.
+              </p>
+            </li>
+            <li class="about-promises__item">
+              <span class="about-promises__icon" aria-hidden="true"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg
+              ></span>
+              <h3 class="about-promises__title">
+                Если что-то не так — решаем в вашу пользу
+              </h3>
+              <p class="about-promises__text">
+                Заменим продукт, вернём деньги или сделаем скидку на следующий
+                заказ — как вам удобнее.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Откуда наши продукты -->
+      <section class="regions" aria-labelledby="aboutRegionsTitle">
+        <div class="container">
+          <div class="regions__inner">
+            <div class="section-header">
+              <h2 id="aboutRegionsTitle" class="section-header__title">
+                Откуда наши продукты
+              </h2>
+              <a href="farmers.html" class="link-btn btn btn--outline">
+                Все фермеры
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+            <p class="regions__lead">
+              Сейчас мы работаем с хозяйствами трёх республик Северного Кавказа.
+              У каждой — свои традиции и свои продукты.
+            </p>
+
+            <ul class="regions__grid">
+              <li>
+                <a href="farmers.html#severnaya-osetiya" class="region-card">
+                  <img
+                    src="img/content/osetian.webp"
+                    alt="Северная Осетия"
+                    class="region-card__img"
+                  />
+                  <span class="region-card__overlay">
+                    <span class="region-card__title">Северная Осетия</span>
+                    <span class="region-card__text"
+                      >Осетинский сыр, мясо, выпечка</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="farmers.html#kbr" class="region-card">
+                  <img
+                    src="img/content/kbr.webp"
+                    alt="Кабардино-Балкария"
+                    class="region-card__img"
+                  />
+                  <span class="region-card__overlay">
+                    <span class="region-card__title">Кабардино-Балкария</span>
+                    <span class="region-card__text"
+                      >Айран, домашний сыр, мясные деликатесы</span
+                    >
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="farmers.html#dagestan" class="region-card">
+                  <img
+                    src="img/content/dagestan.webp"
+                    alt="Дагестан"
+                    class="region-card__img"
+                  />
+                  <span class="region-card__overlay">
+                    <span class="region-card__title">Дагестан</span>
+                    <span class="region-card__text"
+                      >Горная баранина, овечий сыр, брынза</span
+                    >
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Для фермеров -->
+      <section class="farmer-invite" aria-labelledby="farmerInviteTitle">
+        <div class="container">
+          <div class="farmer-invite__inner">
+            <span class="farm-invite__icon farmer-invite__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
             </span>
-            <h1 class="page-stub__title">Страница ещё в разработке</h1>
-            <a href="index.html" class="btn btn--primary btn--lg page-stub__home"
-              >Вернуться на главную</a
+            <div class="farmer-invite__content">
+              <h2 id="farmerInviteTitle" class="farmer-invite__title">
+                Вы фермер с Кавказа?
+              </h2>
+              <p class="farmer-invite__text">
+                Делаете сыр, мясо, мёд или молочные продукты и хотите продавать
+                в Москве — расскажите нам о своём хозяйстве.
+              </p>
+            </div>
+            <a
+              href="farmers.html#partners"
+              class="farmer-invite__btn btn btn--outline"
+              >Предложить сотрудничество</a
             >
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section aria-labelledby="aboutCtaTitle">
+        <div class="container">
+          <div class="cta-banner">
+            <h2 id="aboutCtaTitle" class="cta-banner__title">
+              Попробуйте Кавказ на вкус
+            </h2>
+            <p class="cta-banner__text">
+              Соберите корзину из фермерских продуктов — мы привезём её к вашей
+              двери. Платить будете только при получении.
+            </p>
+            <div class="cta-banner__actions">
+              <a href="catalog.html" class="cta-banner__btn btn btn--inverse btn--lg"
+                >Перейти в каталог</a
+              >
+              <p class="cta-banner__hint">
+                Остались вопросы?
+                <a href="contacts.html" class="underline-link"
+                  >Свяжитесь с нами</a
+                >
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -426,6 +812,7 @@
               <a href="about.html" class="footer__link dot-link">О нас</a>
               <a href="delivery.html" class="footer__link dot-link">Доставка и оплата</a>
               <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
+              <a href="farmers.html#partners" class="footer__link dot-link">Фермерам</a>
             </nav>
 
             <div class="footer__delivery">
@@ -455,6 +842,9 @@
               >
               <a href="consent.html" class="footer__link dot-link"
                 >Согласие на обработку ПД</a
+              >
+              <a href="offer.html" class="footer__link dot-link"
+                >Публичная оферта</a
               >
             </div>
           </div>

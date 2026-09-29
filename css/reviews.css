@@ -183,6 +183,11 @@
   color: var(--color-text-inverse);
 }
 
+.review-card--summary .review-card__text {
+  flex: none;
+  color: inherit;
+}
+
 .review-card__score {
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
@@ -203,6 +208,11 @@
 .review-form__submit {
   width: 100%;
   max-width: none;
+}
+
+.review-form__note {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
 }
 
 /* --- Поиск товара для отзыва: nice-select2 с поиском (см. main.js), тот же вид, что у района доставки в checkout.html --- */
@@ -406,7 +416,7 @@
   border-radius: var(--radius-md);
   color: var(--color-text-muted);
   font-size: var(--fs-body-sm);
-  transition: background-color ease-in 0.2s, color ease-in 0.2s;
+  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
 }
 .pagination__link:hover {
   background-color: var(--color-accent-muted);

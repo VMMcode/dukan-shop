@@ -1,0 +1,179 @@
+/* --- Юридические страницы: политика, согласие, оферта --- */
+.legal {
+  padding: var(--space-lg) 0 var(--space-xl);
+}
+
+.legal__header {
+  margin-bottom: var(--space-lg);
+}
+
+.legal__title {
+  color: var(--color-text);
+}
+
+.legal__updated {
+  margin-top: var(--space-xs);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.legal__layout {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* --- Оглавление --- */
+.legal__toc {
+  display: none;
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+}
+
+.legal__toc-title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-h4);
+  color: var(--color-text);
+}
+
+.legal__toc-details {
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+}
+
+.legal__toc-summary {
+  cursor: pointer;
+  font-weight: var(--fw-h5);
+}
+
+.legal__toc-list {
+  margin-top: var(--space-sm);
+  padding-left: var(--space-lg);
+  list-style: decimal;
+}
+
+.legal__toc-item + .legal__toc-item {
+  margin-top: var(--space-xs);
+}
+
+.legal__toc-link {
+  color: var(--color-accent);
+  font-size: var(--fs-body-sm);
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.legal__toc-link:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* --- Текст документа --- */
+.legal__content {
+  max-width: 70ch;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.legal__section {
+  padding: 0;
+  scroll-margin-top: calc(var(--header-height, 0px) + var(--space-md));
+}
+
+.legal__section + .legal__section {
+  margin-top: var(--space-lg);
+}
+
+.legal__section-title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-h4);
+  margin-bottom: var(--space-sm);
+}
+
+.legal__text + .legal__text,
+.legal__text + .legal__list,
+.legal__list + .legal__text,
+.legal__content > .legal__text {
+  margin-top: var(--space-sm);
+}
+
+.legal__content > .legal__text + .legal__section {
+  margin-top: var(--space-lg);
+}
+
+.legal__content > .legal__text:first-child {
+  margin-top: 0;
+}
+
+.legal__list {
+  padding-left: var(--space-lg);
+  list-style: disc;
+}
+
+.legal__item {
+  list-style: inherit;
+}
+
+.legal__item + .legal__item {
+  margin-top: var(--space-xs);
+}
+
+/* --- Реквизиты --- */
+.legal__requisites {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.legal__requisites-row {
+  padding: var(--space-sm) var(--space-md);
+}
+
+.legal__requisites-row + .legal__requisites-row {
+  border-top: 1px solid var(--color-border);
+}
+
+.legal__requisites-term {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.legal__requisites-value {
+  margin: 0;
+}
+
+@media (min-width: 641px) {
+  .legal__requisites-row {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* --- Две колонки: оглавление слева, текст справа --- */
+@media (min-width: 1025px) {
+  .legal__layout {
+    grid-template-columns: 18rem minmax(0, 70ch);
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .legal__toc-details {
+    display: none;
+  }
+
+  .legal__toc {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-height, 0px) + var(--space-md));
+    max-height: calc(100vh - var(--header-height, 0px) - var(--space-lg));
+    overflow-y: auto;
+  }
+
+  .legal__toc-list {
+    margin-top: var(--space-sm);
+  }
+}

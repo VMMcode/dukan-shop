@@ -455,6 +455,14 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.checkout-account__otp-input')
     );
 
+    // Код можно запросить только после согласия на обработку ПД
+    const accountConsent = document.getElementById('checkout-account__consent');
+    if (accountConsent && requestCodeBtn) {
+      accountConsent.addEventListener('change', () => {
+        requestCodeBtn.disabled = !accountConsent.checked;
+      });
+    }
+
     if (requestCodeBtn) {
       requestCodeBtn.addEventListener('click', () => {
         if (phoneDisplay) phoneDisplay.textContent = accountPhoneInput.value;
@@ -532,7 +540,121 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// --- Страница доставки: плавное раскрытие FAQ поверх нативного <details> ---
+// --- Страница фермеров: регион в форме заявки (тот же nice-select2, что и в чекауте) ---
+document.addEventListener('DOMContentLoaded', () => {
+  const joinRegionSelect = document.getElementById('joinRegion');
+  if (joinRegionSelect && typeof NiceSelect !== 'undefined') {
+    NiceSelect.bind(joinRegionSelect, { searchable: false });
+  }
+});
+
+// --- Страница фермеров: табы по республикам ---
+function initFarmersTabs() {
+  const root = document.querySelector('.farmers-tabs');
+  if (!root) return;
+
+  const list = root.querySelector('.farmers-tabs__list');
+  const tabs = Array.from(root.querySelectorAll('.farmers-tabs__tab'));
+  const panels = tabs.map((tab) =>
+    document.getElementById(tab.getAttribute('href').slice(1))
+  );
+  if (!list || panels.some((panel) => !panel)) return;
+
+  list.setAttribute('role', 'tablist');
+  list.querySelectorAll('.farmers-tabs__item').forEach((item) =>
+    item.setAttribute('role', 'presentation')
+  );
+
+  tabs.forEach((tab, i) => {
+    tab.setAttribute('role', 'tab');
+    tab.id = `tab-${panels[i].id}`;
+    tab.setAttribute('aria-controls', panels[i].id);
+    panels[i].setAttribute('role', 'tabpanel');
+    panels[i].setAttribute('aria-labelledby', tab.id);
+    panels[i].tabIndex = 0;
+  });
+
+  function activate(index, { focus = false } = {}) {
+    tabs.forEach((tab, i) => {
+      const isActive = i === index;
+      tab.classList.toggle('farmers-tabs__tab--active', isActive);
+      tab.setAttribute('aria-selected', isActive);
+      tab.tabIndex = isActive ? 0 : -1;
+      panels[i].hidden = !isActive;
+    });
+    if (focus) tabs[index].focus();
+    tabs[index].scrollIntoView({ inline: 'nearest', block: 'nearest' });
+  }
+
+  function indexFromHash() {
+    return panels.findIndex((panel) => `#${panel.id}` === location.hash);
+  }
+
+  function syncWithHash() {
+    const index = indexFromHash();
+    if (index === -1) return false;
+    activate(index);
+    root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return true;
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', (event) => {
+      event.preventDefault();
+      activate(i);
+      history.replaceState(null, '', `#${panels[i].id}`);
+    });
+
+    tab.addEventListener('keydown', (event) => {
+      let next = null;
+      if (event.key === 'ArrowRight') next = (i + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabs.length - 1;
+      if (next === null) return;
+      event.preventDefault();
+      activate(next, { focus: true });
+      history.replaceState(null, '', `#${panels[next].id}`);
+    });
+  });
+
+  // Подбор gap: справа всегда виден край следующего таба
+  const scroller = root.querySelector('.farmers-tabs__scroll');
+  const MIN_PEEK = 32;
+  function updateTabsGap() {
+    list.style.removeProperty('--tabs-gap');
+    if (!scroller || scroller.scrollWidth <= scroller.clientWidth) return;
+
+    const minGap = parseFloat(getComputedStyle(list).columnGap) || 0;
+    const widths = tabs.map((tab) => tab.parentElement.offsetWidth);
+    const view = scroller.clientWidth;
+
+    for (let gap = minGap; gap <= minGap * 3; gap += 1) {
+      let start = 0; // левый край очередного таба
+      let i = 0;
+      while (i < widths.length && start + widths[i] <= view) {
+        start += widths[i] + gap;
+        i++;
+      }
+      if (i === widths.length) return; // всё влезает — подсказка не нужна
+      const visible = view - start; // сколько px таба i видно
+      if (visible >= MIN_PEEK && widths[i] - visible >= MIN_PEEK) {
+        list.style.setProperty('--tabs-gap', `${gap}px`);
+        return;
+      }
+    }
+  }
+  updateTabsGap();
+  window.addEventListener('resize', updateTabsGap);
+  if (document.fonts) document.fonts.ready.then(updateTabsGap);
+
+  if (!syncWithHash()) activate(0);
+  window.addEventListener('hashchange', syncWithHash);
+}
+
+document.addEventListener('DOMContentLoaded', initFarmersTabs);
+
+// --- FAQ (доставка, «О магазине»): плавное раскрытие поверх нативного <details> ---
 // Два уровня аккордеона (группа вопросов → сам вопрос) работают по одной
 // и той же схеме, поэтому она вынесена в enableSmoothDetails.
 document.addEventListener('DOMContentLoaded', () => {
@@ -584,9 +706,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggle && body) enableSmoothDetails(group, toggle, body);
   });
 
-  document.querySelectorAll('.delivery-faq__item').forEach((item) => {
-    const summary = item.querySelector('.delivery-faq__question');
-    const wrap = item.querySelector('.delivery-faq__answer-wrap');
+  document.querySelectorAll('.faq__item').forEach((item) => {
+    const summary = item.querySelector('.faq__question');
+    const wrap = item.querySelector('.faq__answer-wrap');
     if (summary && wrap) enableSmoothDetails(item, summary, wrap);
   });
 });

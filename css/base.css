@@ -34,6 +34,19 @@ textarea::placeholder {
   display: none;
 }
 
+/* Визуально скрытый текст (для скринридеров) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Скроллбар — Webkit */
 ::-webkit-scrollbar {
   width: 10px;
@@ -75,6 +88,10 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .reveal {
     transition: none;
     opacity: 1;
@@ -150,7 +167,10 @@ h6 {
   line-height: var(--lh-button);
   letter-spacing: var(--ls-button);
   cursor: pointer;
-  transition: all ease-in 0.2s;
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
 }
 
 .btn--lg {
@@ -173,8 +193,8 @@ h6 {
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
   transition:
-    background-color ease-in 0.2s,
-    color ease-in 0.2s;
+    background-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
 }
 .btn--outline:hover {
   background-color: var(--color-accent);
@@ -194,8 +214,8 @@ h6 {
   color: var(--color-text);
   border: 1px solid var(--color-border);
   transition:
-    background-color ease-in 0.2s,
-    border-color ease-in 0.2s;
+    background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
 }
 .btn--subtle:hover {
   background-color: var(--color-surface-muted);
@@ -251,7 +271,7 @@ h6 {
   position: relative;
   color: var(--dot-link-color, var(--color-text));
   text-decoration: none;
-  transition: color 0.2s ease-in;
+  transition: color var(--duration-base) var(--ease-out);
 }
 
 .dot-link::before {
@@ -265,7 +285,7 @@ h6 {
   border-radius: var(--radius-full);
   background-color: var(--dot-link-dot, var(--color-accent));
   opacity: 0;
-  transition: opacity 0.2s ease-in;
+  transition: opacity var(--duration-base) var(--ease-out);
 }
 
 .dot-link:hover {
@@ -356,7 +376,7 @@ h6 {
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: box-shadow ease-in 0.2s;
+  transition: box-shadow var(--duration-base) var(--ease-out);
 }
 
 .product-card:hover {
@@ -365,7 +385,8 @@ h6 {
 
 .product-card__media {
   position: relative;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: var(--product-image-ratio);
+  overflow: hidden;
 }
 
 .product-card__img {
@@ -479,7 +500,7 @@ h6 {
   border-radius: var(--radius-full);
   background-color: var(--color-accent);
   color: var(--color-text-inverse);
-  transition: background-color 0.2s ease;
+  transition: background-color var(--duration-base) var(--ease-out);
 }
 
 .product-card__add svg {
@@ -509,6 +530,204 @@ h6 {
 .product-card__add--in-cart {
   background-color: var(--color-accent-active);
 }
+
+/* Карточка фермерского хозяйства */
+.farm-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .farm-card:hover {
+    box-shadow: var(--shadow-card);
+  }
+
+  .farm-card:hover .farm-card__more {
+    background-color: var(--color-accent-hover);
+  }
+
+  .farm-card:hover .farm-card__more svg {
+    transform: translateX(3px);
+  }
+}
+
+/* Ссылка занимает всю карточку (::after), поэтому фокус подсвечиваем на карточке */
+.farm-card:focus-within {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.farm-card__media {
+  aspect-ratio: var(--product-image-ratio);
+  overflow: hidden;
+}
+
+.farm-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.farm-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+}
+
+.farm-card__title {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  font-weight: 600;
+}
+
+.farm-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.farm-card__link:focus-visible {
+  outline: none;
+}
+
+.farm-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.farm-card__location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.farm-card__pin {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.farm-card__text {
+  color: var(--color-text-muted);
+}
+
+.farm-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.farm-card__tag {
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+  font-size: var(--fs-body-sm);
+}
+
+.farm-card__more {
+  margin-top: auto;
+}
+
+.farm-card__tags {
+  margin-bottom: var(--space-sm);
+}
+
+/* --- Компонент: фото хозяйства (или заглушка с названием) --- */
+.farm-cover {
+  position: relative;
+  aspect-ratio: var(--product-image-ratio);
+  overflow: hidden;
+}
+
+.farm-cover__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.farm-cover__name {
+  position: absolute;
+  inset: 0 0 40% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-md);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-h3);
+  line-height: var(--lh-h4);
+  color: var(--color-text-inverse);
+  text-align: center;
+  text-wrap: balance;
+  pointer-events: none;
+}
+
+.farm-cover--placeholder {
+  background-color: var(--color-accent);
+}
+
+/* --- Компонент: карточка-приглашение фермеру --- */
+.farm-invite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-md);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: transparent;
+  color: var(--color-text);
+  text-align: center;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
+}
+
+.farm-invite__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+.farm-invite__icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.farm-invite__text {
+  font-weight: 500;
+}
+
+@media (hover: hover) {
+  .farm-invite:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .farm-invite:hover .farm-invite__cta svg {
+    transform: translateX(3px);
+  }
+}
+
 /* --- Хлебные крошки --- */
 .breadcrumbs {
   padding: var(--space-md) 0;
@@ -533,7 +752,7 @@ h6 {
 
 .breadcrumbs__link {
   color: var(--color-text-muted);
-  transition: color ease-in 0.2s;
+  transition: color var(--duration-base) var(--ease-out);
 }
 .breadcrumbs__link:hover {
   color: var(--color-accent);
@@ -545,4 +764,238 @@ h6 {
 
 .breadcrumbs__sep {
   color: var(--color-text-disabled);
+}
+
+/* --- Согласие на обработку ПД --- */
+.agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.agreement__checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  position: relative;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color var(--duration-base) var(--ease-out), background-color var(--duration-base) var(--ease-out);
+}
+.agreement__checkbox::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--color-surface);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform ease-in 0.15s;
+}
+.agreement__checkbox:hover {
+  border-color: var(--color-accent);
+}
+.agreement__checkbox:checked {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+}
+.agreement__checkbox:checked::after {
+  transform: rotate(45deg) scale(1);
+}
+
+
+/* --- Компонент: карточка региона (главная, «О магазине») --- */
+.region-card {
+  display: block; /* без этого браузер игнорирует aspect-ratio на <a> (инлайн-элемент по умолчанию) */
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: var(--color-text-inverse);
+  transition: box-shadow var(--duration-base) var(--ease-out);
+}
+
+.region-card:hover {
+  box-shadow: var(--shadow-card); /* тот же hover, что у .product-card — единообразие */
+}
+
+.region-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.region-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(13, 23, 16, 0.85) 0%,
+    rgba(13, 23, 16, 0.15) 60%,
+    rgba(13, 23, 16, 0) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-sm);
+  gap: 0.2rem;
+}
+
+.region-card__title {
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-h5);
+  line-height: var(--lh-h5);
+}
+
+.region-card__text {
+  font-size: var(--fs-body-sm);
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  .region-card {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* --- Компонент: вопрос-ответ (аккордеон на <details>) --- */
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.faq__item {
+  padding: 0 var(--space-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+/* min-height 44px — минимальная тач-зона для аккордеона на мобилке */
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: 2.75rem;
+  padding: var(--space-sm) 0;
+  font-size: var(--fs-body-lg);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-accent);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.faq__item[open] > .faq__question .faq__icon {
+  transform: rotate(180deg);
+}
+
+/* Высоту анимирует JS (main.js) через Web Animations API — нативный
+   display:none у закрытого <details> не даёт анимировать её чисто CSS. */
+.faq__answer-wrap {
+  overflow: hidden;
+}
+
+.faq__answer {
+  padding-bottom: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq__icon {
+    transition: none;
+  }
+}
+
+/* --- Компонент: тёмная CTA-плашка --- */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-inverse);
+}
+
+/* Декор: горы справа, контент поверх */
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/placeholder/mountains-decor.webp") center bottom / cover no-repeat;
+  opacity: var(--opacity-decor);
+  pointer-events: none;
+}
+
+.cta-banner > * {
+  position: relative;
+}
+
+.cta-banner :focus-visible {
+  outline-color: var(--color-text-inverse);
+}
+
+.cta-banner__text {
+  opacity: 0.9;
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.cta-banner__btn {
+  max-width: none;
+  width: auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+  text-align: center;
+}
+
+.cta-banner__hint {
+  font-size: var(--fs-body-sm);
+  opacity: 0.85;
+}
+
+.cta-banner__hint .underline-link {
+  --underline-link-color: var(--color-text-inverse);
+  color: var(--color-text-inverse);
+}
+
+@media (max-width: 640px) {
+  .cta-banner {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .cta-banner__btn {
+    width: 100%;
+  }
 }

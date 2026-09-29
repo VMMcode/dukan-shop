@@ -1,0 +1,461 @@
+/* ===== Страница «О магазине» (about.html) ===== */
+
+/* --- Hero --- */
+.about-hero__inner {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: stretch;
+  gap: var(--space-xl);
+}
+
+.about-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.about-hero__title {
+  color: var(--color-accent);
+}
+
+.about-hero__lead {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+}
+
+.about-hero__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin-top: auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* Карточка факта — значения как у .delivery-hero__card */
+.about-hero__fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-width: 0;
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.about-hero__fact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-muted);
+}
+
+.about-hero__fact-icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--color-accent);
+}
+
+.about-hero__fact-value {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--color-text);
+}
+
+.about-hero__fact-label {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  color: var(--color-text-muted);
+}
+
+.about-hero__media {
+  position: relative;
+  align-self: start;
+  min-width: 0;
+}
+
+.about-hero__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.about-hero__badge {
+  position: absolute;
+  left: calc(var(--space-md) * -1);
+  bottom: var(--space-md);
+  max-width: calc(100% - var(--space-md));
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  color: var(--color-text-muted);
+}
+
+.about-hero__badge-word {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: var(--fw-h3);
+  color: var(--color-accent);
+  margin-right: 0.5rem;
+}
+
+/* --- Кто мы --- */
+.about-story .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-story__lead {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+}
+
+.about-story__compare {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.about-story__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.about-story__card--muted .about-story__card-title {
+  color: var(--color-text-muted);
+}
+
+.about-story__card-text {
+  color: var(--color-text-muted);
+}
+
+/* --- Как продукт попадает к вам --- */
+.about-path .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.about-path__list {
+  --path-number-size: 2.75rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg) var(--space-md);
+  list-style: none;
+  padding: 0;
+}
+
+.about-path__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.about-path__number {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--path-number-size);
+  height: var(--path-number-size);
+  margin-bottom: var(--space-xs);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+}
+
+/* Линия от кружка к следующему */
+.about-path__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--path-number-size) / 2);
+  left: var(--path-number-size);
+  width: calc(100% + var(--space-md) - var(--path-number-size));
+  height: 2px;
+  background-color: var(--color-text-disabled);
+}
+
+.about-path__title {
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+  line-height: var(--lh-h4);
+}
+
+.about-path__text {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- Принцип --- */
+.principle__figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-inverse);
+  text-align: center;
+}
+
+.principle__figure::before {
+  content: "\201C";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  font-size: calc(var(--fs-h1) * 2.5);
+  line-height: 1;
+  color: var(--color-on-accent-subtle);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.principle__quote {
+  position: relative;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-h2);
+}
+
+.principle__author {
+  position: relative;
+  margin-top: var(--space-md);
+  font-size: var(--fs-body-sm);
+  color: var(--color-accent-muted);
+}
+
+/* --- Что мы обещаем --- */
+.about-promises .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.about-promises__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  list-style: none;
+  padding: 0;
+}
+
+.about-promises__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.about-story__icon,
+.about-promises__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--icon-size) * 2.5);
+  height: calc(var(--icon-size) * 2.5);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+.about-story__icon svg,
+.about-promises__icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.about-story__card-title,
+.about-promises__title {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-h4);
+  font-weight: 600;
+}
+
+.about-promises__text {
+  color: var(--color-text-muted);
+}
+
+/* --- Регионы: вводный абзац --- */
+.regions__lead {
+  color: var(--color-text-muted);
+}
+
+/* --- Плашка для фермеров --- */
+.farmer-invite__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-md);
+  border: 1px dashed var(--color-accent);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .farmer-invite__inner:hover {
+    border-color: var(--color-accent-hover);
+  }
+}
+
+.farmer-invite__icon {
+  flex-shrink: 0;
+}
+
+.farmer-invite__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  min-width: 0;
+}
+
+.farmer-invite__title {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.farmer-invite__text {
+  color: var(--color-text-muted);
+}
+
+.farmer-invite__btn {
+  flex-shrink: 0;
+  width: auto;
+  text-align: center;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1024px) {
+  .about-hero__inner {
+    gap: var(--space-lg);
+  }
+
+  .about-hero__badge {
+    left: var(--space-sm);
+    bottom: var(--space-sm);
+    max-width: calc(100% - var(--space-sm) * 2);
+  }
+
+  .about-path__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-path__item:not(:last-child)::after {
+    display: none;
+  }
+
+  .about-promises__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero__facts {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero__fact {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-sm);
+    row-gap: var(--space-2xs);
+    align-items: center;
+  }
+
+  .about-hero__fact-icon {
+    grid-row: 1 / span 2;
+  }
+
+  /* Плашка по центру, половиной высоты выходит за низ фото */
+  .about-hero__media {
+    margin-bottom: var(--space-lg);
+  }
+
+  .about-hero__badge {
+    left: 50%;
+    bottom: 0;
+    width: max-content;
+    max-width: calc(100% - var(--space-md) * 2);
+    transform: translate(-50%, 50%);
+  }
+
+  .about-story__compare {
+    grid-template-columns: 1fr;
+  }
+
+  .about-path__list {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .about-path__item {
+    display: grid;
+    grid-template-columns: var(--path-number-size) 1fr;
+    column-gap: var(--space-md);
+    row-gap: var(--space-2xs);
+    align-items: start;
+  }
+
+  .about-path__number {
+    grid-row: 1 / span 2;
+    margin-bottom: 0;
+  }
+
+  .about-path__item:not(:last-child)::after {
+    display: block;
+    top: var(--path-number-size);
+    bottom: calc(var(--space-lg) * -1);
+    left: calc(var(--path-number-size) / 2 - 1px);
+    width: 2px;
+    height: auto;
+  }
+
+  .farmer-invite__btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .principle__figure {
+    padding: var(--space-lg) var(--space-md);
+  }
+}

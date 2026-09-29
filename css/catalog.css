@@ -63,7 +63,7 @@
   gap: 0.3rem;
   font-size: var(--fs-body-sm);
   color: var(--color-text-muted);
-  transition: color ease-in 0.2s;
+  transition: color var(--duration-base) var(--ease-out);
 }
 .filters__reset:hover {
   color: var(--color-accent);
@@ -105,7 +105,7 @@
   border: 2px solid var(--color-border);
   border-radius: 4px; /* radius-sm (8px) на боксе 18px читается почти кругом */
   cursor: pointer;
-  transition: border-color ease-in 0.2s, background-color ease-in 0.2s;
+  transition: border-color var(--duration-base) var(--ease-out), background-color var(--duration-base) var(--ease-out);
 }
 .filters__checkbox::after {
   content: "";
@@ -152,7 +152,7 @@
 
 .filters__accordion-chevron {
   color: var(--color-text-muted);
-  transition: transform ease-in 0.2s;
+  transition: transform var(--duration-base) var(--ease-out);
   flex-shrink: 0;
 }
 .filters__accordion--open .filters__accordion-chevron {
@@ -326,7 +326,7 @@
   font-family: inherit;
   font-size: var(--fs-body-sm);
   cursor: pointer;
-  transition: border-color ease-in 0.2s;
+  transition: border-color var(--duration-base) var(--ease-out);
 }
 .catalog__sort-select.nice-select:hover,
 .catalog__sort-select.nice-select.open {
@@ -387,7 +387,7 @@
   height: 2rem;
   border-radius: var(--radius-sm);
   color: var(--color-text-muted);
-  transition: background-color ease-in 0.2s, color ease-in 0.2s;
+  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
 }
 .catalog__view-btn:hover {
   color: var(--color-accent);
@@ -484,7 +484,7 @@
   border-radius: var(--radius-md);
   color: var(--color-text-muted);
   font-size: var(--fs-body-sm);
-  transition: background-color ease-in 0.2s, color ease-in 0.2s;
+  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
 }
 .pagination__link:hover {
   background-color: var(--color-accent-muted);

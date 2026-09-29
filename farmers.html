@@ -9,8 +9,41 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/page-stub.css" />
-    <title>Фермеры — Дукан</title>
+    <link rel="stylesheet" href="nice-select2/nice-select2.css" />
+    <link rel="stylesheet" href="css/farmers.css" />
+
+    <title>Фермеры Кавказа — чьи продукты мы привозим в Москву | Дукан</title>
+    <meta
+      name="description"
+      content="Фермерские хозяйства Кабардино-Балкарии, Северной Осетии и Дагестана, с которыми работает Дукан. Узнайте, откуда наши продукты и кто их делает, — с доставкой по Москве."
+    />
+    <meta property="og:title" content="Наши фермеры — Дукан" />
+    <meta
+      property="og:description"
+      content="Республики Кавказа и фермерские хозяйства, чьи продукты Дукан привозит в Москву."
+    />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://dukan.ru/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Наши фермеры",
+            "item": "https://dukan.ru/farmers.html"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -20,13 +53,16 @@
           <nav class="header__top-nav">
             <ul class="header__top-list">
               <li class="header__top-item">
-                <a href="about.html" class="header__top-link">О нас</a>
+                <a href="about.html" class="header__top-link">О&nbsp;нас</a>
+              </li>
+              <li class="header__top-item">
+                <a href="farmers.html" class="header__top-link">Наши фермеры</a>
               </li>
               <li class="header__top-item">
                 <a href="reviews.html" class="header__top-link">Отзывы</a>
               </li>
               <li class="header__top-item">
-                <a href="delivery.html" class="header__top-link">Доставка и оплата</a>
+                <a href="delivery.html" class="header__top-link">Доставка и&nbsp;оплата</a>
               </li>
               <li class="header__top-item">
                 <a href="contacts.html" class="header__top-link">Контакты</a>
@@ -46,7 +82,7 @@
                   d="M19 7h-3V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h1c0 1.66 1.34 3 3 3s3-1.34 3-3h4c0 1.66 1.34 3 3 3s3-1.34 3-3h1c1.1 0 2-.9 2-2v-5l-3-3zM8 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm10 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM19 12h-2.5V9H18l1 3z"
                 />
               </svg>
-              <span>Доставка по Москве</span>
+              <span>Доставка по&nbsp;Москве</span>
             </div>
 
             <!-- Телефон: заглушка, в проде выводится через ACF -->
@@ -64,7 +100,7 @@
                   d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
                 />
               </svg>
-              <span class="header__phone-number">+7 999 777 77 77</span>
+              <span class="header__phone-number">+7&nbsp;999&nbsp;777&nbsp;77&nbsp;77</span>
             </a>
           </div>
         </div>
@@ -168,7 +204,7 @@
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <path d="M16 10a4 4 0 0 1-8 0"></path>
               </svg>
-              <span class="header__cart-price">2 440 ₽</span>
+              <span class="header__cart-price">2&nbsp;440&nbsp;₽</span>
               <span class="header__cart-badge">3</span>
             </a>
           </div>
@@ -230,7 +266,7 @@
                     alt=""
                     class="category-card__image"
                   />
-                  <span class="category-card__label">Овощи и фрукты</span>
+                  <span class="category-card__label">Овощи и&nbsp;фрукты</span>
                 </a>
               </li>
               <li>
@@ -270,7 +306,7 @@
                     alt=""
                     class="category-card__image"
                   />
-                  <span class="category-card__label">Мёд и варенье</span>
+                  <span class="category-card__label">Мёд и&nbsp;варенье</span>
                 </a>
               </li>
             </ul>
@@ -282,12 +318,13 @@
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
         <nav class="header__mobile-nav">
           <ul class="header__mobile-list">
-            <li><a href="about.html" class="header__mobile-link">О нас</a></li>
+            <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
+            <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
             <li>
               <a href="reviews.html" class="header__mobile-link">Отзывы</a>
             </li>
             <li>
-              <a href="delivery.html" class="header__mobile-link">Доставка и оплата</a>
+              <a href="delivery.html" class="header__mobile-link">Доставка и&nbsp;оплата</a>
             </li>
             <li>
               <a href="contacts.html" class="header__mobile-link">Контакты</a>
@@ -297,40 +334,494 @@
         <div class="header__mobile-phone">
           <!-- Телефон: заглушка, в проде вывод через ACF -->
           <a href="tel:+79997777777" class="header__phone-number"
-            >+7 999 777 77 77</a
+            >+7&nbsp;999&nbsp;777&nbsp;77&nbsp;77</a
           >
         </div>
       </div>
     </header>
-    <!-- ПЛАН (не сверстано): страница-каталог всех фермеров, сгруппированных
-         по регионам. Структура почти как catalog.html — сетка карточек
-         (grid), но карточка фермы, а не товара: фото, название, регион,
-         короткое описание, ссылка на профиль (farmer.html). Фильтр — те же
-         чекбоксы, что в catalog.html, только по региону, а не по категории
-         товара. Сюда ведёт "Узнать больше" из блока "Откуда наши продукты"
-         на главной. -->
+
     <!-- Основной контент -->
     <main class="main-content">
-      <section class="page-stub">
+      <div class="breadcrumbs-strip">
         <div class="container">
-          <div class="page-stub__inner">
-            <span class="page-stub__icon">
-              <svg
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 8v4l3 2" />
-              </svg>
-            </span>
-            <h1 class="page-stub__title">Страница ещё в разработке</h1>
-            <a href="index.html" class="btn btn--primary btn--lg page-stub__home"
-              >Вернуться на главную</a
-            >
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="index.html" class="breadcrumbs__link">Главная</a>
+              </li>
+              <li class="breadcrumbs__sep">/</li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current" aria-current="page"
+                  >Наши фермеры</span
+                >
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <section class="farmers-hero" aria-labelledby="farmersHeroTitle">
+        <div class="container">
+          <div class="farmers-hero__inner">
+            <h1 id="farmersHeroTitle" class="farmers-hero__title">
+              Фермеры Кавказа, чьи продукты мы привозим
+            </h1>
+            <p class="farmers-hero__lead">
+              Дукан привозит в&nbsp;Москву фермерские продукты с&nbsp;Северного Кавказа&nbsp;—
+              напрямую из&nbsp;хозяйств Кабардино-Балкарии, Северной Осетии и&nbsp;Дагестана. На&nbsp;этой странице собраны республики, с&nbsp;которыми мы
+              работаем, и&nbsp;фермеры, чьи продукты вы найдёте
+              <a href="catalog.html" class="underline-link">в&nbsp;нашем каталоге</a>.
+            </p>
+            <p class="farmers-hero__lead">
+              Здесь можно узнать, чем живёт каждый регион, какие традиции стоят
+              за&nbsp;его кухней и&nbsp;кто производит то, что приезжает к&nbsp;вам домой. Мы
+              считаем, что покупатель вправе знать, откуда его еда, поэтому у&nbsp;каждого товара на&nbsp;сайте указаны хозяйство и&nbsp;республика, а&nbsp;о&nbsp;самих
+              фермерах мы рассказываем открыто.
+            </p>
+            <h2 class="farmers-hero__subtitle">Как мы выбираем фермеров</h2>
+            <ul class="farmers-hero__list">
+              <li class="farmers-hero__item">
+                <span class="farmers-hero__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </span>
+                <h3 class="farmers-hero__item-title">Знаем лично</h3>
+                <p class="farmers-hero__item-text">
+                  Ездим в&nbsp;хозяйства, знакомимся с&nbsp;семьёй и&nbsp;смотрим, как делают
+                  продукт.
+                </p>
+              </li>
+              <li class="farmers-hero__item">
+                <span class="farmers-hero__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                    <line x1="9" y1="9" x2="9.01" y2="9" />
+                    <line x1="15" y1="9" x2="15.01" y2="9" />
+                  </svg>
+                </span>
+                <h3 class="farmers-hero__item-title">Пробуем сами</h3>
+                <p class="farmers-hero__item-text">
+                  В&nbsp;каталог попадает только то, что понравилось нам самим.
+                </p>
+              </li>
+              <li class="farmers-hero__item">
+                <span class="farmers-hero__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <path d="M9 15l2 2 4-4" />
+                  </svg>
+                </span>
+                <h3 class="farmers-hero__item-title">Проверяем документы</h3>
+                <p class="farmers-hero__item-text">
+                  Декларации соответствия, а&nbsp;для&nbsp;мяса и&nbsp;молока&nbsp;— ветеринарные
+                  документы в&nbsp;«Меркурии».
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Республики: без JS — обычный список панелей, JS (initFarmersTabs) превращает его в табы -->
+      <section id="regions" class="farmers-tabs" aria-labelledby="farmersTabsTitle">
+        <div class="container">
+          <div class="farmers-tabs__inner">
+            <h2 id="farmersTabsTitle" class="visually-hidden">Республики и&nbsp;хозяйства</h2>
+
+            <div class="farmers-tabs__scroll">
+              <ul class="farmers-tabs__list">
+                <li class="farmers-tabs__item">
+                  <a href="#kbr" class="farmers-tabs__tab">
+                    <span class="farmers-tabs__name">Кабардино-Балкария</span>
+                    <span class="farmers-tabs__count">2&nbsp;хозяйства</span>
+                  </a>
+                </li>
+                <li class="farmers-tabs__item">
+                  <a href="#severnaya-osetiya" class="farmers-tabs__tab">
+                    <span class="farmers-tabs__name">Северная Осетия</span>
+                    <span class="farmers-tabs__count">1&nbsp;хозяйство</span>
+                  </a>
+                </li>
+                <li class="farmers-tabs__item">
+                  <a href="#dagestan" class="farmers-tabs__tab">
+                    <span class="farmers-tabs__name">Дагестан</span>
+                    <span class="farmers-tabs__count">2&nbsp;хозяйства</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Кабардино-Балкария -->
+            <div id="kbr" class="farmers-panel">
+              <div class="farmers-panel__top">
+                <div class="farmers-panel__media">
+                  <img
+                    src="img/content/kbr.webp"
+                    alt="Горные пастбища у подножия Эльбруса в Кабардино-Балкарии"
+                    class="farmers-panel__img"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="farmers-panel__info">
+                  <h2 class="farmers-panel__title">Кабардино-Балкария</h2>
+                  <p class="farmers-panel__text">
+                    Кабардино-Балкария лежит у&nbsp;подножия Эльбруса: горные
+                    пастбища, чистая ледниковая вода и&nbsp;мягкий климат предгорий.
+                    Здесь крепкие традиции молочного и&nbsp;мясного животноводства&nbsp;—
+                    домашний айран, сметана, сыр и&nbsp;мясные деликатесы.
+                  </p>
+                  <p class="farmers-panel__label">Чем славится</p>
+                  <ul class="farmers-panel__highlights">
+                    <li class="farmers-panel__highlight">Айран</li>
+                    <li class="farmers-panel__highlight">Домашний сыр</li>
+                    <li class="farmers-panel__highlight">Мясные деликатесы</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p class="farmers-panel__subtitle">Хозяйства республики</p>
+
+              <!-- Медиа карточки: если у хозяйства заполнено поле farm_photo — выводим его (<img> с alt = farm_name + регион), иначе — вариант farm-cover--placeholder: фон img/placeholder/farm-placeholder.webp и farm_name в .farm-cover__name -->
+              <!-- Реальные хозяйства из открытых источников — для демонстрации клиенту. До запуска сайта заменить на фактических партнёров или получить согласие хозяйств на размещение. В WordPress: таб = термин таксономии region (поля ACF: region_intro, region_photo, region_highlights), карточка = CPT farmer (farm_location, farm_teaser, farm_photo) -->
+              <ul class="farmers-panel__grid">
+                <li class="farmers-panel__item">
+                  <article class="farm-card">
+                    <div class="farm-card__media">
+                      <img src="img/logo/logo-dade.svg" alt="Семейная ферма Дадэ, Кабардино-Балкария" class="farm-card__img" loading="lazy" />
+                    </div>
+                    <div class="farm-card__body">
+                      <h3 class="farm-card__title">
+                        <a href="farmer.html" class="farm-card__link">Семейная ферма Дадэ</a>
+                      </h3>
+                      <p class="farm-card__location">
+                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        с.&nbsp;Шалушка, Чегемский район
+                      </p>
+                      <p class="farm-card__text">Айран, сметана и&nbsp;сыр ручной работы по&nbsp;семейным рецептам.</p>
+                      <ul class="farm-card__tags" aria-label="Категории продуктов">
+                        <li class="farm-card__tag">Молочные продукты</li>
+                      </ul>
+                      <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
+                        Смотреть хозяйство
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      </span>
+                    </div>
+                  </article>
+                </li>
+                <li class="farmers-panel__item">
+                  <article class="farm-card">
+                    <div class="farm-card__media">
+                      <img src="img/logo/logo-bashorov.webp" alt="Мясной дом Башоровъ, Кабардино-Балкария" class="farm-card__img" loading="lazy" />
+                    </div>
+                    <div class="farm-card__body">
+                      <h3 class="farm-card__title">
+                        <a href="farmer.html" class="farm-card__link">Мясной дом Башоровъ</a>
+                      </h3>
+                      <p class="farm-card__location">
+                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        Прохладненский район
+                      </p>
+                      <p class="farm-card__text">Халяльные колбасы и&nbsp;деликатесы полного цикла&nbsp;— с&nbsp;2006&nbsp;года.</p>
+                      <ul class="farm-card__tags" aria-label="Категории продуктов">
+                        <li class="farm-card__tag">Колбасные изделия</li>
+                        <li class="farm-card__tag">Мясные копчёности</li>
+                      </ul>
+                      <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
+                        Смотреть хозяйство
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      </span>
+                    </div>
+                  </article>
+                </li>
+                <li class="farmers-panel__item">
+                  <a href="#partners" class="farm-invite">
+                    <span class="farm-invite__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                    </span>
+                    <span class="farm-invite__text">Вы фермер из&nbsp;Кабардино-Балкарии? Расскажите о&nbsp;своём хозяйстве</span>
+                    <span class="farm-invite__cta link-btn btn btn--outline">
+                      Оставить заявку
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Северная Осетия -->
+            <div id="severnaya-osetiya" class="farmers-panel">
+              <div class="farmers-panel__top">
+                <div class="farmers-panel__media">
+                  <img
+                    src="img/content/osetian.webp"
+                    alt="Горные ущелья и альпийские луга Северной Осетии"
+                    class="farmers-panel__img"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="farmers-panel__info">
+                  <h2 class="farmers-panel__title">Северная Осетия</h2>
+                  <p class="farmers-panel__text">
+                    Северная Осетия&nbsp;— край горных ущелий и&nbsp;альпийских лугов, где
+                    скотоводство и&nbsp;сыроделие веками были основой жизни.
+                    Осетинский сыр здесь делают почти в&nbsp;каждой семье, и&nbsp;без&nbsp;него
+                    не&nbsp;обходится ни&nbsp;один осетинский пирог.
+                  </p>
+                  <p class="farmers-panel__label">Чем славится</p>
+                  <ul class="farmers-panel__highlights">
+                    <li class="farmers-panel__highlight">Осетинский сыр</li>
+                    <li class="farmers-panel__highlight">Мясо</li>
+                    <li class="farmers-panel__highlight">Выпечка</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p class="farmers-panel__subtitle">Хозяйства республики</p>
+
+              <!-- Реальные хозяйства из открытых источников — для демонстрации клиенту. До запуска сайта заменить на фактических партнёров или получить согласие хозяйств на размещение. В WordPress: таб = термин таксономии region (поля ACF: region_intro, region_photo, region_highlights), карточка = CPT farmer (farm_location, farm_teaser, farm_photo) -->
+              <ul class="farmers-panel__grid">
+                <li class="farmers-panel__item">
+                  <article class="farm-card">
+                    <div class="farm-card__media farm-cover farm-cover--placeholder">
+                      <img src="img/placeholder/farm-placeholder.webp" alt="" class="farm-cover__img" loading="lazy" />
+                      <span class="farm-cover__name" aria-hidden="true">Алания продукт</span>
+                    </div>
+                    <div class="farm-card__body">
+                      <h3 class="farm-card__title">
+                        <a href="farmer.html" class="farm-card__link">Алания продукт</a>
+                      </h3>
+                      <p class="farm-card__location">
+                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        Северная Осетия
+                      </p>
+                      <p class="farm-card__text">Осетинский сыр по&nbsp;старинному рецепту&nbsp;— с&nbsp;2017&nbsp;года.</p>
+                      <ul class="farm-card__tags" aria-label="Категории продуктов">
+                        <li class="farm-card__tag">Молочные продукты</li>
+                      </ul>
+                      <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
+                        Смотреть хозяйство
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      </span>
+                    </div>
+                  </article>
+                </li>
+                <li class="farmers-panel__item">
+                  <a href="#partners" class="farm-invite">
+                    <span class="farm-invite__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                    </span>
+                    <span class="farm-invite__text">Вы фермер из&nbsp;Северной Осетии? Расскажите о&nbsp;своём хозяйстве</span>
+                    <span class="farm-invite__cta link-btn btn btn--outline">
+                      Оставить заявку
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Дагестан -->
+            <div id="dagestan" class="farmers-panel">
+              <div class="farmers-panel__top">
+                <div class="farmers-panel__media">
+                  <img
+                    src="img/content/dagestan.webp"
+                    alt="Горные села и сады Дагестана"
+                    class="farmers-panel__img"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="farmers-panel__info">
+                  <h2 class="farmers-panel__title">Дагестан</h2>
+                  <p class="farmers-panel__text">
+                    Дагестан&nbsp;— одна из&nbsp;главных животноводческих республик страны. Здесь до&nbsp;сих пор жива традиция отгонного скотоводства: летом стада пасутся на&nbsp;высокогорных лугах, зимой спускаются на&nbsp;равнину, и&nbsp;круглый год животные питаются подножным кормом. Отсюда&nbsp;— нежная горная баранина и&nbsp;овечьи сыры, рецепты которых в&nbsp;сёлах передают из&nbsp;поколения в&nbsp;поколение.
+                  </p>
+                  <p class="farmers-panel__label">Чем славится</p>
+                  <ul class="farmers-panel__highlights">
+                    <li class="farmers-panel__highlight">Горная баранина</li>
+                    <li class="farmers-panel__highlight">Овечий сыр</li>
+                    <li class="farmers-panel__highlight">Брынза</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p class="farmers-panel__subtitle">Хозяйства республики</p>
+
+              <!-- Реальные хозяйства из открытых источников — для демонстрации клиенту. До запуска сайта заменить на фактических партнёров или получить согласие хозяйств на размещение. В WordPress: таб = термин таксономии region (поля ACF: region_intro, region_photo, region_highlights), карточка = CPT farmer (farm_location, farm_teaser, farm_photo) -->
+              <ul class="farmers-panel__grid">
+                <li class="farmers-panel__item">
+                  <article class="farm-card">
+                    <div class="farm-card__media farm-cover farm-cover--placeholder">
+                      <img src="img/placeholder/farm-placeholder.webp" alt="" class="farm-cover__img" loading="lazy" />
+                      <span class="farm-cover__name" aria-hidden="true">Сыроварня „Мишель“</span>
+                    </div>
+                    <div class="farm-card__body">
+                      <h3 class="farm-card__title">
+                        <a href="farmer.html" class="farm-card__link">Сыроварня „Мишель“</a>
+                      </h3>
+                      <p class="farm-card__location">
+                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        г.&nbsp;Махачкала
+                      </p>
+                      <p class="farm-card__text">Овечий высокогорный сыр&nbsp;— золото конкурса «Лучший сыр России».</p>
+                      <ul class="farm-card__tags" aria-label="Категории продуктов">
+                        <li class="farm-card__tag">Молочные продукты</li>
+                      </ul>
+                      <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
+                        Смотреть хозяйство
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      </span>
+                    </div>
+                  </article>
+                </li>
+                <li class="farmers-panel__item">
+                  <article class="farm-card">
+                    <div class="farm-card__media farm-cover farm-cover--placeholder">
+                      <img src="img/placeholder/farm-placeholder.webp" alt="" class="farm-cover__img" loading="lazy" />
+                      <span class="farm-cover__name" aria-hidden="true">Семья Магомедовых</span>
+                    </div>
+                    <div class="farm-card__body">
+                      <h3 class="farm-card__title">
+                        <a href="farmer.html" class="farm-card__link">Семья Магомедовых</a>
+                      </h3>
+                      <p class="farm-card__location">
+                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        с.&nbsp;Танты, Акушинский район
+                      </p>
+                      <p class="farm-card__text">Брынза по&nbsp;семейному рецепту&nbsp;— больше 20&nbsp;лет.</p>
+                      <ul class="farm-card__tags" aria-label="Категории продуктов">
+                        <li class="farm-card__tag">Молочные продукты</li>
+                      </ul>
+                      <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
+                        Смотреть хозяйство
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      </span>
+                    </div>
+                  </article>
+                </li>
+                <li class="farmers-panel__item">
+                  <a href="#partners" class="farm-invite">
+                    <span class="farm-invite__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                    </span>
+                    <span class="farm-invite__text">Вы фермер из&nbsp;Дагестана? Расскажите о&nbsp;своём хозяйстве</span>
+                    <span class="farm-invite__cta link-btn btn btn--outline">
+                      Оставить заявку
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Фермерам-партнёрам -->
+      <section id="partners" class="farmers-join" aria-labelledby="farmersJoinTitle">
+        <div class="container">
+          <div class="farmers-join__inner">
+            <div class="farmers-join__info">
+              <h2 id="farmersJoinTitle" class="farmers-join__title">
+                Вы фермер с&nbsp;Кавказа? Давайте работать вместе
+              </h2>
+              <p class="farmers-join__lead">
+                Мы ищем хозяйства, которые делают честные продукты и&nbsp;хотят
+                продавать их в&nbsp;Москве&nbsp;— без&nbsp;своего магазина, сайта и&nbsp;логистики.
+              </p>
+
+              <div class="farmers-join__list-block">
+                <h3 class="farmers-join__list-title">Что даёт Дукан</h3>
+                <ul class="farmers-join__list">
+                  <li class="farmers-join__item">
+                    <span class="farmers-join__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span>Свою машину с&nbsp;холодильным оборудованием&nbsp;— забираем продукты прямо с&nbsp;фермы.</span>
+                  </li>
+                  <li class="farmers-join__item">
+                    <span class="farmers-join__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span>Регулярные продажи в&nbsp;Москве каждую неделю.</span>
+                  </li>
+                  <li class="farmers-join__item">
+                    <span class="farmers-join__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span>Ваше хозяйство на&nbsp;сайте под&nbsp;своим именем&nbsp;— покупатели знают, кто делает продукт.</span>
+                  </li>
+                  <li class="farmers-join__item">
+                    <span class="farmers-join__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span>Никакой рекламы и&nbsp;маркетинга с&nbsp;вашей стороны.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="farmers-join__list-block">
+                <h3 class="farmers-join__list-title">Что нужно от&nbsp;вас</h3>
+                <ul class="farmers-join__list">
+                  <li class="farmers-join__item">
+                    <span class="farmers-join__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span>Стабильное качество и&nbsp;честный состав.</span>
+                  </li>
+                  <li class="farmers-join__item">
+                    <span class="farmers-join__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span>Документы на&nbsp;продукцию: декларации соответствия, для&nbsp;мяса и&nbsp;молока&nbsp;— ветеринарные документы в&nbsp;«Меркурии».</span>
+                  </li>
+                  <li class="farmers-join__item">
+                    <span class="farmers-join__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span>Фасовка и&nbsp;маркировка на&nbsp;ферме.</span>
+                  </li>
+                  <li class="farmers-join__item">
+                    <span class="farmers-join__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span>Готовность к&nbsp;регулярным поставкам.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- В WordPress — обработка через плагин форм, заявки уходят на почту бренда -->
+            <form class="farmers-join__form" action="#" method="post">
+              <h3 class="farmers-join__form-title">Оставьте заявку</h3>
+              <p class="farmers-join__form-note">Мы свяжемся с&nbsp;вами, чтобы познакомиться</p>
+
+              <div class="farmers-join__field">
+                <label class="farmers-join__label" for="joinName">Имя</label>
+                <input class="farmers-join__input" type="text" id="joinName" name="name" required autocomplete="name" />
+              </div>
+              <div class="farmers-join__field">
+                <label class="farmers-join__label" for="joinPhone">Телефон</label>
+                <input class="farmers-join__input" type="tel" id="joinPhone" name="phone" required autocomplete="tel" inputmode="tel" />
+              </div>
+              <div class="farmers-join__field">
+                <label class="farmers-join__label" for="joinRegion">Регион</label>
+                <select class="farmers-join__select" id="joinRegion" name="region" required>
+                  <option value="" disabled selected>Выберите регион</option>
+                  <option value="Кабардино-Балкария">Кабардино-Балкария</option>
+                  <option value="Северная Осетия">Северная Осетия</option>
+                  <option value="Дагестан">Дагестан</option>
+                  <option value="Карачаево-Черкесия">Карачаево-Черкесия</option>
+                  <option value="Чечня">Чечня</option>
+                  <option value="Ингушетия">Ингушетия</option>
+                  <option value="Адыгея">Адыгея</option>
+                  <option value="Другой регион">Другой регион</option>
+                </select>
+              </div>
+              <div class="farmers-join__field">
+                <label class="farmers-join__label" for="joinProducts">Что вы производите</label>
+                <textarea class="farmers-join__textarea" id="joinProducts" name="products" rows="4" required></textarea>
+              </div>
+              <label class="farmers-join__consent">
+                <input class="farmers-join__checkbox" type="checkbox" name="consent" required />
+                <span>Даю согласие на&nbsp;<a href="consent.html" class="underline-link">обработку персональных данных</a></span>
+              </label>
+              <button type="submit" class="farmers-join__submit btn btn--primary btn--lg">Отправить заявку</button>
+              <p class="farmers-join__help">
+                Остались вопросы?
+                <a href="contacts.html" class="underline-link">Свяжитесь с&nbsp;нами</a>
+              </p>
+            </form>
           </div>
         </div>
       </section>
@@ -421,7 +912,7 @@
                   alt="Логотип сайта"
                 />
                 <span class="logo__subtitle"
-                  >Фермерские продукты Кавказа с доставкой по Москве</span
+                  >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
                 >
               </a>
             </div>
@@ -429,28 +920,29 @@
             <nav class="footer__nav">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
-              <a href="about.html" class="footer__link dot-link">О нас</a>
-              <a href="delivery.html" class="footer__link dot-link">Доставка и оплата</a>
+              <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>
+              <a href="delivery.html" class="footer__link dot-link">Доставка и&nbsp;оплата</a>
               <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
+              <a href="farmers.html#partners" class="footer__link dot-link">Фермерам</a>
             </nav>
 
             <div class="footer__delivery">
               <span class="footer__col-title">Доставка</span>
               <span class="footer__info-line">Приём заказов: 9:00–20:00</span>
-              <span class="footer__info-line">Только по Москве</span>
-              <span class="footer__info-line">Мин. сумма заказа — 1500 ₽</span>
+              <span class="footer__info-line">Только по&nbsp;Москве</span>
+              <span class="footer__info-line">Мин.&nbsp;сумма заказа&nbsp;— 1500&nbsp;₽</span>
             </div>
 
             <div class="footer__contacts">
               <span class="footer__col-title">Контакты</span>
               <a href="tel:+79999999999" class="footer__link dot-link"
-                >+7 999 999-99-99</a
+                >+7&nbsp;999&nbsp;999-99-99</a
               >
               <a href="mailto:info@dukan.ru" class="footer__link dot-link"
                 >info@dukan.ru</a
               >
               <a href="https://wa.me/79999999999" class="footer__link dot-link"
-                >Написать в WhatsApp</a
+                >Написать в&nbsp;WhatsApp</a
               >
             </div>
 
@@ -460,13 +952,16 @@
                 >Политика конфиденциальности</a
               >
               <a href="consent.html" class="footer__link dot-link"
-                >Согласие на обработку ПД</a
+                >Согласие на&nbsp;обработку ПД</a
+              >
+              <a href="offer.html" class="footer__link dot-link"
+                >Публичная оферта</a
               >
             </div>
           </div>
 
           <div class="footer__bar">
-            <span class="footer__copy">© 2026 Дукан. Все права защищены.</span>
+            <span class="footer__copy">©&nbsp;2026 Дукан. Все права защищены.</span>
 
             <a
               href="#"
@@ -480,6 +975,7 @@
         </div>
       </div>
     </footer>
+    <script src="nice-select2/nice-select2.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

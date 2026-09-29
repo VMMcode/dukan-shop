@@ -34,7 +34,7 @@
   gap: 0.5rem;
   font-weight: 500;
   position: relative;
-  transition: color ease-in 0.2s;
+  transition: color var(--duration-base) var(--ease-out);
 }
 .header__top-link::before {
   content: "";
@@ -45,7 +45,7 @@
   border-radius: var(--radius-full);
   background-color: var(--color-accent);
   opacity: 0;
-  transition: opacity ease-in 0.2s;
+  transition: opacity var(--duration-base) var(--ease-out);
 }
 .header__top-link:hover {
   color: var(--color-accent);
@@ -74,7 +74,7 @@
 
 .header__phone-number {
   font-weight: 500;
-  transition: color ease-in 0.2s;
+  transition: color var(--duration-base) var(--ease-out);
 }
 .header__phone-number:hover {
   color: var(--color-accent);
@@ -98,7 +98,7 @@
   align-items: center;
   gap: 0.5rem;
   width: auto;
-  transition: background-color 0.2s;
+  transition: background-color var(--duration-base) var(--ease-out);
 }
 
 .catalog__menu {
@@ -149,7 +149,7 @@
   color: var(--color-text);
   font-size: var(--fs-body-sm);
   text-align: center;
-  transition: background-color 0.2s;
+  transition: background-color var(--duration-base) var(--ease-out);
 }
 .category-card:hover {
   background-color: var(--color-accent-muted);
@@ -186,7 +186,7 @@
   border-radius: 8px;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color var(--duration-base) var(--ease-out);
 }
 
 .header__search-input:focus {

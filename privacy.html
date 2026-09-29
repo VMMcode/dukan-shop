@@ -9,8 +9,35 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/page-stub.css" />
-    <title>Политика конфиденциальности — Дукан</title>
+    <link rel="stylesheet" href="css/legal.css" />
+
+    <!-- Реквизиты заполняются в настройках сайта (data-setting). Текст документа менять только по согласованию с юристом -->
+    <title>Политика обработки персональных данных | Дукан</title>
+    <meta name="description" content="Как интернет-магазин Дукан собирает, использует и защищает персональные данные покупателей." />
+    <meta property="og:title" content="Политика обработки персональных данных | Дукан" />
+    <meta property="og:description" content="Как интернет-магазин Дукан собирает, использует и защищает персональные данные покупателей." />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://dukan.ru/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Политика обработки персональных данных",
+            "item": "https://dukan.ru/privacy.html"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -21,6 +48,9 @@
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О нас</a>
+              </li>
+              <li class="header__top-item">
+                <a href="farmers.html" class="header__top-link">Наши фермеры</a>
               </li>
               <li class="header__top-item">
                 <a href="reviews.html" class="header__top-link">Отзывы</a>
@@ -283,6 +313,7 @@
         <nav class="header__mobile-nav">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О нас</a></li>
+            <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
             <li>
               <a href="reviews.html" class="header__mobile-link">Отзывы</a>
             </li>
@@ -305,26 +336,202 @@
 
     <!-- Основной контент -->
     <main class="main-content">
-      <section class="page-stub">
+      <div class="breadcrumbs-strip">
         <div class="container">
-          <div class="page-stub__inner">
-            <span class="page-stub__icon">
-              <svg
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 8v4l3 2" />
-              </svg>
-            </span>
-            <h1 class="page-stub__title">Страница ещё в разработке</h1>
-            <a href="index.html" class="btn btn--primary btn--lg page-stub__home"
-              >Вернуться на главную</a
-            >
+          <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="index.html" class="breadcrumbs__link">Главная</a>
+              </li>
+              <li class="breadcrumbs__sep">/</li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current" aria-current="page"
+                  >Политика обработки персональных данных</span
+                >
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <section class="legal" aria-labelledby="legalTitle">
+        <div class="container">
+          <header class="legal__header">
+            <h1 class="legal__title" id="legalTitle">Политика обработки персональных данных</h1>
+            <!-- В WordPress — из настроек сайта (ACF Options), одни и те же для всех документов -->
+            <p class="legal__updated">Редакция от <span data-setting="legal-updated-privacy"><time datetime="2026-09-29">29 сентября 2026 г.</time></span></p>
+          </header>
+
+          <div class="legal__layout">
+            <!-- Оглавление: на мобилке — раскрывающийся блок, на десктопе — sticky-колонка слева -->
+            <details class="legal__toc-details">
+              <summary class="legal__toc-summary">Содержание</summary>
+              <ol class="legal__toc-list">
+                <li class="legal__toc-item"><a href="#general" class="legal__toc-link">Общие положения</a></li>
+                <li class="legal__toc-item"><a href="#data" class="legal__toc-link">Какие данные мы обрабатываем</a></li>
+                <li class="legal__toc-item"><a href="#purposes" class="legal__toc-link">Цели обработки</a></li>
+                <li class="legal__toc-item"><a href="#legal-basis" class="legal__toc-link">Правовые основания обработки</a></li>
+                <li class="legal__toc-item"><a href="#processing" class="legal__toc-link">Порядок и условия обработки</a></li>
+                <li class="legal__toc-item"><a href="#third-parties" class="legal__toc-link">Передача персональных данных третьим лицам</a></li>
+                <li class="legal__toc-item"><a href="#cookies" class="legal__toc-link">Файлы cookie и веб-аналитика</a></li>
+                <li class="legal__toc-item"><a href="#rights" class="legal__toc-link">Права Пользователя</a></li>
+                <li class="legal__toc-item"><a href="#security" class="legal__toc-link">Защита персональных данных</a></li>
+                <li class="legal__toc-item"><a href="#changes" class="legal__toc-link">Изменение Политики</a></li>
+                <li class="legal__toc-item"><a href="#requisites" class="legal__toc-link">Реквизиты оператора</a></li>
+              </ol>
+            </details>
+
+            <nav class="legal__toc" aria-label="Содержание">
+              <h2 class="legal__toc-title">Содержание</h2>
+              <ol class="legal__toc-list">
+                <li class="legal__toc-item"><a href="#general" class="legal__toc-link">Общие положения</a></li>
+                <li class="legal__toc-item"><a href="#data" class="legal__toc-link">Какие данные мы обрабатываем</a></li>
+                <li class="legal__toc-item"><a href="#purposes" class="legal__toc-link">Цели обработки</a></li>
+                <li class="legal__toc-item"><a href="#legal-basis" class="legal__toc-link">Правовые основания обработки</a></li>
+                <li class="legal__toc-item"><a href="#processing" class="legal__toc-link">Порядок и условия обработки</a></li>
+                <li class="legal__toc-item"><a href="#third-parties" class="legal__toc-link">Передача персональных данных третьим лицам</a></li>
+                <li class="legal__toc-item"><a href="#cookies" class="legal__toc-link">Файлы cookie и веб-аналитика</a></li>
+                <li class="legal__toc-item"><a href="#rights" class="legal__toc-link">Права Пользователя</a></li>
+                <li class="legal__toc-item"><a href="#security" class="legal__toc-link">Защита персональных данных</a></li>
+                <li class="legal__toc-item"><a href="#changes" class="legal__toc-link">Изменение Политики</a></li>
+                <li class="legal__toc-item"><a href="#requisites" class="legal__toc-link">Реквизиты оператора</a></li>
+              </ol>
+            </nav>
+
+            <article class="legal__content">
+              <section class="legal__section" id="general">
+                <h2 class="legal__section-title">1. Общие положения</h2>
+                <p class="legal__text">1.1. Настоящая Политика определяет порядок обработки и меры по защите персональных данных пользователей сайта интернет-магазина «Дукан», расположенного по адресу <span data-setting="site-url">dukan.ru</span> (далее — Сайт). Политика разработана в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» (далее — Закон о персональных данных).</p>
+                <p class="legal__text">1.2. Оператором персональных данных является <span data-setting="seller-name">Наименование продавца</span>, ИНН <span data-setting="seller-inn">000000000000</span>, ОГРН / ОГРНИП <span data-setting="seller-ogrn">000000000000000</span>, адрес: <span data-setting="seller-address">Адрес регистрации продавца</span> (далее — Оператор).</p>
+                <p class="legal__text">1.3. Политика применяется ко всем персональным данным, которые Оператор получает от пользователей Сайта (далее — Пользователь).</p>
+                <p class="legal__text">1.4. Согласие Пользователя на обработку персональных данных оформляется отдельно — отметкой в форме на Сайте — и изложено в документе <a href="consent.html" class="underline-link">Согласие на обработку персональных данных</a>.</p>
+                <p class="legal__text">1.5. Политика находится в открытом доступе на Сайте по адресу <a href="privacy.html" class="underline-link">privacy.html</a>.</p>
+              </section>
+
+              <section class="legal__section" id="data">
+                <h2 class="legal__section-title">2. Какие данные мы обрабатываем</h2>
+                <p class="legal__text">2.1. При оформлении заказа: имя, фамилия (если указана), номер телефона, адрес электронной почты (если указан), адрес доставки, комментарий к заказу, состав и история заказов.</p>
+                <p class="legal__text">2.2. При входе и работе в личном кабинете: номер телефона, одноразовый код подтверждения, а также данные, которые Пользователь указывает в профиле: имя, фамилия, адрес электронной почты, адрес доставки.</p>
+                <p class="legal__text">2.3. При отправке отзыва о товаре: имя, фамилия, текст отзыва и оценка. На Сайте публикуются только имя, первая буква фамилии, текст отзыва и оценка.</p>
+                <p class="legal__text">2.4. При отправке пожелания магазину: имя, контактные данные (если указаны), текст сообщения. Пожелания на Сайте не публикуются.</p>
+                <p class="legal__text">2.5. При отправке заявки фермерского хозяйства: имя, номер телефона, регион, сведения о производимой продукции.</p>
+                <p class="legal__text">2.6. Автоматически при посещении Сайта: файлы cookie, IP-адрес, сведения о браузере и устройстве, дата и время посещения, просмотренные страницы.</p>
+                <p class="legal__text">2.7. Оператор не обрабатывает специальные категории персональных данных (сведения о расовой и национальной принадлежности, политических взглядах, религиозных или философских убеждениях, состоянии здоровья, интимной жизни) и биометрические персональные данные.</p>
+              </section>
+
+              <section class="legal__section" id="purposes">
+                <h2 class="legal__section-title">3. Цели обработки</h2>
+                <p class="legal__text">3.1. Оператор обрабатывает персональные данные в следующих целях:</p>
+                <ul class="legal__list">
+                  <li class="legal__item">приём, подтверждение, комплектация и доставка заказов, связь с Пользователем по вопросам заказа;</li>
+                  <li class="legal__item">регистрация и вход в личный кабинет, хранение истории заказов и данных профиля;</li>
+                  <li class="legal__item">публикация отзывов о товарах;</li>
+                  <li class="legal__item">рассмотрение пожеланий и обращений Пользователей;</li>
+                  <li class="legal__item">рассмотрение заявок фермерских хозяйств о сотрудничестве;</li>
+                  <li class="legal__item">исполнение обязанностей, предусмотренных законодательством Российской Федерации, в том числе в сфере налогового и бухгалтерского учёта;</li>
+                  <li class="legal__item">анализ использования Сайта и улучшение его работы.</li>
+                </ul>
+                <p class="legal__text">3.2. Оператор не использует персональные данные для рекламных рассылок. Если такие рассылки появятся, для них будет запрошено отдельное согласие.</p>
+              </section>
+
+              <section class="legal__section" id="legal-basis">
+                <h2 class="legal__section-title">4. Правовые основания обработки</h2>
+                <p class="legal__text">4.1. Согласие Пользователя на обработку его персональных данных (п. 1 ч. 1 ст. 6 Закона о персональных данных).</p>
+                <p class="legal__text">4.2. Необходимость исполнения договора, стороной которого является Пользователь, а также заключения договора по его инициативе (п. 5 ч. 1 ст. 6 Закона о персональных данных).</p>
+                <p class="legal__text">4.3. Необходимость исполнения обязанностей, возложенных на Оператора законодательством Российской Федерации (п. 2 ч. 1 ст. 6 Закона о персональных данных).</p>
+              </section>
+
+              <section class="legal__section" id="processing">
+                <h2 class="legal__section-title">5. Порядок и условия обработки</h2>
+                <p class="legal__text">5.1. Обработка персональных данных осуществляется с использованием средств автоматизации и без их использования и включает: сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (предоставление, доступ), обезличивание, блокирование, удаление, уничтожение.</p>
+                <p class="legal__text">5.2. Запись, систематизация, накопление, хранение, уточнение и извлечение персональных данных граждан Российской Федерации осуществляются с использованием баз данных, находящихся на территории Российской Федерации (ч. 5 ст. 18 Закона о персональных данных).</p>
+                <p class="legal__text">5.3. Персональные данные обрабатываются до достижения целей обработки, если иной срок не установлен законодательством Российской Федерации.</p>
+                <p class="legal__text">5.4. Данные личного кабинета хранятся до удаления аккаунта или отзыва согласия Пользователем.</p>
+                <p class="legal__text">5.5. Данные о заказах, необходимые для налогового и бухгалтерского учёта, хранятся в течение сроков, установленных законодательством Российской Федерации.</p>
+                <p class="legal__text">5.6. Данные из заявок фермерских хозяйств, по которым сотрудничество не начато, хранятся не более одного года с даты получения заявки.</p>
+                <p class="legal__text">5.7. При отзыве согласия Оператор прекращает обработку персональных данных и уничтожает их в срок, не превышающий тридцати дней с даты поступления отзыва, если иное не предусмотрено законодательством Российской Федерации или договором, стороной которого является Пользователь.</p>
+              </section>
+
+              <section class="legal__section" id="third-parties">
+                <h2 class="legal__section-title">6. Передача персональных данных третьим лицам</h2>
+                <p class="legal__text">6.1. Оператор не продаёт персональные данные и не передаёт их третьим лицам, за исключением следующих случаев:</p>
+                <ul class="legal__list">
+                  <li class="legal__item">провайдеру SMS-рассылок — только номер телефона и текст сообщения с кодом подтверждения для входа в личный кабинет;</li>
+                  <li class="legal__item">хостинг-провайдеру, на серверах которого размещён Сайт и хранятся данные;</li>
+                  <li class="legal__item">государственным органам в случаях, предусмотренных законодательством Российской Федерации.</li>
+                </ul>
+                <p class="legal__text">6.2. Передача персональных данных провайдерам осуществляется на основании договоров, обязывающих их соблюдать конфиденциальность и обеспечивать безопасность персональных данных (ч. 3 ст. 6 Закона о персональных данных).</p>
+                <p class="legal__text">6.3. Трансграничная передача персональных данных не осуществляется.</p>
+                <p class="legal__text">6.4. Доставку заказов выполняют курьеры Оператора; сторонним службам доставки персональные данные не передаются.</p>
+              </section>
+
+              <section class="legal__section" id="cookies">
+                <h2 class="legal__section-title">7. Файлы cookie и веб-аналитика</h2>
+                <p class="legal__text">7.1. Сайт использует файлы cookie — небольшие файлы, которые браузер сохраняет на устройстве Пользователя. Они нужны для работы корзины и личного кабинета, сохранения настроек и анализа посещаемости Сайта.</p>
+                <p class="legal__text">7.2. Для анализа посещаемости Сайт может использовать сервисы веб-аналитики. Эти данные используются в обобщённом виде и не применяются для установления личности Пользователя.</p>
+                <p class="legal__text">7.3. Пользователь может отключить cookie в настройках браузера. В этом случае часть функций Сайта (корзина, вход в личный кабинет) может работать некорректно.</p>
+              </section>
+
+              <section class="legal__section" id="rights">
+                <h2 class="legal__section-title">8. Права Пользователя</h2>
+                <p class="legal__text">8.1. Пользователь вправе:</p>
+                <ul class="legal__list">
+                  <li class="legal__item">получать сведения об обработке своих персональных данных;</li>
+                  <li class="legal__item">требовать уточнения, блокирования или уничтожения своих персональных данных, если они неполные, устаревшие, неточные, незаконно получены или не являются необходимыми для заявленной цели обработки;</li>
+                  <li class="legal__item">отозвать согласие на обработку персональных данных;</li>
+                  <li class="legal__item">обжаловать действия или бездействие Оператора в уполномоченный орган по защите прав субъектов персональных данных (Роскомнадзор) или в суд.</li>
+                </ul>
+                <p class="legal__text">8.2. Запросы и отзыв согласия направляются Оператору по адресу электронной почты <span data-setting="seller-email">info@dukan.ru</span>. Оператор отвечает на запрос в течение десяти рабочих дней с даты его получения. Этот срок может быть продлён не более чем на пять рабочих дней с направлением Пользователю мотивированного уведомления.</p>
+                <p class="legal__text">8.3. Чтобы удалить аккаунт в личном кабинете, Пользователь направляет запрос на <span data-setting="seller-email">info@dukan.ru</span> с номера телефона, привязанного к аккаунту, или указывает этот номер в письме.</p>
+              </section>
+
+              <section class="legal__section" id="security">
+                <h2 class="legal__section-title">9. Защита персональных данных</h2>
+                <p class="legal__text">9.1. Оператор принимает правовые, организационные и технические меры для защиты персональных данных от неправомерного доступа, уничтожения, изменения, блокирования, копирования, распространения и иных неправомерных действий (ст. 19 Закона о персональных данных), в том числе:</p>
+                <ul class="legal__list">
+                  <li class="legal__item">назначает лицо, ответственное за организацию обработки персональных данных;</li>
+                  <li class="legal__item">ограничивает доступ к персональным данным кругом лиц, которым он необходим для выполнения их обязанностей;</li>
+                  <li class="legal__item">использует защищённое соединение (HTTPS) при передаче данных через Сайт;</li>
+                  <li class="legal__item">размещает данные на защищённых серверах на территории Российской Федерации.</li>
+                </ul>
+              </section>
+
+              <section class="legal__section" id="changes">
+                <h2 class="legal__section-title">10. Изменение Политики</h2>
+                <p class="legal__text">10.1. Оператор вправе изменять Политику. Новая редакция вступает в силу с момента её публикации на Сайте. Дата действующей редакции указывается в начале документа.</p>
+                <p class="legal__text">10.2. Вопросы о Политике и обработке персональных данных можно направить на <span data-setting="seller-email">info@dukan.ru</span>.</p>
+              </section>
+
+              <section class="legal__section" id="requisites">
+                <h2 class="legal__section-title">11. Реквизиты оператора</h2>
+                <dl class="legal__requisites">
+                  <div class="legal__requisites-row">
+                    <dt class="legal__requisites-term">Наименование</dt>
+                    <dd class="legal__requisites-value"><span data-setting="seller-name">Наименование продавца</span></dd>
+                  </div>
+                  <div class="legal__requisites-row">
+                    <dt class="legal__requisites-term">ИНН</dt>
+                    <dd class="legal__requisites-value"><span data-setting="seller-inn">000000000000</span></dd>
+                  </div>
+                  <div class="legal__requisites-row">
+                    <dt class="legal__requisites-term">ОГРН / ОГРНИП</dt>
+                    <dd class="legal__requisites-value"><span data-setting="seller-ogrn">000000000000000</span></dd>
+                  </div>
+                  <div class="legal__requisites-row">
+                    <dt class="legal__requisites-term">Адрес</dt>
+                    <dd class="legal__requisites-value"><span data-setting="seller-address">Адрес регистрации продавца</span></dd>
+                  </div>
+                  <div class="legal__requisites-row">
+                    <dt class="legal__requisites-term">Email</dt>
+                    <dd class="legal__requisites-value"><span data-setting="seller-email">info@dukan.ru</span></dd>
+                  </div>
+                  <div class="legal__requisites-row">
+                    <dt class="legal__requisites-term">Телефон</dt>
+                    <dd class="legal__requisites-value"><span data-setting="seller-phone">+7 999 999-99-99</span></dd>
+                  </div>
+                </dl>
+              </section>
+            </article>
           </div>
         </div>
       </section>
@@ -426,6 +633,7 @@
               <a href="about.html" class="footer__link dot-link">О нас</a>
               <a href="delivery.html" class="footer__link dot-link">Доставка и оплата</a>
               <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
+              <a href="farmers.html#partners" class="footer__link dot-link">Фермерам</a>
             </nav>
 
             <div class="footer__delivery">
@@ -455,6 +663,9 @@
               >
               <a href="consent.html" class="footer__link dot-link"
                 >Согласие на обработку ПД</a
+              >
+              <a href="offer.html" class="footer__link dot-link"
+                >Публичная оферта</a
               >
             </div>
           </div>

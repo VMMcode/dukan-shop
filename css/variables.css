@@ -27,12 +27,16 @@
   --color-error: #a8452e;
   --color-warning: #8a7a2e;
 
+  /* Прозрачность декоративных изображений на тёмном фоне */
+  --opacity-decor: 0.5;
+
   /* Оверлей */
   --color-overlay: rgba(27, 48, 33, 0.45);
 
   /* Подложки на тёмном акцентном фоне */
   --color-on-accent-subtle: rgba(255, 255, 255, 0.15);
   --color-on-accent-muted: rgba(255, 255, 255, 0.08);
+  --color-on-accent-line: color-mix(in srgb, var(--color-accent-muted) 40%, transparent); /* тонкие линии на --color-accent */
 
   /* Фокус */
   --color-focus-ring: #4a7856;
@@ -91,6 +95,7 @@
   --ls-button: 0.01em;
 
   /* --- Indent-style --- */
+  --space-2xs: 0.25rem; /* 4px, фиксированный: чипсы, тонкие зазоры */
   --space-xs: 0.5rem; /* 8px, фиксированный */
   --space-sm: 0.75rem; /* 12px, фиксированный */
   --space-md: clamp(1rem, 0.9rem + 0.5vw, 1.5rem); /* 16 → 24px */
@@ -111,6 +116,7 @@
   --container-max: 1320px;
   --container-padding: 12px;
   --bottom-nav-height: 64px;
+
 
   /* --- Icons --- */
   --icon-size: clamp(18px, 1rem + 0.3vw, 22px);

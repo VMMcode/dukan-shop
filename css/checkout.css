@@ -122,7 +122,7 @@
   flex-shrink: 0;
   border-radius: var(--radius-full);
   color: var(--color-text-muted);
-  transition: color ease-in 0.2s, background-color ease-in 0.2s;
+  transition: color var(--duration-base) var(--ease-out), background-color var(--duration-base) var(--ease-out);
 }
 .order-items__remove:hover {
   color: var(--color-error);
@@ -259,53 +259,6 @@
   color: var(--color-accent);
 }
 
-/* --- Согласие на обработку ПД --- */
-.agreement {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-sm);
-  font-size: var(--fs-body-sm);
-  color: var(--color-text-muted);
-  cursor: pointer;
-}
-
-.agreement__checkbox {
-  appearance: none;
-  -webkit-appearance: none;
-  box-sizing: border-box;
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-  position: relative;
-  border: 2px solid var(--color-border);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: border-color ease-in 0.2s, background-color ease-in 0.2s;
-}
-.agreement__checkbox::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 9px;
-  border: solid var(--color-surface);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg) scale(0);
-  transition: transform ease-in 0.15s;
-}
-.agreement__checkbox:hover {
-  border-color: var(--color-accent);
-}
-.agreement__checkbox:checked {
-  border-color: var(--color-accent);
-  background-color: var(--color-accent);
-}
-.agreement__checkbox:checked::after {
-  transform: rotate(45deg) scale(1);
-}
-
 /* --- Итоговый блок (сайдбар) --- */
 .checkout__aside {
   display: flex;
@@ -365,6 +318,12 @@
 .checkout-summary__submit:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.checkout-summary__note {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
 }
 
 /* --- Экран "Заказ принят" --- */
@@ -549,4 +508,9 @@
     flex-wrap: wrap;
     justify-content: flex-end;
   }
+}
+
+.checkout-account__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

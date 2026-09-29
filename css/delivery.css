@@ -87,6 +87,10 @@
   margin: 0;
 }
 
+.delivery-steps__list--quad {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .delivery-steps__item {
   display: flex;
   gap: var(--space-md);
@@ -148,6 +152,10 @@
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.delivery-payment__list--triple {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .delivery-payment__item {
@@ -476,115 +484,15 @@
   color: var(--color-accent);
 }
 
-.delivery-faq__group[open] > .delivery-faq__group-toggle .delivery-faq__icon {
-  transform: rotate(180deg);
-}
-
 .delivery-faq__group-body {
+  overflow: hidden; /* высоту анимирует main.js */
   padding-top: var(--space-xs);
   padding-bottom: var(--space-md);
 }
 
-.delivery-faq__list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.delivery-faq__item {
-  padding: 0 var(--space-md);
-  background-color: var(--color-surface);
-  border-radius: var(--radius-md);
-}
-
-/* min-height 44px — минимальная тач-зона для аккордеона на мобилке */
-.delivery-faq__question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  min-height: 2.75rem;
-  padding: var(--space-sm) 0;
-  font-size: var(--fs-body-lg);
-  font-weight: 500;
-  cursor: pointer;
-  list-style: none;
-}
-
-.delivery-faq__question::-webkit-details-marker {
-  display: none;
-}
-
-.delivery-faq__icon {
-  flex-shrink: 0;
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--color-accent);
-  transition: transform var(--duration-base) var(--ease-out);
-}
-
-.delivery-faq__item[open] > .delivery-faq__question .delivery-faq__icon {
+/* Иконка группы — тот же .faq__icon, поворот по состоянию группы */
+.delivery-faq__group[open] > .delivery-faq__group-toggle .faq__icon {
   transform: rotate(180deg);
-}
-
-/* Высоту (и группы, и вопроса) анимирует JS (main.js) через Web Animations
-   API — нативный display:none у закрытого <details> не даёт анимировать
-   его чисто CSS. */
-.delivery-faq__group-body,
-.delivery-faq__answer-wrap {
-  overflow: hidden;
-}
-
-.delivery-faq__answer {
-  padding-bottom: var(--space-md);
-  color: var(--color-text-muted);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .delivery-faq__icon {
-    transition: none;
-  }
-}
-
-/* --- CTA --- */
-.delivery-cta__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-sm);
-  padding: var(--space-xl) var(--space-lg);
-  background-color: var(--color-accent);
-  border-radius: var(--radius-lg);
-  color: var(--color-text-inverse);
-}
-
-.delivery-cta__text {
-  opacity: 0.9;
-}
-
-.delivery-cta__actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-xs);
-  margin-top: var(--space-xs);
-}
-
-.delivery-cta__btn {
-  max-width: none;
-  width: auto;
-  padding-left: var(--space-xl);
-  padding-right: var(--space-xl);
-}
-
-.delivery-cta__hint {
-  font-size: var(--fs-body-sm);
-  opacity: 0.85;
-}
-
-.delivery-cta__hint .underline-link {
-  --underline-link-color: var(--color-text-inverse);
-  color: var(--color-text-inverse);
 }
 
 /* --- Адаптив --- */
@@ -592,10 +500,15 @@
   .delivery-hero__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .delivery-steps__list--quad {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-  .delivery-payment__list {
+  .delivery-payment__list,
+  .delivery-payment__list--triple {
     grid-template-columns: 1fr;
   }
 
@@ -609,7 +522,8 @@
 }
 
 @media (max-width: 768px) {
-  .delivery-steps__list {
+  .delivery-steps__list,
+  .delivery-steps__list--quad {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
@@ -644,8 +558,7 @@
     grid-template-columns: 1fr;
   }
 
-  .delivery-payment__inner,
-  .delivery-cta__inner {
+  .delivery-payment__inner {
     padding: var(--space-lg) var(--space-md);
   }
 
@@ -655,9 +568,5 @@
 
   .delivery-freshness__grid {
     grid-template-columns: 1fr;
-  }
-
-  .delivery-cta__btn {
-    width: 100%;
   }
 }

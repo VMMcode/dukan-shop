@@ -1,0 +1,263 @@
+/* ===== Страница хозяйства (farmer.html) ===== */
+
+/* --- Hero --- */
+.farmer-hero {
+  padding-top: var(--space-md);
+}
+
+.farmer-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.farmer-hero__cover {
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+}
+
+.farmer-hero__logo {
+  object-fit: contain;
+}
+
+.farmer-hero__btn {
+  width: fit-content;
+}
+
+.farmer-hero__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.farmer-hero__location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.farmer-hero__pin {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.farmer-hero__title {
+  color: var(--color-accent);
+}
+
+.farmer-hero__lead {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+}
+
+.farmer-hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.farmer-hero__tag {
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+  font-size: var(--fs-body-sm);
+}
+
+/* --- О хозяйстве --- */
+.farmer-about__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.farmer-about__text {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+}
+
+.farmer-about__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.farmer-about__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.farmer-about__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+.farmer-about__icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.farmer-about__item-title {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  font-weight: 600;
+}
+
+.farmer-about__item-text {
+  color: var(--color-text-muted);
+}
+
+/* --- Что производят --- */
+.farmer-produce__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.farmer-produce__lead {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+}
+
+.farmer-produce__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.farmer-produce__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  min-width: 0;
+  padding: var(--space-md);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-inverse);
+  text-align: center;
+}
+
+.farmer-produce__name {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: var(--fw-h3);
+  overflow-wrap: anywhere;
+}
+
+.farmer-produce__translation {
+  font-size: var(--fs-body-sm);
+  opacity: 0.85;
+}
+
+/* --- Продукты хозяйства --- */
+.farmer-products {
+  scroll-margin-top: var(--header-height, 0px);
+}
+
+.farmer-products__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.farmer-products__grid {
+  grid-template-columns: 1fr;
+}
+
+.farmer-products__more {
+  align-self: center;
+}
+
+/* --- Другие хозяйства региона --- */
+.farmer-related__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.farmer-related__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.farmer-related__item {
+  display: flex;
+  min-width: 0;
+}
+
+.farmer-related__item > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.farmer-related__more {
+  align-self: center;
+}
+
+/* --- Адаптив --- */
+@media (min-width: 641px) {
+  .farmer-products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .farmer-related__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 769px) {
+  .farmer-hero__inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .farmer-about__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .farmer-produce__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .farmer-products__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .farmer-related__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
