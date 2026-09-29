@@ -387,6 +387,11 @@
     display: flex;
   }
 
+  /* bottom-nav fixed — резервируем под него место, чтобы не перекрывал футер */
+  body {
+    padding-bottom: var(--bottom-nav-height);
+  }
+
   /* значение --header-height выставляется в js*/
   .catalog__menu {
     position: fixed;

@@ -1,0 +1,663 @@
+/* ===== Страница «Доставка и оплата» (delivery.html) ===== */
+
+/* --- Hero --- */
+.delivery-hero {
+  padding-top: var(--space-md);
+}
+
+.delivery-hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.delivery-hero__title {
+  color: var(--color-accent);
+}
+
+.delivery-hero__lead {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+}
+
+.delivery-hero__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.delivery-hero__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.delivery-hero__card-icon {
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delivery-hero__card-icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--color-accent);
+}
+
+.delivery-hero__card-title {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.delivery-hero__card-text {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* --- Шаги --- */
+.delivery-steps__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.delivery-steps__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg) var(--space-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.delivery-steps__item {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.delivery-steps__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+}
+
+.delivery-steps__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.delivery-steps__title {
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+  line-height: var(--lh-h4);
+}
+
+.delivery-steps__text {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- Оплата: самый сильный блок страницы --- */
+.delivery-payment__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-inverse);
+}
+
+.delivery-payment__lead {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-inverse);
+  opacity: 0.9;
+}
+
+.delivery-payment__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md) var(--space-lg);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.delivery-payment__item {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.delivery-payment__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-on-accent-subtle);
+}
+
+.delivery-payment__icon svg {
+  width: 60%;
+  height: 60%;
+  stroke: var(--color-text-inverse);
+}
+
+.delivery-payment__item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.delivery-payment__item-title {
+  font-weight: 600;
+}
+
+.delivery-payment__item-text {
+  font-size: var(--fs-body-sm);
+  opacity: 0.85;
+}
+
+.delivery-payment__why {
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-on-accent-muted);
+  border-radius: var(--radius-md);
+}
+
+.delivery-payment__why-title {
+  margin-bottom: var(--space-xs);
+}
+
+.delivery-payment__why-text {
+  font-size: var(--fs-body);
+  opacity: 0.9;
+}
+
+/* --- Условия --- */
+.delivery-terms__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.delivery-terms__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.delivery-terms__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-lg) var(--space-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.delivery-terms__value {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.delivery-terms__label {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
+.delivery-terms__details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.delivery-terms__block-title {
+  margin-bottom: var(--space-xs);
+}
+
+.delivery-terms__block-text {
+  color: var(--color-text-muted);
+}
+
+/* --- Свежесть --- */
+.delivery-freshness__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.delivery-freshness__lead {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+}
+
+.delivery-freshness__scheme {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0;
+}
+
+.delivery-freshness__scheme::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--icon-size) * 1.5 / 2);
+  left: calc(var(--icon-size) * 0.75);
+  right: calc(var(--icon-size) * 0.75);
+  height: 2px;
+  background-color: var(--color-border);
+  z-index: 0;
+}
+
+.delivery-freshness__point {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  flex: 1;
+  text-align: center;
+}
+
+.delivery-freshness__point-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--icon-size) * 1.5);
+  height: calc(var(--icon-size) * 1.5);
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.delivery-freshness__point-icon svg {
+  width: 55%;
+  height: 55%;
+}
+
+.delivery-freshness__point-label {
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+}
+
+/* Карточки — тот же рецепт, что у .delivery-hero__card / .about__card */
+.delivery-freshness__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0;
+}
+
+.delivery-freshness__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.delivery-freshness__card-icon {
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delivery-freshness__card-icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--color-accent);
+}
+
+.delivery-freshness__card-title {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.delivery-freshness__card-text {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* --- Если что-то пошло не так --- */
+.delivery-support__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.delivery-support__lead {
+  color: var(--color-text-muted);
+}
+
+.delivery-support__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.delivery-support__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.delivery-support__card-icon {
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delivery-support__card-icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--color-accent);
+}
+
+.delivery-support__card-title {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.delivery-support__card-text {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* --- FAQ --- */
+.delivery-faq__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.delivery-faq__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Группа — тот же аккордеон, что и вопрос внутри неё: клик открывает
+   список вопросов группы, клик по вопросу — сам ответ. */
+.delivery-faq__group {
+  padding: 0 var(--space-md);
+  background-color: var(--color-surface-muted);
+  border-radius: var(--radius-lg);
+}
+
+.delivery-faq__group-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: 2.75rem;
+  padding: var(--space-md) 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.delivery-faq__group-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.delivery-faq__group-title {
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-h5);
+  color: var(--color-accent);
+}
+
+.delivery-faq__group[open] > .delivery-faq__group-toggle .delivery-faq__icon {
+  transform: rotate(180deg);
+}
+
+.delivery-faq__group-body {
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-md);
+}
+
+.delivery-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.delivery-faq__item {
+  padding: 0 var(--space-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+/* min-height 44px — минимальная тач-зона для аккордеона на мобилке */
+.delivery-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: 2.75rem;
+  padding: var(--space-sm) 0;
+  font-size: var(--fs-body-lg);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+.delivery-faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.delivery-faq__icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-accent);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.delivery-faq__item[open] > .delivery-faq__question .delivery-faq__icon {
+  transform: rotate(180deg);
+}
+
+/* Высоту (и группы, и вопроса) анимирует JS (main.js) через Web Animations
+   API — нативный display:none у закрытого <details> не даёт анимировать
+   его чисто CSS. */
+.delivery-faq__group-body,
+.delivery-faq__answer-wrap {
+  overflow: hidden;
+}
+
+.delivery-faq__answer {
+  padding-bottom: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .delivery-faq__icon {
+    transition: none;
+  }
+}
+
+/* --- CTA --- */
+.delivery-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-inverse);
+}
+
+.delivery-cta__text {
+  opacity: 0.9;
+}
+
+.delivery-cta__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.delivery-cta__btn {
+  max-width: none;
+  width: auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+}
+
+.delivery-cta__hint {
+  font-size: var(--fs-body-sm);
+  opacity: 0.85;
+}
+
+.delivery-cta__hint .underline-link {
+  --underline-link-color: var(--color-text-inverse);
+  color: var(--color-text-inverse);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1024px) {
+  .delivery-hero__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .delivery-payment__list {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-terms__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-terms__details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .delivery-steps__list {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .delivery-freshness__scheme {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .delivery-freshness__scheme::before {
+    top: calc(var(--icon-size) * 0.75);
+    bottom: calc(var(--icon-size) * 0.75);
+    left: calc(var(--icon-size) * 0.75);
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .delivery-freshness__point {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .delivery-support__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .delivery-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-payment__inner,
+  .delivery-cta__inner {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .delivery-terms__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-freshness__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-cta__btn {
+    width: 100%;
+  }
+}

@@ -30,6 +30,10 @@
   /* Оверлей */
   --color-overlay: rgba(27, 48, 33, 0.45);
 
+  /* Подложки на тёмном акцентном фоне */
+  --color-on-accent-subtle: rgba(255, 255, 255, 0.15);
+  --color-on-accent-muted: rgba(255, 255, 255, 0.08);
+
   /* Фокус */
   --color-focus-ring: #4a7856;
 

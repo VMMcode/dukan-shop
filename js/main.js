@@ -531,3 +531,62 @@ document.addEventListener('DOMContentLoaded', () => {
     NiceSelect.bind(reviewProductSelect, { searchable: true, placeholder: 'Начните вводить название товара' });
   }
 });
+
+// --- Страница доставки: плавное раскрытие FAQ поверх нативного <details> ---
+// Два уровня аккордеона (группа вопросов → сам вопрос) работают по одной
+// и той же схеме, поэтому она вынесена в enableSmoothDetails.
+document.addEventListener('DOMContentLoaded', () => {
+  const rootStyles = getComputedStyle(document.documentElement);
+  const duration = parseFloat(rootStyles.getPropertyValue('--duration-base')) || 300;
+  const easing = rootStyles.getPropertyValue('--ease-out').trim() || 'ease';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function enableSmoothDetails(details, toggle, wrap) {
+    let animation = null;
+
+    toggle.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      if (reduceMotion) {
+        details.open = !details.open;
+        return;
+      }
+
+      if (animation) animation.cancel();
+
+      if (details.open) {
+        const startHeight = wrap.offsetHeight;
+        animation = wrap.animate(
+          [{ height: `${startHeight}px` }, { height: '0px' }],
+          { duration, easing }
+        );
+        animation.onfinish = () => {
+          details.open = false;
+          wrap.style.height = '';
+        };
+      } else {
+        details.open = true;
+        const endHeight = wrap.offsetHeight;
+        animation = wrap.animate(
+          [{ height: '0px' }, { height: `${endHeight}px` }],
+          { duration, easing }
+        );
+        animation.onfinish = () => {
+          wrap.style.height = '';
+        };
+      }
+    });
+  }
+
+  document.querySelectorAll('.delivery-faq__group').forEach((group) => {
+    const toggle = group.querySelector('.delivery-faq__group-toggle');
+    const body = group.querySelector('.delivery-faq__group-body');
+    if (toggle && body) enableSmoothDetails(group, toggle, body);
+  });
+
+  document.querySelectorAll('.delivery-faq__item').forEach((item) => {
+    const summary = item.querySelector('.delivery-faq__question');
+    const wrap = item.querySelector('.delivery-faq__answer-wrap');
+    if (summary && wrap) enableSmoothDetails(item, summary, wrap);
+  });
+});
