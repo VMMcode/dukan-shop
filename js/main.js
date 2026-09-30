@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Предзаполняем телефон в блоке "создать аккаунт" тем же номером,
     // что клиент указал в контактах заказа.
     const phoneInput = document.getElementById('phoneInput');
-    const accountPhoneInput = document.getElementById('checkout-account__phone-input');
+    const accountPhoneInput = document.getElementById('signupPhoneInput');
     if (phoneInput && accountPhoneInput) {
       accountPhoneInput.value = phoneInput.value;
     }
@@ -439,20 +439,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // логика подключится позже через плагин WSMS.
   const checkoutAccount = document.getElementById('checkoutAccount');
   if (checkoutAccount) {
-    const phoneStep = document.getElementById('checkout-account__phone-step');
-    const otpStep = document.getElementById('checkout-account__otp-step');
-    const doneStep = document.getElementById('checkout-account__done-step');
-    const accountPhoneInput = document.getElementById('checkout-account__phone-input');
-    const requestCodeBtn = document.getElementById('checkout-account__request-code-btn');
-    const skipBtn = document.getElementById('checkout-account__skip-btn');
-    const confirmBtn = document.getElementById('checkout-account__confirm-btn');
-    const phoneDisplay = document.getElementById('checkout-account__phone-display');
+    const phoneStep = document.getElementById('signupPhoneStep');
+    const otpStep = document.getElementById('signupOtpStep');
+    const doneStep = document.getElementById('signupDoneStep');
+    const accountPhoneInput = document.getElementById('signupPhoneInput');
+    const requestCodeBtn = document.getElementById('signupRequestCodeBtn');
+    const skipBtn = document.getElementById('signupSkipBtn');
+    const confirmBtn = document.getElementById('signupConfirmBtn');
+    const phoneDisplay = document.getElementById('signupPhoneDisplay');
     const otpInputs = Array.from(
       document.querySelectorAll('.checkout-account__otp-input')
     );
 
     // Код можно запросить только после согласия на обработку ПД
-    const accountConsent = document.getElementById('checkout-account__consent');
+    const accountConsent = document.getElementById('signupConsent');
     if (accountConsent && requestCodeBtn) {
       accountConsent.addEventListener('change', () => {
         requestCodeBtn.disabled = !accountConsent.checked;

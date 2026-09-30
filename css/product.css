@@ -1,6 +1,6 @@
 /* --- Каркас страницы товара --- */
 .product {
-  padding-top: var(--space-lg);
+  padding-top: var(--space-md);
 }
 
 .product__layout {

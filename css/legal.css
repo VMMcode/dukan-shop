@@ -1,6 +1,6 @@
 /* --- Юридические страницы: политика, согласие, оферта --- */
 .legal {
-  padding: var(--space-lg) 0 var(--space-xl);
+  padding: var(--space-md) 0 var(--space-xl);
 }
 
 .legal__header {
@@ -27,9 +27,6 @@
 }
 
 .legal__toc-title {
-  font-size: var(--fs-h4);
-  line-height: var(--lh-h4);
-  font-weight: var(--fw-h4);
   color: var(--color-text);
 }
 
@@ -81,9 +78,6 @@
 }
 
 .legal__section-title {
-  font-size: var(--fs-h4);
-  line-height: var(--lh-h4);
-  font-weight: var(--fw-h4);
   margin-bottom: var(--space-sm);
 }
 

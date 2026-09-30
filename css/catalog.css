@@ -364,36 +364,8 @@
 }
 
 /* --- Пагинация --- */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
+.catalog .pagination {
   margin-top: var(--space-xl);
-}
-
-.pagination__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius-md);
-  color: var(--color-text-muted);
-  font-size: var(--fs-body-sm);
-  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
-}
-.pagination__link:hover {
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-.pagination__link--active {
-  background-color: var(--color-accent);
-  color: var(--color-text-inverse);
-}
-.pagination__link--disabled {
-  color: var(--color-text-disabled);
-  pointer-events: none;
 }
 
 /* --- Адаптив --- */

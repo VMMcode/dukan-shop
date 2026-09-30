@@ -116,13 +116,13 @@
           <!-- Кнопка каталога (Десктоп) -->
           <button
             type="button"
-            class="catalog__btn btn btn--primary"
+            class="catalog-menu__btn btn btn--primary"
             id="catalogBtn"
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
             <svg
-              class="catalog__btn-icon"
+              class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
@@ -220,9 +220,9 @@
         </div>
 
         <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
-        <div class="catalog__menu" id="catalogMenu" hidden>
+        <div class="catalog-menu" id="catalogMenu" hidden>
           <div class="container">
-            <ul class="catalog__list">
+            <ul class="catalog-menu__list">
               <li>
                 <a href="catalog.html" class="category-card">
                   <img
@@ -385,7 +385,7 @@
             </details>
 
             <nav class="legal__toc" aria-label="Содержание">
-              <h2 class="legal__toc-title">Содержание</h2>
+              <h2 class="text-h4 legal__toc-title">Содержание</h2>
               <ol class="legal__toc-list">
                 <li class="legal__toc-item"><a href="#general" class="legal__toc-link">Общие положения</a></li>
                 <li class="legal__toc-item"><a href="#terms" class="legal__toc-link">Термины</a></li>
@@ -404,7 +404,7 @@
 
             <article class="legal__content">
               <section class="legal__section" id="general">
-                <h2 class="legal__section-title">1. Общие положения</h2>
+                <h2 class="text-h4 legal__section-title">1. Общие положения</h2>
                 <p class="legal__text">1.1. Настоящий документ является официальным предложением (публичной офертой) <span data-setting="seller-name">Наименование продавца</span> (далее&nbsp;— Продавец) заключить договор розничной купли-продажи товаров дистанционным способом на&nbsp;условиях, изложенных ниже (п. 2 ст. 437 Гражданского кодекса Российской Федерации).</p>
                 <p class="legal__text">1.2. Отношения сторон регулируются Гражданским кодексом Российской Федерации, Законом Российской Федерации от&nbsp;07.02.1992 №&nbsp;2300-1 «О&nbsp;защите прав потребителей» (далее&nbsp;— Закон о&nbsp;защите прав потребителей) и&nbsp;Правилами продажи товаров по&nbsp;договору розничной купли-продажи, утверждёнными постановлением Правительства Российской Федерации от&nbsp;31.12.2020 №&nbsp;2463.</p>
                 <p class="legal__text">1.3. Акцептом оферты (ст. 438 Гражданского кодекса Российской Федерации) является оформление Заказа на&nbsp;Сайте. Оформляя Заказ, Покупатель подтверждает, что ознакомился с&nbsp;условиями оферты и&nbsp;принимает их полностью.</p>
@@ -412,7 +412,7 @@
               </section>
 
               <section class="legal__section" id="terms">
-                <h2 class="legal__section-title">2. Термины</h2>
+                <h2 class="text-h4 legal__section-title">2. Термины</h2>
                 <p class="legal__text">2.1. <strong>Продавец</strong>&nbsp;— <span data-setting="seller-name">Наименование продавца</span>, реквизиты которого указаны в&nbsp;разделе 12.</p>
                 <p class="legal__text">2.2. <strong>Покупатель</strong>&nbsp;— дееспособное физическое лицо, достигшее 18 лет, оформляющее Заказ для&nbsp;личных, семейных, домашних и&nbsp;иных нужд, не&nbsp;связанных с&nbsp;предпринимательской деятельностью.</p>
                 <p class="legal__text">2.3. <strong>Сайт</strong>&nbsp;— интернет-магазин «Дукан», расположенный по&nbsp;адресу <span data-setting="site-url">dukan.ru</span>.</p>
@@ -422,14 +422,14 @@
               </section>
 
               <section class="legal__section" id="subject">
-                <h2 class="legal__section-title">3. Предмет договора</h2>
+                <h2 class="text-h4 legal__section-title">3. Предмет договора</h2>
                 <p class="legal__text">3.1. Продавец обязуется передать в&nbsp;собственность Покупателю Товар, а&nbsp;Покупатель обязуется принять и&nbsp;оплатить его на&nbsp;условиях настоящей оферты.</p>
                 <p class="legal__text">3.2. Информация о&nbsp;Товаре&nbsp;— наименование, производитель, регион происхождения, состав, вес или объём, цена&nbsp;— указана в&nbsp;карточке Товара на&nbsp;Сайте. Фотографии Товара носят иллюстративный характер, и&nbsp;внешний вид Товара может незначительно отличаться от&nbsp;изображения.</p>
                 <p class="legal__text">3.3. Сведения о&nbsp;сроке годности и&nbsp;условиях хранения указаны на&nbsp;упаковке Товара. По&nbsp;запросу Покупателя Менеджер сообщает их при&nbsp;подтверждении Заказа.</p>
               </section>
 
               <section class="legal__section" id="order">
-                <h2 class="legal__section-title">4. Оформление Заказа</h2>
+                <h2 class="text-h4 legal__section-title">4. Оформление Заказа</h2>
                 <p class="legal__text">4.1. Покупатель оформляет Заказ на&nbsp;Сайте, указывая имя, номер телефона и&nbsp;адрес доставки.</p>
                 <p class="legal__text">4.2. Минимальная сумма Заказа&nbsp;— <span data-setting="min-order">1&nbsp;500</span>&nbsp;₽.</p>
                 <p class="legal__text">4.3. После оформления Заказа Менеджер связывается с&nbsp;Покупателем по&nbsp;телефону и&nbsp;подтверждает состав Заказа, его итоговую сумму, дату и&nbsp;время доставки.</p>
@@ -437,7 +437,7 @@
               </section>
 
               <section class="legal__section" id="price">
-                <h2 class="legal__section-title">5. Цена и&nbsp;оплата</h2>
+                <h2 class="text-h4 legal__section-title">5. Цена и&nbsp;оплата</h2>
                 <p class="legal__text">5.1. Цены на&nbsp;Товары указаны на&nbsp;Сайте в&nbsp;рублях.</p>
                 <p class="legal__text">5.2. Цена Товара, указанная в&nbsp;подтверждённом Менеджером Заказе, изменению не&nbsp;подлежит.</p>
                 <p class="legal__text">5.3. Оплата производится наличными денежными средствами курьеру в&nbsp;момент получения Заказа, после его проверки Покупателем. Предоплата не&nbsp;взимается.</p>
@@ -445,7 +445,7 @@
               </section>
 
               <section class="legal__section" id="delivery">
-                <h2 class="legal__section-title">6. Доставка</h2>
+                <h2 class="text-h4 legal__section-title">6. Доставка</h2>
                 <p class="legal__text">6.1. Доставка осуществляется по&nbsp;Москве в&nbsp;пределах МКАД курьерами Продавца.</p>
                 <p class="legal__text">6.2. Стоимость доставки&nbsp;— <span data-setting="delivery-price">300</span>&nbsp;₽ при&nbsp;сумме Заказа менее <span data-setting="free-delivery-from">3&nbsp;000</span>&nbsp;₽. При&nbsp;сумме Заказа от&nbsp;<span data-setting="free-delivery-from">3&nbsp;000</span>&nbsp;₽ доставка бесплатная.</p>
                 <p class="legal__text">6.3. Дата и&nbsp;время доставки согласуются Менеджером с&nbsp;Покупателем по&nbsp;телефону. Курьер дополнительно звонит Покупателю за&nbsp;<span data-setting="courier-call-minutes">15</span>&nbsp;минут до&nbsp;приезда.</p>
@@ -454,13 +454,13 @@
               </section>
 
               <section class="legal__section" id="acceptance">
-                <h2 class="legal__section-title">7. Приёмка Товара</h2>
+                <h2 class="text-h4 legal__section-title">7. Приёмка Товара</h2>
                 <p class="legal__text">7.1. При&nbsp;получении Заказа Покупатель вправе проверить Товар в&nbsp;присутствии курьера: соответствие Заказу, целостность упаковки, внешний вид и&nbsp;срок годности.</p>
                 <p class="legal__text">7.2. Покупатель вправе отказаться от&nbsp;Заказа полностью или от&nbsp;отдельных позиций до&nbsp;его передачи и&nbsp;оплаты. В&nbsp;этом случае оплате подлежат только принятые Покупателем Товары.</p>
               </section>
 
               <section class="legal__section" id="returns">
-                <h2 class="legal__section-title">8. Качество Товара, возврат и&nbsp;замена</h2>
+                <h2 class="text-h4 legal__section-title">8. Качество Товара, возврат и&nbsp;замена</h2>
                 <p class="legal__text">8.1. Возврат и&nbsp;обмен Товара надлежащего качества осуществляются в&nbsp;случаях и&nbsp;в&nbsp;порядке, предусмотренных законодательством Российской Федерации. Право на&nbsp;обмен товара надлежащего качества, предусмотренное ст. 25 Закона о&nbsp;защите прав потребителей, распространяется только на&nbsp;непродовольственные товары.</p>
                 <p class="legal__text">8.2. Если в&nbsp;Товаре обнаружены недостатки, Покупатель вправе в&nbsp;течение срока годности Товара предъявить требования, предусмотренные ст. 18 Закона о&nbsp;защите прав потребителей, в&nbsp;том числе о&nbsp;замене Товара, соразмерном уменьшении цены или возврате уплаченной суммы.</p>
                 <p class="legal__text">8.3. Сверх требований закона Продавец добровольно предоставляет следующую гарантию: если Товар не&nbsp;понравился Покупателю, Покупатель может сообщить об&nbsp;этом Продавцу не&nbsp;позднее истечения срока годности Товара, и&nbsp;Продавец по&nbsp;выбору Покупателя заменит Товар, вернёт его стоимость или предоставит скидку на&nbsp;следующий Заказ.</p>
@@ -469,26 +469,26 @@
               </section>
 
               <section class="legal__section" id="liability">
-                <h2 class="legal__section-title">9. Ответственность сторон</h2>
+                <h2 class="text-h4 legal__section-title">9. Ответственность сторон</h2>
                 <p class="legal__text">9.1. Стороны несут ответственность за&nbsp;неисполнение или ненадлежащее исполнение обязательств в&nbsp;соответствии с&nbsp;законодательством Российской Федерации.</p>
                 <p class="legal__text">9.2. Продавец не&nbsp;несёт ответственности за&nbsp;задержку доставки, вызванную действиями Покупателя: указанием неверного адреса или номера телефона, отсутствием Покупателя в&nbsp;согласованное время.</p>
                 <p class="legal__text">9.3. Стороны освобождаются от&nbsp;ответственности за&nbsp;неисполнение обязательств, вызванное обстоятельствами непреодолимой силы.</p>
               </section>
 
               <section class="legal__section" id="personal-data">
-                <h2 class="legal__section-title">10. Персональные данные</h2>
+                <h2 class="text-h4 legal__section-title">10. Персональные данные</h2>
                 <p class="legal__text">10.1. Обработка персональных данных Покупателя осуществляется в&nbsp;соответствии с&nbsp;<a href="privacy.html" class="underline-link">Политикой обработки персональных данных</a> на&nbsp;основании <a href="consent.html" class="underline-link">Согласия на&nbsp;обработку персональных данных</a>.</p>
               </section>
 
               <section class="legal__section" id="other">
-                <h2 class="legal__section-title">11. Прочие условия</h2>
+                <h2 class="text-h4 legal__section-title">11. Прочие условия</h2>
                 <p class="legal__text">11.1. К&nbsp;отношениям сторон применяется законодательство Российской Федерации.</p>
                 <p class="legal__text">11.2. Претензии Покупателя рассматриваются в&nbsp;сроки, установленные Законом о&nbsp;защите прав потребителей.</p>
                 <p class="legal__text">11.3. Споры, не&nbsp;урегулированные путём переговоров, разрешаются в&nbsp;суде в&nbsp;соответствии с&nbsp;законодательством Российской Федерации.</p>
               </section>
 
               <section class="legal__section" id="requisites">
-                <h2 class="legal__section-title">12. Реквизиты продавца</h2>
+                <h2 class="text-h4 legal__section-title">12. Реквизиты продавца</h2>
                 <dl class="legal__requisites">
                   <div class="legal__requisites-row">
                     <dt class="legal__requisites-term">Наименование</dt>

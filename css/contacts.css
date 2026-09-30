@@ -8,23 +8,11 @@
   color: var(--color-text-muted);
 }
 
-.contacts__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
-  gap: var(--space-lg);
-  align-items: start;
-}
-
 .contacts__main {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
   min-width: 0;
-}
-
-.contacts__aside {
-  position: sticky;
-  top: var(--sticky-top);
 }
 
 .contacts__form-hint {
@@ -96,15 +84,6 @@
 }
 
 /* --- Адаптив --- */
-@media (max-width: 1023px) {
-  .contacts__layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .contacts__aside {
-    position: static;
-  }
-}
-
 @media (max-width: 639px) {
   .delivery-map {
     padding: var(--space-md);

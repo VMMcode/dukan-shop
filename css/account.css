@@ -37,12 +37,6 @@
 }
 
 /* --- Приветствие --- */
-.account-welcome__title {
-  font-size: var(--fs-h4);
-  line-height: var(--lh-h4);
-  font-weight: var(--fw-h4);
-}
-
 .account-welcome__phone {
   font-size: var(--fs-body-sm);
   color: var(--color-text-muted);

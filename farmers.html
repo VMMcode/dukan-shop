@@ -122,13 +122,13 @@
           <!-- Кнопка каталога (Десктоп) -->
           <button
             type="button"
-            class="catalog__btn btn btn--primary"
+            class="catalog-menu__btn btn btn--primary"
             id="catalogBtn"
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
             <svg
-              class="catalog__btn-icon"
+              class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
@@ -226,9 +226,9 @@
         </div>
 
         <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
-        <div class="catalog__menu" id="catalogMenu" hidden>
+        <div class="catalog-menu" id="catalogMenu" hidden>
           <div class="container">
-            <ul class="catalog__list">
+            <ul class="catalog-menu__list">
               <li>
                 <a href="catalog.html" class="category-card">
                   <img
@@ -381,7 +381,7 @@
               считаем, что покупатель вправе знать, откуда его еда, поэтому у&nbsp;каждого товара на&nbsp;сайте указаны хозяйство и&nbsp;республика, а&nbsp;о&nbsp;самих
               фермерах мы рассказываем открыто.
             </p>
-            <h2 class="farmers-hero__subtitle">Как мы выбираем фермеров</h2>
+            <h2 class="text-h4 farmers-hero__subtitle">Как мы выбираем фермеров</h2>
             <ul class="farmers-hero__list">
               <li class="info-card">
                 <span class="icon-box" aria-hidden="true">
@@ -487,7 +487,7 @@
                 </div>
               </div>
 
-              <p class="farmers-panel__subtitle">Хозяйства республики</p>
+              <p class="text-h4 farmers-panel__subtitle">Хозяйства республики</p>
 
               <!-- Медиа карточки: если у хозяйства заполнено поле farm_photo — выводим его (<img> с alt = farm_name + регион), иначе — вариант farm-cover--placeholder: фон img/placeholder/farm-placeholder.webp и farm_name в .farm-cover__name -->
               <!-- Реальные хозяйства из открытых источников — для демонстрации клиенту. До запуска сайта заменить на фактических партнёров или получить согласие хозяйств на размещение. В WordPress: таб = термин таксономии region (поля ACF: region_intro, region_photo, region_highlights), карточка = CPT farmer (farm_location, farm_teaser, farm_photo) -->
@@ -584,7 +584,7 @@
                 </div>
               </div>
 
-              <p class="farmers-panel__subtitle">Хозяйства республики</p>
+              <p class="text-h4 farmers-panel__subtitle">Хозяйства республики</p>
 
               <!-- Реальные хозяйства из открытых источников — для демонстрации клиенту. До запуска сайта заменить на фактических партнёров или получить согласие хозяйств на размещение. В WordPress: таб = термин таксономии region (поля ACF: region_intro, region_photo, region_highlights), карточка = CPT farmer (farm_location, farm_teaser, farm_photo) -->
               <ul class="farmers-panel__grid">
@@ -653,7 +653,7 @@
                 </div>
               </div>
 
-              <p class="farmers-panel__subtitle">Хозяйства республики</p>
+              <p class="text-h4 farmers-panel__subtitle">Хозяйства республики</p>
 
               <!-- Реальные хозяйства из открытых источников — для демонстрации клиенту. До запуска сайта заменить на фактических партнёров или получить согласие хозяйств на размещение. В WordPress: таб = термин таксономии region (поля ACF: region_intro, region_photo, region_highlights), карточка = CPT farmer (farm_location, farm_teaser, farm_photo) -->
               <ul class="farmers-panel__grid">

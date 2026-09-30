@@ -136,17 +136,6 @@
   background-color: var(--color-text-disabled);
 }
 
-.about-path__title {
-  font-size: var(--fs-body-lg);
-  font-weight: 600;
-  line-height: var(--lh-h4);
-}
-
-.about-path__text {
-  font-size: var(--fs-body-sm);
-  color: var(--color-text-muted);
-}
-
 /* --- Принцип --- */
 .principle__figure {
   position: relative;
@@ -199,11 +188,6 @@
   gap: var(--space-md);
   list-style: none;
   padding: 0;
-}
-
-/* --- Регионы: вводный абзац --- */
-.regions__lead {
-  color: var(--color-text-muted);
 }
 
 /* --- Плашка для фермеров --- */

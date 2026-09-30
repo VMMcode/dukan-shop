@@ -91,13 +91,13 @@
           <!-- Кнопка каталога (Десктоп) -->
           <button
             type="button"
-            class="catalog__btn btn btn--primary"
+            class="catalog-menu__btn btn btn--primary"
             id="catalogBtn"
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
             <svg
-              class="catalog__btn-icon"
+              class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
@@ -195,9 +195,9 @@
         </div>
 
         <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
-        <div class="catalog__menu" id="catalogMenu" hidden>
+        <div class="catalog-menu" id="catalogMenu" hidden>
           <div class="container">
-            <ul class="catalog__list">
+            <ul class="catalog-menu__list">
               <li>
                 <a href="catalog.html" class="category-card">
                   <img
@@ -333,7 +333,7 @@
         <div class="container">
           <h1 class="checkout__title">Оформление заказа</h1>
 
-          <form class="checkout__layout" id="checkoutForm" novalidate>
+          <form class="layout-aside" id="checkoutForm" novalidate>
             <div class="checkout__main">
               <!-- Состав заказа -->
               <div class="panel">
@@ -350,6 +350,27 @@
                         />
                       </div>
                       <div class="product-card__body">
+                        <button
+                          type="button"
+                          class="order-items__remove"
+                          aria-label="Удалить «Осетинский сыр» из заказа"
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            width="18"
+                            height="18"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path d="M4 7h16" />
+                            <path d="M10 11v6M14 11v6" />
+                            <path
+                              d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12"
+                            />
+                            <path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
+                          </svg>
+                        </button>
                         <h3 class="product-card__title">Осетинский сыр</h3>
                         <p class="product-card__source">
                           <span class="product-card__producer"
@@ -363,48 +384,25 @@
                             data-role="item-price"
                             >900&nbsp;₽</span
                           >
-                          <div class="order-items__item-actions">
-                            <div class="qty-stepper">
-                              <button
-                                type="button"
-                                class="qty-stepper__btn"
-                                data-action="minus"
-                                aria-label="Уменьшить количество"
-                              >
-                                −
-                              </button>
-                              <span class="qty-stepper__value" data-role="qty"
-                                >2</span
-                              >
-                              <button
-                                type="button"
-                                class="qty-stepper__btn"
-                                data-action="plus"
-                                aria-label="Увеличить количество"
-                              >
-                                +
-                              </button>
-                            </div>
+                          <div class="qty-stepper">
                             <button
                               type="button"
-                              class="order-items__remove"
-                              aria-label="Удалить товар из заказа"
+                              class="qty-stepper__btn"
+                              data-action="minus"
+                              aria-label="Уменьшить количество"
                             >
-                              <svg
-                                viewBox="0 0 24 24"
-                                width="18"
-                                height="18"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                              >
-                                <path d="M4 7h16" />
-                                <path d="M10 11v6M14 11v6" />
-                                <path
-                                  d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12"
-                                />
-                                <path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
-                              </svg>
+                              −
+                            </button>
+                            <span class="qty-stepper__value" data-role="qty"
+                              >2</span
+                            >
+                            <button
+                              type="button"
+                              class="qty-stepper__btn"
+                              data-action="plus"
+                              aria-label="Увеличить количество"
+                            >
+                              +
                             </button>
                           </div>
                         </div>
@@ -422,6 +420,27 @@
                         />
                       </div>
                       <div class="product-card__body">
+                        <button
+                          type="button"
+                          class="order-items__remove"
+                          aria-label="Удалить «Бастурма из говядины» из заказа"
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            width="18"
+                            height="18"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path d="M4 7h16" />
+                            <path d="M10 11v6M14 11v6" />
+                            <path
+                              d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12"
+                            />
+                            <path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
+                          </svg>
+                        </button>
                         <h3 class="product-card__title">
                           Бастурма из&nbsp;говядины
                         </h3>
@@ -437,48 +456,25 @@
                             data-role="item-price"
                             >590&nbsp;₽</span
                           >
-                          <div class="order-items__item-actions">
-                            <div class="qty-stepper">
-                              <button
-                                type="button"
-                                class="qty-stepper__btn"
-                                data-action="minus"
-                                aria-label="Уменьшить количество"
-                              >
-                                −
-                              </button>
-                              <span class="qty-stepper__value" data-role="qty"
-                                >1</span
-                              >
-                              <button
-                                type="button"
-                                class="qty-stepper__btn"
-                                data-action="plus"
-                                aria-label="Увеличить количество"
-                              >
-                                +
-                              </button>
-                            </div>
+                          <div class="qty-stepper">
                             <button
                               type="button"
-                              class="order-items__remove"
-                              aria-label="Удалить товар из заказа"
+                              class="qty-stepper__btn"
+                              data-action="minus"
+                              aria-label="Уменьшить количество"
                             >
-                              <svg
-                                viewBox="0 0 24 24"
-                                width="18"
-                                height="18"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                              >
-                                <path d="M4 7h16" />
-                                <path d="M10 11v6M14 11v6" />
-                                <path
-                                  d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12"
-                                />
-                                <path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
-                              </svg>
+                              −
+                            </button>
+                            <span class="qty-stepper__value" data-role="qty"
+                              >1</span
+                            >
+                            <button
+                              type="button"
+                              class="qty-stepper__btn"
+                              data-action="plus"
+                              aria-label="Увеличить количество"
+                            >
+                              +
                             </button>
                           </div>
                         </div>
@@ -496,6 +492,27 @@
                         />
                       </div>
                       <div class="product-card__body">
+                        <button
+                          type="button"
+                          class="order-items__remove"
+                          aria-label="Удалить «Майский мёд» из заказа"
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            width="18"
+                            height="18"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path d="M4 7h16" />
+                            <path d="M10 11v6M14 11v6" />
+                            <path
+                              d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12"
+                            />
+                            <path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
+                          </svg>
+                        </button>
                         <h3 class="product-card__title">Майский мёд</h3>
                         <p class="product-card__source">
                           <span class="product-card__producer"
@@ -509,48 +526,25 @@
                             data-role="item-price"
                             >650&nbsp;₽</span
                           >
-                          <div class="order-items__item-actions">
-                            <div class="qty-stepper">
-                              <button
-                                type="button"
-                                class="qty-stepper__btn"
-                                data-action="minus"
-                                aria-label="Уменьшить количество"
-                              >
-                                −
-                              </button>
-                              <span class="qty-stepper__value" data-role="qty"
-                                >1</span
-                              >
-                              <button
-                                type="button"
-                                class="qty-stepper__btn"
-                                data-action="plus"
-                                aria-label="Увеличить количество"
-                              >
-                                +
-                              </button>
-                            </div>
+                          <div class="qty-stepper">
                             <button
                               type="button"
-                              class="order-items__remove"
-                              aria-label="Удалить товар из заказа"
+                              class="qty-stepper__btn"
+                              data-action="minus"
+                              aria-label="Уменьшить количество"
                             >
-                              <svg
-                                viewBox="0 0 24 24"
-                                width="18"
-                                height="18"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                              >
-                                <path d="M4 7h16" />
-                                <path d="M10 11v6M14 11v6" />
-                                <path
-                                  d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12"
-                                />
-                                <path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
-                              </svg>
+                              −
+                            </button>
+                            <span class="qty-stepper__value" data-role="qty"
+                              >1</span
+                            >
+                            <button
+                              type="button"
+                              class="qty-stepper__btn"
+                              data-action="plus"
+                              aria-label="Увеличить количество"
+                            >
+                              +
                             </button>
                           </div>
                         </div>
@@ -702,9 +696,9 @@
               </div>
             </div>
 
-            <aside class="checkout__aside">
+            <aside class="checkout__aside layout-aside__sticky">
               <div class="panel checkout-summary">
-                <h2 class="checkout-summary__title">Ваш заказ</h2>
+                <h2 class="text-h4 checkout-summary__title">Ваш заказ</h2>
 
                 <div class="checkout-summary__row">
                   <span>Сумма товаров</span>
@@ -804,7 +798,7 @@
               <!-- Шаг 1: ввод/подтверждение номера телефона -->
               <div
                 class="checkout-account__step checkout-account__step--phone"
-                id="checkout-account__phone-step"
+                id="signupPhoneStep"
               >
                 <h2 class="checkout-account__title">
                   Сохранить контакты для&nbsp;следующего заказа?
@@ -815,13 +809,13 @@
                 <div class="form-field checkout-account__field checkout-account__panel">
                   <label
                     class="form-field__label visually-hidden"
-                    for="checkout-account__phone-input"
+                    for="signupPhoneInput"
                     >Телефон</label
                   >
                   <input
                     class="form-field__input"
                     type="tel"
-                    id="checkout-account__phone-input"
+                    id="signupPhoneInput"
                     placeholder="+7 999 999-99-99"
                   />
                 </div>
@@ -830,7 +824,7 @@
                     <input
                       type="checkbox"
                       class="checkbox agreement__checkbox"
-                      id="checkout-account__consent"
+                      id="signupConsent"
                       name="consent"
                       required
                     />
@@ -845,7 +839,7 @@
                   <button
                     type="button"
                     class="btn btn--primary checkout-account__submit"
-                    id="checkout-account__request-code-btn"
+                    id="signupRequestCodeBtn"
                     disabled
                   >
                     Получить код
@@ -853,7 +847,7 @@
                   <button
                     type="button"
                     class="btn btn--outline checkout-account__skip"
-                    id="checkout-account__skip-btn"
+                    id="signupSkipBtn"
                   >
                     Не&nbsp;сейчас
                   </button>
@@ -863,17 +857,17 @@
               <!-- Шаг 2: ввод кода из SMS -->
               <div
                 class="checkout-account__step checkout-account__step--otp"
-                id="checkout-account__otp-step"
+                id="signupOtpStep"
                 hidden
               >
                 <p class="checkout-account__text">
                   Код отправлен на&nbsp;номер
-                  <strong id="checkout-account__phone-display"></strong>
+                  <strong id="signupPhoneDisplay"></strong>
                 </p>
-                <div class="checkout-account__otp checkout-account__panel" id="checkout-account__otp-group">
+                <div class="checkout-account__otp checkout-account__panel" id="signupOtpGroup">
                   <input
                     class="checkout-account__otp-input"
-                    id="checkout-account__otp-input-1"
+                    id="signupOtpInput1"
                     type="text"
                     inputmode="numeric"
                     maxlength="1"
@@ -881,7 +875,7 @@
                   />
                   <input
                     class="checkout-account__otp-input"
-                    id="checkout-account__otp-input-2"
+                    id="signupOtpInput2"
                     type="text"
                     inputmode="numeric"
                     maxlength="1"
@@ -889,7 +883,7 @@
                   />
                   <input
                     class="checkout-account__otp-input"
-                    id="checkout-account__otp-input-3"
+                    id="signupOtpInput3"
                     type="text"
                     inputmode="numeric"
                     maxlength="1"
@@ -897,7 +891,7 @@
                   />
                   <input
                     class="checkout-account__otp-input"
-                    id="checkout-account__otp-input-4"
+                    id="signupOtpInput4"
                     type="text"
                     inputmode="numeric"
                     maxlength="1"
@@ -907,14 +901,14 @@
                 <button
                   type="button"
                   class="btn btn--primary checkout-account__submit checkout-account__panel"
-                  id="checkout-account__confirm-btn"
+                  id="signupConfirmBtn"
                 >
                   Подтвердить
                 </button>
                 <button
                   type="button"
                   class="checkout-account__resend dot-link"
-                  id="checkout-account__resend-btn"
+                  id="signupResendBtn"
                 >
                   Отправить код повторно
                 </button>
@@ -923,7 +917,7 @@
               <!-- Шаг 3: аккаунт создан -->
               <div
                 class="checkout-account__step checkout-account__step--done"
-                id="checkout-account__done-step"
+                id="signupDoneStep"
                 hidden
               >
                 <span class="checkout-account__icon">
@@ -949,7 +943,7 @@
                 <a
                   href="#"
                   class="btn btn--primary checkout-account__account-link checkout-account__panel"
-                  id="checkout-account__account-link"
+                  id="signupAccountLink"
                   >Перейти в&nbsp;аккаунт</a
                 >
               </div>

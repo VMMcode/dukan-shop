@@ -90,13 +90,13 @@
           <!-- Кнопка каталога (Десктоп) -->
           <button
             type="button"
-            class="catalog__btn btn btn--primary"
+            class="catalog-menu__btn btn btn--primary"
             id="catalogBtn"
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
             <svg
-              class="catalog__btn-icon"
+              class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
@@ -194,9 +194,9 @@
         </div>
 
         <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
-        <div class="catalog__menu" id="catalogMenu" hidden>
+        <div class="catalog-menu" id="catalogMenu" hidden>
           <div class="container">
-            <ul class="catalog__list">
+            <ul class="catalog-menu__list">
               <li>
                 <a href="catalog.html" class="category-card">
                   <img
@@ -666,441 +666,457 @@
               </a>
             </div>
 
-            <div class="product-grid">
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/sir.webp"
-                    alt="Осетинский сыр"
-                  />
-                  <div class="product-card__badges">
-                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                      <span class="icon-halal" aria-hidden="true"></span>
-                    </span>
-                    <span class="badge badge--pick" role="img" title="Выбор Дукан" aria-label="Выбор Дукан">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z" />
-                      </svg>
-                    </span>
+            <ul class="product-grid">
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/sir.webp"
+                      alt="Осетинский сыр"
+                    />
+                    <div class="product-card__badges">
+                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
+                        <span class="icon-halal" aria-hidden="true"></span>
+                      </span>
+                      <span class="badge badge--pick" role="img" title="Выбор Дукан" aria-label="Выбор Дукан">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z" />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
-                </div>
-
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Осетинский сыр</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Алания продукт</span>
-                    <span class="product-card__region"
-                      >Северная Осетия</span
-                    >
-                  </p>
-                  <span class="product-card__weight">300&nbsp;г</span>
-
-                  <div class="product-card__footer">
-                    <span class="product-card__price">450&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+  
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Осетинский сыр</a
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/basturma.webp"
-                    alt="Бастурма из говядины"
-                  />
-                  <div class="product-card__badges">
-                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                      <span class="icon-halal" aria-hidden="true"></span>
-                    </span>
-                  </div>
-                </div>
-
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Бастурма из&nbsp;говядины</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Алания продукт</span>
-                    <span class="product-card__region"
-                      >Северная Осетия</span
-                    >
-                  </p>
-                  <span class="product-card__weight">300&nbsp;г</span>
-
-                  <div class="product-card__footer">
-                    <span class="product-card__price">450&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Алания продукт</span>
+                      <span class="product-card__region"
+                        >Северная Осетия</span
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/eggs.webp"
-                    alt="Свежие яйца"
-                  />
-                  <div class="product-card__badges">
-                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                      <span class="icon-halal" aria-hidden="true"></span>
-                    </span>
-                  </div>
-                </div>
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Свежие яйца</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Алания продукт</span>
-                    <span class="product-card__region"
-                      >Северная Осетия</span
-                    >
-                  </p>
-                  <span class="product-card__weight">300&nbsp;г</span>
-                  <div class="product-card__footer">
-                    <span class="product-card__price">450&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    </p>
+                    <span class="product-card__weight">300&nbsp;г</span>
+  
+                    <div class="product-card__footer">
+                      <span class="product-card__price">450&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/med.webp"
-                    alt="Майский мёд"
-                  />
-                  <div class="product-card__badges">
-                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                      <span class="icon-halal" aria-hidden="true"></span>
-                    </span>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/basturma.webp"
+                      alt="Бастурма из говядины"
+                    />
+                    <div class="product-card__badges">
+                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
+                        <span class="icon-halal" aria-hidden="true"></span>
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Майский мёд</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Алания продукт</span>
-                    <span class="product-card__region"
-                      >Северная Осетия</span
-                    >
-                  </p>
-                  <span class="product-card__weight">300&nbsp;г</span>
-                  <div class="product-card__footer">
-                    <span class="product-card__price">450&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+  
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Бастурма из&nbsp;говядины</a
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/baranina.webp"
-                    alt="Баранина"
-                  />
-                  <div class="product-card__badges">
-                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                      <span class="icon-halal" aria-hidden="true"></span>
-                    </span>
-                  </div>
-                </div>
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Баранина</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Алания продукт</span>
-                    <span class="product-card__region"
-                      >Северная Осетия</span
-                    >
-                  </p>
-                  <span class="product-card__weight">300&nbsp;г</span>
-                  <div class="product-card__footer">
-                    <span class="product-card__price">450&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Алания продукт</span>
+                      <span class="product-card__region"
+                        >Северная Осетия</span
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/pomidori.webp"
-                    alt="Домашние помидоры"
-                  />
-                  <div class="product-card__badges">
-                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                      <span class="icon-halal" aria-hidden="true"></span>
-                    </span>
-                  </div>
-                </div>
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Домашние помидоры</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Алания продукт</span>
-                    <span class="product-card__region"
-                      >Северная Осетия</span
-                    >
-                  </p>
-                  <span class="product-card__weight">300&nbsp;г</span>
-                  <div class="product-card__footer">
-                    <span class="product-card__price">450&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    </p>
+                    <span class="product-card__weight">300&nbsp;г</span>
+  
+                    <div class="product-card__footer">
+                      <span class="product-card__price">450&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/krolik.webp"
-                    alt="Мясо кролика"
-                  />
-                  <div class="product-card__badges">
-                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                      <span class="icon-halal" aria-hidden="true"></span>
-                    </span>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/eggs.webp"
+                      alt="Свежие яйца"
+                    />
+                    <div class="product-card__badges">
+                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
+                        <span class="icon-halal" aria-hidden="true"></span>
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Мясо кролика</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Алания продукт</span>
-                    <span class="product-card__region"
-                      >Северная Осетия</span
-                    >
-                  </p>
-                  <span class="product-card__weight">300&nbsp;г</span>
-                  <div class="product-card__footer">
-                    <span class="product-card__price">450&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Свежие яйца</a
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/psheno.webp"
-                    alt="Пшено"
-                  />
-                  <div class="product-card__badges">
-                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                      <span class="icon-halal" aria-hidden="true"></span>
-                    </span>
-                  </div>
-                </div>
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link">Пшено</a>
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Алания продукт</span>
-                    <span class="product-card__region"
-                      >Северная Осетия</span
-                    >
-                  </p>
-                  <span class="product-card__weight">300&nbsp;г</span>
-                  <div class="product-card__footer">
-                    <span class="product-card__price">450&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Алания продукт</span>
+                      <span class="product-card__region"
+                        >Северная Осетия</span
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
+                    </p>
+                    <span class="product-card__weight">300&nbsp;г</span>
+                    <div class="product-card__footer">
+                      <span class="product-card__price">450&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </div>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/med.webp"
+                      alt="Майский мёд"
+                    />
+                    <div class="product-card__badges">
+                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
+                        <span class="icon-halal" aria-hidden="true"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Майский мёд</a
+                      >
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Алания продукт</span>
+                      <span class="product-card__region"
+                        >Северная Осетия</span
+                      >
+                    </p>
+                    <span class="product-card__weight">300&nbsp;г</span>
+                    <div class="product-card__footer">
+                      <span class="product-card__price">450&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/baranina.webp"
+                      alt="Баранина"
+                    />
+                    <div class="product-card__badges">
+                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
+                        <span class="icon-halal" aria-hidden="true"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Баранина</a
+                      >
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Алания продукт</span>
+                      <span class="product-card__region"
+                        >Северная Осетия</span
+                      >
+                    </p>
+                    <span class="product-card__weight">300&nbsp;г</span>
+                    <div class="product-card__footer">
+                      <span class="product-card__price">450&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/pomidori.webp"
+                      alt="Домашние помидоры"
+                    />
+                    <div class="product-card__badges">
+                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
+                        <span class="icon-halal" aria-hidden="true"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Домашние помидоры</a
+                      >
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Алания продукт</span>
+                      <span class="product-card__region"
+                        >Северная Осетия</span
+                      >
+                    </p>
+                    <span class="product-card__weight">300&nbsp;г</span>
+                    <div class="product-card__footer">
+                      <span class="product-card__price">450&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/krolik.webp"
+                      alt="Мясо кролика"
+                    />
+                    <div class="product-card__badges">
+                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
+                        <span class="icon-halal" aria-hidden="true"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Мясо кролика</a
+                      >
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Алания продукт</span>
+                      <span class="product-card__region"
+                        >Северная Осетия</span
+                      >
+                    </p>
+                    <span class="product-card__weight">300&nbsp;г</span>
+                    <div class="product-card__footer">
+                      <span class="product-card__price">450&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/psheno.webp"
+                      alt="Пшено"
+                    />
+                    <div class="product-card__badges">
+                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
+                        <span class="icon-halal" aria-hidden="true"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link">Пшено</a>
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Алания продукт</span>
+                      <span class="product-card__region"
+                        >Северная Осетия</span
+                      >
+                    </p>
+                    <span class="product-card__weight">300&nbsp;г</span>
+                    <div class="product-card__footer">
+                      <span class="product-card__price">450&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
       <!-- Популярные товары: конец -->
 
       <!-- О нас: начало -->
-      <section class="about">
+      <section class="home-about">
         <div class="container">
-          <div class="about__inner">
+          <div class="home-about__inner">
             <div class="section-header">
               <h2 class="section-header__title">О&nbsp;нас</h2>
               <a href="about.html" class="link-btn btn btn--outline">
@@ -1116,13 +1132,13 @@
               </a>
             </div>
 
-            <p class="about__manifest">
+            <p class="home-about__lead">
               «Дукан»&nbsp;— по-осетински «лавка». Мы привозим продукты напрямую от&nbsp;фермеров Кабардино-Балкарии, Северной Осетии и&nbsp;Дагестана&nbsp;— своим
               грузовиком, без&nbsp;складов и&nbsp;посредников. Без&nbsp;магазинов и&nbsp;соцсетей&nbsp;—
               только сайт и&nbsp;доставка до&nbsp;двери по&nbsp;Москве.
             </p>
 
-            <div class="about__grid">
+            <div class="home-about__grid">
               <div class="info-card">
                 <div class="icon-box">
                   <svg
@@ -1232,7 +1248,7 @@
                 </svg>
               </a>
             </div>
-            <p class="about__manifest">
+            <p class="regions__lead">
               Работаем с&nbsp;локальными производителями из&nbsp;республик Северного
               Кавказа. Поддерживаем малый бизнес и&nbsp;привозим в&nbsp;Москву настоящие
               продукты региона.

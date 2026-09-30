@@ -12,26 +12,11 @@
 }
 
 .reviews__row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
-  column-gap: var(--space-lg);
-  align-items: start;
   margin-bottom: var(--space-sm);
-}
-
-.reviews__pagination-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
-  column-gap: var(--space-lg);
 }
 
 .reviews__pagination-row .pagination {
   grid-column: 1;
-}
-
-.reviews__aside {
-  position: sticky;
-  top: var(--sticky-top);
 }
 
 @media (max-width: 1023px) {
@@ -55,7 +40,6 @@
   }
   .reviews__aside {
     order: 3;
-    position: static;
   }
 }
 
@@ -239,37 +223,4 @@
 .star-input__radio:focus-visible + .star-input__star {
   outline: 2px solid var(--color-focus-ring);
   outline-offset: 2px;
-}
-
-/* --- Пагинация: стили из catalog.css (нумерация страниц товаров), переиспользованы 1-в-1.
-   Отступы задаются снаружи через grid-gap/margin у .reviews__layout, а не здесь. --- */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.pagination__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius-md);
-  color: var(--color-text-muted);
-  font-size: var(--fs-body-sm);
-  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
-}
-.pagination__link:hover {
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-.pagination__link--active {
-  background-color: var(--color-accent);
-  color: var(--color-text-inverse);
-}
-.pagination__link--disabled {
-  color: var(--color-text-disabled);
-  pointer-events: none;
 }

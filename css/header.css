@@ -93,7 +93,7 @@
 }
 
 /* Catalog Button & Dropdown */
-.catalog__btn {
+.catalog-menu__btn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -101,7 +101,7 @@
   transition: background-color var(--duration-base) var(--ease-out);
 }
 
-.catalog__menu {
+.catalog-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -118,21 +118,21 @@
   scrollbar-width: thin;
   scrollbar-color: var(--color-border) transparent;
 }
-.catalog__menu::-webkit-scrollbar {
+.catalog-menu::-webkit-scrollbar {
   width: 6px;
 }
-.catalog__menu::-webkit-scrollbar-track {
+.catalog-menu::-webkit-scrollbar-track {
   background: transparent;
 }
-.catalog__menu::-webkit-scrollbar-thumb {
+.catalog-menu::-webkit-scrollbar-thumb {
   background-color: var(--color-border);
   border-radius: var(--radius-full);
 }
-.catalog__menu::-webkit-scrollbar-thumb:hover {
+.catalog-menu::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-text-muted);
 }
 
-.catalog__list {
+.catalog-menu__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 140px);
   gap: var(--space-sm);
@@ -352,7 +352,7 @@
 /* --- Шапка: адаптив --- */
 @media (max-width: 1023px) {
   .header__top-bar,
-  .catalog__btn,
+  .catalog-menu__btn,
   .header__actions {
     display: none;
   }
@@ -389,7 +389,7 @@
   }
 
   /* значение --header-height выставляется в js*/
-  .catalog__menu {
+  .catalog-menu {
     position: fixed;
     top: var(--header-height, 0px);
     bottom: var(--bottom-nav-height);
@@ -404,7 +404,7 @@
     padding: var(--space-md);
   }
 
-  .catalog__list {
+  .catalog-menu__list {
     grid-template-columns: repeat(2, 1fr);
   }
 

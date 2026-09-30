@@ -316,6 +316,13 @@ h6 {
   transform: scaleX(1);
 }
 
+/* Текст размером h4 на элементах другого уровня (h2/h3/p) */
+.text-h4 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-h4);
+}
+
 /* --- Заголовок секции --- */
 .section-header {
   display: flex;
@@ -407,6 +414,18 @@ h6 {
   font-weight: 600;
 }
 
+/* --- Шаг: заголовок и текст (рядом с .step-number) --- */
+.step-title {
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+  line-height: var(--lh-h4);
+}
+
+.step-text {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+}
+
 /* --- Галочка в полупрозрачном круге (на тёмном фоне) --- */
 .check-icon {
   display: flex;
@@ -485,6 +504,29 @@ h6 {
   height: 2.25rem;
 }
 
+/* --- Раскладка: контент + боковая колонка 300–360px --- */
+.layout-aside {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+/* Липкая боковая колонка */
+.layout-aside__sticky {
+  position: sticky;
+  top: var(--sticky-top);
+}
+
+@media (max-width: 1023px) {
+  .layout-aside {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .layout-aside__sticky {
+    position: static;
+  }
+}
+
 /* --- Сетка карточек товара --- */
 .product-grid {
   display: grid;
@@ -494,6 +536,14 @@ h6 {
 
 .product-grid > * {
   min-width: 0;
+}
+
+.product-grid > li {
+  display: flex;
+}
+
+.product-grid > li > .product-card {
+  width: 100%;
 }
 
 @media (max-width: 1199px) {
@@ -839,6 +889,38 @@ h6 {
   .farm-invite:hover .farm-invite__cta svg {
     transform: translateX(3px);
   }
+}
+
+/* --- Компонент: пагинация --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pagination__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-size: var(--fs-body-sm);
+  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+}
+.pagination__link:hover {
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+.pagination__link--active {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+.pagination__link--disabled {
+  color: var(--color-text-disabled);
+  pointer-events: none;
 }
 
 /* --- Хлебные крошки --- */

@@ -91,13 +91,13 @@
           <!-- Кнопка каталога (Десктоп) -->
           <button
             type="button"
-            class="catalog__btn btn btn--primary"
+            class="catalog-menu__btn btn btn--primary"
             id="catalogBtn"
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
             <svg
-              class="catalog__btn-icon"
+              class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
@@ -195,9 +195,9 @@
         </div>
 
         <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
-        <div class="catalog__menu" id="catalogMenu" hidden>
+        <div class="catalog-menu" id="catalogMenu" hidden>
           <div class="container">
-            <ul class="catalog__list">
+            <ul class="catalog-menu__list">
               <li>
                 <a href="catalog.html" class="category-card">
                   <img
@@ -341,7 +341,7 @@
           <div class="reviews__layout">
             <!-- .reviews__row содержит ТОЛЬКО сетку отзывов и форму — больше в этом гриде ничего нет,
                  поэтому sticky-форма физически не может выйти за пределы высоты сетки -->
-            <div class="reviews__row">
+            <div class="reviews__row layout-aside">
               <!-- Отзывы ниже — примеры-заглушки, бизнес ещё не запущен. Заменить на реальные после первых заказов -->
               <ul class="review-grid">
                 <!-- Сводная оценка: всегда первым блоком в сетке, placeholder-цифры -->
@@ -565,7 +565,7 @@
               </ul>
 
             <!-- Форма отзыва — в боковой колонке, стики только в пределах сетки отзывов (не включая нумерацию) -->
-            <aside class="reviews__aside">
+            <aside class="reviews__aside layout-aside__sticky">
               <form class="panel review-form" id="reviewForm" novalidate>
               <div>
                 <h2 class="panel__title">Оставить отзыв о&nbsp;товаре</h2>
@@ -712,7 +712,7 @@
 
             <!-- Пагинация вынесена в отдельный грид с той же колоночной сеткой, что и .reviews__row —
                  её ширина совпадает с шириной сетки отзывов, но она не делит с формой общую ячейку -->
-            <div class="reviews__pagination-row">
+            <div class="reviews__pagination-row layout-aside">
               <nav class="pagination" aria-label="Страницы отзывов">
                 <a
                   href="#"

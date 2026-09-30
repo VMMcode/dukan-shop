@@ -227,13 +227,13 @@
           <!-- Кнопка каталога (Десктоп) -->
           <button
             type="button"
-            class="catalog__btn btn btn--primary"
+            class="catalog-menu__btn btn btn--primary"
             id="catalogBtn"
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
             <svg
-              class="catalog__btn-icon"
+              class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
@@ -331,9 +331,9 @@
         </div>
 
         <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
-        <div class="catalog__menu" id="catalogMenu" hidden>
+        <div class="catalog-menu" id="catalogMenu" hidden>
           <div class="container">
-            <ul class="catalog__list">
+            <ul class="catalog-menu__list">
               <li>
                 <a href="catalog.html" class="category-card">
                   <img
@@ -570,10 +570,10 @@
               <li class="delivery-steps__item">
                 <span class="step-number" aria-hidden="true">1</span>
                 <div class="delivery-steps__body">
-                  <h3 class="delivery-steps__title">
+                  <h3 class="step-title">
                     Вы оформляете заказ на сайте
                   </h3>
-                  <p class="delivery-steps__text">
+                  <p class="step-text">
                     Без&nbsp;оплаты и без&nbsp;привязки карты&nbsp;— просто выберите
                     продукты и оставьте контакты.
                   </p>
@@ -583,8 +583,8 @@
               <li class="delivery-steps__item">
                 <span class="step-number" aria-hidden="true">2</span>
                 <div class="delivery-steps__body">
-                  <h3 class="delivery-steps__title">Менеджер вам звонит</h3>
-                  <p class="delivery-steps__text">
+                  <h3 class="step-title">Менеджер вам звонит</h3>
+                  <p class="step-text">
                     Подтверждает состав заказа и договаривается с вами
                     об удобном дне и времени доставки.
                   </p>
@@ -594,10 +594,10 @@
               <li class="delivery-steps__item">
                 <span class="step-number" aria-hidden="true">3</span>
                 <div class="delivery-steps__body">
-                  <h3 class="delivery-steps__title">
+                  <h3 class="step-title">
                     Продукты едут к вам с Кавказа
                   </h3>
-                  <p class="delivery-steps__text">
+                  <p class="step-text">
                     Прямо с ферм&nbsp;— в грузовике с холодильным
                     оборудованием, с соблюдением температурного режима.
                   </p>
@@ -607,10 +607,10 @@
               <li class="delivery-steps__item">
                 <span class="step-number" aria-hidden="true">4</span>
                 <div class="delivery-steps__body">
-                  <h3 class="delivery-steps__title">
+                  <h3 class="step-title">
                     Накануне уточняем детали
                   </h3>
-                  <p class="delivery-steps__text">
+                  <p class="step-text">
                     Ещё раз созваниваемся, чтобы убедиться, что время
                     и адрес вам по-прежнему удобны.
                   </p>
@@ -620,11 +620,11 @@
               <li class="delivery-steps__item">
                 <span class="step-number" aria-hidden="true">5</span>
                 <div class="delivery-steps__body">
-                  <h3 class="delivery-steps__title">
+                  <h3 class="step-title">
                     Курьер звонит за 
                     <span data-setting="courier-call-minutes">15</span> минут
                   </h3>
-                  <p class="delivery-steps__text">
+                  <p class="step-text">
                     Можно спокойно спуститься или подготовиться
                     к встрече.
                   </p>
@@ -634,10 +634,10 @@
               <li class="delivery-steps__item">
                 <span class="step-number" aria-hidden="true">6</span>
                 <div class="delivery-steps__body">
-                  <h3 class="delivery-steps__title">
+                  <h3 class="step-title">
                     Вы проверяете заказ и платите
                   </h3>
-                  <p class="delivery-steps__text">
+                  <p class="step-text">
                     Наличными&nbsp;— только после того, как всё посмотрели.
                   </p>
                 </div>

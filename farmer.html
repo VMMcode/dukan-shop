@@ -136,13 +136,13 @@
           <!-- Кнопка каталога (Десктоп) -->
           <button
             type="button"
-            class="catalog__btn btn btn--primary"
+            class="catalog-menu__btn btn btn--primary"
             id="catalogBtn"
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
             <svg
-              class="catalog__btn-icon"
+              class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
               height="20"
@@ -240,9 +240,9 @@
         </div>
 
         <!-- Выпадающий каталог: общий для десктопной кнопки (catalogBtn) и мобильной кнопки из bottom-nav (mobileCatalogBtn) -->
-        <div class="catalog__menu" id="catalogMenu" hidden>
+        <div class="catalog-menu" id="catalogMenu" hidden>
           <div class="container">
-            <ul class="catalog__list">
+            <ul class="catalog-menu__list">
               <li>
                 <a href="catalog.html" class="category-card">
                   <img
@@ -508,208 +508,216 @@
             </div>
 
             <!-- Демо: названия, объёмы и цены условные. В WordPress: товары, у которых в поле farm выбрано это хозяйство -->
-            <div class="product-grid farmer-products__grid">
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/content/milk-category.webp"
-                    alt="Айран домашний"
-                    loading="lazy"
-                  />
-                </div>
-
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Айран домашний</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Семейная ферма Дадэ</span>
-                    <span class="product-card__region"
-                      >Кабардино-Балкария</span
-                    >
-                  </p>
-                  <span class="product-card__weight">1&nbsp;л</span>
-
-                  <div class="product-card__footer">
-                    <span class="product-card__price">250&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
+            <ul class="product-grid farmer-products__grid">
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/content/milk-category.webp"
+                      alt="Айран домашний"
+                      loading="lazy"
+                    />
                   </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/content/milk-category.webp"
-                    alt="Сметана домашняя"
-                    loading="lazy"
-                  />
-                </div>
-
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Сметана домашняя</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Семейная ферма Дадэ</span>
-                    <span class="product-card__region"
-                      >Кабардино-Балкария</span
-                    >
-                  </p>
-                  <span class="product-card__weight">400&nbsp;г</span>
-
-                  <div class="product-card__footer">
-                    <span class="product-card__price">380&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+  
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Айран домашний</a
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/products/sir.webp"
-                    alt="Сыр кабардинский"
-                    loading="lazy"
-                  />
-                </div>
-
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Сыр кабардинский</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Семейная ферма Дадэ</span>
-                    <span class="product-card__region"
-                      >Кабардино-Балкария</span
-                    >
-                  </p>
-                  <span class="product-card__weight">500&nbsp;г</span>
-
-                  <div class="product-card__footer">
-                    <span class="product-card__price">650&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Семейная ферма Дадэ</span>
+                      <span class="product-card__region"
+                        >Кабардино-Балкария</span
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article class="product-card">
-                <div class="product-card__media">
-                  <img
-                    class="product-card__img"
-                    src="img/content/milk-category.webp"
-                    alt="Молоко фермерское"
-                    loading="lazy"
-                  />
-                </div>
-
-                <div class="product-card__body">
-                  <h3 class="product-card__title">
-                    <a href="product.html" class="product-card__link"
-                      >Молоко фермерское</a
-                    >
-                  </h3>
-                  <p class="product-card__source">
-                    <span class="product-card__producer">Семейная ферма Дадэ</span>
-                    <span class="product-card__region"
-                      >Кабардино-Балкария</span
-                    >
-                  </p>
-                  <span class="product-card__weight">1&nbsp;л</span>
-
-                  <div class="product-card__footer">
-                    <span class="product-card__price">200&nbsp;₽</span>
-                    <button
-                      class="product-card__add"
-                      type="button"
-                      aria-label="Добавить в корзину"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    </p>
+                    <span class="product-card__weight">1&nbsp;л</span>
+  
+                    <div class="product-card__footer">
+                      <span class="product-card__price">250&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
                       >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 5l0 14" />
-                        <path d="M5 12l14 0" />
-                      </svg>
-                    </button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </div>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/content/milk-category.webp"
+                      alt="Сметана домашняя"
+                      loading="lazy"
+                    />
+                  </div>
+  
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Сметана домашняя</a
+                      >
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Семейная ферма Дадэ</span>
+                      <span class="product-card__region"
+                        >Кабардино-Балкария</span
+                      >
+                    </p>
+                    <span class="product-card__weight">400&nbsp;г</span>
+  
+                    <div class="product-card__footer">
+                      <span class="product-card__price">380&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/products/sir.webp"
+                      alt="Сыр кабардинский"
+                      loading="lazy"
+                    />
+                  </div>
+  
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Сыр кабардинский</a
+                      >
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Семейная ферма Дадэ</span>
+                      <span class="product-card__region"
+                        >Кабардино-Балкария</span
+                      >
+                    </p>
+                    <span class="product-card__weight">500&nbsp;г</span>
+  
+                    <div class="product-card__footer">
+                      <span class="product-card__price">650&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="product-card">
+                  <div class="product-card__media">
+                    <img
+                      class="product-card__img"
+                      src="img/content/milk-category.webp"
+                      alt="Молоко фермерское"
+                      loading="lazy"
+                    />
+                  </div>
+  
+                  <div class="product-card__body">
+                    <h3 class="product-card__title">
+                      <a href="product.html" class="product-card__link"
+                        >Молоко фермерское</a
+                      >
+                    </h3>
+                    <p class="product-card__source">
+                      <span class="product-card__producer">Семейная ферма Дадэ</span>
+                      <span class="product-card__region"
+                        >Кабардино-Балкария</span
+                      >
+                    </p>
+                    <span class="product-card__weight">1&nbsp;л</span>
+  
+                    <div class="product-card__footer">
+                      <span class="product-card__price">200&nbsp;₽</span>
+                      <button
+                        class="product-card__add"
+                        type="button"
+                        aria-label="Добавить в корзину"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 5l0 14" />
+                          <path d="M5 12l14 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

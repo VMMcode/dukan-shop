@@ -53,17 +53,6 @@
   min-width: 0;
 }
 
-.delivery-steps__title {
-  font-size: var(--fs-body-lg);
-  font-weight: 600;
-  line-height: var(--lh-h4);
-}
-
-.delivery-steps__text {
-  font-size: var(--fs-body-sm);
-  color: var(--color-text-muted);
-}
-
 /* --- Оплата: самый сильный блок страницы --- */
 .delivery-payment__inner {
   display: flex;
