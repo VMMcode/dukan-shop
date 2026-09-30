@@ -45,18 +45,6 @@
   gap: var(--space-sm);
 }
 
-.contact-method__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  flex-shrink: 0;
-  border-radius: var(--radius-md);
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-
 .contact-method__body {
   display: flex;
   flex-direction: column;

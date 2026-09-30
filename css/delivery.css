@@ -11,10 +11,6 @@
   gap: var(--space-md);
 }
 
-.delivery-hero__title {
-  color: var(--color-accent);
-}
-
 .delivery-hero__lead {
   font-size: var(--fs-body-lg);
   color: var(--color-text-muted);
@@ -26,48 +22,6 @@
   gap: var(--space-sm);
   list-style: none;
   padding: 0;
-  margin: 0;
-}
-
-.delivery-hero__card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.delivery-hero__card-icon {
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  border-radius: var(--radius-md);
-  background: var(--color-accent-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.delivery-hero__card-icon svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  color: var(--color-accent);
-}
-
-.delivery-hero__card-title {
-  font-size: var(--fs-body-lg);
-  line-height: var(--lh-body);
-  font-weight: 600;
-  color: var(--color-text);
-  margin: 0;
-}
-
-.delivery-hero__card-text {
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-body);
-  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -90,20 +44,6 @@
 .delivery-steps__item {
   display: flex;
   gap: var(--space-md);
-}
-
-.delivery-steps__number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent);
-  color: var(--color-text-inverse);
-  font-size: var(--fs-body-lg);
-  font-weight: 600;
 }
 
 .delivery-steps__body {
@@ -153,23 +93,6 @@
 .delivery-payment__item {
   display: flex;
   gap: var(--space-sm);
-}
-
-.delivery-payment__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: var(--radius-full);
-  background-color: var(--color-on-accent-subtle);
-}
-
-.delivery-payment__icon svg {
-  width: 60%;
-  height: 60%;
-  stroke: var(--color-text-inverse);
 }
 
 .delivery-payment__item-body {
@@ -320,7 +243,6 @@
   font-weight: 500;
 }
 
-/* Карточки — тот же рецепт, что у .delivery-hero__card / .about__card */
 .delivery-freshness__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -328,48 +250,6 @@
   list-style: none;
   padding: 0;
   margin: var(--space-md) 0 0;
-}
-
-.delivery-freshness__card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.delivery-freshness__card-icon {
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  border-radius: var(--radius-md);
-  background: var(--color-accent-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.delivery-freshness__card-icon svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  color: var(--color-accent);
-}
-
-.delivery-freshness__card-title {
-  font-size: var(--fs-body-lg);
-  line-height: var(--lh-body);
-  font-weight: 600;
-  color: var(--color-text);
-  margin: 0;
-}
-
-.delivery-freshness__card-text {
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-body);
-  color: var(--color-text-muted);
-  margin: 0;
 }
 
 /* --- Если что-то пошло не так --- */
@@ -389,48 +269,6 @@
   gap: var(--space-sm);
   list-style: none;
   padding: 0;
-  margin: 0;
-}
-
-.delivery-support__card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.delivery-support__card-icon {
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  border-radius: var(--radius-md);
-  background: var(--color-accent-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.delivery-support__card-icon svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  color: var(--color-accent);
-}
-
-.delivery-support__card-title {
-  font-size: var(--fs-body-lg);
-  line-height: var(--lh-body);
-  font-weight: 600;
-  color: var(--color-text);
-  margin: 0;
-}
-
-.delivery-support__card-text {
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-body);
-  color: var(--color-text-muted);
   margin: 0;
 }
 

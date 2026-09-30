@@ -7,10 +7,6 @@
   margin-bottom: var(--space-lg);
 }
 
-.legal__title {
-  color: var(--color-text);
-}
-
 .legal__updated {
   margin-top: var(--space-xs);
   font-size: var(--fs-body-sm);

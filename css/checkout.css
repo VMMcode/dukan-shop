@@ -213,10 +213,6 @@
   margin-bottom: var(--space-xs);
 }
 
-.order-success__title {
-  color: var(--color-text);
-}
-
 .order-success__number,
 .order-success__sum {
   color: var(--color-text-muted);

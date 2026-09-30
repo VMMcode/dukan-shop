@@ -130,27 +130,6 @@
   flex: 1;
 }
 
-/* --- Бейдж товара, к которому относится отзыв: не просто ссылка, а заметный акцентный чип --- */
-.review-card__product {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  width: fit-content;
-  max-width: 100%;
-  padding: 0.3rem var(--space-sm);
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-  font-size: var(--fs-body-sm);
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color var(--duration-base) var(--ease-out);
-}
-.review-card__product:hover {
-  background-color: var(--color-accent);
-  color: var(--color-text-inverse);
-}
-
 /* --- Модификатор: сводная оценка, всегда первой карточкой в сетке, акцентный фон --- */
 .review-card--summary {
   justify-content: center;
@@ -197,18 +176,6 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-sm);
-}
-
-.owner-form__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  flex-shrink: 0;
-  border-radius: var(--radius-md);
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
 }
 
 .owner-form__hint {

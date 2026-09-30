@@ -42,10 +42,6 @@
   height: 1rem;
 }
 
-.farmer-hero__title {
-  color: var(--color-accent);
-}
-
 .farmer-hero__lead {
   font-size: var(--fs-body-lg);
   color: var(--color-text-muted);
@@ -58,14 +54,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.farmer-hero__tag {
-  padding: var(--space-2xs) var(--space-xs);
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-  font-size: var(--fs-body-sm);
 }
 
 /* --- О хозяйстве --- */
@@ -87,42 +75,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.farmer-about__item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-}
-
-.farmer-about__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-
-.farmer-about__icon svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
-}
-
-.farmer-about__item-title {
-  font-size: var(--fs-body-lg);
-  line-height: var(--lh-body);
-  font-weight: 600;
-}
-
-.farmer-about__item-text {
-  color: var(--color-text-muted);
 }
 
 /* --- Что производят --- */

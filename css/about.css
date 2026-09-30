@@ -15,10 +15,6 @@
   min-width: 0;
 }
 
-.about-hero__title {
-  color: var(--color-accent);
-}
-
 .about-hero__lead {
   font-size: var(--fs-body-lg);
   color: var(--color-text-muted);
@@ -33,47 +29,13 @@
   list-style: none;
 }
 
-/* Карточка факта — значения как у .delivery-hero__card */
+/* Факт — микс с .info-card */
 .about-hero__fact {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
   min-width: 0;
-  padding: var(--space-md);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-}
-
-.about-hero__fact-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  border-radius: var(--radius-md);
-  background: var(--color-accent-muted);
-}
-
-.about-hero__fact-icon svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  color: var(--color-accent);
 }
 
 .about-hero__fact-value {
-  font-size: var(--fs-body-lg);
-  line-height: var(--lh-body);
-  font-weight: 600;
   white-space: nowrap;
-  color: var(--color-text);
-}
-
-.about-hero__fact-label {
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-body);
-  color: var(--color-text-muted);
 }
 
 .about-hero__media {
@@ -128,22 +90,10 @@
   gap: var(--space-md);
 }
 
-.about-story__card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-}
-
-.about-story__card--muted .about-story__card-title {
-  color: var(--color-text-muted);
-}
-
-.about-story__card-text {
-  color: var(--color-text-muted);
+/* Заголовки карточек — микс с .info-card__title: line-height как был */
+.about-story__card-title,
+.about-promises__title {
+  line-height: var(--lh-h4);
 }
 
 /* --- Как продукт попадает к вам --- */
@@ -154,7 +104,6 @@
 }
 
 .about-path__list {
-  --path-number-size: 2.75rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg) var(--space-md);
@@ -173,17 +122,7 @@
 .about-path__number {
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--path-number-size);
-  height: var(--path-number-size);
   margin-bottom: var(--space-xs);
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent);
-  color: var(--color-text-inverse);
-  font-size: var(--fs-body-lg);
-  font-weight: 600;
 }
 
 /* Линия от кружка к следующему */
@@ -262,45 +201,6 @@
   padding: 0;
 }
 
-.about-promises__item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-}
-
-.about-story__icon,
-.about-promises__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(var(--icon-size) * 2.5);
-  height: calc(var(--icon-size) * 2.5);
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-
-.about-story__icon svg,
-.about-promises__icon svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
-}
-
-.about-story__card-title,
-.about-promises__title {
-  font-size: var(--fs-body-lg);
-  line-height: var(--lh-h4);
-  font-weight: 600;
-}
-
-.about-promises__text {
-  color: var(--color-text-muted);
-}
-
 /* --- Регионы: вводный абзац --- */
 .regions__lead {
   color: var(--color-text-muted);
@@ -323,10 +223,6 @@
   .farmer-invite__inner:hover {
     border-color: var(--color-accent-hover);
   }
-}
-
-.farmer-invite__icon {
-  flex-shrink: 0;
 }
 
 .farmer-invite__content {

@@ -127,6 +127,7 @@
 
   /* --- Icons --- */
   --icon-size: clamp(18px, 1rem + 0.3vw, 22px);
+  --path-number-size: 2.75rem; /* кружок шага; от него считаются линии-соединители на about */
 
   /* --- Image --- */
   --product-image-ratio: 3 / 2;

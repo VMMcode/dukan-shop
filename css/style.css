@@ -47,7 +47,6 @@
   font-size: var(--fs-h1);
   line-height: var(--lh-h1);
   font-weight: var(--fw-h1);
-  color: var(--color-accent);
 }
 
 .hero__description {
@@ -368,48 +367,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-sm);
-}
-
-.about__card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md) var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.about__card-icon {
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  border-radius: var(--radius-md);
-  background: var(--color-accent-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about__card-icon svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  color: var(--color-accent);
-}
-
-.about__card-title {
-  font-size: var(--fs-h4);
-  line-height: var(--lh-h4);
-  font-weight: var(--fw-h4);
-  color: var(--color-text);
-  margin: 0;
-}
-
-.about__card-text {
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  font-weight: var(--fw-body);
-  color: var(--color-text-muted);
-  margin: 0;
 }
 
 @media (max-width: 1023px) {

@@ -109,6 +109,7 @@ h1 {
   font-size: var(--fs-h1);
   font-weight: var(--fw-h1);
   line-height: var(--lh-h1);
+  color: var(--color-accent);
 }
 
 h2 {
@@ -345,6 +346,145 @@ h6 {
   color: var(--color-text-muted);
 }
 
+/* --- Иконка в плашке: эталон — карточки hero на «Доставке и оплате» --- */
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+.icon-box svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+/* --- Инфо-карточка: иконка + заголовок + текст --- */
+.info-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.info-card__title {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.info-card__text {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-muted);
+}
+
+.info-card--muted .info-card__title {
+  color: var(--color-text-muted);
+}
+
+/* --- Кружок с номером шага --- */
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--path-number-size);
+  height: var(--path-number-size);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-size: var(--fs-body-lg);
+  font-weight: 600;
+}
+
+/* --- Галочка в полупрозрачном круге (на тёмном фоне) --- */
+.check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-on-accent-subtle);
+}
+
+.check-icon svg {
+  width: 60%;
+  height: 60%;
+  stroke: var(--color-text-inverse);
+}
+
+/* --- Чип: эталон — тег хозяйства --- */
+.chip {
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+  font-size: var(--fs-body-sm);
+}
+
+.chip--link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.3rem var(--space-sm);
+  font-weight: 600;
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.chip--link:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* --- Бейдж-иконка на фото товара --- */
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-card);
+}
+
+.badge svg {
+  width: 55%;
+  height: 55%;
+  stroke: currentColor;
+}
+
+.badge .icon-halal {
+  width: 75%;
+  height: 75%;
+}
+
+.badge--pick {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.badge--lg {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
 /* --- Сетка карточек товара --- */
 .product-grid {
   display: grid;
@@ -380,8 +520,21 @@ h6 {
   transition: box-shadow var(--duration-base) var(--ease-out);
 }
 
-.product-card:hover {
-  box-shadow: var(--shadow-card);
+@media (hover: hover) {
+  .product-card:hover {
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* Ссылка занимает всю карточку (::after), поэтому фокус подсвечиваем на карточке.
+   :focus-within не подходит — подсветилась бы и при фокусе на кнопке «+» */
+.product-card:has(.product-card__link:focus-visible) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.product-card__link:focus-visible {
+  outline: none;
 }
 
 .product-card__media {
@@ -405,25 +558,6 @@ h6 {
   z-index: 1;
 }
 
-.product-card__badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  flex-shrink: 0;
-  border-radius: var(--radius-full);
-  background-color: var(--color-surface);
-  color: var(--color-accent);
-  box-shadow: var(--shadow-card);
-}
-
-.product-card__badge svg {
-  width: 55%;
-  height: 55%;
-  stroke: currentColor;
-}
-
 .icon-halal {
   display: block;
   width: 100%;
@@ -431,16 +565,6 @@ h6 {
   background-color: currentColor;
   -webkit-mask: url("../img/icons/icon-halal.svg") center / contain no-repeat;
   mask: url("../img/icons/icon-halal.svg") center / contain no-repeat;
-}
-
-.product-card__badge .icon-halal {
-  width: 75%;
-  height: 75%;
-}
-
-.product-card__badge--pick {
-  background-color: var(--color-accent);
-  color: var(--color-surface);
 }
 
 .product-card__body {
@@ -647,14 +771,6 @@ h6 {
   padding: 0;
 }
 
-.farm-card__tag {
-  padding: var(--space-2xs) var(--space-xs);
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-  font-size: var(--fs-body-sm);
-}
-
 .farm-card__more {
   margin-top: auto;
 }
@@ -708,22 +824,6 @@ h6 {
   transition:
     border-color var(--duration-base) var(--ease-out),
     color var(--duration-base) var(--ease-out);
-}
-
-.farm-invite__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(var(--icon-size) * 2);
-  height: calc(var(--icon-size) * 2);
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-
-.farm-invite__icon svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
 }
 
 .farm-invite__text {
@@ -1091,8 +1191,10 @@ h6 {
   transition: box-shadow var(--duration-base) var(--ease-out);
 }
 
-.region-card:hover {
-  box-shadow: var(--shadow-card); /* тот же hover, что у .product-card — единообразие */
+@media (hover: hover) {
+  .region-card:hover {
+    box-shadow: var(--shadow-card); /* тот же hover, что у .product-card — единообразие */
+  }
 }
 
 .region-card__img {

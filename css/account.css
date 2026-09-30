@@ -41,7 +41,6 @@
   font-size: var(--fs-h4);
   line-height: var(--lh-h4);
   font-weight: var(--fw-h4);
-  color: var(--color-text);
 }
 
 .account-welcome__phone {

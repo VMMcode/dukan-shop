@@ -675,10 +675,10 @@
                     alt="Осетинский сыр"
                   />
                   <div class="product-card__badges">
-                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
                       <span class="icon-halal" aria-hidden="true"></span>
                     </span>
-                    <span class="product-card__badge product-card__badge--pick" title="Выбор Дукан" aria-label="Выбор Дукан">
+                    <span class="badge badge--pick" role="img" title="Выбор Дукан" aria-label="Выбор Дукан">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z" />
@@ -735,7 +735,7 @@
                     alt="Бастурма из говядины"
                   />
                   <div class="product-card__badges">
-                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
                       <span class="icon-halal" aria-hidden="true"></span>
                     </span>
                   </div>
@@ -789,7 +789,7 @@
                     alt="Свежие яйца"
                   />
                   <div class="product-card__badges">
-                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
                       <span class="icon-halal" aria-hidden="true"></span>
                     </span>
                   </div>
@@ -841,7 +841,7 @@
                     alt="Майский мёд"
                   />
                   <div class="product-card__badges">
-                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
                       <span class="icon-halal" aria-hidden="true"></span>
                     </span>
                   </div>
@@ -893,7 +893,7 @@
                     alt="Баранина"
                   />
                   <div class="product-card__badges">
-                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
                       <span class="icon-halal" aria-hidden="true"></span>
                     </span>
                   </div>
@@ -945,7 +945,7 @@
                     alt="Домашние помидоры"
                   />
                   <div class="product-card__badges">
-                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
                       <span class="icon-halal" aria-hidden="true"></span>
                     </span>
                   </div>
@@ -997,7 +997,7 @@
                     alt="Мясо кролика"
                   />
                   <div class="product-card__badges">
-                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
                       <span class="icon-halal" aria-hidden="true"></span>
                     </span>
                   </div>
@@ -1049,7 +1049,7 @@
                     alt="Пшено"
                   />
                   <div class="product-card__badges">
-                    <span class="product-card__badge" title="Халяль" aria-label="Халяль">
+                    <span class="badge" role="img" title="Халяль" aria-label="Халяль">
                       <span class="icon-halal" aria-hidden="true"></span>
                     </span>
                   </div>
@@ -1123,60 +1123,75 @@
             </p>
 
             <div class="about__grid">
-              <div class="about__card">
-                <div class="about__card-icon">
+              <div class="info-card">
+                <div class="icon-box">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
                   >
-                    <path d="M12 2v20M2 12h20" />
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
                   </svg>
                 </div>
-                <h4 class="about__card-title">Свои фермеры</h4>
-                <p class="about__card-text">
+                <h3 class="info-card__title">Свои фермеры</h3>
+                <p class="info-card__text">
                   Работаем напрямую с&nbsp;локальными производителями Кавказа&nbsp;— у&nbsp;каждого свой бренд и&nbsp;своё хозяйство.
                 </p>
               </div>
 
-              <div class="about__card">
-                <div class="about__card-icon">
+              <div class="info-card">
+                <div class="icon-box">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
                   >
-                    <path d="M3 12h18M3 6h18M3 18h18" />
+                    <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                    <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                    <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
                   </svg>
                 </div>
-                <h4 class="about__card-title">Своя логистика</h4>
-                <p class="about__card-text">
+                <h3 class="info-card__title">Своя логистика</h3>
+                <p class="info-card__text">
                   Возим продукты собственным грузовиком из&nbsp;Нальчика в&nbsp;Москву&nbsp;—
                   без&nbsp;перекупщиков.
                 </p>
               </div>
 
-              <div class="about__card">
-                <div class="about__card-icon">
+              <div class="info-card">
+                <div class="icon-box">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
                   >
-                    <circle cx="12" cy="12" r="9" />
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <path d="M9 15l2 2 4-4" />
                   </svg>
                 </div>
-                <h4 class="about__card-title">Честный состав</h4>
-                <p class="about__card-text">
+                <h3 class="info-card__title">Честный состав</h3>
+                <p class="info-card__text">
                   На&nbsp;каждом товаре&nbsp;— реальный состав и&nbsp;граммовка, без&nbsp;«магазинного» маркетинга.
                 </p>
               </div>
 
-              <div class="about__card">
-                <div class="about__card-icon">
+              <div class="info-card">
+                <div class="icon-box">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -1188,8 +1203,8 @@
                     />
                   </svg>
                 </div>
-                <h4 class="about__card-title">Поддержка местных</h4>
-                <p class="about__card-text">
+                <h3 class="info-card__title">Поддержка местных</h3>
+                <p class="info-card__text">
                   Каждый заказ&nbsp;— вклад в&nbsp;фермерские хозяйства региона, а&nbsp;не&nbsp;в&nbsp;крупные сети.
                 </p>
               </div>

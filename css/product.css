@@ -42,32 +42,6 @@
   z-index: 1;
 }
 
-.product-gallery__badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  flex-shrink: 0;
-  border-radius: var(--radius-full);
-  background-color: var(--color-surface);
-  color: var(--color-accent);
-  box-shadow: var(--shadow-card);
-}
-.product-gallery__badge svg {
-  width: 55%;
-  height: 55%;
-  stroke: currentColor;
-}
-.product-gallery__badge .icon-halal {
-  width: 75%;
-  height: 75%;
-}
-.product-gallery__badge--pick {
-  background-color: var(--color-accent);
-  color: var(--color-surface);
-}
-
 .product-gallery__thumbs {
   display: flex;
   gap: var(--space-sm);
@@ -103,7 +77,6 @@
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
   font-weight: var(--fw-h2);
-  color: var(--color-text);
 }
 
 .product-info__source {
