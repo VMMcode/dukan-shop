@@ -173,10 +173,6 @@
 }
 
 /* --- Продукты хозяйства --- */
-.farmer-products {
-  scroll-margin-top: var(--header-height, 0px);
-}
-
 .farmer-products__inner {
   display: flex;
   flex-direction: column;
@@ -214,7 +210,7 @@
 }
 
 /* --- Адаптив --- */
-@media (min-width: 641px) {
+@media (min-width: 640px) {
   .farmer-products__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -224,7 +220,7 @@
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .farmer-hero__inner {
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -240,7 +236,7 @@
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .farmer-products__grid {
     grid-template-columns: repeat(4, 1fr);
   }

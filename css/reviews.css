@@ -3,18 +3,6 @@
   padding-top: var(--space-md);
 }
 
-.reviews__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-lg);
-}
-
-.reviews__subtitle {
-  font-size: var(--fs-body-lg);
-  color: var(--color-text-muted);
-}
-
 /* --- Общий layout: лента отзывов + форма отзыва в боковой колонке, и отдельно — пагинация ---
    .reviews__row содержит ТОЛЬКО сетку отзывов и форму (без пагинации), поэтому у sticky-формы
    нет ни единого шанса «выйти» за пределы высоты сетки — им просто нечем делить общую ячейку.
@@ -43,10 +31,10 @@
 
 .reviews__aside {
   position: sticky;
-  top: calc(var(--header-height, 0px) + var(--space-md));
+  top: var(--sticky-top);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   /* Сетка/пагинация/форма визуально переупорядочиваются через order — .reviews__row и
      .reviews__pagination-row становятся "прозрачными" (display: contents), а их дети
      превращаются в прямые flex-элементы .reviews__layout */
@@ -158,11 +146,6 @@
   text-decoration: none;
   transition: background-color var(--duration-base) var(--ease-out);
 }
-.review-card__product span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 .review-card__product:hover {
   background-color: var(--color-accent);
   color: var(--color-text-inverse);
@@ -177,15 +160,10 @@
 }
 
 .review-card--summary .review-card__stars {
-  color: rgba(255, 255, 255, 0.4);
+  color: color-mix(in srgb, var(--color-text-inverse) 40%, transparent);
 }
 .review-card--summary .review-card__star--filled {
   color: var(--color-text-inverse);
-}
-
-.review-card--summary .review-card__text {
-  flex: none;
-  color: inherit;
 }
 
 .review-card__score {
@@ -196,7 +174,7 @@
 
 .review-card__count {
   font-size: var(--fs-body-sm);
-  color: rgba(255, 255, 255, 0.75);
+  color: color-mix(in srgb, var(--color-text-inverse) 75%, transparent);
 }
 
 /* --- Формы в боковой колонке --- */
@@ -214,100 +192,7 @@
   color: var(--color-text-muted);
 }
 
-/* --- Поиск товара для отзыва: nice-select2 с поиском (см. main.js), тот же вид, что у района доставки в checkout.html --- */
-.review-form__product-select.nice-select {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  line-height: normal;
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-md);
-  /* Справа — увеличенный отступ, чтобы под стрелку было зарезервировано место
-     и текст никогда до неё не дотягивался (см. .current ниже) */
-  padding: var(--space-sm) 2.5rem var(--space-sm) var(--space-md);
-  background-color: var(--input-bg);
-  color: var(--color-text);
-  font-family: inherit;
-  font-size: var(--fs-body);
-}
-.review-form__product-select.nice-select:hover,
-.review-form__product-select.nice-select.open {
-  border-color: var(--color-accent);
-}
-/* Текущий выбранный текст — flex-элемент, который ужимается и обрезается многоточием
-   строго внутри отступа слева от стрелки, без наезда на неё */
-.review-form__product-select.nice-select .current {
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.review-form__product-select.nice-select:after {
-  border-color: var(--color-text-muted);
-  right: var(--space-md);
-}
-.review-form__product-select.nice-select.open:after {
-  border-color: var(--color-accent);
-}
-/* Единственный скролл-контейнер — сам дропдаун; показываем скролл только когда он
-   реально нужен (auto, а не scroll) и красим его в тонкий брендированный, а не системный */
-.review-form__product-select.nice-select .nice-select-dropdown {
-  width: 100%;
-  max-height: 260px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-accent-muted) transparent;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  z-index: 30;
-}
-.review-form__product-select.nice-select .nice-select-dropdown::-webkit-scrollbar {
-  width: 6px;
-}
-.review-form__product-select.nice-select .nice-select-dropdown::-webkit-scrollbar-track {
-  background: transparent;
-}
-.review-form__product-select.nice-select .nice-select-dropdown::-webkit-scrollbar-thumb {
-  background: var(--color-accent-muted);
-  border-radius: var(--radius-full);
-}
-.review-form__product-select.nice-select .nice-select-search {
-  width: calc(100% - 16px);
-  margin: 8px;
-  padding: 0.4rem var(--space-sm);
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-sm);
-  font-family: inherit;
-  font-size: var(--fs-body-sm);
-}
-.review-form__product-select.nice-select .list {
-  border-radius: var(--radius-sm);
-  padding: 4px 0;
-}
-/* Длинные названия товаров переносятся на вторую строку, а не обрезаются — базовый
-   .nice-select задаёт white-space: nowrap на весь блок, .option явно возвращает wrap */
-.review-form__product-select.nice-select .option {
-  font-size: var(--fs-body-sm);
-  line-height: 1.4;
-  padding: 0.5rem 14px;
-  white-space: normal;
-  color: var(--color-text);
-}
-.review-form__product-select.nice-select .option.selected {
-  font-weight: 600;
-  color: var(--color-accent);
-}
-.review-form__product-select.nice-select .option:hover,
-.review-form__product-select.nice-select .option.focus {
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-
-/* --- Форма пожелания владельцу: стандартная подложка, как у остальных блоков (checkout-block) --- */
+/* --- Форма пожелания владельцу: стандартная подложка, как у остальных блоков (.panel) --- */
 .owner-form__header {
   display: flex;
   align-items: flex-start;
@@ -326,13 +211,6 @@
   color: var(--color-accent);
 }
 
-.owner-form__title {
-  font-size: var(--fs-h4);
-  line-height: var(--lh-h4);
-  font-weight: var(--fw-h4);
-  color: var(--color-text);
-}
-
 .owner-form__hint {
   font-size: var(--fs-body-sm);
   color: var(--color-text-muted);
@@ -344,7 +222,7 @@
   gap: var(--space-md);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 639px) {
   .owner-form__fields {
     grid-template-columns: 1fr;
   }

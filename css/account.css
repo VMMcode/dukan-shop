@@ -67,14 +67,6 @@
   grid-area: tracker;
 }
 
-/* [hidden] по умолчанию даёт display:none, но .checkout-block выше
-   переключает его на display:flex — тот же баг, что уже чинили для
-   .checkout-account__step[hidden] в checkout.css. Без этого правила
-   заглушка "нет активных заказов" рисуется поверх реального трекера. */
-.order-tracker[hidden] {
-  display: none;
-}
-
 .order-tracker__number {
   font-size: var(--fs-body-sm);
   color: var(--color-text-muted);
@@ -195,7 +187,7 @@
 }
 
 /* --- История заказов --- */
-.order-history__list {
+.order-history {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
@@ -286,7 +278,7 @@
 }
 
 /* --- Адаптив: на мобилке всё в одну колонку, в том же порядке areas --- */
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .account__layout {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -297,10 +289,7 @@
   }
 }
 
-@media (max-width: 640px) {
-  .checkout-block {
-    padding: var(--space-sm);
-  }
+@media (max-width: 639px) {
   .order-history__row {
     flex-direction: column;
     align-items: flex-start;

@@ -352,7 +352,7 @@
 }
 
 /* --- Адаптив --- */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .about-hero__inner {
     gap: var(--space-lg);
   }
@@ -376,7 +376,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   .about-hero__inner {
     grid-template-columns: 1fr;
   }
@@ -386,7 +386,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .about-hero__facts {
     grid-template-columns: 1fr;
   }
@@ -452,7 +452,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 639px) {
   .principle__figure {
     padding: var(--space-lg) var(--space-md);
   }

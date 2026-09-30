@@ -1,3 +1,10 @@
+/* --- Брейкпоинты (использовать только эти значения) ---
+   max-width: 639px  / min-width: 640px   — телефон
+   max-width: 767px  / min-width: 768px   — большой телефон / маленький планшет
+   max-width: 1023px / min-width: 1024px  — планшет; до 1023 включительно — мобильная навигация (bottom-nav, бургер)
+   max-width: 1199px / min-width: 1200px  — ноутбук
+*/
+
 :root {
   /* --- Color-style --- */
 
@@ -84,10 +91,8 @@
   --fw-body: 400;
 
   --fs-body-sm: clamp(0.8125rem, 0.7875rem + 0.125vw, 0.875rem);
-  --lh-body-sm: 1.4;
-
-  --fs-body-lg: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
   --lh-body-sm: 1.6;
+  --fs-body-lg: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
 
   --fs-button: clamp(0.875rem, 0.8375rem + 0.1875vw, 0.9375rem);
   --lh-button: 1;
@@ -104,6 +109,8 @@
   --space-2xl: clamp(3rem, 2rem + 5vw, 7rem); /* 48 → 112px */
 
   /* --- Radius-style --- */
+  /* Радиус для мелких элементов (чекбоксы) */
+  --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -126,5 +133,22 @@
 
   /* --- Animation --- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
   --duration-base: 300ms;
+  --duration-slow: 400ms;
+
+  /* --- Липкие элементы: отступ от шапки --- */
+  --sticky-top: calc(var(--header-height, 0px) + var(--space-md));
+
+  /* --- Слои --- */
+  --z-dropdown: 30;
+  --z-overlay: 90;
+  --z-cart-bar: 90;
+  --z-header: 100;
+  --z-drawer: 150;
+  --z-catalog-menu: 200;
+  --z-bottom-nav: 1000;
+
+  /* --- Вуаль hero (сохраняет текущий цвет градиента) --- */
+  --color-hero-veil: 247 241 231;
 }

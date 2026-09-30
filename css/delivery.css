@@ -87,10 +87,6 @@
   margin: 0;
 }
 
-.delivery-steps__list--quad {
-  grid-template-columns: repeat(4, 1fr);
-}
-
 .delivery-steps__item {
   display: flex;
   gap: var(--space-md);
@@ -152,10 +148,6 @@
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.delivery-payment__list--triple {
-  grid-template-columns: repeat(3, 1fr);
 }
 
 .delivery-payment__item {
@@ -496,19 +488,12 @@
 }
 
 /* --- Адаптив --- */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .delivery-hero__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .delivery-steps__list--quad {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .delivery-payment__list,
-  .delivery-payment__list--triple {
+  .delivery-payment__list {
     grid-template-columns: 1fr;
   }
 
@@ -521,9 +506,8 @@
   }
 }
 
-@media (max-width: 768px) {
-  .delivery-steps__list,
-  .delivery-steps__list--quad {
+@media (max-width: 767px) {
+  .delivery-steps__list {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
@@ -553,7 +537,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 639px) {
   .delivery-hero__grid {
     grid-template-columns: 1fr;
   }

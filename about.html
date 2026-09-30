@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="fonts/Rawline-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/Rawline-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
@@ -39,7 +41,7 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "О магазине",
+            "name": "О нас",
             "item": "https://dukan.ru/about.html"
           }
         ]
@@ -65,7 +67,7 @@
           <nav class="header__top-nav">
             <ul class="header__top-list">
               <li class="header__top-item">
-                <a href="about.html" class="header__top-link">О нас</a>
+                <a href="about.html" class="header__top-link">О&nbsp;нас</a>
               </li>
               <li class="header__top-item">
                 <a href="farmers.html" class="header__top-link">Наши фермеры</a>
@@ -74,7 +76,7 @@
                 <a href="reviews.html" class="header__top-link">Отзывы</a>
               </li>
               <li class="header__top-item">
-                <a href="delivery.html" class="header__top-link">Доставка и оплата</a>
+                <a href="delivery.html" class="header__top-link">Доставка и&nbsp;оплата</a>
               </li>
               <li class="header__top-item">
                 <a href="contacts.html" class="header__top-link">Контакты</a>
@@ -94,12 +96,12 @@
                   d="M19 7h-3V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h1c0 1.66 1.34 3 3 3s3-1.34 3-3h4c0 1.66 1.34 3 3 3s3-1.34 3-3h1c1.1 0 2-.9 2-2v-5l-3-3zM8 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm10 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM19 12h-2.5V9H18l1 3z"
                 />
               </svg>
-              <span>Доставка по Москве</span>
+              <span>Доставка по&nbsp;Москве</span>
             </div>
 
             <!-- Телефон: заглушка, в проде выводится через ACF -->
             <a
-              href="tel:+79997777777"
+              href="tel:+79999999999"
               class="header__top-info-item header__top-info-item--phone"
             >
               <svg
@@ -112,7 +114,7 @@
                   d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
                 />
               </svg>
-              <span class="header__phone-number">+7 999 777 77 77</span>
+              <span class="header__phone-number">+7&nbsp;999&nbsp;999-99-99</span>
             </a>
           </div>
         </div>
@@ -159,7 +161,7 @@
               type="text"
               name="q"
               class="header__search-input"
-              placeholder="Поиск по каталогу..."
+              placeholder="Поиск по каталогу"
               autocomplete="off"
             />
             <button
@@ -200,7 +202,7 @@
             <a
               href="checkout.html"
               class="header__cart-btn btn btn--primary"
-              aria-label="Корзина, товаров: 3, сумма 2 440 ₽"
+              aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -216,7 +218,7 @@
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <path d="M16 10a4 4 0 0 1-8 0"></path>
               </svg>
-              <span class="header__cart-price">2 440 ₽</span>
+              <span class="header__cart-price">2&nbsp;140&nbsp;₽</span>
               <span class="header__cart-badge">3</span>
             </a>
           </div>
@@ -257,7 +259,7 @@
                     class="category-card__image"
                   />
                   <span class="category-card__label"
-                    >Говядина, птица, кролик</span
+                    >Мясо и&nbsp;птица</span
                   >
                 </a>
               </li>
@@ -278,7 +280,7 @@
                     alt=""
                     class="category-card__image"
                   />
-                  <span class="category-card__label">Овощи и фрукты</span>
+                  <span class="category-card__label">Овощи и&nbsp;фрукты</span>
                 </a>
               </li>
               <li>
@@ -318,7 +320,7 @@
                     alt=""
                     class="category-card__image"
                   />
-                  <span class="category-card__label">Мёд и варенье</span>
+                  <span class="category-card__label">Мёд и&nbsp;варенье</span>
                 </a>
               </li>
             </ul>
@@ -330,13 +332,13 @@
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
         <nav class="header__mobile-nav">
           <ul class="header__mobile-list">
-            <li><a href="about.html" class="header__mobile-link">О нас</a></li>
+            <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
             <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
             <li>
               <a href="reviews.html" class="header__mobile-link">Отзывы</a>
             </li>
             <li>
-              <a href="delivery.html" class="header__mobile-link">Доставка и оплата</a>
+              <a href="delivery.html" class="header__mobile-link">Доставка и&nbsp;оплата</a>
             </li>
             <li>
               <a href="contacts.html" class="header__mobile-link">Контакты</a>
@@ -345,8 +347,8 @@
         </nav>
         <div class="header__mobile-phone">
           <!-- Телефон: заглушка, в проде вывод через ACF -->
-          <a href="tel:+79997777777" class="header__phone-number"
-            >+7 999 777 77 77</a
+          <a href="tel:+79999999999" class="header__phone-number"
+            >+7&nbsp;999&nbsp;999-99-99</a
           >
         </div>
       </div>
@@ -364,7 +366,7 @@
               <li class="breadcrumbs__sep">/</li>
               <li class="breadcrumbs__item">
                 <span class="breadcrumbs__current" aria-current="page"
-                  >О магазине</span
+                  >О&nbsp;нас</span
                 >
               </li>
             </ol>
@@ -376,10 +378,10 @@
       <section class="about-hero">
         <div class="container about-hero__inner">
           <div class="about-hero__content">
-            <h1 class="about-hero__title">О магазине «Дукан»</h1>
+            <h1 class="about-hero__title">О&nbsp;магазине «Дукан»</h1>
             <p class="about-hero__lead">
-              Фермерская лавка Кавказа в Москве — продукты напрямую из хозяйств,
-              своей машиной и без перекупщиков
+              Фермерская лавка Кавказа в&nbsp;Москве&nbsp;— продукты напрямую из&nbsp;хозяйств,
+              своей машиной и&nbsp;без&nbsp;перекупщиков
             </p>
             <ul class="about-hero__facts">
               <li class="about-hero__fact">
@@ -388,25 +390,25 @@
                 </span>
                 <span class="about-hero__fact-value">3 республики</span>
                 <span class="about-hero__fact-label"
-                  >КБР, Северная Осетия, Дагестан</span
+                  >Кабардино-Балкария, Северная Осетия, Дагестан</span
                 >
               </li>
               <li class="about-hero__fact">
                 <span class="about-hero__fact-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 </span>
-                <span class="about-hero__fact-value">Раз в неделю</span>
+                <span class="about-hero__fact-value">Раз в&nbsp;неделю</span>
                 <span class="about-hero__fact-label"
-                  >свежий рейс с ферм в Москву</span
+                  >свежий рейс с&nbsp;ферм в&nbsp;Москву</span
                 >
               </li>
               <li class="about-hero__fact">
                 <span class="about-hero__fact-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
                 </span>
-                <span class="about-hero__fact-value">0 ₽ предоплаты</span>
+                <span class="about-hero__fact-value">0&nbsp;₽ предоплаты</span>
                 <span class="about-hero__fact-label"
-                  >платите только при получении</span
+                  >платите только при&nbsp;получении</span
                 >
               </li>
             </ul>
@@ -419,7 +421,7 @@
               alt="Горное хозяйство на Кавказе"
             />
             <p class="about-hero__badge">
-              <span class="about-hero__badge-word">Дукан</span> по-осетински —
+              <span class="about-hero__badge-word">Дукан</span> по-осетински&nbsp;—
               «лавка»
             </p>
           </div>
@@ -433,28 +435,26 @@
             <h2 id="aboutStoryTitle" class="section-header__title">Кто мы</h2>
           </div>
           <p class="about-story__lead">
-            «Дукан» — это лавка, куда на Кавказе ходят за сыром, мясом и молоком
-            к знакомому фермеру. Мы перенесли эту лавку в Москву: убрали всё
-            лишнее и сократили путь от кавказской фермы до московского стола.
+            «Дукан»&nbsp;— это лавка, куда на&nbsp;Кавказе ходят за&nbsp;сыром, мясом и&nbsp;молоком
+            к&nbsp;знакомому фермеру. Мы перенесли эту лавку в&nbsp;Москву: убрали всё
+            лишнее и&nbsp;сократили путь от&nbsp;кавказской фермы до&nbsp;московского стола.
           </p>
           <div class="about-story__compare">
             <article class="about-story__card">
               <span class="about-story__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></span>
-              <h3 class="about-story__card-title">На Кавказе</h3>
+              <h3 class="about-story__card-title">На&nbsp;Кавказе</h3>
               <p class="about-story__card-text">
-                Хорошие продукты не ищут на полках супермаркета. Сыр берут у
-                соседки, которая варит его по бабушкиному рецепту, мясо — у
-                знакомого фермера, чьё стадо пасётся на горных лугах. Здесь
-                каждый знает, откуда его еда и кто её сделал.
+                Хорошие продукты не&nbsp;ищут на&nbsp;полках супермаркета. Сыр берут у&nbsp;соседки, которая варит его по&nbsp;бабушкиному рецепту, мясо&nbsp;— у&nbsp;знакомого фермера, чьё стадо пасётся на&nbsp;горных лугах. Здесь
+                каждый знает, откуда его еда и&nbsp;кто её сделал.
               </p>
             </article>
             <article class="about-story__card about-story__card--muted">
               <span class="about-story__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><rect x="5" y="10" width="6" height="11"/><rect x="11" y="4" width="8" height="17"/><path d="M14 8h2M14 12h2M14 16h2"/></svg></span>
-              <h3 class="about-story__card-title">В Москве</h3>
+              <h3 class="about-story__card-title">В&nbsp;Москве</h3>
               <p class="about-story__card-text">
-                Такой возможности почти нет: между фермой и покупателем стоят
-                оптовики, склады и сетевые магазины, а от настоящего вкуса
-                остаётся только надпись «фермерский» на упаковке.
+                Такой возможности почти нет: между фермой и&nbsp;покупателем стоят
+                оптовики, склады и&nbsp;сетевые магазины, а&nbsp;от&nbsp;настоящего вкуса
+                остаётся только надпись «фермерский» на&nbsp;упаковке.
               </p>
             </article>
           </div>
@@ -466,7 +466,7 @@
         <div class="container">
           <div class="section-header">
             <h2 id="aboutPathTitle" class="section-header__title">
-              Как продукт попадает к вам
+              Как продукт попадает к&nbsp;вам
             </h2>
           </div>
           <ol class="about-path__list">
@@ -474,31 +474,30 @@
               <span class="about-path__number" aria-hidden="true">1</span>
               <h3 class="about-path__title">Находим хозяйство</h3>
               <p class="about-path__text">
-                Ищем семейные фермы и небольших производителей в горных сёлах и
-                долинах Кавказа.
+                Ищем семейные фермы и&nbsp;небольших производителей в&nbsp;горных сёлах и&nbsp;долинах Кавказа.
               </p>
             </li>
             <li class="about-path__item">
               <span class="about-path__number" aria-hidden="true">2</span>
-              <h3 class="about-path__title">Пробуем и проверяем</h3>
+              <h3 class="about-path__title">Пробуем и&nbsp;проверяем</h3>
               <p class="about-path__text">
-                Знакомимся с фермерами, пробуем продукцию и проверяем документы.
-                В каталог попадает только то, что понравилось нам самим.
+                Знакомимся с&nbsp;фермерами, пробуем продукцию и&nbsp;проверяем документы.
+                В&nbsp;каталог попадает только то, что понравилось нам самим.
               </p>
             </li>
             <li class="about-path__item">
               <span class="about-path__number" aria-hidden="true">3</span>
               <h3 class="about-path__title">Везём сами</h3>
               <p class="about-path__text">
-                Раз в неделю наша машина с холодильным оборудованием забирает
-                продукты прямо с ферм и едет в Москву.
+                Раз в&nbsp;неделю наша машина с&nbsp;холодильным оборудованием забирает
+                продукты прямо с&nbsp;ферм и&nbsp;едет в&nbsp;Москву.
               </p>
             </li>
             <li class="about-path__item">
               <span class="about-path__number" aria-hidden="true">4</span>
-              <h3 class="about-path__title">Привозим к вам</h3>
+              <h3 class="about-path__title">Привозим к&nbsp;вам</h3>
               <p class="about-path__text">
-                Курьеры сразу развозят заказы по адресам Москвы.
+                Курьеры сразу развозят заказы по&nbsp;адресам Москвы.
               </p>
             </li>
           </ol>
@@ -510,7 +509,7 @@
         <div class="container">
           <figure class="principle__figure">
             <blockquote class="principle__quote">
-              <p>Мы продаём только то, что сами покупали бы для своей семьи.</p>
+              <p>Мы продаём только то, что сами покупали бы для&nbsp;своей семьи.</p>
             </blockquote>
             <figcaption class="principle__author">— Команда Дукан</figcaption>
           </figure>
@@ -543,8 +542,7 @@
                 Вы знаете, кто сделал ваш продукт
               </h3>
               <p class="about-promises__text">
-                У каждого товара на сайте указаны хозяйство и республика, а о
-                фермерах мы рассказываем открыто.
+                У&nbsp;каждого товара на&nbsp;сайте указаны хозяйство и&nbsp;республика, а&nbsp;о&nbsp;фермерах мы рассказываем открыто.
               </p>
             </li>
             <li class="about-promises__item">
@@ -562,8 +560,7 @@
                 Вы платите, только когда увидели заказ
               </h3>
               <p class="about-promises__text">
-                Никакой предоплаты. Если какая-то позиция не устроила при
-                курьере — просто откажитесь от неё.
+                Никакой предоплаты. Если какая-то позиция не&nbsp;устроила при&nbsp;курьере&nbsp;— просто откажитесь от&nbsp;неё.
               </p>
             </li>
             <li class="about-promises__item">
@@ -577,11 +574,11 @@
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg
               ></span>
               <h3 class="about-promises__title">
-                Если что-то не так — решаем в вашу пользу
+                Если что-то не&nbsp;так&nbsp;— решаем в&nbsp;вашу пользу
               </h3>
               <p class="about-promises__text">
-                Заменим продукт, вернём деньги или сделаем скидку на следующий
-                заказ — как вам удобнее.
+                Заменим продукт, вернём деньги или сделаем скидку на&nbsp;следующий
+                заказ&nbsp;— как вам удобнее.
               </p>
             </li>
           </ul>
@@ -609,8 +606,8 @@
               </a>
             </div>
             <p class="regions__lead">
-              Сейчас мы работаем с хозяйствами трёх республик Северного Кавказа.
-              У каждой — свои традиции и свои продукты.
+              Сейчас мы работаем с&nbsp;хозяйствами трёх республик Северного Кавказа.
+              У&nbsp;каждой&nbsp;— свои традиции и&nbsp;свои продукты.
             </p>
 
             <ul class="regions__grid">
@@ -673,11 +670,11 @@
             </span>
             <div class="farmer-invite__content">
               <h2 id="farmerInviteTitle" class="farmer-invite__title">
-                Вы фермер с Кавказа?
+                Вы фермер с&nbsp;Кавказа?
               </h2>
               <p class="farmer-invite__text">
-                Делаете сыр, мясо, мёд или молочные продукты и хотите продавать
-                в Москве — расскажите нам о своём хозяйстве.
+                Делаете сыр, мясо, мёд или молочные продукты и&nbsp;хотите продавать
+                в&nbsp;Москве&nbsp;— расскажите нам о&nbsp;своём хозяйстве.
               </p>
             </div>
             <a
@@ -694,20 +691,20 @@
         <div class="container">
           <div class="cta-banner">
             <h2 id="aboutCtaTitle" class="cta-banner__title">
-              Попробуйте Кавказ на вкус
+              Попробуйте Кавказ на&nbsp;вкус
             </h2>
             <p class="cta-banner__text">
-              Соберите корзину из фермерских продуктов — мы привезём её к вашей
-              двери. Платить будете только при получении.
+              Соберите корзину из&nbsp;фермерских продуктов&nbsp;— мы привезём её к&nbsp;вашей
+              двери. Платить будете только при&nbsp;получении.
             </p>
             <div class="cta-banner__actions">
               <a href="catalog.html" class="cta-banner__btn btn btn--inverse btn--lg"
-                >Перейти в каталог</a
+                >Перейти в&nbsp;каталог</a
               >
               <p class="cta-banner__hint">
                 Остались вопросы?
                 <a href="contacts.html" class="underline-link"
-                  >Свяжитесь с нами</a
+                  >Свяжитесь с&nbsp;нами</a
                 >
               </p>
             </div>
@@ -801,7 +798,7 @@
                   alt="Логотип сайта"
                 />
                 <span class="logo__subtitle"
-                  >Фермерские продукты Кавказа с доставкой по Москве</span
+                  >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
                 >
               </a>
             </div>
@@ -809,8 +806,8 @@
             <nav class="footer__nav">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
-              <a href="about.html" class="footer__link dot-link">О нас</a>
-              <a href="delivery.html" class="footer__link dot-link">Доставка и оплата</a>
+              <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>
+              <a href="delivery.html" class="footer__link dot-link">Доставка и&nbsp;оплата</a>
               <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
               <a href="farmers.html#partners" class="footer__link dot-link">Фермерам</a>
             </nav>
@@ -818,20 +815,20 @@
             <div class="footer__delivery">
               <span class="footer__col-title">Доставка</span>
               <span class="footer__info-line">Приём заказов: 9:00–20:00</span>
-              <span class="footer__info-line">Только по Москве</span>
-              <span class="footer__info-line">Мин. сумма заказа — 1500 ₽</span>
+              <span class="footer__info-line">Только по&nbsp;Москве</span>
+              <span class="footer__info-line">Мин. сумма заказа&nbsp;— 1&nbsp;500&nbsp;₽</span>
             </div>
 
             <div class="footer__contacts">
               <span class="footer__col-title">Контакты</span>
               <a href="tel:+79999999999" class="footer__link dot-link"
-                >+7 999 999-99-99</a
+                >+7&nbsp;999&nbsp;999-99-99</a
               >
               <a href="mailto:info@dukan.ru" class="footer__link dot-link"
                 >info@dukan.ru</a
               >
               <a href="https://wa.me/79999999999" class="footer__link dot-link"
-                >Написать в WhatsApp</a
+                >Написать в&nbsp;WhatsApp</a
               >
             </div>
 
@@ -841,7 +838,7 @@
                 >Политика конфиденциальности</a
               >
               <a href="consent.html" class="footer__link dot-link"
-                >Согласие на обработку ПД</a
+                >Согласие на&nbsp;обработку ПД</a
               >
               <a href="offer.html" class="footer__link dot-link"
                 >Публичная оферта</a
@@ -850,7 +847,7 @@
           </div>
 
           <div class="footer__bar">
-            <span class="footer__copy">© 2026 Дукан. Все права защищены.</span>
+            <span class="footer__copy">©&nbsp;2026 Дукан. Все права защищены.</span>
 
             <a
               href="#"

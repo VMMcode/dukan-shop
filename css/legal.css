@@ -78,7 +78,6 @@
 
 .legal__section {
   padding: 0;
-  scroll-margin-top: calc(var(--header-height, 0px) + var(--space-md));
 }
 
 .legal__section + .legal__section {
@@ -145,7 +144,7 @@
   margin: 0;
 }
 
-@media (min-width: 641px) {
+@media (min-width: 640px) {
   .legal__requisites-row {
     display: grid;
     grid-template-columns: 12rem 1fr;
@@ -154,7 +153,7 @@
 }
 
 /* --- Две колонки: оглавление слева, текст справа --- */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .legal__layout {
     grid-template-columns: 18rem minmax(0, 70ch);
     gap: var(--space-xl);
@@ -168,7 +167,7 @@
   .legal__toc {
     display: block;
     position: sticky;
-    top: calc(var(--header-height, 0px) + var(--space-md));
+    top: var(--sticky-top);
     max-height: calc(100vh - var(--header-height, 0px) - var(--space-lg));
     overflow-y: auto;
   }

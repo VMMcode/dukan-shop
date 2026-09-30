@@ -9,3 +9,6 @@ desktop.ini
 # Проверка рендера
 _render-check/
 node_modules/
+
+# Материалы аудита
+_audit/

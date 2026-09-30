@@ -21,40 +21,8 @@
   min-width: 0;
 }
 
-/* --- Карточка-блок раздела (Состав заказа / Доставка / Контакты и т.д.) --- */
-.checkout-block {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.checkout-block__title {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-xs);
-  font-size: var(--fs-h4);
-  line-height: var(--lh-h4);
-  font-weight: var(--fw-h4);
-  color: var(--color-text);
-}
-
-.checkout-block__title-hint {
-  font-size: var(--fs-body-sm);
-  font-weight: var(--fw-body);
-  color: var(--color-text-muted);
-}
-
-.checkout-block__form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-}
-
 /* --- Состав заказа: список товаров строкой --- */
-.order-items__list {
+.order-items {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
@@ -100,6 +68,7 @@
 .product-card--order .product-card__title {
   font-size: var(--fs-body);
   -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .product-card--order .product-card__footer {
@@ -130,133 +99,33 @@
 }
 
 /* --- Доставка --- */
-.delivery__note {
+.checkout-delivery__note {
   display: flex;
   align-items: center;
   gap: 0.4rem;
   font-size: var(--fs-body-sm);
   color: var(--color-text-muted);
 }
-.delivery__note svg {
+.checkout-delivery__note svg {
   color: var(--color-accent);
   flex-shrink: 0;
 }
 
-.delivery__form {
+.checkout-delivery__form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-md);
 }
-.delivery__form .form-field:first-child {
+.checkout-delivery__form .form-field:first-child {
   grid-column: 1 / -1;
 }
 
-.delivery__price-note {
+.checkout-delivery__price-note {
   font-size: var(--fs-body-sm);
   color: var(--color-text);
   background-color: var(--color-surface-muted);
   border-radius: var(--radius-md);
   padding: var(--space-sm) var(--space-md);
-}
-
-/* --- Поля формы --- */
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.form-field__label {
-  font-size: var(--fs-body-sm);
-  color: var(--color-text-muted);
-}
-
-.form-field__input,
-.form-field__select,
-.form-field__textarea {
-  width: 100%;
-  border-radius: var(--radius-md);
-  padding: var(--space-sm) var(--space-md);
-  font-family: inherit;
-  font-size: var(--fs-body);
-  color: var(--color-text);
-}
-
-.form-field__textarea {
-  resize: vertical;
-  min-height: 6rem;
-}
-
-/* --- Район Москвы: nice-select2, тот же вид, что у сортировки в каталоге --- */
-.delivery__select.nice-select {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  line-height: normal;
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-sm) var(--space-md);
-  background-color: var(--input-bg);
-  color: var(--color-text);
-  font-family: inherit;
-  font-size: var(--fs-body);
-}
-.delivery__select.nice-select:hover,
-.delivery__select.nice-select.open {
-  border-color: var(--color-accent);
-}
-.delivery__select.nice-select:after {
-  border-color: var(--color-text-muted);
-  right: var(--space-md);
-}
-.delivery__select.nice-select.open:after {
-  border-color: var(--color-accent);
-}
-.delivery__select.nice-select .nice-select-dropdown {
-  width: 100%;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  z-index: 30;
-}
-.delivery__select.nice-select .list {
-  border-radius: var(--radius-sm);
-  padding: 4px 0;
-}
-.delivery__select.nice-select .option {
-  font-size: var(--fs-body-sm);
-  line-height: 2.2;
-  padding-left: 14px;
-  padding-right: 14px;
-  color: var(--color-text);
-}
-.delivery__select.nice-select .option.selected {
-  font-weight: 600;
-  color: var(--color-accent);
-}
-.delivery__select.nice-select .option:hover,
-.delivery__select.nice-select .option.focus {
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-
-/* --- Оплата --- */
-.payment-info {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  background-color: var(--color-surface-muted);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  font-size: var(--fs-body-sm);
-  color: var(--color-text-muted);
-}
-.payment-info__icon {
-  display: flex;
-  flex-shrink: 0;
-  color: var(--color-accent);
 }
 
 /* --- Итоговый блок (сайдбар) --- */
@@ -265,15 +134,11 @@
   flex-direction: column;
   gap: var(--space-md);
   position: sticky;
-  top: calc(var(--header-height, 0px) + var(--space-md));
+  top: var(--sticky-top);
 }
 
 .checkout-summary {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
   padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
   gap: var(--space-sm);
 }
 
@@ -305,7 +170,7 @@
 .checkout-summary__warning {
   font-size: var(--fs-body-sm);
   color: var(--color-error);
-  background-color: rgba(168, 69, 46, 0.08);
+  background-color: color-mix(in srgb, var(--color-error) 8%, transparent);
   border-radius: var(--radius-md);
   padding: var(--space-sm);
 }
@@ -313,10 +178,6 @@
 .checkout-summary__submit {
   width: 100%;
   margin-top: var(--space-xs);
-}
-.checkout-summary__submit:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .checkout-summary__note {
@@ -369,8 +230,6 @@
 /* --- Предложение создать аккаунт после заказа --- */
 .checkout-account {
   width: 100%;
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
   padding: var(--space-md);
   margin: var(--space-xs) 0;
 }
@@ -380,11 +239,6 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-sm);
-}
-/* .hidden-атрибут по умолчанию перебивается display: flex выше —
-   возвращаем браузерное поведение, иначе все шаги видны одновременно. */
-.checkout-account__step[hidden] {
-  display: none;
 }
 
 .checkout-account__icon {
@@ -420,15 +274,6 @@
 .checkout-account__field {
   text-align: left;
 }
-.checkout-account__field .form-field__label {
-  /* Лейбл нужен для доступности, визуально скрыт —
-     плейсхолдера в поле достаточно на этом мягком блоке-предложении. */
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-}
 
 .checkout-account__actions {
   display: flex;
@@ -458,7 +303,7 @@
   color: var(--color-text);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .checkout-account__actions {
     flex-direction: column;
   }
@@ -469,28 +314,22 @@
 }
 
 /* --- Адаптив --- */
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .checkout__layout {
     grid-template-columns: minmax(0, 1fr);
   }
   .checkout__aside {
     position: static;
   }
-  .checkout-block__form-row {
+  .checkout-delivery__form {
     grid-template-columns: 1fr;
   }
-  .delivery__form {
-    grid-template-columns: 1fr;
-  }
-  .delivery__form .form-field:first-child {
+  .checkout-delivery__form .form-field:first-child {
     grid-column: auto;
   }
 }
 
-@media (max-width: 640px) {
-  .checkout-block {
-    padding: var(--space-sm);
-  }
+@media (max-width: 639px) {
   .product-card--order .product-card__media {
     width: 34%;
     max-width: none;
@@ -499,9 +338,4 @@
     flex-wrap: wrap;
     justify-content: flex-end;
   }
-}
-
-.checkout-account__submit:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }

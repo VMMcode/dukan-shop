@@ -74,10 +74,6 @@
 }
 
 /* --- Табы по республикам --- */
-.farmers-tabs {
-  scroll-margin-top: var(--header-height, 0px);
-}
-
 .farmers-tabs__inner {
   display: flex;
   flex-direction: column;
@@ -158,12 +154,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  scroll-margin-top: var(--header-height, 0px);
-}
-
-/* Иначе display перебивает hidden */
-.farmers-panel[hidden] {
-  display: none;
 }
 
 .farmers-panel__top {
@@ -255,10 +245,6 @@
 }
 
 /* --- Блок для фермеров-партнёров --- */
-.farmers-join {
-  scroll-margin-top: var(--header-height, 0px);
-}
-
 .farmers-join__inner {
   display: grid;
   grid-template-columns: 1fr;
@@ -328,110 +314,14 @@
 }
 
 .farmers-join__form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
   min-width: 0;
   padding: var(--space-lg);
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
   color: var(--color-text);
 }
 
 .farmers-join__form-note {
   margin-top: calc(var(--space-sm) * -1);
   color: var(--color-text-muted);
-}
-
-.farmers-join__field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  min-width: 0;
-}
-
-.farmers-join__label {
-  font-size: var(--fs-body-sm);
-  color: var(--color-text-muted);
-}
-
-.farmers-join__input,
-.farmers-join__select,
-.farmers-join__textarea {
-  width: 100%;
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-md);
-  font-family: inherit;
-  font-size: var(--fs-body);
-  color: var(--color-text);
-}
-
-.farmers-join__textarea {
-  resize: vertical;
-  min-height: 6rem;
-}
-
-.farmers-join__select.nice-select {
-  display: flex;
-  align-items: center;
-  height: auto;
-  line-height: normal;
-  border: 1px solid var(--input-border);
-  background-color: var(--input-bg);
-}
-.farmers-join__select.nice-select:hover,
-.farmers-join__select.nice-select.open {
-  border-color: var(--color-accent);
-}
-.farmers-join__select.nice-select:after {
-  border-color: var(--color-text-muted);
-  right: var(--space-md);
-}
-.farmers-join__select.nice-select.open:after {
-  border-color: var(--color-accent);
-}
-.farmers-join__select.nice-select .nice-select-dropdown {
-  width: 100%;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  z-index: 30;
-}
-.farmers-join__select.nice-select .list {
-  border-radius: var(--radius-sm);
-  padding: 4px 0;
-}
-.farmers-join__select.nice-select .option {
-  font-size: var(--fs-body-sm);
-  line-height: 2.2;
-  padding-left: 14px;
-  padding-right: 14px;
-  color: var(--color-text);
-}
-.farmers-join__select.nice-select .option.selected {
-  font-weight: 600;
-  color: var(--color-accent);
-}
-.farmers-join__select.nice-select .option:hover,
-.farmers-join__select.nice-select .option.focus {
-  background-color: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-
-.farmers-join__consent {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-xs);
-  font-size: var(--fs-body-sm);
-}
-
-.farmers-join__checkbox {
-  flex-shrink: 0;
-  width: 1.25rem;
-  height: 1.25rem;
-  margin: 0;
-  accent-color: var(--color-accent);
 }
 
 .farmers-join__submit {
@@ -445,7 +335,7 @@
 }
 
 /* --- Адаптив --- */
-@media (min-width: 641px) {
+@media (min-width: 640px) {
   .farmers-panel__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -455,7 +345,7 @@
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .farmers-hero__list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -486,7 +376,7 @@
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   .farmers-panel__grid {
     grid-template-columns: repeat(3, 1fr);
   }

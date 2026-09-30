@@ -6,7 +6,7 @@
   background-color: var(--color-surface-muted);
   color: var(--color-text-muted);
   border-bottom: 1px solid var(--color-border);
-  z-index: 100;
+  z-index: var(--z-header);
 }
 
 /* Top Bar */
@@ -19,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-sm) 0;
+  padding-block: var(--space-sm);
 }
 
 .header__top-list {
@@ -112,7 +112,7 @@
   border-radius: 0 0 var(--radius-sm) var(--radius-sm);
   box-shadow: var(--shadow-card);
   padding: var(--space-md);
-  z-index: 200;
+  z-index: var(--z-catalog-menu);
 
   clip-path: inset(0 -100vmax -100vmax -100vmax);
   scrollbar-width: thin;
@@ -183,8 +183,8 @@
   padding: 10px 44px 10px 16px;
   border: 1px solid var(--input-border);
   background-color: var(--color-surface);
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-body);
   outline: none;
   transition: border-color var(--duration-base) var(--ease-out);
 }
@@ -209,7 +209,7 @@
 .header__actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
   flex-shrink: 0;
 }
 
@@ -223,13 +223,13 @@
 .header__cart-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-xs);
   text-decoration: none;
   position: relative;
   width: auto;
   max-width: none;
   padding: 10px 18px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 
 .header__cart-price {
@@ -281,17 +281,13 @@
   border-top: 1px solid var(--color-border);
   max-height: calc(100vh - var(--header-height, 0px));
   overflow-y: auto;
-  z-index: 150;
-}
-
-.header__mobile-nav {
-  display: block;
+  z-index: var(--z-drawer);
 }
 
 .header__mobile-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-sm);
 }
 
 .header__mobile-link {
@@ -310,7 +306,7 @@
   height: var(--bottom-nav-height);
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border);
-  z-index: 1000;
+  z-index: var(--z-bottom-nav);
   justify-content: space-around;
   align-items: center;
 }
@@ -354,7 +350,7 @@
 }
 
 /* --- Шапка: адаптив --- */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .header__top-bar,
   .catalog__btn,
   .header__actions {
@@ -363,7 +359,7 @@
 
   .header__main-container {
     flex-wrap: wrap;
-    gap: 12px;
+    gap: var(--space-sm);
   }
 
   .header__logo {

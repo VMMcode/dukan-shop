@@ -129,35 +129,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const filters = document.getElementById('filters');
   const filtersOpenBtn = document.getElementById('filtersOpen');
   const filtersCloseBtn = document.getElementById('filtersClose');
+  const filtersApplyBtn = document.getElementById('filtersApply');
   const overlay = document.getElementById('overlay');
 
   if (!filters || !filtersOpenBtn) return; // не страница каталога — выходим
 
   function openFilters() {
-    filters.hidden = false;
+    filters.classList.add('filters--open');
+    filtersOpenBtn.setAttribute('aria-expanded', 'true');
     if (overlay) overlay.hidden = false;
     document.body.classList.add('no-scroll');
   }
 
   function closeFilters() {
-    filters.hidden = true;
+    filters.classList.remove('filters--open');
+    filtersOpenBtn.setAttribute('aria-expanded', 'false');
     if (overlay) overlay.hidden = true;
     document.body.classList.remove('no-scroll');
   }
 
   filtersOpenBtn.addEventListener('click', openFilters);
   if (filtersCloseBtn) filtersCloseBtn.addEventListener('click', closeFilters);
+  if (filtersApplyBtn) filtersApplyBtn.addEventListener('click', closeFilters);
   if (overlay) overlay.addEventListener('click', closeFilters);
 });
 
-
-// --- Страница каталога: сортировка (nice-select2) ---
-document.addEventListener('DOMContentLoaded', () => {
-  const sortSelect = document.querySelector('.catalog__sort-select');
-  if (sortSelect && typeof NiceSelect !== 'undefined') {
-    NiceSelect.bind(sortSelect, { searchable: false });
-  }
-});
 
 // --- Страница каталога: аккордеон фильтров (Категория/Регион/Фермер) ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -181,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (resetBtn && filtersRoot) {
     resetBtn.addEventListener('click', () => {
       filtersRoot
-        .querySelectorAll('.filters__checkbox')
+        .querySelectorAll('.checkbox')
         .forEach((checkbox) => { checkbox.checked = false; });
 
       const priceMin = document.getElementById('priceMin');
@@ -501,12 +497,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   recalc();
-
-  // Район Москвы — тот же nice-select2, что и сортировка в каталоге
-  const districtSelect = document.getElementById('districtSelect');
-  if (districtSelect && typeof NiceSelect !== 'undefined') {
-    NiceSelect.bind(districtSelect, { searchable: false });
-  }
 });
 
 // --- Кнопка "плюс" на карточке товара: клик добавляет/убирает товар из
@@ -524,29 +514,27 @@ document.addEventListener('click', (event) => {
   );
 });
 
-// --- Личный кабинет: район Москвы — тот же nice-select2, что и в чекауте ---
-document.addEventListener('DOMContentLoaded', () => {
-  const accountDistrictSelect = document.getElementById('accountDistrict');
-  if (accountDistrictSelect && typeof NiceSelect !== 'undefined') {
-    NiceSelect.bind(accountDistrictSelect, { searchable: false });
-  }
-});
+// --- nice-select2: все селекты с классом .select ---
+// Исходный <select> не скрыт через display:none (см. .hidden-select в base.css),
+// поэтому при валидации фокус перекидываем на видимый .nice-select
+function initSelects() {
+  if (typeof NiceSelect === 'undefined') return;
 
-// --- Страница отзывов: выбор товара в форме отзыва (nice-select2 с поиском) ---
-document.addEventListener('DOMContentLoaded', () => {
-  const reviewProductSelect = document.getElementById('reviewProduct');
-  if (reviewProductSelect && typeof NiceSelect !== 'undefined') {
-    NiceSelect.bind(reviewProductSelect, { searchable: true, placeholder: 'Начните вводить название товара' });
-  }
-});
+  document.querySelectorAll('select.select').forEach((select) => {
+    const searchable = select.classList.contains('select--search');
+    const options = { searchable };
+    if (searchable && select.dataset.placeholder) options.placeholder = select.dataset.placeholder;
+    NiceSelect.bind(select, options);
 
-// --- Страница фермеров: регион в форме заявки (тот же nice-select2, что и в чекауте) ---
-document.addEventListener('DOMContentLoaded', () => {
-  const joinRegionSelect = document.getElementById('joinRegion');
-  if (joinRegionSelect && typeof NiceSelect !== 'undefined') {
-    NiceSelect.bind(joinRegionSelect, { searchable: false });
-  }
-});
+    const niceSelect = select.nextElementSibling;
+    if (!niceSelect || !niceSelect.classList.contains('nice-select')) return;
+
+    select.tabIndex = -1; // иначе Shift+Tab упирается в скрытый select
+    select.addEventListener('focus', () => niceSelect.focus());
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initSelects);
 
 // --- Страница фермеров: табы по республикам ---
 function initFarmersTabs() {
