@@ -207,7 +207,6 @@
 
 .review-form__submit {
   width: 100%;
-  max-width: none;
 }
 
 .review-form__note {
@@ -353,7 +352,6 @@
 
 .owner-form__submit {
   width: 100%;
-  max-width: none;
 }
 
 /* --- Рейтинг-инпут: чистый CSS, без JS --- */

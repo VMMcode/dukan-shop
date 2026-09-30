@@ -58,7 +58,6 @@
 
 .account-form__submit {
   width: 100%;
-  max-width: none;
 }
 
 /* --- Активный заказ: вертикальный трекер статусов ---
@@ -257,13 +256,6 @@
   color: var(--color-text);
 }
 
-.order-history__repeat {
-  width: auto;
-  max-width: none;
-  padding-top: var(--space-xs);
-  padding-bottom: var(--space-xs);
-}
-
 /* --- Статус заказа: цвет через color-mix от токенов статусов, без хардкода hex --- */
 .order-status {
   flex-shrink: 0;
@@ -291,7 +283,6 @@
 /* --- Выход --- */
 .account-logout__btn {
   width: 100%;
-  max-width: none;
 }
 
 /* --- Адаптив: на мобилке всё в одну колонку, в том же порядке areas --- */

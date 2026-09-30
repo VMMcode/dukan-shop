@@ -270,8 +270,6 @@
 
 .filters__apply-btn {
   width: 100%;
-  max-width: none;
-  padding: var(--space-sm);
 }
 
 /* --- Тулбар над сеткой --- */

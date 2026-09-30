@@ -60,7 +60,6 @@
 
 .hero__anchor {
   margin-top: var(--space-md);
-  width: fit-content;
 }
 
 .hero__utp {
@@ -224,11 +223,6 @@
 
 .promo__tag {
   margin-bottom: auto;
-}
-
-.promo__btn {
-  max-width: fit-content;
-  width: auto;
 }
 
 .promo__img {

@@ -312,7 +312,6 @@
 
 .checkout-summary__submit {
   width: 100%;
-  max-width: none;
   margin-top: var(--space-xs);
 }
 .checkout-summary__submit:disabled {
@@ -365,13 +364,6 @@
 .order-success__text {
   color: var(--color-text-muted);
   margin-bottom: var(--space-sm);
-}
-
-.order-success__home {
-  width: auto;
-  padding-left: var(--space-xl);
-  padding-right: var(--space-xl);
-  font-size: var(--fs-body-lg);
 }
 
 /* --- Предложение создать аккаунт после заказа --- */
@@ -443,7 +435,6 @@
   gap: var(--space-sm);
 }
 .checkout-account__actions .btn {
-  width: auto;
   flex: 1;
 }
 

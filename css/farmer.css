@@ -20,10 +20,6 @@
   object-fit: contain;
 }
 
-.farmer-hero__btn {
-  width: fit-content;
-}
-
 .farmer-hero__info {
   display: flex;
   flex-direction: column;
@@ -191,10 +187,6 @@
   grid-template-columns: 1fr;
 }
 
-.farmer-products__more {
-  align-self: center;
-}
-
 /* --- Другие хозяйства региона --- */
 .farmer-related__inner {
   display: flex;
@@ -219,10 +211,6 @@
 .farmer-related__item > * {
   flex: 1;
   min-width: 0;
-}
-
-.farmer-related__more {
-  align-self: center;
 }
 
 /* --- Адаптив --- */

@@ -498,6 +498,11 @@
           <div class="farmer-products__inner">
             <div class="section-header">
               <h2 id="farmerProductsTitle" class="section-header__title">Продукты хозяйства</h2>
+              <!-- В WordPress — фильтр каталога по хозяйству -->
+              <a href="catalog.html?farm=dade" class="link-btn btn btn--outline">
+                Все продукты
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
 
             <!-- Демо: названия, объёмы и цены условные. В WordPress: товары, у которых в поле farm выбрано это хозяйство -->
@@ -703,12 +708,6 @@
                 </div>
               </article>
             </div>
-
-            <!-- В WordPress — фильтр каталога по хозяйству -->
-            <a href="catalog.html?farm=dade" class="farmer-products__more link-btn btn btn--outline btn--lg">
-              Все продукты хозяйства в&nbsp;каталоге
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-            </a>
           </div>
         </div>
       </section>
@@ -719,6 +718,10 @@
           <div class="farmer-related__inner">
             <div class="section-header">
               <h2 id="farmerRelatedTitle" class="section-header__title">Другие хозяйства Кабардино-Балкарии</h2>
+              <a href="farmers.html" class="link-btn btn btn--outline">
+                Все фермеры
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
             </div>
 
             <!-- В WordPress: другие записи farmer с тем же термином region, текущее хозяйство исключить -->
@@ -749,11 +752,6 @@
                   </article>
               </li>
             </ul>
-
-            <a href="farmers.html" class="farmer-related__more link-btn btn btn--outline btn--lg">
-              Все фермеры
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-            </a>
           </div>
         </div>
       </section>

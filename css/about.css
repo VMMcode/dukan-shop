@@ -349,8 +349,6 @@
 
 .farmer-invite__btn {
   flex-shrink: 0;
-  width: auto;
-  text-align: center;
 }
 
 /* --- Адаптив --- */

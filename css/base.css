@@ -157,9 +157,12 @@ h6 {
 }
 
 .btn {
-  max-width: 500px;
-  width: 100%;
-  /* padding: var(--space-md) var(--space-lg); */
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  text-align: center;
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-md);
   font-size: var(--fs-button);
@@ -226,12 +229,7 @@ h6 {
    Смотреть все / Подробнее / Узнать больше — везде одна и та же
    пара классов: .link-btn (структура) + .btn.btn--outline (цвет) */
 .link-btn {
-  width: fit-content;
-  max-width: fit-content;
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
 }
 .link-btn svg {
   width: 1rem;
@@ -421,6 +419,20 @@ h6 {
   width: 55%;
   height: 55%;
   stroke: currentColor;
+}
+
+.icon-halal {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask: url("../img/icons/icon-halal.svg") center / contain no-repeat;
+  mask: url("../img/icons/icon-halal.svg") center / contain no-repeat;
+}
+
+.product-card__badge .icon-halal {
+  width: 75%;
+  height: 75%;
 }
 
 .product-card__badge--pick {
@@ -970,14 +982,6 @@ h6 {
   align-items: flex-start;
   gap: var(--space-xs);
   margin-top: var(--space-xs);
-}
-
-.cta-banner__btn {
-  max-width: none;
-  width: auto;
-  padding-left: var(--space-xl);
-  padding-right: var(--space-xl);
-  text-align: center;
 }
 
 .cta-banner__hint {

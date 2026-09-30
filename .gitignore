@@ -5,3 +5,7 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Проверка рендера
+_render-check/
+node_modules/

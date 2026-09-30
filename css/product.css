@@ -59,6 +59,10 @@
   height: 55%;
   stroke: currentColor;
 }
+.product-gallery__badge .icon-halal {
+  width: 75%;
+  height: 75%;
+}
 .product-gallery__badge--pick {
   background-color: var(--color-accent);
   color: var(--color-surface);
@@ -197,12 +201,6 @@
 
 .product-info__add-btn {
   flex-shrink: 0;
-  width: auto;
-  max-width: none;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
 @media (max-width: 640px) {
