@@ -297,3 +297,14 @@
     width: 100%;
   }
 }
+
+/* --- Вход для гостя: колонка той же ширины, что у блока «Заказ принят» --- */
+.login-page__inner {
+  max-width: 35rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+}

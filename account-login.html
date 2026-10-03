@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="nice-select2/nice-select2.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/account.css" />
-    <title>Личный кабинет — Дукан</title>
-    <meta name="description" content="Личный кабинет покупателя «Дукан»: активный заказ, история заказов и данные для доставки." />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <meta name="robots" content="noindex" />
+    <title>Вход в личный кабинет — Дукан</title>
+    <meta name="description" content="Вход в личный кабинет магазина фермерских продуктов «Дукан» по номеру телефона." />
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -324,351 +325,119 @@
                 <a href="index.html" class="breadcrumbs__link">Главная</a>
               </li>
               <li class="breadcrumbs__item">
-                <span class="breadcrumbs__current" aria-current="page">Личный кабинет</span>
+                <span class="breadcrumbs__current" aria-current="page">Вход в личный кабинет</span>
               </li>
             </ol>
           </nav>
         </div>
       </div>
 
-      <section class="account">
+      <section class="login-page">
         <div class="container">
-          <div class="account__layout">
-            <!-- Приветствие -->
-            <div class="panel account-welcome">
-              <h1 class="text-h4 account-welcome__title">Здравствуйте, Анна!</h1>
-              <span class="account-welcome__phone">+7&nbsp;(999)&nbsp;123-45-67</span>
-            </div>
-
-            <!-- Активный заказ -->
-            <div class="panel order-tracker" id="orderTracker">
-              <h2 class="panel__title">Активный заказ</h2>
-              <p class="order-tracker__number">Заказ №&nbsp;10238</p>
-
-              <ol class="order-tracker__list">
-                <li class="order-tracker__step order-tracker__step--done">
-                  <span class="order-tracker__marker">
-                    <svg aria-hidden="true" focusable="false"
-                      viewBox="0 0 24 24"
-                      width="14"
-                      height="14"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M4 12.5l4.5 4.5L20 6" />
-                    </svg>
-                  </span>
-                  <span class="order-tracker__body">
-                    <span class="order-tracker__label">Заказ оформлен</span>
-                    <span class="order-tracker__time">Сегодня, 12:45</span>
-                  </span>
-                </li>
-
-                <li class="order-tracker__step order-tracker__step--done">
-                  <span class="order-tracker__marker">
-                    <svg aria-hidden="true" focusable="false"
-                      viewBox="0 0 24 24"
-                      width="14"
-                      height="14"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.5"
-                    >
-                      <path d="M4 12.5l4.5 4.5L20 6" />
-                    </svg>
-                  </span>
-                  <span class="order-tracker__body">
-                    <span class="order-tracker__label"
-                      >Подтверждение заказа</span
-                    >
-                    <span class="order-tracker__time">Сегодня, 16:20</span>
-                  </span>
-                </li>
-
-                <li class="order-tracker__step order-tracker__step--current">
-                  <span class="order-tracker__marker"></span>
-                  <span class="order-tracker__body">
-                    <span class="order-tracker__label">В&nbsp;пути до&nbsp;Москвы</span>
-                    <span class="order-tracker__time"
-                      >Ожидается 3 октября</span
-                    >
-                  </span>
-                </li>
-
-                <li class="order-tracker__step order-tracker__step--upcoming">
-                  <span class="order-tracker__marker"></span>
-                  <span class="order-tracker__body">
-                    <span class="order-tracker__label">Доставка</span>
-                    <span class="order-tracker__time"
-                      >После прибытия партии</span
-                    >
-                  </span>
-                </li>
-              </ol>
-
-              <p class="order-tracker__note">
-                Мы свяжемся с&nbsp;вами, когда заказ будет готов к&nbsp;передаче
-                курьеру.
+          <div class="login-page__inner">
+            <div class="page-head">
+              <h1 class="page-head__title">Вход в&nbsp;личный кабинет</h1>
+              <p class="lead">
+                Введите номер телефона&nbsp;— пришлём код из&nbsp;SMS. Если вы у&nbsp;нас впервые, аккаунт создастся автоматически.
               </p>
             </div>
 
-            <!-- Заглушка: показывается вместо трекера, когда активных заказов нет -->
-            <div
-              class="panel order-tracker order-tracker--empty"
-              id="orderTrackerEmpty"
-              hidden
-            >
-              <h2 class="panel__title">Активный заказ</h2>
-              <p class="order-tracker__empty-text">
-                Сейчас у&nbsp;вас нет активных заказов.
-              </p>
-              <a href="catalog.html" class="link-btn btn btn--outline">
-                Перейти в&nbsp;каталог
-                <svg aria-hidden="true" focusable="false"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-            </div>
-
-            <!-- Мои данные -->
-            <div class="panel account-data">
-              <h2 class="panel__title">Мои данные</h2>
-
-              <p class="note-box note-box--success" id="accountSaved" role="status" tabindex="-1" hidden>
-                <span class="note-box__icon">
-                  <svg aria-hidden="true" focusable="false"
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+            <form class="panel checkout-account" id="loginForm" method="post" data-form="signup" data-success-url="account.html" data-resend-seconds="59" novalidate>
+              <!-- Шаг 1: ввод/подтверждение номера телефона -->
+              <div
+                class="checkout-account__step checkout-account__step--phone"
+                id="loginPhoneStep"
+              >
+                <div class="form-field checkout-account__field checkout-account__panel">
+                  <label
+                    class="form-field__label visually-hidden"
+                    for="loginPhoneInput"
+                    >Телефон</label
                   >
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M8 12.5l2.5 2.5l5.5 -6" />
-                  </svg>
-                </span>
-                <span class="note-box__text">Данные сохранены</span>
-              </p>
-
-              <form class="account-form" id="accountForm" method="post" data-form="account" novalidate>
-                <div class="panel__row">
-                  <div class="form-field">
-                    <label class="form-field__label" for="accountName"
-                      >Имя</label
-                    >
+                  <input
+                    class="form-field__input"
+                    type="tel"
+                    id="loginPhoneInput"
+                    name="billing_phone"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    placeholder="+7 (___) ___-__-__"
+                    required
+                  />
+                </div>
+                <div class="checkout-account__panel">
+                  <label class="agreement">
                     <input
-                      class="form-field__input"
-                      type="text"
-                      id="accountName"
-                      name="billing_first_name"
-                      autocomplete="given-name"
-                      value="Анна"
+                      type="checkbox"
+                      class="checkbox agreement__checkbox"
+                      id="loginConsent"
+                      name="dukan_pd_consent"
                       required
                     />
-                  </div>
-                  <div class="form-field">
-                    <span class="form-field__label">Телефон</span>
-                    <span class="form-field__value">+7&nbsp;(999)&nbsp;123-45-67</span>
-                    <p class="form-field__hint">
-                      Это номер для входа. Чтобы сменить его,
-                      <a href="contacts.html" class="underline-link">напишите нам</a>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="panel__row">
-                  <div class="form-field">
-                    <label class="form-field__label" for="accountAddress"
-                      >Адрес по&nbsp;умолчанию</label
-                    >
-                    <input
-                      class="form-field__input"
-                      type="text"
-                      id="accountAddress"
-                      name="billing_address_1"
-                      autocomplete="address-line1"
-                      value="ул. Ленина, д. 5, кв. 12"
-                      placeholder="Например: ул. Ленина, д. 5, кв. 12"
-                      required
-                    />
-                  </div>
-                  <div class="form-field">
-                    <label class="form-field__label" for="accountDistrict"
-                      >Район Москвы</label
-                    >
-                    <select
-                      class="form-field__select select"
-                      id="accountDistrict"
-                      name="billing_district"
-                      required
-                    >
-                      <option value="" disabled>Выберите район</option>
-                      <option>Центральный АО</option>
-                      <option selected>Северный АО</option>
-                      <option>Северо-Восточный АО</option>
-                      <option>Восточный АО</option>
-                      <option>Юго-Восточный АО</option>
-                      <option>Южный АО</option>
-                      <option>Юго-Западный АО</option>
-                      <option>Западный АО</option>
-                      <option>Северо-Западный АО</option>
-                    </select>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  class="btn btn--primary btn--lg account-form__submit"
-                >
-                  Сохранить
-                </button>
-              </form>
-            </div>
-
-            <!-- История заказов -->
-            <div class="panel account-history">
-              <h2 class="panel__title">История заказов</h2>
-
-              <ul class="order-history">
-                <li class="order-history__item">
-                  <div class="order-history__row">
-                    <div class="order-history__meta">
-                      <span class="order-history__number">Заказ №&nbsp;10221</span>
-                      <span class="order-history__date"
-                        >15 сентября 2026</span
+                    <span class="agreement__text">
+                      Даю согласие на&nbsp;<a href="consent.html" class="agreement__link underline-link"
+                        >обработку персональных данных</a
                       >
-                    </div>
-                    <span class="order-history__status order-history__status--delivered"
-                      >Доставлен</span
-                    >
-                  </div>
-                  <p class="order-history__items">
-                    Осетинский сыр, Бастурма из&nbsp;говядины, Майский мёд
-                  </p>
-                  <div class="order-history__footer">
-                    <span class="order-history__sum">1&nbsp;990&nbsp;₽</span>
-                    <button
-                      type="button"
-                      class="btn btn--outline order-history__repeat"
-                    >
-                      Повторить заказ
-                    </button>
-                  </div>
-                </li>
-
-                <li class="order-history__item">
-                  <div class="order-history__row">
-                    <div class="order-history__meta">
-                      <span class="order-history__number">Заказ №&nbsp;10195</span>
-                      <span class="order-history__date">2 сентября 2026</span>
-                    </div>
-                    <span class="order-history__status order-history__status--delivered"
-                      >Доставлен</span
-                    >
-                  </div>
-                  <p class="order-history__items">
-                    Майский мёд, Осетинский сыр, Баранина
-                  </p>
-                  <div class="order-history__footer">
-                    <span class="order-history__sum">2&nbsp;690&nbsp;₽</span>
-                    <button
-                      type="button"
-                      class="btn btn--outline order-history__repeat"
-                    >
-                      Повторить заказ
-                    </button>
-                  </div>
-                </li>
-
-                <li class="order-history__item">
-                  <div class="order-history__row">
-                    <div class="order-history__meta">
-                      <span class="order-history__number">Заказ №&nbsp;10152</span>
-                      <span class="order-history__date">20 августа 2026</span>
-                    </div>
-                    <span class="order-history__status order-history__status--cancelled"
-                      >Отменён</span
-                    >
-                  </div>
-                  <p class="order-history__items">
-                    Бастурма из&nbsp;говядины, Мясо кролика, Пшено
-                  </p>
-                  <div class="order-history__footer">
-                    <span class="order-history__sum">1&nbsp;820&nbsp;₽</span>
-                    <button
-                      type="button"
-                      class="btn btn--outline order-history__repeat"
-                    >
-                      Повторить заказ
-                    </button>
-                  </div>
-                </li>
-
-                <li class="order-history__item">
-                  <div class="order-history__row">
-                    <div class="order-history__meta">
-                      <span class="order-history__number">Заказ №&nbsp;10101</span>
-                      <span class="order-history__date">5 августа 2026</span>
-                    </div>
-                    <span class="order-history__status order-history__status--delivered"
-                      >Доставлен</span
-                    >
-                  </div>
-                  <p class="order-history__items">
-                    Осетинский сыр, Майский мёд, Бастурма из&nbsp;говядины
-                  </p>
-                  <div class="order-history__footer">
-                    <span class="order-history__sum">1&nbsp;990&nbsp;₽</span>
-                    <button
-                      type="button"
-                      class="btn btn--outline order-history__repeat"
-                    >
-                      Повторить заказ
-                    </button>
-                  </div>
-                </li>
-              </ul>
-
-              <!-- Заказов ещё не было: показывается вместо списка -->
-              <div class="empty-state" id="orderHistoryEmpty" hidden>
-                <span class="icon-box empty-state__icon" aria-hidden="true">
-                  <svg aria-hidden="true" focusable="false"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+                    </span>
+                  </label>
+                </div>
+                <div class="checkout-account__actions checkout-account__panel">
+                  <button
+                    type="submit"
+                    class="btn btn--primary checkout-account__submit"
+                    id="loginRequestCodeBtn"
                   >
-                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <path d="M16 10a4 4 0 0 1-8 0"></path>
-                  </svg>
-                </span>
-                <h3 class="empty-state__title text-h4">Вы ещё ничего не&nbsp;заказывали</h3>
-                <p class="empty-state__text lead">
-                  Здесь появятся ваши заказы&nbsp;— их можно будет повторить в&nbsp;один клик.
-                </p>
-                <div class="empty-state__actions">
-                  <a class="btn btn--primary" href="catalog.html">Перейти в&nbsp;каталог</a>
+                    Получить код
+                  </button>
                 </div>
               </div>
-            </div>
 
-            <!-- Выход -->
-            <div class="account-logout">
-              <button
-                type="button"
-                class="btn btn--subtle account-logout__btn"
+              <!-- Шаг 2: ввод кода из SMS -->
+              <div
+                class="checkout-account__step checkout-account__step--otp"
+                id="loginOtpStep"
+                hidden
               >
-                Выйти
-              </button>
-            </div>
+                <p class="checkout-account__text">
+                  Код отправлен на&nbsp;номер
+                  <strong id="loginPhoneDisplay" data-role="phone-display"></strong>
+                </p>
+                <div class="checkout-account__otp checkout-account__panel" id="loginOtpGroup">
+                  <span class="checkout-account__otp-cell" aria-hidden="true"></span>
+                  <span class="checkout-account__otp-cell" aria-hidden="true"></span>
+                  <span class="checkout-account__otp-cell" aria-hidden="true"></span>
+                  <span class="checkout-account__otp-cell" aria-hidden="true"></span>
+                  <input
+                    class="otp-input"
+                    id="loginOtpInput"
+                    name="otp_code"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    pattern="[0-9]*"
+                    maxlength="4"
+                    aria-label="Код из SMS, 4 цифры"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn--primary checkout-account__submit checkout-account__panel"
+                  id="loginConfirmBtn"
+                >
+                  Подтвердить
+                </button>
+                <button
+                  type="button"
+                  class="checkout-account__resend dot-link"
+                  id="loginResendBtn"
+                  disabled
+                >
+                  Отправить код повторно
+                </button>
+              </div>
+
+              <p class="visually-hidden" id="loginLive" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </section>
@@ -769,9 +538,7 @@
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
               <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>
               <a href="delivery.html" class="footer__link dot-link">Доставка и&nbsp;оплата</a>
-              <a href="account.html" class="footer__link dot-link"
-                >Личный кабинет</a
-              >
+              <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
               <a href="farmers.html#partners" class="footer__link dot-link">Фермерам</a>
             </nav>
 
@@ -836,7 +603,7 @@
         <button type="button" class="btn btn--outline" data-consent="decline">Отклонить</button>
       </div>
     </section>
-    <script src="nice-select2/nice-select2.js"></script>
+    <script src="maska/maska.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

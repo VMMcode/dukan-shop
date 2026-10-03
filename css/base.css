@@ -1088,6 +1088,83 @@ h6 {
   }
 }
 
+/* --- Пустое состояние: иконка + заголовок + текст + кнопки (корзина, поиск, каталог, 404) ---
+   Карточкой делает миксин .panel; без него блок живёт внутри другой панели */
+.empty-state {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.empty-state__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+/* --- Страница 404 --- */
+.not-found-page {
+  padding-top: var(--space-md);
+}
+
+/* --- Согласие на cookie: панель внизу экрана ---
+   На ≤1023 стоит над bottom-nav, на страницах с .cart-bar — ещё и над ней */
+.cookie-consent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--space-md);
+  z-index: var(--z-cookie);
+  width: min(calc(100% - var(--container-padding) * 2), var(--container-max));
+  margin: 0 auto;
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+body:has(.cart-bar) .cookie-consent {
+  bottom: calc(var(--space-md) + var(--cart-bar-height) + var(--space-sm));
+}
+
+.cookie-consent__text {
+  font-size: var(--fs-body-sm);
+}
+
+.cookie-consent__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 1023px) {
+  .cookie-consent {
+    bottom: calc(var(--bottom-nav-height) + var(--space-sm));
+  }
+  body:has(.cart-bar) .cookie-consent {
+    bottom: calc(var(--bottom-nav-height) + var(--space-sm) + var(--cart-bar-height) + var(--space-sm));
+  }
+}
+
+@media (max-width: 767px) {
+  .cookie-consent {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-consent__actions .btn {
+    flex: 1;
+  }
+}
+
 @media (max-width: 639px) {
   .panel {
     padding: var(--space-sm);

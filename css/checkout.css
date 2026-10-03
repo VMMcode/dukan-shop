@@ -7,12 +7,6 @@
   margin-bottom: var(--space-lg);
 }
 
-/* --- Пустая корзина --- */
-.checkout-empty {
-  align-items: center;
-  text-align: center;
-}
-
 .checkout-page__main {
   display: flex;
   flex-direction: column;

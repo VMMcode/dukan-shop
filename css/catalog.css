@@ -1,5 +1,6 @@
-/* --- Каркас: сайдбар + контент --- */
-.catalog {
+/* --- Каркас: сайдбар + контент (search-page — страница поиска на тех же карточках) --- */
+.catalog,
+.search-page {
   padding-top: var(--space-md);
 }
 
@@ -358,12 +359,6 @@
   .catalog__grid--list .product-card__footer {
     margin-top: var(--space-xs);
   }
-}
-
-.catalog__empty {
-  padding: var(--space-xl) 0;
-  text-align: center;
-  color: var(--color-text-muted);
 }
 
 /* --- Пагинация --- */

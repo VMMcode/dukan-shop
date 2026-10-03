@@ -14,7 +14,8 @@
 ├── index.html, catalog.html, product.html, checkout.html, account.html,
 │   about.html, delivery.html, reviews.html, contacts.html,
 │   farmers.html, farmer.html, offer.html, privacy.html, consent.html,
-│   order-received.html   — 15 страниц
+│   order-received.html, 404.html, search.html, search-empty.html,
+│   account-login.html    — 19 страниц
 ├── css/
 │   ├── reset.css        — сброс стилей
 │   ├── variables.css    — все переменные (цвета, типографика, отступы, радиусы, слои, области нажатия)
@@ -44,7 +45,7 @@
 - Отступы: `--space-xs` … `--space-2xl`, тоже частично на `clamp()`
 - Радиусы: `--radius-xs/sm/md/lg/full`
 - Анимации: `--ease-out`, `--duration-fast/base/slow`
-- Слои: `--z-dropdown`, `--z-overlay`, `--z-cart-bar`, `--z-header`, `--z-drawer`, `--z-catalog-menu`, `--z-bottom-nav`
+- Слои: `--z-dropdown`, `--z-overlay`, `--z-cart-bar`, `--z-cookie`, `--z-header`, `--z-drawer`, `--z-catalog-menu`, `--z-bottom-nav`
 - Липкие элементы: `--sticky-top` (отступ от шапки; `--header-height` выставляет `main.js`)
 - Области нажатия: `--tap-target`, `--tap-target-lg`, `--tap-target-min`
 - Прочее: `--shadow-card`, `--container-max` (1320px), `--icon-size`
@@ -74,6 +75,8 @@
 - `.farm-card*`, `.region-card*` — карточки фермера и региона
 - `.faq__list`, `.faq__item`, `.faq__question`, `.faq__answer-wrap` — раскрывающиеся вопросы-ответы (блока `.faq` как отдельного класса нет, есть только элементы `.faq__*`)
 - `.cta-banner*` — баннер с призывом к действию
+- `.empty-state` (`__icon` миксуется с `.icon-box`, `__title`, `__text`, `__actions`) — пустое состояние: корзина, поиск, каталог, история заказов, 404. Карточкой его делает миксин `.panel`; без него блок живёт внутри другой панели. Есть `position: relative; isolation: isolate` под будущий декор через `::before`/`::after` с `z-index: -1`; `overflow: hidden` в базу не добавлять (обрежет обводку фокуса), обрезка — только в модификаторе
+- `.cookie-consent*` — баннер согласия на cookie (подробности — в разделе «Согласие на cookie»)
 - `.btn*`, `.link-btn`, `.dot-link`, `.underline-link` — кнопки и ссылки
 - `.visually-hidden` — скрыть визуально, оставив для скринридеров
 - `.skip-link` — «Перейти к содержимому», видна только при фокусе с клавиатуры
@@ -95,14 +98,23 @@
 
 - **Селекты:** nice-select2 используется для **всех** селектов. Подключение — одной функцией `initSelects()` по классу `.select`. ARIA добавляет `enhanceSelectA11y(select)`; после `nice.update()` вызвать её повторно (библиотека пересоздаёт разметку).
 - **Видимость:** через атрибут `hidden` (глобальный `[hidden] { display: none !important }` в `base.css`), а не через классы-заплатки.
-- **Структура файла:** один IIFE с `'use strict'`. Сверху утилиты (`formatPrice`, `getFocusable`, `lockScroll`, `createLayers`), ниже модули `init*` в порядке страниц. Один вход: список `modules` запускается в `try/catch`, ошибка одного модуля не ломает остальные. Каждый модуль сам проверяет свою разметку и выходит ранним `return`; необязательный элемент (например `#mobileCatalogBtn`) не ошибка. Глобальная только `window.Dukan = { enhanceSelectA11y, formatPrice }`.
+- **Структура файла:** один IIFE с `'use strict'`. Сверху утилиты (`formatPrice`, `getFocusable`, `lockScroll`, `createLayers`), ниже модули `init*` в порядке страниц. Один вход: список `modules` запускается в `try/catch`, ошибка одного модуля не ломает остальные. Каждый модуль сам проверяет свою разметку и выходит ранним `return`; необязательный элемент (например `#mobileCatalogBtn`) не ошибка. Глобальная только `window.Dukan = { enhanceSelectA11y, formatPrice, consent: { onAccept, get } }`.
 - **Слои (меню каталога, мобильное меню, фильтры):** открываются и закрываются только через `createLayers` (`layers.register(имя, { triggers, panel, show, hide, modal, closers })`). Он сам ведёт оверлей, `no-scroll`, `aria-expanded` у всех триггеров, Esc, клик по оверлею и фокус. Не писать `overlay.hidden` и `lockScroll` в обход него. Новая выезжающая панель = ещё один `register`.
 - **Настройки — в `data-`атрибутах разметки** (например `data-min-order`, `data-free-delivery-from`, `data-delivery-cost` у `#checkoutForm`, `data-checkout-url` у `#addToCartBtn`). В JS не держать константы и пути: в WP их выведет шаблон из ACF Options.
-- **Модули страниц:** `initCheckout` (состав, сумма, отправка; без экрана успеха), `initSignup` (создание аккаунта на `order-received.html`: телефон → код → готово, таймер повторной отправки), `initAccount` (сообщение «Данные сохранены» в ЛК), `initStickyIfFits`. Формы `data-form="checkout|account|signup"` валидирует `initForms`, отправку ведёт их модуль (`LOCAL_FORMS`), попап не используется.
+- **Модули страниц:** `initCheckout` (состав, сумма, отправка; без экрана успеха), `initSignup` (телефон → код из SMS, таймер повторной отправки; работает от корня формы `data-form="signup"`, не по id: на `order-received.html` после кода шаг «готово» с фокусом на тексте, на `account-login.html` — переход на `data-success-url` вместо шага «готово»), `initAccount` (сообщение «Данные сохранены» в ЛК), `initStickyIfFits`. Формы `data-form="checkout|account|signup"` валидирует `initForms`, отправку ведёт их модуль (`LOCAL_FORMS`), попап не используется.
 - **Маска телефона:** Maska (`maska/maska.js`, обычный `<script>` перед `main.js`, глобал `Maska`). `initPhoneMask()` вешает маску `+7 (###) ###-##-##` на `input[type="tel"]` внутри форм с `data-form`; без библиотеки на странице выходит без ошибки.
 - **Деньги:** любой текст с ценой, который выводит JS, — только через `formatPrice(value)` («2 440 ₽», разряды и пробел перед ₽ неразрывные U+00A0). ₽ после вызова не дописывать.
 - **Табы:** `initTabs(root, options)`. У новых табов `aria-controls`, `role`, `id` пишутся в HTML статически (farmers пока добавляет их из JS), неактивные панели скрываются атрибутом `hidden`.
 - **nice-select2:** после `nice.update()` всегда вызывать `enhanceSelectA11y(select)` повторно — библиотека пересоздаёт разметку и ARIA пропадает.
+
+## Согласие на cookie
+Баннер `#cookieConsent` стоит на каждой странице перед `</body>` (в WP — `footer.php`), показывает его `initCookieConsent`. Есть **отказ**: аналитика грузится только после «Принять».
+- Выбор — `localStorage`, ключ `dukan-cookie-consent`, значения `accepted` / `declined`. Хранилище недоступно — баннер показывается при каждом заходе, выбор живёт до конца страницы.
+- API: `Dukan.consent.onAccept(fn)` (запускает `fn` сразу, если согласие уже есть, иначе в момент «Принять»; при `declined` не вызывается) и `Dukan.consent.get()` → `'accepted' | 'declined' | null`.
+- **Код Яндекс Метрики в WP оборачивается в `Dukan.consent.onAccept(() => { … })`, без согласия Метрика не грузится.** `Dukan` создаёт `main.js` (конец `body`), поэтому код Метрики подключать после него.
+- «Настройки cookie» (`[data-consent-open]` в колонке «Документы» футера) показывает баннер снова, фокус на кнопке текущего выбора.
+- Смена `accepted` → `declined`: уже загруженную на странице аналитику выгрузить нельзя, со следующей страницы она не грузится.
+- Положение: на ≤1023 над bottom-nav (`--bottom-nav-height`), на страницах с `.cart-bar` — над ней (`--cart-bar-height` выставляет `initCartBarHeight`, как `--header-height`). Слой — `--z-cookie` (95): выше cart-bar и overlay, ниже шапки, drawer, каталог-меню и фильтров.
 
 ## Формы
 Четыре формы (отзыв, «Написать команде», «Остались вопросы?», заявка фермера) в WP будут на Contact Form 7. Логика — `initForms()` и `initPhoneMask()` в `main.js`.
@@ -154,6 +166,10 @@
 - Мост из `initForms`/`initCheckout`: валидная форма уходит в Woo, невалидная не уходит (jQuery-обработчик Woo стоит на той же форме). **Проверить в исходнике Woo при натяжке** и на локальном WP.
 - Создание аккаунта по SMS: разметка `order-received.html` (форма `#checkoutAccount`) подключается к выбранному OTP-плагину; какой плагин — решается тестом на локальном WP (WSMS бесплатный или All-in-One, либо OTP Login With Phone Number). Номер заказа и сумму на `order-received.html` подставляет шаблон `checkout/thankyou.php`, телефон — PHP из заказа. **Проверить в исходнике Woo при натяжке.**
 - Статусы заказа для трекера в ЛК («Подтверждён», «В пути до Москвы», «Доставка») — регистрация своих статусов. **Проверить в исходнике Woo при натяжке.**
+- Новые страницы и шаблоны: `404.html` → `404.php`; `search.html` (результаты) и `search-empty.html` («ничего не нашлось») → один `search.php` с двумя ветками, два файла только для демонстрации; `account-login.html` → `myaccount/form-login.php` (гостевой вид `/my-account/`; ссылки «Профиль» в шапке и bottom-nav ведут на `account.html`, в WP Woo сам покажет вход или кабинет).
+- Управление запасами в Woo **выключено**: все товары привозятся под заказ, состояний «нет в наличии» нет.
+- Поиск: `action="<?= home_url('/') ?>"`, `name="s"`, скрытое `<input type="hidden" name="post_type" value="product">` (в статике `action="search.html"`).
+- Пустой каталог — показывать `#catalogEmpty`, когда по фильтру нет товаров (кнопка «Сбросить фильтры» `#catalogEmptyReset` вызывает тот же сброс, что `#filtersReset`); пустая история заказов — `#orderHistoryEmpty` вместо `.order-history`.
 
 ## Как работать в этом проекте
 - Сначала смотри существующие файлы (html/css/js), не изобретай параллельную структуру

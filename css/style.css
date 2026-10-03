@@ -425,6 +425,14 @@
   font-size: var(--fs-body-sm);
 }
 
+/* Ссылка-кнопка («Настройки cookie»): сброс отличий <button> от <a> */
+.footer__link--button {
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-align: start;
+}
+
 .footer__info-line {
   font-size: var(--fs-body-sm);
   color: var(--color-accent-muted);

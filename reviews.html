@@ -114,10 +114,10 @@
           </button>
 
           <!-- Поисковая строка (Десктоп) -->
-          <form class="header__search" action="/search" method="GET">
+          <form class="header__search" action="search.html" method="get">
             <input
               type="search"
-              name="q"
+              name="s"
               aria-label="Поиск по каталогу"
               class="header__search-input"
               placeholder="Поиск по каталогу"
@@ -1012,6 +1012,7 @@
               <a href="offer.html" class="footer__link dot-link"
                 >Публичная оферта</a
               >
+              <button type="button" class="footer__link footer__link--button dot-link" data-consent-open>Настройки cookie</button>
             </div>
           </div>
 
@@ -1030,6 +1031,17 @@
         </div>
       </div>
     </footer>
+    <!-- Согласие на cookie: показывает initCookieConsent (main.js) -->
+    <section class="cookie-consent" id="cookieConsent" aria-label="Согласие на использование cookie" hidden>
+      <p class="cookie-consent__text">
+        Мы используем cookie и&nbsp;Яндекс Метрику, чтобы понимать, как сделать сайт удобнее.
+        Подробнее&nbsp;— в&nbsp;<a href="privacy.html" class="underline-link">политике конфиденциальности</a>.
+      </p>
+      <div class="cookie-consent__actions">
+        <button type="button" class="btn btn--primary" data-consent="accept">Принять</button>
+        <button type="button" class="btn btn--outline" data-consent="decline">Отклонить</button>
+      </div>
+    </section>
     <script src="nice-select2/nice-select2.js"></script>
     <script src="maska/maska.js"></script>
     <script src="js/main.js"></script>

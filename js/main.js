@@ -269,7 +269,7 @@
       });
     });
 
-    document.getElementById('filtersReset')?.addEventListener('click', () => {
+    function resetFilters() {
       filters.querySelectorAll('.checkbox').forEach((checkbox) => { checkbox.checked = false; });
 
       const priceMin = document.getElementById('priceMin');
@@ -279,7 +279,12 @@
         priceMax.value = priceMax.max;
         priceMin.dispatchEvent(new Event('input'));
       }
-    });
+    }
+
+    // Та же кнопка сброса есть в блоке «Ничего не нашлось»
+    ['filtersReset', 'catalogEmptyReset'].forEach((id) =>
+      document.getElementById(id)?.addEventListener('click', resetFilters)
+    );
   }
 
   // Страница каталога: range-слайдер цены (два ползунка)
@@ -1085,21 +1090,27 @@
     recalc();
   }
 
-  // Заказ принят: предложение создать аккаунт — телефон → код из SMS → готово.
-  // Демо: SMS не отправляется, неверным считается код 0000; в WP — OTP-плагин
+  // Телефон → код из SMS → готово (order-received) или переход по data-success-url (account-login).
+  // Демо: SMS не отправляется, неверным считается код 0000; в WP — OTP-плагин.
+  // Модуль работает от корня формы data-form="signup", глобальные id не нужны
   function initSignup() {
-    const form = document.getElementById('checkoutAccount');
-    if (!form) return;
+    document.querySelectorAll('form[data-form="signup"]').forEach(setupSignup);
+  }
 
-    const phoneStep = document.getElementById('signupPhoneStep');
-    const otpStep = document.getElementById('signupOtpStep');
-    const doneStep = document.getElementById('signupDoneStep');
-    const phoneInput = document.getElementById('signupPhoneInput');
-    const phoneDisplay = document.getElementById('signupPhoneDisplay');
-    const skipBtn = document.getElementById('signupSkipBtn');
-    const resendBtn = document.getElementById('signupResendBtn');
-    const live = document.getElementById('signupLive');
-    const otpInput = document.getElementById('otpInput');
+  function setupSignup(form) {
+    const phoneStep = form.querySelector('.checkout-account__step--phone');
+    const otpStep = form.querySelector('.checkout-account__step--otp');
+    const doneStep = form.querySelector('.checkout-account__step--done');
+    const phoneInput = form.querySelector('[name="billing_phone"]');
+    const phoneDisplay = form.querySelector('[data-role="phone-display"]');
+    const skipBtn = form.querySelector('.checkout-account__skip');
+    const resendBtn = form.querySelector('.checkout-account__resend');
+    const live = form.querySelector('[aria-live]');
+    const otpInput = form.querySelector('[name="otp_code"]');
+    const successUrl = form.dataset.successUrl;
+    if (!phoneStep || !otpStep || !phoneInput || !phoneDisplay || !resendBtn || !live || !otpInput) return;
+    if (!successUrl && !doneStep) return;
+
     const cells = [...form.querySelectorAll('.checkout-account__otp-cell')];
     const resendSeconds = Number(form.dataset.resendSeconds) || 0;
     const codeLength = otpInput.maxLength;
@@ -1159,8 +1170,13 @@
       if (code.length < codeLength) return showOtpError(`Введите ${codeLength} цифры из SMS`);
       if (code === '0000') return showOtpError('Неверный код. Проверьте SMS или запросите новый');
       clearInterval(timerId);
+      if (successUrl) {
+        location.href = successUrl;
+        return;
+      }
       otpStep.hidden = true;
       doneStep.hidden = false;
+      doneStep.querySelector('[tabindex="-1"]')?.focus();
     }
 
     // Поля шага 1 проверил initForms; сюда доходит только валидная форма
@@ -1177,7 +1193,7 @@
     }, { capture: true });
 
     resendBtn.addEventListener('click', sendCode);
-    skipBtn.addEventListener('click', () => {
+    skipBtn?.addEventListener('click', () => {
       clearInterval(timerId);
       form.hidden = true;
     });
@@ -1311,8 +1327,89 @@
     });
   }
 
+  // --- Согласие на cookie ---
+
+  const CONSENT_KEY = 'dukan-cookie-consent';
+  const acceptHandlers = [];
+
+  function readConsent() {
+    try {
+      const value = localStorage.getItem(CONSENT_KEY);
+      return value === 'accepted' || value === 'declined' ? value : null;
+    } catch {
+      return null; // хранилище недоступно: баннер просто покажется при каждом заходе
+    }
+  }
+
+  // Состояние держим и в памяти: при недоступном хранилище выбор действует до конца страницы
+  let consent = readConsent();
+
+  function runAcceptHandlers() {
+    acceptHandlers.splice(0).forEach((fn) => {
+      try {
+        fn();
+      } catch (error) {
+        console.error('[Dukan] consent.onAccept:', error);
+      }
+    });
+  }
+
+  function setConsent(value) {
+    consent = value;
+    try {
+      localStorage.setItem(CONSENT_KEY, value);
+    } catch {
+      // хранилище недоступно — выбор остаётся только в памяти
+    }
+    if (value === 'accepted') runAcceptHandlers();
+  }
+
+  // Запускает fn сразу, если согласие уже есть, иначе — в момент «Принять»
+  function onAccept(fn) {
+    if (consent === 'accepted') fn();
+    else acceptHandlers.push(fn);
+  }
+
+  // Высота плавающей корзины нужна баннеру cookie, чтобы встать над ней
+  function initCartBarHeight() {
+    const cartBar = document.querySelector('.cart-bar');
+    if (!cartBar) return;
+
+    const measure = () =>
+      document.documentElement.style.setProperty('--cart-bar-height', `${cartBar.offsetHeight}px`);
+    measure();
+    new ResizeObserver(measure).observe(cartBar, { box: 'border-box' });
+  }
+
+  // Баннер не модальный: фокус не забирает, после выбора возвращает на #main
+  function initCookieConsent() {
+    const banner = document.getElementById('cookieConsent');
+    if (!banner) return;
+
+    const acceptBtn = banner.querySelector('[data-consent="accept"]');
+    const declineBtn = banner.querySelector('[data-consent="decline"]');
+
+    banner.addEventListener('click', (event) => {
+      const choice = event.target.closest('[data-consent]')?.dataset.consent;
+      if (!choice) return;
+      setConsent(choice === 'accept' ? 'accepted' : 'declined');
+      banner.hidden = true;
+      document.getElementById('main')?.focus({ preventScroll: true });
+    });
+
+    // «Настройки cookie» в футере: баннер снова, фокус на кнопке текущего выбора
+    document.querySelectorAll('[data-consent-open]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        banner.hidden = false;
+        (consent === 'declined' ? declineBtn : acceptBtn)?.focus();
+      })
+    );
+
+    if (!consent) banner.hidden = false;
+  }
+
   // Публичное — то, что понадобится в WP извне
-  window.Dukan = { enhanceSelectA11y, formatPrice };
+  window.Dukan = { enhanceSelectA11y, formatPrice, consent: { onAccept, get: () => consent } };
 
   const modules = [
     initHeader,
@@ -1332,6 +1429,8 @@
     initStickyIfFits,
     initCartButtons,
     initSmoothDetails,
+    initCartBarHeight,
+    initCookieConsent,
   ];
 
   // Ошибка в одном модуле не должна останавливать остальные

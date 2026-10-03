@@ -147,11 +147,13 @@
   /* --- Липкие элементы: отступ от шапки и нижний зазор --- */
   --sticky-top: calc(var(--header-height, 0px) + var(--space-md));
   --sticky-bottom: var(--space-md);
+  --cart-bar-height: 0px; /* высоту .cart-bar выставляет main.js; нужна баннеру cookie */
 
   /* --- Слои --- */
   --z-dropdown: 30;
   --z-overlay: 90;
   --z-cart-bar: 90;
+  --z-cookie: 95; /* выше overlay и cart-bar, ниже шапки, drawer, каталог-меню и фильтров */
   --z-header: 100;
   --z-drawer: 150;
   --z-catalog-menu: 200;
