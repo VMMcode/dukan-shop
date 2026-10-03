@@ -1,7 +1,7 @@
 /* --- ШАПКА --- */
 .header {
   position: sticky;
-  top: 0;
+  top: var(--wp-admin--admin-bar--height, 0px);
   width: 100%;
   background-color: var(--color-surface-muted);
   color: var(--color-text-muted);
@@ -47,10 +47,14 @@
   opacity: 0;
   transition: opacity var(--duration-base) var(--ease-out);
 }
-.header__top-link:hover {
+.header__top-link:hover,
+.header__top-link--active,
+.header__top-list .current-menu-item > a {
   color: var(--color-accent);
 }
-.header__top-link:hover::before {
+.header__top-link:hover::before,
+.header__top-link--active::before,
+.header__top-list .current-menu-item > a::before {
   opacity: 1;
 }
 
@@ -287,7 +291,7 @@
   left: 0;
   right: 0;
   background-color: var(--color-surface);
-  padding: var(--space-md);
+  padding: var(--space-md) var(--gutter-right) var(--space-md) var(--gutter-left);
   border-top: 1px solid var(--color-border);
   max-height: calc(100vh - var(--header-height, 0px));
   max-height: calc(100dvh - var(--header-height, 0px));
@@ -306,6 +310,10 @@
   color: var(--color-text);
   font-size: 15px;
 }
+.header__mobile-link--active,
+.header__mobile-list .current-menu-item > a {
+  color: var(--color-accent);
+}
 
 /* Bottom Navigation */
 .bottom-nav {
@@ -315,6 +323,7 @@
   left: 0;
   right: 0;
   height: var(--bottom-nav-height);
+  padding: 0 var(--safe-right) var(--safe-bottom) var(--safe-left);
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border);
   z-index: var(--z-bottom-nav);
@@ -379,6 +388,7 @@
 
   .header__logo img {
     height: 33px;
+    width: auto;
   }
 
   .header__burger-btn {

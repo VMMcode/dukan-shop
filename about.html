@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="preload" href="fonts/Rawline-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/Rawline-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/fonts.css" />
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/about.css" />
 
     <title>
-      О магазине Дукан — фермерские продукты Кавказа с доставкой по Москве
+      О магазине — Дукан
     </title>
     <meta
       name="description"
@@ -68,7 +68,7 @@
           <nav class="header__top-nav" aria-label="Основное меню">
             <ul class="header__top-list">
               <li class="header__top-item">
-                <a href="about.html" class="header__top-link">О&nbsp;нас</a>
+                <a href="about.html" class="header__top-link header__top-link--active" aria-current="page">О&nbsp;нас</a>
               </li>
               <li class="header__top-item">
                 <a href="farmers.html" class="header__top-link">Наши фермеры</a>
@@ -126,7 +126,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" width="788" height="144" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -250,6 +250,9 @@
                     src="img/content/bakalei-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Бакалея</span>
                 </a>
@@ -260,6 +263,9 @@
                     src="img/content/meet-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label"
                     >Мясо и&nbsp;птица</span
@@ -272,6 +278,9 @@
                     src="img/content/milk-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="726"
+                    height="726"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Молочные продукты</span>
                 </a>
@@ -282,6 +291,9 @@
                     src="img/content/veget-fruit-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Овощи и&nbsp;фрукты</span>
                 </a>
@@ -292,6 +304,9 @@
                     src="img/content/kolbasi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Колбасные изделия</span>
                 </a>
@@ -302,6 +317,9 @@
                     src="img/content/kopchenosti-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мясные копчёности</span>
                 </a>
@@ -312,6 +330,9 @@
                     src="img/content/konservi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Консервы</span>
                 </a>
@@ -322,6 +343,9 @@
                     src="img/content/med-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мёд и&nbsp;варенье</span>
                 </a>
@@ -335,7 +359,7 @@
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
         <nav class="header__mobile-nav" aria-label="Мобильное меню">
           <ul class="header__mobile-list">
-            <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
+            <li><a href="about.html" class="header__mobile-link header__mobile-link--active" aria-current="page">О&nbsp;нас</a></li>
             <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
             <li>
               <a href="reviews.html" class="header__mobile-link">Отзывы</a>
@@ -377,7 +401,7 @@
       </div>
 
       <!-- Hero -->
-      <section class="about-hero">
+      <section class="section about-hero">
         <div class="container about-hero__inner">
           <div class="about-hero__content">
             <h1 class="about-hero__title">О&nbsp;магазине «Дукан»</h1>
@@ -421,6 +445,9 @@
               class="about-hero__img"
               src="img/content/hero-bg.webp"
               alt="Горное хозяйство на Кавказе"
+              width="1938"
+              height="811"
+              fetchpriority="high"
             />
             <p class="about-hero__badge">
               <span class="about-hero__badge-word">Дукан</span> по-осетински&nbsp;—
@@ -431,7 +458,7 @@
       </section>
 
       <!-- Кто мы -->
-      <section class="about-story" aria-labelledby="aboutStoryTitle">
+      <section class="section about-story" aria-labelledby="aboutStoryTitle">
         <div class="container">
           <div class="section-header">
             <h2 id="aboutStoryTitle" class="section-header__title">Кто мы</h2>
@@ -464,7 +491,7 @@
       </section>
 
       <!-- Как продукт попадает к вам -->
-      <section class="about-path" aria-labelledby="aboutPathTitle">
+      <section class="section about-path" aria-labelledby="aboutPathTitle">
         <div class="container">
           <div class="section-header">
             <h2 id="aboutPathTitle" class="section-header__title">
@@ -507,7 +534,7 @@
       </section>
 
       <!-- Принцип -->
-      <section class="principle" aria-label="Наш главный принцип">
+      <section class="section principle" aria-label="Наш главный принцип">
         <div class="container">
           <figure class="principle__figure">
             <blockquote class="principle__quote">
@@ -519,7 +546,7 @@
       </section>
 
       <!-- Что мы обещаем -->
-      <section class="about-promises" aria-labelledby="aboutPromisesTitle">
+      <section class="section about-promises" aria-labelledby="aboutPromisesTitle">
         <div class="container">
           <div class="section-header">
             <h2 id="aboutPromisesTitle" class="section-header__title">
@@ -588,7 +615,7 @@
       </section>
 
       <!-- Откуда наши продукты -->
-      <section class="regions" aria-labelledby="aboutRegionsTitle">
+      <section class="section regions" aria-labelledby="aboutRegionsTitle">
         <div class="container">
           <div class="regions__inner">
             <div class="section-header">
@@ -619,6 +646,9 @@
                     src="img/content/osetian.webp"
                     alt="Северная Осетия"
                     class="region-card__img"
+                    width="1232"
+                    height="924"
+                    loading="lazy"
                   />
                   <span class="region-card__overlay">
                     <span class="region-card__title">Северная Осетия</span>
@@ -634,6 +664,9 @@
                     src="img/content/kbr.webp"
                     alt="Кабардино-Балкария"
                     class="region-card__img"
+                    width="1232"
+                    height="924"
+                    loading="lazy"
                   />
                   <span class="region-card__overlay">
                     <span class="region-card__title">Кабардино-Балкария</span>
@@ -649,6 +682,9 @@
                     src="img/content/dagestan.webp"
                     alt="Дагестан"
                     class="region-card__img"
+                    width="1046"
+                    height="785"
+                    loading="lazy"
                   />
                   <span class="region-card__overlay">
                     <span class="region-card__title">Дагестан</span>
@@ -664,7 +700,7 @@
       </section>
 
       <!-- Для фермеров -->
-      <section class="farmer-invite" aria-labelledby="farmerInviteTitle">
+      <section class="section farmer-invite" aria-labelledby="farmerInviteTitle">
         <div class="container">
           <div class="farmer-invite__inner">
             <span class="icon-box" aria-hidden="true">
@@ -689,7 +725,7 @@
       </section>
 
       <!-- CTA -->
-      <section aria-labelledby="aboutCtaTitle">
+      <section class="section" aria-labelledby="aboutCtaTitle">
         <div class="container">
           <div class="cta-banner">
             <h2 id="aboutCtaTitle" class="cta-banner__title">
@@ -798,6 +834,9 @@
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
                   alt="Дукан — на главную"
+                  width="274"
+                  height="50"
+                  loading="lazy"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
@@ -808,7 +847,7 @@
             <nav class="footer__nav" aria-label="Меню в подвале">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
-              <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>
+              <a href="about.html" class="footer__link dot-link dot-link--active" aria-current="page">О&nbsp;нас</a>
               <a href="delivery.html" class="footer__link dot-link">Доставка и&nbsp;оплата</a>
               <a href="account.html" class="footer__link dot-link">Личный кабинет</a>
               <a href="farmers.html#partners" class="footer__link dot-link">Фермерам</a>

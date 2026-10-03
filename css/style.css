@@ -4,18 +4,26 @@
   flex-direction: column;
   min-height: calc(100dvh - var(--header-height, 0px));
   padding: 0;
-  background-size: cover;
-  background-position: bottom center;
-  background-repeat: no-repeat;
   position: relative;
+  isolation: isolate;
   overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom center;
 }
 
 .hero > .container {
   flex: 1;
   display: flex;
   align-items: center;
-  padding: var(--space-2xl) var(--container-padding);
+  padding: var(--space-2xl) var(--gutter-right) var(--space-2xl) var(--gutter-left);
   position: relative;
   z-index: 1;
 }
@@ -514,8 +522,8 @@
    Пока статичная вёрстка, логика корзины подключится позже. */
 .cart-bar {
   position: sticky;
-  bottom: var(--space-md);
-  width: min(calc(100% - var(--container-padding) * 2), var(--container-max));
+  bottom: calc(var(--space-md) + var(--safe-bottom));
+  width: min(calc(100% - var(--gutter-x) * 2), var(--container-max));
   margin: 0 auto var(--space-md);
   display: flex;
   align-items: center;

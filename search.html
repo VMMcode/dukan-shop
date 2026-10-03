@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="preload" href="fonts/Rawline-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/Rawline-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/fonts.css" />
@@ -83,7 +83,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" width="788" height="144" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -208,6 +208,9 @@
                     src="img/content/bakalei-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Бакалея</span>
                 </a>
@@ -218,6 +221,9 @@
                     src="img/content/meet-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label"
                     >Мясо и&nbsp;птица</span
@@ -230,6 +236,9 @@
                     src="img/content/milk-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="726"
+                    height="726"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Молочные продукты</span>
                 </a>
@@ -240,6 +249,9 @@
                     src="img/content/veget-fruit-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Овощи и&nbsp;фрукты</span>
                 </a>
@@ -250,6 +262,9 @@
                     src="img/content/kolbasi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Колбасные изделия</span>
                 </a>
@@ -260,6 +275,9 @@
                     src="img/content/kopchenosti-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мясные копчёности</span>
                 </a>
@@ -270,6 +288,9 @@
                     src="img/content/konservi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Консервы</span>
                 </a>
@@ -280,6 +301,9 @@
                     src="img/content/med-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мёд и&nbsp;варенье</span>
                 </a>
@@ -332,11 +356,11 @@
         </div>
       </div>
 
-      <section class="search-page">
+      <section class="section search-page">
         <div class="container">
           <div class="page-head">
             <h1 class="page-head__title">Результаты поиска</h1>
-            <p class="lead">По&nbsp;запросу «сыр» нашлось 3&nbsp;товара</p>
+            <p class="lead">По&nbsp;запросу «сыр» нашлось 2&nbsp;товара</p>
           </div>
 
           <h2 class="visually-hidden">Товары</h2>
@@ -349,6 +373,9 @@
                       class="product-card__img"
                       src="img/products/sir.webp"
                       alt="Осетинский сыр"
+                      width="1256"
+                      height="848"
+                      fetchpriority="high"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -409,8 +436,10 @@
                   <div class="product-card__media">
                     <img
                       class="product-card__img"
-                      src="img/products/basturma.webp"
-                      alt="Бастурма из говядины"
+                      src="img/products/sir.webp"
+                      alt="Осетинский пирог с картофелем и сыром"
+                      width="1256"
+                      height="848"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -421,63 +450,7 @@
                   <div class="product-card__body">
                     <h3 class="product-card__title">
                       <a href="product.html" class="product-card__link"
-                        >Бастурма из&nbsp;говядины</a
-                      >
-                    </h3>
-                    <p class="product-card__source">
-                      <span class="product-card__producer"
-                        >Мясной дом Башоровъ</span
-                      >
-                      <span class="product-card__region"
-                        >Кабардино-Балкария</span
-                      >
-                    </p>
-                    <span class="product-card__weight">100&nbsp;г</span>
-                    <div class="product-card__footer">
-                      <span class="product-card__price">590&nbsp;₽</span>
-                      <button
-                        class="product-card__add"
-                        type="button"
-                        aria-label="Добавить «Бастурма из&nbsp;говядины» в корзину"
-                      >
-                        <svg aria-hidden="true" focusable="false"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                          <path d="M12 5l0 14" />
-                          <path d="M5 12l14 0" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </article>
-              </li>
-              <li>
-                <article class="product-card">
-                  <div class="product-card__media">
-                    <img
-                      class="product-card__img"
-                      src="img/products/eggs.webp"
-                      alt="Свежие яйца"
-                    />
-                    <div class="product-card__badges">
-                      <span class="badge" role="img" title="Халяль" aria-label="Халяль">
-                        <span class="icon-halal" aria-hidden="true"></span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="product-card__body">
-                    <h3 class="product-card__title">
-                      <a href="product.html" class="product-card__link"
-                        >Свежие яйца</a
+                        >Осетинский пирог с&nbsp;картофелем и&nbsp;сыром</a
                       >
                     </h3>
                     <p class="product-card__source">
@@ -488,13 +461,13 @@
                         >Северная Осетия</span
                       >
                     </p>
-                    <span class="product-card__weight">10&nbsp;шт.</span>
+                    <span class="product-card__weight">800&nbsp;г</span>
                     <div class="product-card__footer">
-                      <span class="product-card__price">180&nbsp;₽</span>
+                      <span class="product-card__price">790&nbsp;₽</span>
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить «Свежие яйца» в корзину"
+                        aria-label="Добавить «Осетинский пирог с&nbsp;картофелем и&nbsp;сыром» в корзину"
                       >
                         <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
@@ -604,6 +577,8 @@
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
                   alt="Дукан — на главную"
+                  width="274"
+                  height="50"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span

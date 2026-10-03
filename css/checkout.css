@@ -1,3 +1,4 @@
+/* Строка rgba() над color-mix() — фолбэк для iOS < 16.2: браузер без color-mix() выбрасывает вторую строку при разборе */
 /* --- Каркас страницы оформления заказа --- */
 .checkout-page {
   padding-top: var(--space-md);
@@ -172,6 +173,7 @@
 .checkout-summary__warning {
   font-size: var(--fs-body-sm);
   color: var(--color-error);
+  background-color: rgba(168, 69, 46, 0.08);
   background-color: color-mix(in srgb, var(--color-error) 8%, transparent);
   border-radius: var(--radius-md);
   padding: var(--space-sm);
@@ -183,6 +185,7 @@
 
 @keyframes warning-flash {
   50% {
+    background-color: rgba(168, 69, 46, 0.24);
     background-color: color-mix(in srgb, var(--color-error) 24%, transparent);
   }
 }

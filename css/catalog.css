@@ -386,6 +386,8 @@
     left: 0;
     right: 0;
     bottom: 0;
+    padding-left: var(--gutter-left);
+    padding-right: var(--gutter-right);
     padding-bottom: calc(var(--space-md) + var(--bottom-nav-height, 0px));
     z-index: var(--z-drawer);
     border-radius: 0;

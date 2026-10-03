@@ -1,3 +1,4 @@
+/* Строка rgba() над color-mix() — фолбэк для iOS < 16.2: браузер без color-mix() выбрасывает вторую строку при разборе */
 /* --- Base-style --- */
 [hidden] {
   display: none !important;
@@ -129,12 +130,12 @@ body {
 
 .container {
   max-width: var(--container-max);
-  padding: 0 var(--container-padding);
+  padding: 0 var(--gutter-right) 0 var(--gutter-left);
   margin: 0 auto;
   width: 100%;
 }
 
-section {
+.section {
   padding: var(--space-xl) 0;
 }
 
@@ -280,6 +281,7 @@ h6 {
   text-decoration: none;
 }
 .logo img {
+  width: auto;
   max-width: none; /* логотип не сжимается вместе с колонкой (перебивает reset) */
 }
 .logo__subtitle {
@@ -310,11 +312,15 @@ h6 {
   transition: opacity var(--duration-base) var(--ease-out);
 }
 
-.dot-link:hover {
+.dot-link:hover,
+.dot-link--active,
+.footer__nav .current-menu-item > a {
   color: var(--dot-link-hover, var(--color-accent));
 }
 
-.dot-link:hover::before {
+.dot-link:hover::before,
+.dot-link--active::before,
+.footer__nav .current-menu-item > a::before {
   opacity: 1;
 }
 
@@ -1118,9 +1124,9 @@ h6 {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: var(--space-md);
+  bottom: calc(var(--space-md) + var(--safe-bottom));
   z-index: var(--z-cookie);
-  width: min(calc(100% - var(--container-padding) * 2), var(--container-max));
+  width: min(calc(100% - var(--gutter-x) * 2), var(--container-max));
   margin: 0 auto;
   padding: var(--space-md);
   display: flex;
@@ -1133,7 +1139,7 @@ h6 {
 }
 
 body:has(.cart-bar) .cookie-consent {
-  bottom: calc(var(--space-md) + var(--cart-bar-height) + var(--space-sm));
+  bottom: calc(var(--space-md) + var(--safe-bottom) + var(--cart-bar-height) + var(--space-sm));
 }
 
 .cookie-consent__text {
@@ -1191,6 +1197,7 @@ body:has(.cart-bar) .cookie-consent {
 /* --- Уведомления (наши классы + WooCommerce) --- */
 .note-box--success,
 .woocommerce-message {
+  background-color: rgba(39, 106, 67, 0.08);
   background-color: color-mix(in srgb, var(--color-success) 8%, transparent);
   color: var(--color-success);
 }
@@ -1200,6 +1207,7 @@ body:has(.cart-bar) .cookie-consent {
 
 .note-box--error,
 .woocommerce-error {
+  background-color: rgba(168, 69, 46, 0.08);
   background-color: color-mix(in srgb, var(--color-error) 8%, transparent);
   color: var(--color-error);
 }
@@ -1501,6 +1509,12 @@ body:has(.cart-bar) .cookie-consent {
 .region-card__overlay {
   position: absolute;
   inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(13, 23, 16, 0.85) 0%,
+    rgba(13, 23, 16, 0.15) 60%,
+    transparent 100%
+  );
   background: linear-gradient(
     to top,
     color-mix(in srgb, var(--color-accent-active) 85%, transparent) 0%,

@@ -1,3 +1,4 @@
+/* Строка rgba() над color-mix() — фолбэк для iOS < 16.2: браузер без color-mix() выбрасывает вторую строку при разборе */
 /* --- Каркас страницы отзывов --- */
 .reviews {
   padding-top: var(--space-md);
@@ -123,6 +124,7 @@
 }
 
 .review-card--summary .review-card__stars {
+  color: rgba(255, 255, 255, 0.4);
   color: color-mix(in srgb, var(--color-text-inverse) 40%, transparent);
 }
 .review-card--summary .review-card__star--filled {
@@ -137,6 +139,7 @@
 
 .review-card__count {
   font-size: var(--fs-body-sm);
+  color: rgba(255, 255, 255, 0.75);
   color: color-mix(in srgb, var(--color-text-inverse) 75%, transparent);
 }
 

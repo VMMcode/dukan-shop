@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="preload" href="fonts/Rawline-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/Rawline-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Дукан — продукты Северного Кавказа</title>
+    <title>Дукан — фермерские продукты Кавказа с доставкой по Москве</title>
     <meta name="description" content="Фермерские продукты Кабардино-Балкарии, Северной Осетии и Дагестана с доставкой по Москве. Сыр, мясо, мёд, копчёности напрямую от хозяйств. Оплата наличными при получении." />
   </head>
   <body>
@@ -82,7 +82,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" width="788" height="144" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -206,6 +206,9 @@
                     src="img/content/bakalei-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Бакалея</span>
                 </a>
@@ -216,6 +219,9 @@
                     src="img/content/meet-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label"
                     >Мясо и&nbsp;птица</span
@@ -228,6 +234,9 @@
                     src="img/content/milk-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="726"
+                    height="726"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Молочные продукты</span>
                 </a>
@@ -238,6 +247,9 @@
                     src="img/content/veget-fruit-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Овощи и фрукты</span>
                 </a>
@@ -248,6 +260,9 @@
                     src="img/content/kolbasi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Колбасные изделия</span>
                 </a>
@@ -258,6 +273,9 @@
                     src="img/content/kopchenosti-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мясные копчёности</span>
                 </a>
@@ -268,6 +286,9 @@
                     src="img/content/konservi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Консервы</span>
                 </a>
@@ -278,6 +299,9 @@
                     src="img/content/med-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мёд и&nbsp;варенье</span>
                 </a>
@@ -316,10 +340,16 @@
     <!-- Основной контент -->
     <main class="main-content" id="main" tabindex="-1">
       <!-- Главный экран: начало -->
-      <section
-        class="hero"
-        style="background-image: url(&quot;img/content/hero-bg.webp&quot;)"
-      >
+      <section class="hero">
+        <img
+          class="hero__bg"
+          src="img/content/hero-bg.webp"
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+          width="1938"
+          height="811"
+        />
         <div class="container">
           <div class="hero__inner">
             <h1 class="hero__title">
@@ -456,6 +486,9 @@
                     class="promo__img"
                     src="img/content/adjika.webp"
                     alt="Домашняя аджика"
+                    width="420"
+                    height="560"
+                    loading="lazy"
                   />
                 </div>
                 <div class="swiper-slide promo__slide">
@@ -476,6 +509,9 @@
                     class="promo__img"
                     src="img/content/pastila.webp"
                     alt="Абрикосовая пастила"
+                    width="561"
+                    height="561"
+                    loading="lazy"
                   />
                 </div>
                 <div class="swiper-slide promo__slide">
@@ -496,6 +532,9 @@
                     class="promo__img"
                     src="img/content/maslo.webp"
                     alt="Топлёное сливочное масло"
+                    width="420"
+                    height="560"
+                    loading="lazy"
                   />
                 </div>
                 <div class="swiper-slide promo__slide">
@@ -516,6 +555,9 @@
                     class="promo__img"
                     src="img/content/myaso.webp"
                     alt="Мясо для шашлыка"
+                    width="561"
+                    height="561"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -570,6 +612,9 @@
                     src="img/content/bakalei-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Бакалея</span>
                 </a>
@@ -580,6 +625,9 @@
                     src="img/content/meet-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label"
                     >Мясо и&nbsp;птица</span
@@ -592,6 +640,9 @@
                     src="img/content/milk-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="726"
+                    height="726"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Молочные продукты</span>
                 </a>
@@ -602,6 +653,9 @@
                     src="img/content/veget-fruit-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Овощи и&nbsp;фрукты</span>
                 </a>
@@ -612,6 +666,9 @@
                     src="img/content/kolbasi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Колбасные изделия</span>
                 </a>
@@ -622,6 +679,9 @@
                     src="img/content/kopchenosti-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мясные копчёности</span>
                 </a>
@@ -632,6 +692,9 @@
                     src="img/content/konservi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Консервы</span>
                 </a>
@@ -642,6 +705,9 @@
                     src="img/content/med-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мёд и&nbsp;варенье</span>
                 </a>
@@ -653,7 +719,7 @@
       <!-- Категории продуктов: конец -->
 
       <!-- Популярные товары: начало -->
-      <section class="choice" id="dukan-choice">
+      <section class="section choice" id="dukan-choice">
         <div class="container">
           <div class="choice__inner">
             <div class="section-header">
@@ -679,6 +745,9 @@
                       class="product-card__img"
                       src="img/products/sir.webp"
                       alt="Осетинский сыр"
+                      width="1256"
+                      height="848"
+                      loading="lazy"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -741,6 +810,9 @@
                       class="product-card__img"
                       src="img/products/basturma.webp"
                       alt="Бастурма из говядины"
+                      width="640"
+                      height="432"
+                      loading="lazy"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -797,6 +869,9 @@
                       class="product-card__img"
                       src="img/products/eggs.webp"
                       alt="Свежие яйца"
+                      width="640"
+                      height="432"
+                      loading="lazy"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -851,6 +926,9 @@
                       class="product-card__img"
                       src="img/products/med.webp"
                       alt="Майский мёд"
+                      width="640"
+                      height="432"
+                      loading="lazy"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -905,6 +983,9 @@
                       class="product-card__img"
                       src="img/products/baranina.webp"
                       alt="Баранина"
+                      width="640"
+                      height="432"
+                      loading="lazy"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -959,6 +1040,9 @@
                       class="product-card__img"
                       src="img/products/pomidori.webp"
                       alt="Домашние помидоры"
+                      width="640"
+                      height="432"
+                      loading="lazy"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -1013,6 +1097,9 @@
                       class="product-card__img"
                       src="img/products/krolik.webp"
                       alt="Мясо кролика"
+                      width="640"
+                      height="432"
+                      loading="lazy"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -1067,6 +1154,9 @@
                       class="product-card__img"
                       src="img/products/psheno.webp"
                       alt="Пшено"
+                      width="640"
+                      height="432"
+                      loading="lazy"
                     />
                     <div class="product-card__badges">
                       <span class="badge" role="img" title="Халяль" aria-label="Халяль">
@@ -1119,7 +1209,7 @@
       <!-- Популярные товары: конец -->
 
       <!-- О нас: начало -->
-      <section class="home-about">
+      <section class="section home-about">
         <div class="container">
           <div class="home-about__inner">
             <div class="section-header">
@@ -1236,7 +1326,7 @@
       <!-- О нас: конец -->
 
       <!-- Регионы поставщиков: начало -->
-      <section class="regions">
+      <section class="section regions">
         <div class="container">
           <div class="regions__inner">
             <div class="section-header">
@@ -1266,6 +1356,9 @@
                     src="img/content/osetian.webp"
                     alt="Северная Осетия"
                     class="region-card__img"
+                    width="1232"
+                    height="924"
+                    loading="lazy"
                   />
                   <span class="region-card__overlay">
                     <span class="region-card__title">Северная Осетия</span>
@@ -1281,6 +1374,9 @@
                     src="img/content/kbr.webp"
                     alt="Кабардино-Балкария"
                     class="region-card__img"
+                    width="1232"
+                    height="924"
+                    loading="lazy"
                   />
                   <span class="region-card__overlay">
                     <span class="region-card__title">Кабардино-Балкария</span>
@@ -1296,6 +1392,9 @@
                     src="img/content/dagestan.webp"
                     alt="Дагестан"
                     class="region-card__img"
+                    width="1046"
+                    height="785"
+                    loading="lazy"
                   />
                   <span class="region-card__overlay">
                     <span class="region-card__title">Дагестан</span>
@@ -1416,6 +1515,9 @@
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
                   alt="Дукан — на главную"
+                  width="274"
+                  height="50"
+                  loading="lazy"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span

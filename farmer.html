@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="preload" href="fonts/Rawline-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="fonts/Rawline-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/fonts.css" />
@@ -15,7 +15,7 @@
 
     <!-- В WordPress: title/description генерируются из полей хозяйства (farm_name, регион, категории) -->
     <title>
-      Семейная ферма Дадэ — фермерские молочные продукты из Кабардино-Балкарии | Дукан
+      Семейная ферма Дадэ — Дукан
     </title>
     <meta
       name="description"
@@ -73,7 +73,7 @@
                 <a href="about.html" class="header__top-link">О&nbsp;нас</a>
               </li>
               <li class="header__top-item">
-                <a href="farmers.html" class="header__top-link">Наши фермеры</a>
+                <a href="farmers.html" class="header__top-link header__top-link--active" aria-current="true">Наши фермеры</a>
               </li>
               <li class="header__top-item">
                 <a href="reviews.html" class="header__top-link">Отзывы</a>
@@ -128,7 +128,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" width="788" height="144" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -252,6 +252,9 @@
                     src="img/content/bakalei-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Бакалея</span>
                 </a>
@@ -262,6 +265,9 @@
                     src="img/content/meet-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label"
                     >Мясо и&nbsp;птица</span
@@ -274,6 +280,9 @@
                     src="img/content/milk-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="726"
+                    height="726"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Молочные продукты</span>
                 </a>
@@ -284,6 +293,9 @@
                     src="img/content/veget-fruit-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Овощи и&nbsp;фрукты</span>
                 </a>
@@ -294,6 +306,9 @@
                     src="img/content/kolbasi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Колбасные изделия</span>
                 </a>
@@ -304,6 +319,9 @@
                     src="img/content/kopchenosti-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мясные копчёности</span>
                 </a>
@@ -314,6 +332,9 @@
                     src="img/content/konservi-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Консервы</span>
                 </a>
@@ -324,6 +345,9 @@
                     src="img/content/med-category.webp"
                     alt=""
                     class="category-card__image"
+                    width="648"
+                    height="648"
+                    loading="lazy"
                   />
                   <span class="category-card__label">Мёд и&nbsp;варенье</span>
                 </a>
@@ -338,7 +362,7 @@
         <nav class="header__mobile-nav" aria-label="Мобильное меню">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
-            <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
+            <li><a href="farmers.html" class="header__mobile-link header__mobile-link--active" aria-current="true">Наши фермеры</a></li>
             <li>
               <a href="reviews.html" class="header__mobile-link">Отзывы</a>
             </li>
@@ -385,12 +409,12 @@
       </div>
 
       <!-- Hero хозяйства -->
-      <section class="farmer-hero" aria-labelledby="farmerHeroTitle">
+      <section class="section farmer-hero" aria-labelledby="farmerHeroTitle">
         <div class="container">
           <div class="farmer-hero__inner">
             <!-- В WordPress: farm_photo, если есть, иначе farm-cover--placeholder с farm_name -->
             <div class="farmer-hero__cover farm-cover">
-              <img src="img/logo/logo-dade.svg" alt="Логотип: Семейная ферма Дадэ, Кабардино-Балкария" class="farm-cover__img farmer-hero__logo" />
+              <img src="img/logo/logo-dade.svg" alt="Логотип: Семейная ферма Дадэ, Кабардино-Балкария" class="farm-cover__img farmer-hero__logo" width="281" height="150" fetchpriority="high" />
             </div>
 
             <div class="farmer-hero__info">
@@ -415,7 +439,7 @@
       </section>
 
       <!-- О хозяйстве -->
-      <section class="farmer-about" aria-labelledby="farmerAboutTitle">
+      <section class="section farmer-about" aria-labelledby="farmerAboutTitle">
         <div class="container">
           <div class="farmer-about__inner">
             <div class="section-header">
@@ -465,7 +489,7 @@
       </section>
 
       <!-- Что производят -->
-      <section class="farmer-produce" aria-labelledby="farmerProduceTitle">
+      <section class="section farmer-produce" aria-labelledby="farmerProduceTitle">
         <div class="container">
           <div class="farmer-produce__inner">
             <div class="section-header">
@@ -495,7 +519,7 @@
       </section>
 
       <!-- Продукты хозяйства -->
-      <section id="farm-products" class="farmer-products" aria-labelledby="farmerProductsTitle">
+      <section id="farm-products" class="section farmer-products" aria-labelledby="farmerProductsTitle">
         <div class="container">
           <div class="farmer-products__inner">
             <div class="section-header">
@@ -517,6 +541,8 @@
                       src="img/content/milk-category.webp"
                       alt="Айран домашний"
                       loading="lazy"
+                      width="726"
+                      height="726"
                     />
                   </div>
   
@@ -569,6 +595,8 @@
                       src="img/content/milk-category.webp"
                       alt="Сметана домашняя"
                       loading="lazy"
+                      width="726"
+                      height="726"
                     />
                   </div>
   
@@ -621,6 +649,8 @@
                       src="img/products/sir.webp"
                       alt="Сыр кабардинский"
                       loading="lazy"
+                      width="1256"
+                      height="848"
                     />
                   </div>
   
@@ -673,6 +703,8 @@
                       src="img/content/milk-category.webp"
                       alt="Молоко фермерское"
                       loading="lazy"
+                      width="726"
+                      height="726"
                     />
                   </div>
   
@@ -723,7 +755,7 @@
       </section>
 
       <!-- Другие хозяйства региона -->
-      <section class="farmer-related" aria-labelledby="farmerRelatedTitle">
+      <section class="section farmer-related" aria-labelledby="farmerRelatedTitle">
         <div class="container">
           <div class="farmer-related__inner">
             <div class="section-header">
@@ -739,7 +771,7 @@
               <li class="farmer-related__item">
                 <article class="farm-card">
                     <div class="farm-card__media">
-                      <img src="img/logo/logo-bashorov.webp" alt="Мясной дом Башоровъ, Кабардино-Балкария" class="farm-card__img" loading="lazy" />
+                      <img src="img/logo/logo-bashorov.webp" alt="Мясной дом Башоровъ, Кабардино-Балкария" class="farm-card__img" loading="lazy" width="1264" height="848" />
                     </div>
                     <div class="farm-card__body">
                       <h3 class="farm-card__title">
@@ -849,6 +881,9 @@
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
                   alt="Дукан — на главную"
+                  width="274"
+                  height="50"
+                  loading="lazy"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span

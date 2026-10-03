@@ -43,7 +43,6 @@
   /* Подложки на тёмном акцентном фоне */
   --color-on-accent-subtle: rgba(255, 255, 255, 0.15);
   --color-on-accent-muted: rgba(255, 255, 255, 0.08);
-  --color-on-accent-line: color-mix(in srgb, var(--color-accent-muted) 40%, transparent); /* тонкие линии на --color-accent */
 
   /* Фокус */
   --color-focus-ring: #4a7856;
@@ -123,7 +122,13 @@
   /* --- Контейнер --- */
   --container-max: 1320px;
   --container-padding: 12px;
-  --bottom-nav-height: 64px;
+  --safe-left: env(safe-area-inset-left, 0px); /* вырез iPhone в ландшафте; в остальных случаях 0 */
+  --safe-right: env(safe-area-inset-right, 0px);
+  --gutter-left: max(var(--container-padding), var(--safe-left)); /* боковой отступ контента с учётом выреза */
+  --gutter-right: max(var(--container-padding), var(--safe-right));
+  --gutter-x: max(var(--container-padding), var(--safe-left), var(--safe-right)); /* симметричный, для панелей по центру */
+  --safe-bottom: env(safe-area-inset-bottom, 0px); /* «домашняя» полоска iPhone/iPad; в остальных браузерах 0 */
+  --bottom-nav-height: calc(64px + var(--safe-bottom));
 
 
   /* --- Icons --- */
@@ -145,7 +150,7 @@
   --duration-slow: 400ms;
 
   /* --- Липкие элементы: отступ от шапки и нижний зазор --- */
-  --sticky-top: calc(var(--header-height, 0px) + var(--space-md));
+  --sticky-top: calc(var(--header-height, 0px) + var(--space-md) + var(--wp-admin--admin-bar--height, 0px));
   --sticky-bottom: var(--space-md);
   --cart-bar-height: 0px; /* высоту .cart-bar выставляет main.js; нужна баннеру cookie */
 
@@ -159,6 +164,6 @@
   --z-catalog-menu: 200;
   --z-bottom-nav: 1000;
 
-  /* --- Вуаль hero (сохраняет текущий цвет градиента) --- */
-  --color-hero-veil: 247 241 231;
+  /* --- Вуаль hero: каналы RGB цвета --color-bg (#eef1ed) --- */
+  --color-hero-veil: 238 241 237;
 }
