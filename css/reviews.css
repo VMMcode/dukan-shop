@@ -232,6 +232,11 @@
   color: var(--color-border);
 }
 
+/* Ошибка «нет оценки»: пустые звёзды красные; hover и выбор выше по специфичности и перебивают */
+.star-input--error .star-input__star {
+  color: var(--color-error);
+}
+
 .star-input__radio:focus-visible + .star-input__star {
   outline: 2px solid var(--color-focus-ring);
   outline-offset: 2px;

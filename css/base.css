@@ -21,11 +21,6 @@ textarea:focus,
 select:focus {
   border-color: var(--input-border-focus);
 }
-input.is-error,
-textarea.is-error,
-select.is-error {
-  border-color: var(--input-border-error);
-}
 input::placeholder,
 textarea::placeholder {
   color: var(--input-placeholder);
@@ -1309,6 +1304,43 @@ h6 {
 }
 
 
+/* --- Формы: состояния (наши классы + классы CF7) --- */
+.form-field--error .form-field__input,
+.form-field--error .form-field__textarea,
+.form-field__input.wpcf7-not-valid,
+.form-field__textarea.wpcf7-not-valid {
+  border-color: var(--input-border-error);
+}
+
+.form-field--error .select.nice-select,
+.form-field__select.wpcf7-not-valid + .select.nice-select { /* CF7 ставит класс на исходный select, он стоит перед .nice-select */
+  border-color: var(--input-border-error);
+}
+
+.agreement--error .checkbox,
+.checkbox.wpcf7-not-valid {
+  border-color: var(--color-error);
+}
+
+.field-error,
+.wpcf7-not-valid-tip {
+  display: block;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body-sm);
+  color: var(--color-error);
+}
+
+/* Согласие лежит прямо в .panel с большим gap — подтягиваем ошибку к чекбоксу */
+.agreement + .field-error {
+  margin-top: calc(var(--space-xs) - var(--space-md));
+}
+
+/* CF7 выводит свою плашку и спиннер — у нас их заменяет попап */
+.wpcf7-response-output,
+.wpcf7-spinner {
+  display: none;
+}
+
 /* --- Компонент: карточка региона (главная, «О магазине») --- */
 .region-card {
   display: block; /* без этого браузер игнорирует aspect-ratio на <a> (инлайн-элемент по умолчанию) */
@@ -1486,5 +1518,73 @@ h6 {
 
   .cta-banner__btn {
     width: 100%;
+  }
+}
+
+/* --- Попап формы (нативный <dialog>) --- */
+.form-dialog {
+  width: min(100% - 2 * var(--container-padding), 28rem);
+  margin: auto;
+  padding: var(--space-md);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-card);
+}
+
+.form-dialog:focus {
+  outline: none;
+}
+
+/* Фон под попапом не прокручивается (.no-scroll работает только до 1023px) */
+html:has(.form-dialog[open]) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
+.form-dialog::backdrop {
+  background-color: var(--color-overlay);
+}
+
+.form-dialog__body,
+.form-dialog__state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.form-dialog__title {
+  color: var(--color-text);
+}
+
+@media (max-width: 639px) {
+  .form-dialog {
+    padding: var(--space-sm);
+  }
+}
+
+/* --- Спиннер: кольцо акцентного цвета --- */
+.spinner {
+  flex-shrink: 0;
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+  border: calc(var(--icon-size) / 6) solid var(--color-accent-muted);
+  border-top-color: var(--color-accent);
+  border-radius: var(--radius-full);
+  animation: spinner-rotate calc(var(--duration-slow) * 2) linear infinite;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: calc(var(--duration-slow) * 6);
   }
 }

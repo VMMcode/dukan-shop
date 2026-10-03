@@ -26,6 +26,7 @@
 ├── js/main.js           — общая логика (шапка, каталог, бургер-меню, свайпер, селекты, табы)
 ├── swiper/              — библиотека Swiper
 ├── nice-select2/        — библиотека кастомных селектов
+├── maska/               — библиотека маски ввода (телефон), подключается на reviews, contacts, farmers
 ├── legal/               — исходные тексты оферты, политики и согласия (.md)
 ├── fonts/
 └── img/
@@ -96,9 +97,24 @@
 - **Структура файла:** один IIFE с `'use strict'`. Сверху утилиты (`formatPrice`, `getFocusable`, `lockScroll`, `createLayers`), ниже модули `init*` в порядке страниц. Один вход: список `modules` запускается в `try/catch`, ошибка одного модуля не ломает остальные. Каждый модуль сам проверяет свою разметку и выходит ранним `return`; необязательный элемент (например `#mobileCatalogBtn`) не ошибка. Глобальная только `window.Dukan = { enhanceSelectA11y, formatPrice }`.
 - **Слои (меню каталога, мобильное меню, фильтры):** открываются и закрываются только через `createLayers` (`layers.register(имя, { triggers, panel, show, hide, modal, closers })`). Он сам ведёт оверлей, `no-scroll`, `aria-expanded` у всех триггеров, Esc, клик по оверлею и фокус. Не писать `overlay.hidden` и `lockScroll` в обход него. Новая выезжающая панель = ещё один `register`.
 - **Настройки — в `data-`атрибутах разметки** (например `data-min-order`, `data-free-delivery-from`, `data-delivery-cost` у `#checkoutForm`, `data-checkout-url` у `#addToCartBtn`). В JS не держать константы и пути: в WP их выведет шаблон из ACF Options.
+- **Маска телефона:** Maska (`maska/maska.js`, обычный `<script>` перед `main.js`, глобал `Maska`). `initPhoneMask()` вешает маску `+7 (###) ###-##-##` на `input[type="tel"]` внутри форм с `data-form`; без библиотеки на странице выходит без ошибки.
 - **Деньги:** любой текст с ценой, который выводит JS, — только через `formatPrice(value)` («2 440 ₽», разряды и пробел перед ₽ неразрывные U+00A0). ₽ после вызова не дописывать.
 - **Табы:** `initTabs(root, options)`. У новых табов `aria-controls`, `role`, `id` пишутся в HTML статически (farmers пока добавляет их из JS), неактивные панели скрываются атрибутом `hidden`.
 - **nice-select2:** после `nice.update()` всегда вызывать `enhanceSelectA11y(select)` повторно — библиотека пересоздаёт разметку и ARIA пропадает.
+
+## Формы
+Четыре формы (отзыв, «Написать команде», «Остались вопросы?», заявка фермера) в WP будут на Contact Form 7. Логика — `initForms()` и `initPhoneMask()` в `main.js`.
+
+- **Новая форма** = атрибут `data-form="…"` на `<form>` (+ `id`, `method="post"`, `novalidate`), имена полей по таблице ниже, тексты «Спасибо» — в объекте `FORM_THANKS` в `main.js` (ключ — значение `data-form`), тексты ошибок — в `FIELD_ERRORS`.
+- **Имена полей** (CF7, `kebab-case`; поля о человеке — `your-`): `your-name` (`autocomplete="given-name"`), `your-surname` (`family-name`), `your-phone` (`type="tel"`, `inputmode="tel"`, `autocomplete="tel"`), `your-message`, `review-product`, `review-rating` (у всех пяти радио), `region`, `farm-products`, `acceptance-pd`.
+- **Обязательность** — `required`; в WP CF7 отдаст `aria-required="true"`, валидация понимает оба. У группы радио `required` только на первом.
+- **Классы состояний:** `.form-field--error` (поле), `.star-input--error` (оценка), `.agreement--error` (согласие); текст ошибки — отдельный блок `<p class="field-error" id="…-error">` после контрола (у радио — в конце `fieldset`, у согласия — после `.agreement`, у nice-select — после `.nice-select`). На контроле `aria-invalid` и `aria-describedby`. Парные классы CF7 (`.wpcf7-not-valid`, `.wpcf7-not-valid-tip`) уже в одних правилах с нашими в `base.css`, раздел «Формы: состояния».
+- **Попап `#formDialog`:** нативный `<dialog>`, один на страницу (в WP — в `footer.php`). Состояния `loading` → `success` | `error`; закрыть можно только в двух последних. В статике отправка имитируется (1200 мс), `?form-demo=fail` показывает состояние ошибки.
+- **Для WP:**
+  - `define('WPCF7_AUTOP', false);` в `wp-config.php`.
+  - Шаблоны CF7 писать своей разметкой (`.form-field` и т.д.), имена полей — по таблице выше.
+  - Форма внутри `.wpcf7` работает через мост: наша валидация в фазе захвата, на валидной форме открывается попап, дальше события `wpcf7mailsent`, `wpcf7mailfailed`, `wpcf7spam`, `wpcf7invalid`.
+  - **Мост не проверен на настоящем CF7.** При натяжке проверить: валидная форма отправляется, невалидная не уходит на сервер, попап реагирует на все четыре события, после успеха nice-select сброшен.
 
 ## Как работать в этом проекте
 - Сначала смотри существующие файлы (html/css/js), не изобретай параллельную структуру

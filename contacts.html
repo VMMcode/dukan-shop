@@ -506,6 +506,8 @@
               <form
                 class="panel contact-form"
                 id="contactForm"
+                data-form="contact"
+                method="post"
                 novalidate
               >
                 <h2 class="panel__title">Остались вопросы?</h2>
@@ -522,20 +524,25 @@
                     class="form-field__input"
                     type="text"
                     id="contactName"
-                    placeholder="Например: Иван Иванов"
+                    name="your-name"
+                    autocomplete="given-name"
+                    placeholder="Например: Анна"
                     required
                   />
                 </div>
 
                 <div class="form-field">
-                  <label class="form-field__label" for="contactPhoneOrEmail"
-                    >Телефон или email</label
+                  <label class="form-field__label" for="contactPhone"
+                    >Телефон</label
                   >
                   <input
                     class="form-field__input"
-                    type="text"
-                    id="contactPhoneOrEmail"
-                    placeholder="+7 999 999-99-99 или email"
+                    type="tel"
+                    id="contactPhone"
+                    name="your-phone"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="+7 (___) ___-__-__"
                     required
                   />
                 </div>
@@ -547,6 +554,7 @@
                   <textarea
                     class="form-field__textarea"
                     id="contactMessage"
+                    name="your-message"
                     placeholder="Например: Вопрос по составу продукта"
                     required
                   ></textarea>
@@ -557,7 +565,7 @@
                     type="checkbox"
                     class="checkbox agreement__checkbox"
                     id="contactConsent"
-                    name="consent"
+                    name="acceptance-pd"
                     required
                   />
                   <span class="agreement__text">
@@ -582,6 +590,31 @@
 
     <!-- Оверлей для закрытия меню по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
+    <!-- Попап отправки форм: один на страницу, в WP переедет в footer.php -->
+    <dialog class="form-dialog" id="formDialog" aria-labelledby="formDialogTitle" tabindex="-1">
+      <div class="form-dialog__body" aria-live="polite">
+        <!-- Состояние «отправляем» -->
+        <div class="form-dialog__state" data-state="loading">
+          <span class="spinner" aria-hidden="true"></span>
+          <p class="form-dialog__title text-h4" id="formDialogTitle">Отправляем…</p>
+        </div>
+        <!-- Состояние «готово»: заголовок и текст подставляет JS по типу формы -->
+        <div class="form-dialog__state" data-state="success" hidden>
+          <span class="icon-box" aria-hidden="true">
+            <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6" /></svg>
+          </span>
+          <p class="form-dialog__title text-h4" id="formDialogSuccessTitle" data-role="title"></p>
+          <p class="lead" data-role="text"></p>
+          <button type="button" class="btn btn--primary" data-role="close">Хорошо</button>
+        </div>
+        <!-- Состояние «не отправилось» -->
+        <div class="form-dialog__state" data-state="error" hidden>
+          <p class="form-dialog__title text-h4" id="formDialogErrorTitle" data-role="title">Не получилось отправить</p>
+          <p class="lead">Проверьте интернет и попробуйте ещё раз. Если не выйдет — позвоните нам: <a href="tel:+79999999999" class="footer__link dot-link">+7&nbsp;999&nbsp;999-99-99</a></p>
+          <button type="button" class="btn btn--primary" data-role="close">Понятно</button>
+        </div>
+      </div>
+    </dialog>
     <!-- Мобильный Bottom Navigation Bar -->
     <nav class="bottom-nav" aria-label="Быстрая навигация">
       <a href="index.html" class="bottom-nav__item">
@@ -728,6 +761,7 @@
         </div>
       </div>
     </footer>
+    <script src="maska/maska.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

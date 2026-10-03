@@ -559,7 +559,7 @@
             </div>
 
             <!-- Северная Осетия -->
-            <div id="severnaya-osetiya" class="farmers-panel">
+            <div id="severnaya-osetiya" class="farmers-panel" hidden>
               <div class="farmers-panel__top">
                 <div class="farmers-panel__media">
                   <img
@@ -631,7 +631,7 @@
             </div>
 
             <!-- Дагестан -->
-            <div id="dagestan" class="farmers-panel">
+            <div id="dagestan" class="farmers-panel" hidden>
               <div class="farmers-panel__top">
                 <div class="farmers-panel__media">
                   <img
@@ -786,17 +786,17 @@
             </div>
 
             <!-- В WordPress — обработка через плагин форм, заявки уходят на почту бренда -->
-            <form class="panel farmers-join__form" action="#" method="post">
+            <form class="panel farmers-join__form" id="farmerForm" data-form="farmer" method="post" novalidate>
               <h3 class="farmers-join__form-title">Оставьте заявку</h3>
               <p class="farmers-join__form-note">Мы свяжемся с&nbsp;вами, чтобы познакомиться</p>
 
               <div class="form-field">
                 <label class="form-field__label" for="joinName">Имя</label>
-                <input class="form-field__input" type="text" id="joinName" name="name" required autocomplete="name" />
+                <input class="form-field__input" type="text" id="joinName" name="your-name" required autocomplete="given-name" />
               </div>
               <div class="form-field">
                 <label class="form-field__label" for="joinPhone">Телефон</label>
-                <input class="form-field__input" type="tel" id="joinPhone" name="phone" required autocomplete="tel" inputmode="tel" />
+                <input class="form-field__input" type="tel" id="joinPhone" name="your-phone" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" />
               </div>
               <div class="form-field">
                 <label class="form-field__label" for="joinRegion">Регион</label>
@@ -814,10 +814,10 @@
               </div>
               <div class="form-field">
                 <label class="form-field__label" for="joinProducts">Что вы производите</label>
-                <textarea class="form-field__textarea" id="joinProducts" name="products" required></textarea>
+                <textarea class="form-field__textarea" id="joinProducts" name="farm-products" required></textarea>
               </div>
               <label class="agreement">
-                <input type="checkbox" class="checkbox agreement__checkbox" id="joinConsent" name="consent" required />
+                <input type="checkbox" class="checkbox agreement__checkbox" id="joinConsent" name="acceptance-pd" required />
                 <span class="agreement__text">
                   Даю согласие на&nbsp;<a href="consent.html" class="agreement__link underline-link">обработку персональных данных</a>
                 </span>
@@ -835,6 +835,31 @@
 
     <!-- Оверлей для закрытия меню по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
+    <!-- Попап отправки форм: один на страницу, в WP переедет в footer.php -->
+    <dialog class="form-dialog" id="formDialog" aria-labelledby="formDialogTitle" tabindex="-1">
+      <div class="form-dialog__body" aria-live="polite">
+        <!-- Состояние «отправляем» -->
+        <div class="form-dialog__state" data-state="loading">
+          <span class="spinner" aria-hidden="true"></span>
+          <p class="form-dialog__title text-h4" id="formDialogTitle">Отправляем…</p>
+        </div>
+        <!-- Состояние «готово»: заголовок и текст подставляет JS по типу формы -->
+        <div class="form-dialog__state" data-state="success" hidden>
+          <span class="icon-box" aria-hidden="true">
+            <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6" /></svg>
+          </span>
+          <p class="form-dialog__title text-h4" id="formDialogSuccessTitle" data-role="title"></p>
+          <p class="lead" data-role="text"></p>
+          <button type="button" class="btn btn--primary" data-role="close">Хорошо</button>
+        </div>
+        <!-- Состояние «не отправилось» -->
+        <div class="form-dialog__state" data-state="error" hidden>
+          <p class="form-dialog__title text-h4" id="formDialogErrorTitle" data-role="title">Не получилось отправить</p>
+          <p class="lead">Проверьте интернет и попробуйте ещё раз. Если не выйдет — позвоните нам: <a href="tel:+79999999999" class="footer__link dot-link">+7&nbsp;999&nbsp;999-99-99</a></p>
+          <button type="button" class="btn btn--primary" data-role="close">Понятно</button>
+        </div>
+      </div>
+    </dialog>
     <!-- Мобильный Bottom Navigation Bar -->
     <nav class="bottom-nav" aria-label="Быстрая навигация">
       <a href="index.html" class="bottom-nav__item">
@@ -982,6 +1007,7 @@
       </div>
     </footer>
     <script src="nice-select2/nice-select2.js"></script>
+    <script src="maska/maska.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

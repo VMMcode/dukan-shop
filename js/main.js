@@ -330,6 +330,8 @@
 
   // nice-select2: ARIA (combobox + listbox)
   // После niceSelect.update() вызвать повторно: библиотека пересоздаёт разметку
+  const niceSelects = new WeakMap(); // select → экземпляр NiceSelect
+  const boundLabels = new WeakSet();
   let selectUid = 0;
   function enhanceSelectA11y(select) {
     const nice = select.nextElementSibling;
@@ -345,6 +347,17 @@
       search.placeholder = 'Найти товар'; // библиотека дописывает «...» к searchtext
       search.setAttribute('aria-label', search.placeholder);
     }
+    // Исходный select скрыт от скринридеров и из Tab; клик по его label ведёт на .nice-select
+    select.setAttribute('aria-hidden', 'true');
+    select.tabIndex = -1;
+    if (label && !boundLabels.has(label)) {
+      boundLabels.add(label);
+      label.addEventListener('click', (event) => {
+        event.preventDefault();
+        select.nextElementSibling?.focus();
+      });
+    }
+
     nice.setAttribute('role', 'combobox');
     nice.setAttribute('aria-haspopup', 'listbox');
     nice.setAttribute('aria-controls', listId);
@@ -389,7 +402,7 @@
 
   // nice-select2: все селекты с классом .select
   // Исходный <select> не скрыт через display:none (см. .hidden-select в base.css),
-  // поэтому при валидации фокус перекидываем на видимый .nice-select
+  // поэтому фокус на нём перекидываем на видимый .nice-select
   function initSelects() {
     if (typeof NiceSelect === 'undefined') return;
 
@@ -397,15 +410,341 @@
       const searchable = select.classList.contains('select--search');
       const options = { searchable };
       if (searchable && select.dataset.placeholder) options.placeholder = select.dataset.placeholder;
-      NiceSelect.bind(select, options);
+      niceSelects.set(select, NiceSelect.bind(select, options));
 
       const niceSelect = select.nextElementSibling;
       if (!niceSelect || !niceSelect.classList.contains('nice-select')) return;
 
-      select.tabIndex = -1; // иначе Shift+Tab упирается в скрытый select
       select.addEventListener('focus', () => niceSelect.focus());
       enhanceSelectA11y(select);
     });
+  }
+
+  // Телефон: маска Maska, значение без маски берём у неё же
+  const PHONE_MASK = '+7 (###) ###-##-##';
+  let phoneMask = null;
+
+  // Оставляем цифры; ведущие 8 и 7 (вставка, набор с «8») в номер не входят
+  function normalizePhone(value) {
+    let digits = value.replace(/\D/g, '');
+    if (/^\s*8/.test(value) || (digits.length > 10 && digits[0] === '7')) digits = digits.slice(1);
+    return digits === '7' ? '' : digits;
+  }
+
+  function getPhoneDigits(input) {
+    const raw = phoneMask?.items.get(input)?.unmasked(input.value);
+    return raw === undefined ? normalizePhone(input.value) : raw.replace(/\D/g, '');
+  }
+
+  function initPhoneMask() {
+    if (typeof Maska === 'undefined') return;
+    const inputs = document.querySelectorAll('form[data-form] input[type="tel"]');
+    if (!inputs.length) return;
+    phoneMask = new Maska.MaskInput(inputs, { mask: PHONE_MASK, preProcess: normalizePhone });
+  }
+
+  // Формы с data-form: валидация, попап отправки, мост к Contact Form 7
+  const FORM_THANKS = {
+    review: {
+      title: 'Спасибо за отзыв!',
+      text: 'Мы проверяем отзывы только на спам и рекламу — ваш появится на сайте совсем скоро.',
+    },
+    team: {
+      title: 'Сообщение отправлено',
+      text: 'Спасибо! Команда Дукан прочитает его лично. Если понадобится уточнить детали, позвоним по указанному номеру.',
+    },
+    contact: {
+      title: 'Спасибо за вопрос!',
+      text: 'Ответим в рабочие часы — ежедневно с 9:00 до 20:00.',
+    },
+    farmer: {
+      title: 'Заявка отправлена',
+      text: 'Спасибо! Мы свяжемся с вами, чтобы обсудить сотрудничество.',
+    },
+  };
+
+  // Ключ — name поля; для your-message текст зависит от формы
+  const FIELD_ERRORS = {
+    'your-name': 'Укажите имя',
+    'your-surname': 'Укажите фамилию',
+    'your-phone': 'Укажите телефон',
+    'your-message': {
+      review: 'Напишите пару слов о товаре',
+      team: 'Напишите сообщение',
+      contact: 'Напишите ваш вопрос',
+    },
+    'review-product': 'Выберите товар',
+    'review-rating': 'Поставьте оценку',
+    region: 'Выберите регион',
+    'acceptance-pd': 'Нужно согласие на обработку данных',
+  };
+  const ERROR_DEFAULT = 'Заполните это поле';
+  const ERROR_PHONE_INCOMPLETE = 'Номер должен быть из 10 цифр после +7';
+  const DEMO_DELAY = 1200; // статика: имитация отправки, в WP отправляет CF7
+
+  // Блок поля и его модификатор ошибки (первый подходящий предок)
+  const FIELD_BLOCKS = [
+    ['.star-input', 'star-input--error'],
+    ['.agreement', 'agreement--error'],
+    ['.form-field', 'form-field--error'],
+  ];
+
+  const getNice = (select) => {
+    const next = select.nextElementSibling;
+    return next?.classList.contains('nice-select') ? next : null;
+  };
+
+  const getFieldBlock = (control) => {
+    for (const [selector, modifier] of FIELD_BLOCKS) {
+      const block = control.closest(selector);
+      if (block) return { block, modifier };
+    }
+    return { block: control.parentElement, modifier: null };
+  };
+
+  // Обязательные поля в порядке DOM; у группы радио — только первое
+  function getRequiredFields(form) {
+    const seen = new Set();
+    return [...form.querySelectorAll('input, select, textarea')].filter((el) => {
+      if (el.disabled || !(el.required || el.getAttribute('aria-required') === 'true')) return false;
+      if (el.type !== 'radio') return true;
+      if (seen.has(el.name)) return false;
+      seen.add(el.name);
+      return true;
+    });
+  }
+
+  // Текст ошибки или '' если поле в порядке
+  function getFieldError(control, formType) {
+    const { name, type } = control;
+    let empty;
+    if (type === 'radio') empty = !control.form.querySelector(`input[type="radio"][name="${CSS.escape(name)}"]:checked`);
+    else if (type === 'checkbox') empty = !control.checked;
+    else if (control.tagName === 'SELECT') empty = !control.value;
+    else if (type === 'tel') {
+      const digits = getPhoneDigits(control);
+      if (digits.length === 10) return '';
+      if (digits.length) return ERROR_PHONE_INCOMPLETE;
+      empty = true;
+    } else empty = !control.value.trim();
+
+    if (!empty) return '';
+    const text = FIELD_ERRORS[name];
+    return (typeof text === 'object' ? text[formType] : text) || ERROR_DEFAULT;
+  }
+
+  const getAriaTargets = (control) =>
+    control.tagName === 'SELECT' ? [control, getNice(control)].filter(Boolean) : [control];
+
+  function addDescribedBy(el, id) {
+    const ids = (el.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean);
+    if (!ids.includes(id)) ids.push(id);
+    el.setAttribute('aria-describedby', ids.join(' '));
+  }
+
+  function removeDescribedBy(el, id) {
+    const ids = (el.getAttribute('aria-describedby') || '').split(/\s+/).filter((item) => item && item !== id);
+    if (ids.length) el.setAttribute('aria-describedby', ids.join(' '));
+    else el.removeAttribute('aria-describedby');
+  }
+
+  let fieldUid = 0;
+  function showFieldError(control, message) {
+    if (!control.id) control.id = `form-control-${++fieldUid}`;
+    const { block, modifier } = getFieldBlock(control);
+    const id = `${control.id}-error`;
+    let error = document.getElementById(id);
+
+    if (!error) {
+      error = document.createElement('p');
+      error.className = 'field-error';
+      error.id = id;
+      if (control.type === 'radio') block.append(error);
+      else if (control.type === 'checkbox') block.after(error);
+      else (getNice(control) || control).after(error);
+    }
+    error.textContent = message;
+    if (modifier) block.classList.add(modifier);
+    getAriaTargets(control).forEach((el) => {
+      el.setAttribute('aria-invalid', 'true');
+      addDescribedBy(el, id);
+    });
+  }
+
+  function clearFieldError(control) {
+    const { block, modifier } = getFieldBlock(control);
+    const id = `${control.id}-error`;
+    document.getElementById(id)?.remove();
+    if (modifier) block.classList.remove(modifier);
+    getAriaTargets(control).forEach((el) => {
+      el.removeAttribute('aria-invalid');
+      removeDescribedBy(el, id);
+    });
+  }
+
+  // Попап отправки: loading → success | error. Закрыть можно только в success и error
+  function createFormDialog() {
+    const dialog = document.getElementById('formDialog');
+    if (!dialog) return null;
+
+    const states = [...dialog.querySelectorAll('[data-state]')];
+    let phase = null;
+    let form = null;
+
+    const submitButton = () => form?.querySelector('[type="submit"]');
+
+    // Кнопка заблокирована на время отправки; на disabled-кнопку фокус не вернуть
+    function setSending(sending) {
+      const button = submitButton();
+      if (!button) return;
+      button.disabled = sending;
+      if (sending) button.setAttribute('aria-disabled', 'true');
+      else button.removeAttribute('aria-disabled');
+    }
+
+    function render(name) {
+      phase = name;
+      states.forEach((state) => {
+        const active = state.dataset.state === name;
+        state.hidden = !active;
+        if (active) dialog.setAttribute('aria-labelledby', state.querySelector('.form-dialog__title').id);
+      });
+      if (!dialog.open) dialog.showModal();
+    }
+
+    function open(sourceForm) {
+      form = sourceForm;
+      setSending(true);
+      render('loading');
+      dialog.focus();
+    }
+
+    function show(name) {
+      const state = dialog.querySelector(`[data-state="${name}"]`);
+      if (name === 'success') {
+        const thanks = FORM_THANKS[form?.dataset.form] || {};
+        state.querySelector('[data-role="title"]').textContent = thanks.title || '';
+        state.querySelector('[data-role="text"]').textContent = thanks.text || '';
+      }
+      setSending(false);
+      render(name);
+      state.querySelector('[data-role="close"]').focus();
+    }
+
+    function close() {
+      phase = null;
+      if (dialog.open) dialog.close();
+    }
+
+    dialog.addEventListener('cancel', (event) => {
+      if (phase === 'loading') event.preventDefault();
+    });
+    dialog.addEventListener('close', () => {
+      // Chromium закрывает dialog вторым Esc даже при preventDefault на cancel
+      if (phase === 'loading') {
+        dialog.showModal();
+        dialog.focus();
+        return;
+      }
+      phase = null;
+      setSending(false);
+      submitButton()?.focus();
+    });
+    dialog.addEventListener('click', (event) => {
+      if (phase === 'loading' || event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      const inside = event.clientX >= rect.left && event.clientX <= rect.right
+        && event.clientY >= rect.top && event.clientY <= rect.bottom;
+      if (!inside) close();
+    });
+    dialog.querySelectorAll('[data-role="close"]').forEach((button) => button.addEventListener('click', close));
+
+    return { open, show, close };
+  }
+
+  function setupForm(form, formDialog) {
+    const type = form.dataset.form;
+    const wpcf7 = form.closest('.wpcf7');
+    let attempted = false;
+
+    function check(control) {
+      const message = getFieldError(control, type);
+      if (message) showFieldError(control, message);
+      else clearFieldError(control);
+      return !message;
+    }
+
+    // Сброс после успеха: поля, селекты, звёзды, ошибки, флаг попытки
+    function reset() {
+      form.reset();
+      form.querySelectorAll('select.select').forEach((select) => {
+        niceSelects.get(select)?.update();
+        enhanceSelectA11y(select);
+      });
+      attempted = false;
+      getRequiredFields(form).forEach(clearFieldError);
+    }
+
+    // Capture на самой форме: срабатываем раньше обработчика CF7
+    form.addEventListener('submit', (event) => {
+      attempted = true;
+      const invalid = getRequiredFields(form).filter((control) => !check(control));
+
+      if (invalid.length) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        const first = invalid[0];
+        (first.tagName === 'SELECT' ? getNice(first) : first)?.focus();
+        return;
+      }
+
+      if (wpcf7) {
+        formDialog?.open(form); // отправку делает CF7
+        return;
+      }
+
+      // Статика: имитация отправки; ?form-demo=fail показывает состояние ошибки
+      event.preventDefault();
+      formDialog?.open(form);
+      setTimeout(() => {
+        if (new URLSearchParams(location.search).get('form-demo') === 'fail') {
+          formDialog?.show('error');
+          return;
+        }
+        formDialog?.show('success');
+        reset();
+      }, DEMO_DELAY);
+    }, { capture: true });
+
+    // После первой попытки поле перепроверяется сразу, как его меняют
+    const recheck = (event) => {
+      if (!attempted) return;
+      const target = event.target;
+      const control = getRequiredFields(form).find(
+        (item) => item === target || (item.type === 'radio' && item.name === target.name)
+      );
+      if (control) check(control);
+    };
+    form.addEventListener('input', recheck);
+    form.addEventListener('change', recheck);
+
+    if (wpcf7) {
+      wpcf7.addEventListener('wpcf7mailsent', () => {
+        formDialog?.show('success');
+        reset();
+      });
+      ['wpcf7mailfailed', 'wpcf7spam'].forEach((name) =>
+        wpcf7.addEventListener(name, () => formDialog?.show('error'))
+      );
+      wpcf7.addEventListener('wpcf7invalid', () => formDialog?.close());
+    }
+  }
+
+  function initForms() {
+    const forms = document.querySelectorAll('form[data-form]');
+    if (!forms.length) return;
+    const formDialog = createFormDialog();
+    forms.forEach((form) => setupForm(form, formDialog));
   }
 
   // Табы: панель ищется по aria-controls таба, иначе по href="#id"
@@ -905,6 +1244,8 @@
     initFilters,
     initPriceRange,
     initSelects,
+    initPhoneMask,
+    initForms,
     initFarmersTabs,
     initProductTabs,
     initProductPage,
