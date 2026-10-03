@@ -108,6 +108,10 @@
   gap: var(--space-md);
 }
 
+.farmers-panel--entering {
+  animation: fade-up var(--duration-base) var(--ease-out);
+}
+
 .farmers-panel__top {
   display: grid;
   grid-template-columns: 1fr;

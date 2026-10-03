@@ -765,7 +765,7 @@
 
   // Табы: панель ищется по aria-controls таба, иначе по href="#id"
   function initTabs(root, options) {
-    const { tabSelector, panelSelector, activeClass, syncHash = false, scrollSelector } = options;
+    const { tabSelector, panelSelector, activeClass, enterClass, syncHash = false, scrollSelector } = options;
     if (!root) return;
 
     const tabs = Array.from(root.querySelectorAll(tabSelector));
@@ -801,7 +801,8 @@
       }
     }
 
-    function activate(index, { focus = false } = {}) {
+    function activate(index, { focus = false, animate = false } = {}) {
+      const entering = animate && enterClass && !reduceMotion && panels[index].hidden;
       tabs.forEach((tab, i) => {
         const isActive = i === index;
         tab.classList.toggle(activeClass, isActive);
@@ -809,12 +810,17 @@
         tab.tabIndex = isActive ? 0 : -1;
         panels[i].hidden = !isActive;
       });
+      if (entering) {
+        const panel = panels[index];
+        panel.classList.add(enterClass);
+        panel.addEventListener('animationend', () => panel.classList.remove(enterClass), { once: true });
+      }
       if (focus) tabs[index].focus();
       revealTab(tabs[index]);
     }
 
     function select(index, opts) {
-      activate(index, opts);
+      activate(index, { ...opts, animate: true });
       if (syncHash) history.replaceState(null, '', `#${panels[index].id}`);
     }
 
@@ -873,7 +879,7 @@
       window.addEventListener('hashchange', () => {
         const index = indexFromHash();
         if (index === -1) return;
-        activate(index);
+        activate(index, { animate: true });
         root.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     }
@@ -901,6 +907,7 @@
       tabSelector: '.farmers-tabs__tab',
       panelSelector: '.farmers-panel',
       activeClass: 'farmers-tabs__tab--active',
+      enterClass: 'farmers-panel--entering',
       scrollSelector: '.farmers-tabs__scroll',
       syncHash: true,
     });

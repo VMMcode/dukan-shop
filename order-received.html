@@ -358,7 +358,7 @@
       <!-- Экран "Заказ принят" -->
       <section class="order-success" id="orderSuccess">
         <div class="container">
-          <div class="order-success__inner">
+          <div class="panel order-success__inner">
             <span class="order-success__icon">
               <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
@@ -384,7 +384,7 @@
             </p>
 
             <!-- Предложение создать аккаунт после оформления заказа -->
-            <form class="panel checkout-account" id="checkoutAccount" method="post" data-form="signup" data-resend-seconds="59" novalidate>
+            <form class="checkout-account checkout-account--accent" id="checkoutAccount" method="post" data-form="signup" data-resend-seconds="59" novalidate>
               <!-- Шаг 1: ввод/подтверждение номера телефона -->
               <div
                 class="checkout-account__step checkout-account__step--phone"
@@ -433,7 +433,7 @@
                 <div class="checkout-account__actions checkout-account__panel">
                   <button
                     type="submit"
-                    class="btn btn--primary checkout-account__submit"
+                    class="btn btn--inverse checkout-account__submit"
                     id="signupRequestCodeBtn"
                   >
                     Получить код
@@ -477,7 +477,7 @@
                 </div>
                 <button
                   type="submit"
-                  class="btn btn--primary checkout-account__submit checkout-account__panel"
+                  class="btn btn--inverse checkout-account__submit checkout-account__panel"
                   id="signupConfirmBtn"
                 >
                   Подтвердить
@@ -520,7 +520,7 @@
                 </p>
                 <a
                   href="account.html"
-                  class="btn btn--primary checkout-account__account-link checkout-account__panel"
+                  class="btn btn--inverse checkout-account__account-link checkout-account__panel"
                   id="signupAccountLink"
                   >Перейти в&nbsp;аккаунт</a
                 >

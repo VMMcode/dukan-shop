@@ -216,6 +216,7 @@
 .order-success__inner {
   max-width: 35rem;
   margin: 0 auto;
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,6 +251,48 @@
   width: 100%;
   padding: var(--space-md);
   margin: var(--space-xs) 0;
+}
+
+/* Акцентная плашка: белые поля и кнопки на тёмном фоне */
+.checkout-account--accent {
+  --underline-link-color: var(--color-text-inverse);
+  --dot-link-color: var(--color-accent-muted);
+  --dot-link-hover: var(--color-text-inverse);
+  --dot-link-dot: var(--color-text-inverse);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-inverse);
+}
+.checkout-account--accent .checkout-account__title {
+  color: var(--color-text-inverse);
+}
+.checkout-account--accent .checkout-account__text,
+.checkout-account--accent .agreement {
+  color: var(--color-accent-muted);
+}
+.checkout-account--accent .field-error {
+  color: var(--color-text-inverse);
+}
+.checkout-account--accent .btn--outline {
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent-muted);
+}
+.checkout-account--accent .btn--outline:hover {
+  background-color: var(--color-on-accent-subtle);
+}
+.checkout-account--accent .checkbox:checked {
+  border-color: var(--color-surface);
+  background-color: var(--color-surface);
+}
+.checkout-account--accent .checkbox::after {
+  border-color: var(--color-accent);
+}
+.checkout-account--accent :focus-visible,
+.checkout-account--accent .checkout-account__otp-cell--active {
+  outline-color: var(--color-text-inverse);
+}
+.checkout-account--accent .checkout-account__resend:disabled {
+  opacity: 0.6;
 }
 
 .checkout-account__step {

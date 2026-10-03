@@ -1725,6 +1725,13 @@ html:has(.form-dialog[open]) {
   animation: spinner-rotate calc(var(--duration-slow) * 2) linear infinite;
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-sm));
+  }
+}
+
 @keyframes spinner-rotate {
   to {
     transform: rotate(360deg);

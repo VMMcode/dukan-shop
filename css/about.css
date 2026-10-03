@@ -256,6 +256,18 @@
   }
 }
 
+@media (min-width: 768px) {
+  .about-path__item {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-path__item:not(:last-child)::after {
+    left: calc(50% + var(--path-number-size) / 2);
+    width: calc(100% + var(--space-md) - var(--path-number-size));
+  }
+}
+
 @media (max-width: 767px) {
   .about-hero__facts {
     grid-template-columns: 1fr;

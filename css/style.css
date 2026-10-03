@@ -317,6 +317,26 @@
   }
 }
 
+@media (max-width: 639px) {
+  .hero__utp-inner {
+    gap: var(--space-xs);
+  }
+  .hero__utp-item {
+    gap: 0.25rem;
+    padding: 0.375rem;
+  }
+  .hero__utp-item:first-child {
+    padding-left: 0.375rem;
+  }
+  .hero__utp-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  .hero__utp-title {
+    font-size: clamp(0.6rem, 4.4vw - 4.6px, 0.75rem);
+  }
+}
+
 /* --- Категории продуктов --- */
 .category {
   padding: var(--space-sm) 0;
@@ -575,9 +595,6 @@
 @media (max-width: 639px) {
   .cart-bar {
     row-gap: var(--space-sm);
-  }
-  .cart-bar__count-label {
-    display: none;
   }
   .cart-bar__btn-label {
     position: absolute;
