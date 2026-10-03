@@ -211,17 +211,19 @@
 /* --- Экран "Заказ принят" --- */
 .order-success {
   padding: var(--space-2xl) 0;
-  background-color: var(--color-surface);
 }
 
 .order-success__inner {
-  max-width: 35rem;
-  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: var(--space-sm);
+}
+
+.order-success__inner > * {
+  max-width: 35rem;
 }
 
 .order-success__icon {
