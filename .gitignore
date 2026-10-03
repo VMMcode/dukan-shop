@@ -1,5 +1,6 @@
 # Claude Code — локальные файлы ассистента, не для репозитория
-.claude/
+.claude/*
+!.claude/CLAUDE.md
 
 # Мусор ОС / OneDrive
 .DS_Store

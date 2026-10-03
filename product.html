@@ -160,7 +160,7 @@
             <a
               href="checkout.html"
               class="header__cart-btn btn btn--primary"
-              aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
+              aria-label="Корзина, товаров: 3, сумма 2&nbsp;140&nbsp;₽"
             >
               <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
@@ -376,7 +376,7 @@
                   type="button"
                   class="product-gallery__thumb"
                   aria-label="Фото 2 из 4"
-                  data-img="img/products/sir-2.webp"
+                  data-img="img/products/sir.webp"
                 >
                   <img src="img/products/sir.webp" alt="" />
                 </button>
@@ -384,7 +384,7 @@
                   type="button"
                   class="product-gallery__thumb"
                   aria-label="Фото 3 из 4"
-                  data-img="img/products/sir-3.webp"
+                  data-img="img/products/sir.webp"
                 >
                   <img src="img/products/sir.webp" alt="" />
                 </button>
@@ -392,7 +392,7 @@
                   type="button"
                   class="product-gallery__thumb"
                   aria-label="Фото 4 из 4"
-                  data-img="img/products/sir-4.webp"
+                  data-img="img/products/sir.webp"
                 >
                   <img src="img/products/sir.webp" alt="" />
                 </button>
@@ -475,6 +475,7 @@
                   type="button"
                   class="product-info__add-btn btn btn--primary"
                   id="addToCartBtn"
+                  data-checkout-url="checkout.html"
                 >
                   <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
@@ -514,32 +515,42 @@
                   <button
                     type="button"
                     class="product-tabs__btn product-tabs__btn--active"
-                    data-tab="description"
+                    id="tab-description"
                     role="tab"
+                    aria-controls="panel-description"
+                    aria-selected="true"
                   >
                     Описание
                   </button>
                   <button
                     type="button"
                     class="product-tabs__btn"
-                    data-tab="composition"
+                    id="tab-composition"
                     role="tab"
+                    aria-controls="panel-composition"
+                    aria-selected="false"
+                    tabindex="-1"
                   >
                     Состав
                   </button>
                   <button
                     type="button"
                     class="product-tabs__btn"
-                    data-tab="producer"
+                    id="tab-producer"
                     role="tab"
+                    aria-controls="panel-producer"
+                    aria-selected="false"
+                    tabindex="-1"
                   >
                     О&nbsp;производителе
                   </button>
                 </div>
 
                 <div
-                  class="product-tabs__panel product-tabs__panel--active"
-                  data-panel="description"
+                  class="product-tabs__panel"
+                  id="panel-description"
+                  role="tabpanel"
+                  aria-labelledby="tab-description"
                 >
                   <p>
                     Традиционный осетинский сыр с&nbsp;мягкой текстурой и&nbsp;нежным
@@ -547,7 +558,7 @@
                   </p>
                 </div>
 
-                <div class="product-tabs__panel" data-panel="composition">
+                <div class="product-tabs__panel" id="panel-composition" role="tabpanel" aria-labelledby="tab-composition" hidden>
                   <div class="product-tabs__list">
                     <div class="product-tabs__row">
                       <span>Состав</span>
@@ -568,7 +579,7 @@
                   </div>
                 </div>
 
-                <div class="product-tabs__panel" data-panel="producer">
+                <div class="product-tabs__panel" id="panel-producer" role="tabpanel" aria-labelledby="tab-producer" hidden>
                   <div class="producer-card">
                     <img
                       class="producer-card__photo"

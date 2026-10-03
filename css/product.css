@@ -215,12 +215,8 @@
 }
 
 .product-tabs__panel {
-  display: none;
   color: var(--color-text-muted);
   line-height: var(--lh-body);
-}
-.product-tabs__panel--active {
-  display: block;
 }
 
 .product-tabs__list {

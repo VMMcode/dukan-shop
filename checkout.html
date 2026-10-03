@@ -161,7 +161,7 @@
             <a
               href="checkout.html"
               class="header__cart-btn btn btn--primary"
-              aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
+              aria-label="Корзина, товаров: 3, сумма 2&nbsp;140&nbsp;₽"
             >
               <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
@@ -335,7 +335,36 @@
         <div class="container">
           <h1 class="checkout__title">Оформление заказа</h1>
 
-          <form class="layout-aside" id="checkoutForm" novalidate>
+          <!-- Пустая корзина: показывается, когда удалены все товары -->
+          <div class="panel cart-empty" id="cartEmpty" hidden>
+            <span class="icon-box" aria-hidden="true">
+              <svg aria-hidden="true" focusable="false"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </span>
+            <h2 class="text-h4" id="cartEmptyTitle" tabindex="-1">В&nbsp;корзине пока пусто</h2>
+            <p class="lead">
+              Загляните в&nbsp;каталог&nbsp;— фермерские продукты из&nbsp;КБР, Северной Осетии
+              и&nbsp;Дагестана привезём по&nbsp;Москве.
+            </p>
+            <a class="btn btn--primary" href="catalog.html">Перейти в&nbsp;каталог</a>
+          </div>
+
+          <form
+            class="layout-aside"
+            id="checkoutForm"
+            data-min-order="1500"
+            data-free-delivery-from="3000"
+            data-delivery-cost="300"
+            novalidate
+          >
             <div class="checkout__main">
               <!-- Состав заказа -->
               <div class="panel">
@@ -716,7 +745,7 @@
                 </div>
 
                 <p class="checkout-summary__warning" id="minOrderWarning" role="status" hidden>
-                  Минимальная сумма заказа&nbsp;— 1&nbsp;500&nbsp;₽. Добавьте товаров ещё на&nbsp;<span id="minOrderDiff">0</span>&nbsp;₽.
+                  Минимальная сумма заказа&nbsp;— 1&nbsp;500&nbsp;₽. Добавьте товаров ещё на&nbsp;<span id="minOrderDiff">0&nbsp;₽</span>.
                 </p>
 
                 <button
@@ -784,7 +813,7 @@
                 <path d="M8 12.5l2.5 2.5l5.5 -6" />
               </svg>
             </span>
-            <h1 class="order-success__title">Заказ принят</h1>
+            <h1 class="order-success__title" id="orderSuccessTitle" tabindex="-1">Заказ принят</h1>
             <p class="order-success__number">
               Номер заказа: <strong id="orderNumber">№&nbsp;10234</strong>
             </p>
