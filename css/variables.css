@@ -144,8 +144,9 @@
   --duration-base: 300ms;
   --duration-slow: 400ms;
 
-  /* --- Липкие элементы: отступ от шапки --- */
+  /* --- Липкие элементы: отступ от шапки и нижний зазор --- */
   --sticky-top: calc(var(--header-height, 0px) + var(--space-md));
+  --sticky-bottom: var(--space-md);
 
   /* --- Слои --- */
   --z-dropdown: 30;

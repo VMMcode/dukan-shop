@@ -1,9 +1,9 @@
 /* --- Каркас страницы товара --- */
-.product {
+.product-page {
   padding-top: var(--space-md);
 }
 
-.product__layout {
+.product-page__layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-xl);
@@ -272,7 +272,7 @@
 }
 
 /* --- Похожие товары --- */
-.related {
+.product-related {
   margin-top: var(--space-2xl);
   display: flex;
   flex-direction: column;
@@ -287,7 +287,7 @@
 }
 
 @media (max-width: 1023px) {
-  .product__layout {
+  .product-page__layout {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-md);
   }

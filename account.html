@@ -336,8 +336,8 @@
           <div class="account__layout">
             <!-- Приветствие -->
             <div class="panel account-welcome">
-              <h1 class="text-h4 account-welcome__title">Здравствуйте, Иван!</h1>
-              <span class="account-welcome__phone">+7&nbsp;999&nbsp;999-99-99</span>
+              <h1 class="text-h4 account-welcome__title">Здравствуйте, Анна!</h1>
+              <span class="account-welcome__phone">+7&nbsp;(999)&nbsp;123-45-67</span>
             </div>
 
             <!-- Активный заказ -->
@@ -440,29 +440,46 @@
             <div class="panel account-data">
               <h2 class="panel__title">Мои данные</h2>
 
-              <form class="account-form" id="accountForm" novalidate>
+              <p class="note-box note-box--success" id="accountSaved" role="status" tabindex="-1" hidden>
+                <span class="note-box__icon">
+                  <svg aria-hidden="true" focusable="false"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M8 12.5l2.5 2.5l5.5 -6" />
+                  </svg>
+                </span>
+                <span class="note-box__text">Данные сохранены</span>
+              </p>
+
+              <form class="account-form" id="accountForm" method="post" data-form="account" novalidate>
                 <div class="panel__row">
                   <div class="form-field">
                     <label class="form-field__label" for="accountName"
-                      >Имя и&nbsp;фамилия</label
+                      >Имя</label
                     >
                     <input
                       class="form-field__input"
                       type="text"
                       id="accountName"
-                      value="Иван Иванов"
+                      name="billing_first_name"
+                      autocomplete="given-name"
+                      value="Анна"
+                      required
                     />
                   </div>
                   <div class="form-field">
-                    <label class="form-field__label" for="accountPhone"
-                      >Телефон</label
-                    >
-                    <input
-                      class="form-field__input"
-                      type="tel"
-                      id="accountPhone"
-                      value="+7 999 999-99-99"
-                    />
+                    <span class="form-field__label">Телефон</span>
+                    <span class="form-field__value">+7&nbsp;(999)&nbsp;123-45-67</span>
+                    <p class="form-field__hint">
+                      Это номер для входа. Чтобы сменить его,
+                      <a href="contacts.html" class="underline-link">напишите нам</a>
+                    </p>
                   </div>
                 </div>
 
@@ -475,8 +492,11 @@
                       class="form-field__input"
                       type="text"
                       id="accountAddress"
+                      name="billing_address_1"
+                      autocomplete="address-line1"
                       value="ул. Ленина, д. 5, кв. 12"
                       placeholder="Например: ул. Ленина, д. 5, кв. 12"
+                      required
                     />
                   </div>
                   <div class="form-field">
@@ -486,6 +506,8 @@
                     <select
                       class="form-field__select select"
                       id="accountDistrict"
+                      name="billing_district"
+                      required
                     >
                       <option value="" disabled>Выберите район</option>
                       <option>Центральный АО</option>
@@ -501,23 +523,8 @@
                   </div>
                 </div>
 
-                <label class="agreement">
-                  <input
-                    type="checkbox"
-                    class="checkbox agreement__checkbox"
-                    id="accountConsent"
-                    name="consent"
-                    required
-                  />
-                  <span class="agreement__text">
-                    Даю согласие на&nbsp;<a href="consent.html" class="agreement__link underline-link"
-                      >обработку персональных данных</a
-                    >
-                  </span>
-                </label>
-
                 <button
-                  type="button"
+                  type="submit"
                   class="btn btn--primary btn--lg account-form__submit"
                 >
                   Сохранить
@@ -538,7 +545,7 @@
                         >15 сентября 2026</span
                       >
                     </div>
-                    <span class="order-status order-status--delivered"
+                    <span class="order-history__status order-history__status--delivered"
                       >Доставлен</span
                     >
                   </div>
@@ -562,7 +569,7 @@
                       <span class="order-history__number">Заказ №&nbsp;10195</span>
                       <span class="order-history__date">2 сентября 2026</span>
                     </div>
-                    <span class="order-status order-status--delivered"
+                    <span class="order-history__status order-history__status--delivered"
                       >Доставлен</span
                     >
                   </div>
@@ -586,7 +593,7 @@
                       <span class="order-history__number">Заказ №&nbsp;10152</span>
                       <span class="order-history__date">20 августа 2026</span>
                     </div>
-                    <span class="order-status order-status--cancelled"
+                    <span class="order-history__status order-history__status--cancelled"
                       >Отменён</span
                     >
                   </div>
@@ -610,7 +617,7 @@
                       <span class="order-history__number">Заказ №&nbsp;10101</span>
                       <span class="order-history__date">5 августа 2026</span>
                     </div>
-                    <span class="order-status order-status--delivered"
+                    <span class="order-history__status order-history__status--delivered"
                       >Доставлен</span
                     >
                   </div>

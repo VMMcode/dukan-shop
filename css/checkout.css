@@ -1,19 +1,19 @@
 /* --- Каркас страницы оформления заказа --- */
-.checkout {
+.checkout-page {
   padding-top: var(--space-md);
 }
 
-.checkout__title {
+.checkout-page__title {
   margin-bottom: var(--space-lg);
 }
 
 /* --- Пустая корзина --- */
-.cart-empty {
+.checkout-empty {
   align-items: center;
   text-align: center;
 }
 
-.checkout__main {
+.checkout-page__main {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
@@ -142,7 +142,7 @@
 }
 
 /* --- Итоговый блок (сайдбар) --- */
-.checkout__aside {
+.checkout-page__aside {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
@@ -181,6 +181,23 @@
   background-color: color-mix(in srgb, var(--color-error) 8%, transparent);
   border-radius: var(--radius-md);
   padding: var(--space-sm);
+}
+
+.checkout-summary__warning--flash {
+  animation: warning-flash var(--duration-slow) var(--ease-out) 3;
+}
+
+@keyframes warning-flash {
+  50% {
+    background-color: color-mix(in srgb, var(--color-error) 24%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checkout-summary__warning--flash {
+    animation: none;
+    outline: 2px solid var(--color-error);
+  }
 }
 
 .checkout-summary__submit {
@@ -292,26 +309,64 @@
   font-size: var(--fs-body-sm);
 }
 
+/* Код из SMS: одно поле поверх четырёх декоративных клеток */
 .checkout-account__otp {
+  position: relative;
   display: flex;
   justify-content: center;
   gap: var(--space-xs);
 }
 
-.checkout-account__otp-input {
+.checkout-account__otp-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2.75rem;
   height: 3rem;
+  border: 1px solid var(--input-border);
   border-radius: var(--radius-md);
-  text-align: center;
+  background: var(--input-bg);
   font-size: var(--fs-h5);
   color: var(--color-text);
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.checkout-account__otp-cell--active {
+  border-color: var(--input-border-focus);
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.checkout-account__otp--error .checkout-account__otp-cell {
+  border-color: var(--input-border-error);
+}
+
+.otp-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  outline: none;
+}
+.otp-input::selection {
+  background: transparent;
+  color: transparent;
+}
+
+.checkout-account__resend:disabled {
+  --dot-link-color: var(--color-text-disabled);
+  cursor: default;
 }
 
 @media (max-width: 639px) {
   .checkout-account__actions {
     flex-direction: column;
   }
-  .checkout-account__otp-input {
+  .checkout-account__otp-cell {
     width: 2.25rem;
     height: 2.5rem;
   }

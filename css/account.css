@@ -242,7 +242,7 @@
 }
 
 /* --- Статус заказа: цвет через color-mix от токенов статусов, без хардкода hex --- */
-.order-status {
+.order-history__status {
   flex-shrink: 0;
   font-size: var(--fs-body-sm);
   font-weight: 500;
@@ -250,17 +250,17 @@
   border-radius: var(--radius-full);
 }
 
-.order-status--delivered {
+.order-history__status--delivered {
   color: var(--color-success);
   background-color: color-mix(in srgb, var(--color-success) 14%, transparent);
 }
 
-.order-status--in-transit {
+.order-history__status--in-transit {
   color: var(--color-warning);
   background-color: color-mix(in srgb, var(--color-warning) 14%, transparent);
 }
 
-.order-status--cancelled {
+.order-history__status--cancelled {
   color: var(--color-error);
   background-color: color-mix(in srgb, var(--color-error) 14%, transparent);
 }

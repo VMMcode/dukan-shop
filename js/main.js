@@ -477,13 +477,22 @@
     'review-rating': 'Поставьте оценку',
     region: 'Выберите регион',
     'acceptance-pd': 'Нужно согласие на обработку данных',
+    billing_first_name: 'Укажите имя',
+    billing_phone: 'Укажите телефон',
+    billing_district: 'Выберите район',
+    billing_address_1: 'Укажите адрес доставки',
+    dukan_pd_consent: 'Нужно согласие на обработку данных',
   };
   const ERROR_DEFAULT = 'Заполните это поле';
   const ERROR_PHONE_INCOMPLETE = 'Номер должен быть из 10 цифр после +7';
+  const FLASH_MS = 1300; // подсветка предупреждения о минимальной сумме
   const DEMO_DELAY = 1200; // статика: имитация отправки, в WP отправляет CF7
+  // Формы, которые валидирует initForms, а отправку ведёт свой модуль (без попапа)
+  const LOCAL_FORMS = new Set(['checkout', 'account', 'signup']);
 
   // Блок поля и его модификатор ошибки (первый подходящий предок)
   const FIELD_BLOCKS = [
+    ['.checkout-account__otp', 'checkout-account__otp--error'],
     ['.star-input', 'star-input--error'],
     ['.agreement', 'agreement--error'],
     ['.form-field', 'form-field--error'],
@@ -560,7 +569,7 @@
       error.className = 'field-error';
       error.id = id;
       if (control.type === 'radio') block.append(error);
-      else if (control.type === 'checkbox') block.after(error);
+      else if (control.type === 'checkbox' || block.matches('.checkout-account__otp')) block.after(error);
       else (getNice(control) || control).after(error);
     }
     error.textContent = message;
@@ -697,6 +706,8 @@
         (first.tagName === 'SELECT' ? getNice(first) : first)?.focus();
         return;
       }
+
+      if (LOCAL_FORMS.has(type)) return;
 
       if (wpcf7) {
         formDialog?.open(form); // отправку делает CF7
@@ -984,8 +995,6 @@
     const freeDeliveryFrom = Number(checkoutForm.dataset.freeDeliveryFrom) || 0;
     const deliveryCostValue = Number(checkoutForm.dataset.deliveryCost) || 0;
 
-    const agreementCheckbox = document.getElementById('agreementCheckbox');
-    const submitBtn = document.getElementById('submitOrderBtn');
     const warning = document.getElementById('minOrderWarning');
     const warningDiff = document.getElementById('minOrderDiff');
     const summarySubtotal = document.getElementById('summarySubtotal');
@@ -1024,14 +1033,6 @@
       const belowMin = subtotal < minOrderSum;
       if (warning) warning.hidden = !belowMin;
       if (warningDiff) warningDiff.textContent = formatPrice(Math.max(0, minOrderSum - subtotal));
-
-      updateSubmitState(belowMin);
-    }
-
-    function updateSubmitState(belowMinArg) {
-      const belowMin = typeof belowMinArg === 'boolean' ? belowMinArg : subtotal < minOrderSum;
-      const agreed = agreementCheckbox ? agreementCheckbox.checked : true;
-      if (submitBtn) submitBtn.disabled = belowMin || !agreed || itemsList.children.length === 0;
     }
 
     function showEmptyCart() {
@@ -1062,100 +1063,176 @@
       }
     });
 
-    if (agreementCheckbox) {
-      agreementCheckbox.addEventListener('change', () => updateSubmitState());
-    }
-
+    // Поля проверил initForms (его обработчик стоит раньше), здесь — сумма и отправка.
+    // В WP (body.woocommerce-checkout) после проверок отправку и редирект делает Woo
     checkoutForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      if (!checkoutForm.checkValidity()) {
-        checkoutForm.reportValidity();
+      if (subtotal < minOrderSum && warning) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        warning.focus();
+        warning.classList.remove('checkout-summary__warning--flash');
+        void warning.offsetWidth; // перезапуск анимации при повторном нажатии
+        warning.classList.add('checkout-summary__warning--flash');
+        setTimeout(() => warning.classList.remove('checkout-summary__warning--flash'), FLASH_MS);
         return;
       }
-      if (submitBtn.disabled) return;
+      if (document.body.classList.contains('woocommerce-checkout')) return;
 
-      const orderNumber = document.getElementById('orderNumber');
-      const orderSum = document.getElementById('orderSum');
-      if (orderNumber) orderNumber.textContent = `№ ${Math.floor(10000 + Math.random() * 89999)}`;
-      if (orderSum) orderSum.textContent = summaryTotal.textContent;
+      event.preventDefault();
+      location.href = checkoutForm.dataset.successUrl;
+    }, { capture: true });
 
-      document.getElementById('checkoutSection').hidden = true;
-      document.getElementById('orderSuccess').hidden = false;
-      document.getElementById('orderSuccessTitle')?.focus({ preventScroll: true });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    recalc();
+  }
 
-      // Предзаполняем телефон в блоке "создать аккаунт" тем же номером,
-      // что клиент указал в контактах заказа.
-      const phoneInput = document.getElementById('phoneInput');
-      const accountPhoneInput = document.getElementById('signupPhoneInput');
-      if (phoneInput && accountPhoneInput) {
-        accountPhoneInput.value = phoneInput.value;
-      }
-    });
+  // Заказ принят: предложение создать аккаунт — телефон → код из SMS → готово.
+  // Демо: SMS не отправляется, неверным считается код 0000; в WP — OTP-плагин
+  function initSignup() {
+    const form = document.getElementById('checkoutAccount');
+    if (!form) return;
 
-    // Предложение создать аккаунт на экране "Заказ принят".
-    // Переключение шагов пока чисто визуальное — без реальной отправки SMS,
-    // логика подключится позже через плагин WSMS.
-    const checkoutAccount = document.getElementById('checkoutAccount');
-    if (checkoutAccount) {
-      const phoneStep = document.getElementById('signupPhoneStep');
-      const otpStep = document.getElementById('signupOtpStep');
-      const doneStep = document.getElementById('signupDoneStep');
-      const accountPhoneInput = document.getElementById('signupPhoneInput');
-      const requestCodeBtn = document.getElementById('signupRequestCodeBtn');
-      const skipBtn = document.getElementById('signupSkipBtn');
-      const confirmBtn = document.getElementById('signupConfirmBtn');
-      const phoneDisplay = document.getElementById('signupPhoneDisplay');
-      const otpInputs = Array.from(
-        document.querySelectorAll('.checkout-account__otp-input')
-      );
+    const phoneStep = document.getElementById('signupPhoneStep');
+    const otpStep = document.getElementById('signupOtpStep');
+    const doneStep = document.getElementById('signupDoneStep');
+    const phoneInput = document.getElementById('signupPhoneInput');
+    const phoneDisplay = document.getElementById('signupPhoneDisplay');
+    const skipBtn = document.getElementById('signupSkipBtn');
+    const resendBtn = document.getElementById('signupResendBtn');
+    const live = document.getElementById('signupLive');
+    const otpInput = document.getElementById('otpInput');
+    const cells = [...form.querySelectorAll('.checkout-account__otp-cell')];
+    const resendSeconds = Number(form.dataset.resendSeconds) || 0;
+    const codeLength = otpInput.maxLength;
 
-      // Код можно запросить только после согласия на обработку ПД
-      const accountConsent = document.getElementById('signupConsent');
-      if (accountConsent && requestCodeBtn) {
-        accountConsent.addEventListener('change', () => {
-          requestCodeBtn.disabled = !accountConsent.checked;
-        });
-      }
+    let timerId = null;
 
-      if (requestCodeBtn) {
-        requestCodeBtn.addEventListener('click', () => {
-          if (phoneDisplay) phoneDisplay.textContent = accountPhoneInput.value;
-          phoneStep.hidden = true;
-          otpStep.hidden = false;
-          if (otpInputs[0]) otpInputs[0].focus();
-        });
-      }
+    // Ровно два объявления скринридеру: «Код отправлен» и «Можно запросить код повторно»
+    function announce(message) {
+      live.textContent = '';
+      setTimeout(() => { live.textContent = message; }, 50);
+    }
 
-      if (skipBtn) {
-        skipBtn.addEventListener('click', () => {
-          checkoutAccount.hidden = true;
-        });
-      }
-
-      if (confirmBtn) {
-        confirmBtn.addEventListener('click', () => {
-          otpStep.hidden = true;
-          doneStep.hidden = false;
-        });
-      }
-
-      otpInputs.forEach((input, index) => {
-        input.addEventListener('input', () => {
-          input.value = input.value.replace(/\D/g, '').slice(0, 1);
-          if (input.value && otpInputs[index + 1]) {
-            otpInputs[index + 1].focus();
-          }
-        });
-        input.addEventListener('keydown', (event) => {
-          if (event.key === 'Backspace' && !input.value && otpInputs[index - 1]) {
-            otpInputs[index - 1].focus();
-          }
-        });
+    function renderCells() {
+      const active = document.activeElement === otpInput ? Math.min(otpInput.value.length, codeLength - 1) : -1;
+      cells.forEach((cell, i) => {
+        cell.textContent = otpInput.value[i] || '';
+        cell.classList.toggle('checkout-account__otp-cell--active', i === active);
       });
     }
 
-    recalc();
+    function showOtpError(message) {
+      showFieldError(otpInput, message);
+      otpInput.focus();
+      otpInput.select();
+    }
+
+    function startTimer() {
+      clearInterval(timerId);
+      let left = resendSeconds;
+      const format = (sec) => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+      resendBtn.disabled = true;
+      resendBtn.textContent = `Отправить код повторно через ${format(left)}`;
+      timerId = setInterval(() => {
+        left -= 1;
+        if (left > 0) {
+          resendBtn.textContent = `Отправить код повторно через ${format(left)}`;
+          return;
+        }
+        clearInterval(timerId);
+        resendBtn.disabled = false;
+        resendBtn.textContent = 'Отправить код повторно';
+        announce('Можно запросить код повторно');
+      }, 1000);
+    }
+
+    function sendCode() {
+      otpInput.value = '';
+      clearFieldError(otpInput);
+      renderCells();
+      startTimer();
+      announce('Код отправлен');
+      otpInput.focus();
+    }
+
+    function verifyCode() {
+      const code = otpInput.value;
+      if (code.length < codeLength) return showOtpError(`Введите ${codeLength} цифры из SMS`);
+      if (code === '0000') return showOtpError('Неверный код. Проверьте SMS или запросите новый');
+      clearInterval(timerId);
+      otpStep.hidden = true;
+      doneStep.hidden = false;
+    }
+
+    // Поля шага 1 проверил initForms; сюда доходит только валидная форма
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!phoneStep.hidden) {
+        phoneDisplay.textContent = phoneInput.value;
+        phoneStep.hidden = true;
+        otpStep.hidden = false;
+        sendCode();
+      } else if (!otpStep.hidden) {
+        verifyCode();
+      }
+    }, { capture: true });
+
+    resendBtn.addEventListener('click', sendCode);
+    skipBtn.addEventListener('click', () => {
+      clearInterval(timerId);
+      form.hidden = true;
+    });
+
+    otpInput.addEventListener('input', () => {
+      otpInput.value = otpInput.value.replace(/\D/g, '').slice(0, codeLength);
+      clearFieldError(otpInput);
+      renderCells();
+      if (otpInput.value.length === codeLength) verifyCode(); // и после автоподстановки из SMS
+    });
+    otpInput.addEventListener('focus', renderCells);
+    otpInput.addEventListener('blur', renderCells);
+  }
+
+  // ЛК: «Мои данные» — после сохранения над формой появляется «Данные сохранены»
+  function initAccount() {
+    const form = document.getElementById('accountForm');
+    const saved = document.getElementById('accountSaved');
+    if (!form || !saved) return;
+
+    const hideSaved = () => { saved.hidden = true; };
+
+    // Поля проверил initForms; сюда доходит только валидная форма
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      saved.hidden = false;
+      saved.focus();
+    }, { capture: true });
+    form.addEventListener('input', hideSaved);
+    form.addEventListener('change', hideSaved);
+  }
+
+  // Липкий блок включается, только если помещается в окно: [data-sticky-if-fits]
+  function initStickyIfFits() {
+    const items = document.querySelectorAll('[data-sticky-if-fits]');
+    if (!items.length) return;
+
+    // Отступы — из токенов: пробный элемент даёт их в пикселях
+    const probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none';
+    document.body.append(probe);
+    const px = (token) => {
+      probe.style.height = `var(${token})`;
+      return probe.offsetHeight;
+    };
+
+    function update() {
+      const free = window.innerHeight - px('--sticky-top') - px('--sticky-bottom');
+      items.forEach((item) => item.classList.toggle('layout-aside__sticky--on', item.offsetHeight <= free));
+    }
+
+    const observer = new ResizeObserver(update);
+    items.forEach((item) => observer.observe(item));
+    window.addEventListener('resize', update);
+    update();
   }
 
   // Кнопка "плюс" на карточке товара: клик добавляет/убирает товар из
@@ -1250,6 +1327,9 @@
     initProductTabs,
     initProductPage,
     initCheckout,
+    initSignup,
+    initAccount,
+    initStickyIfFits,
     initCartButtons,
     initSmoothDetails,
   ];

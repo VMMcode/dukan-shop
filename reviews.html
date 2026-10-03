@@ -567,7 +567,7 @@
               </ul>
 
             <!-- Форма отзыва — в боковой колонке, стики только в пределах сетки отзывов (не включая нумерацию) -->
-            <aside class="reviews__aside layout-aside__sticky">
+            <aside class="reviews__aside layout-aside__sticky" data-sticky-if-fits>
               <form class="panel review-form" id="reviewForm" data-form="review" method="post" novalidate>
               <div>
                 <h2 class="panel__title">Оставить отзыв о&nbsp;товаре</h2>
@@ -879,7 +879,7 @@
         <!-- Состояние «не отправилось» -->
         <div class="form-dialog__state" data-state="error" hidden>
           <p class="form-dialog__title text-h4" id="formDialogErrorTitle" data-role="title">Не получилось отправить</p>
-          <p class="lead">Проверьте интернет и попробуйте ещё раз. Если не выйдет — позвоните нам: <a href="tel:+79999999999" class="footer__link dot-link">+7&nbsp;999&nbsp;999-99-99</a></p>
+          <p class="lead">Проверьте интернет и попробуйте ещё раз. Если не выйдет — позвоните нам: <a href="tel:+79999999999" class="underline-link">+7&nbsp;999&nbsp;999-99-99</a></p>
           <button type="button" class="btn btn--primary" data-role="close">Понятно</button>
         </div>
       </div>

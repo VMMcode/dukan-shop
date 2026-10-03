@@ -547,17 +547,19 @@ h6 {
   align-items: start;
 }
 
-/* Липкая боковая колонка */
+/* Боковая колонка липнет, только если помещается в окно: модификатор ставит main.js (data-sticky-if-fits) */
 .layout-aside__sticky {
-  position: sticky;
   top: var(--sticky-top);
+}
+.layout-aside__sticky--on {
+  position: sticky;
 }
 
 @media (max-width: 1023px) {
   .layout-aside {
     grid-template-columns: minmax(0, 1fr);
   }
-  .layout-aside__sticky {
+  .layout-aside__sticky--on {
     position: static;
   }
 }
@@ -1109,6 +1111,44 @@ h6 {
   color: var(--color-accent);
 }
 
+/* --- Уведомления (наши классы + WooCommerce) --- */
+.note-box--success,
+.woocommerce-message {
+  background-color: color-mix(in srgb, var(--color-success) 8%, transparent);
+  color: var(--color-success);
+}
+.note-box--success .note-box__icon {
+  color: var(--color-success);
+}
+
+.note-box--error,
+.woocommerce-error {
+  background-color: color-mix(in srgb, var(--color-error) 8%, transparent);
+  color: var(--color-error);
+}
+.note-box--error .note-box__icon {
+  color: var(--color-error);
+}
+
+.note-box--info,
+.woocommerce-info {
+  background-color: var(--color-accent-muted);
+  color: var(--color-text);
+}
+
+/* Woo выводит ошибки списком <ul class="woocommerce-error"> — без маркеров */
+.woocommerce-error {
+  list-style: none;
+}
+
+.woocommerce-message,
+.woocommerce-error,
+.woocommerce-info {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-body-sm);
+}
+
 /* --- Компонент: поле формы --- */
 .form-field {
   position: relative;
@@ -1136,6 +1176,20 @@ h6 {
 .form-field__textarea {
   resize: vertical;
   min-height: 6rem;
+}
+
+/* Значение текстом вместо поля (высота как у инпута) и подсказка под ним */
+.form-field__value {
+  padding: var(--space-sm) 0;
+  border: 1px solid transparent;
+  line-height: normal;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+}
+
+.form-field__hint {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
 }
 
 /* --- Компонент: степпер количества --- */
@@ -1308,11 +1362,14 @@ h6 {
 .form-field--error .form-field__input,
 .form-field--error .form-field__textarea,
 .form-field__input.wpcf7-not-valid,
-.form-field__textarea.wpcf7-not-valid {
+.form-field__textarea.wpcf7-not-valid,
+.woocommerce-invalid .form-field__input,
+.woocommerce-invalid .form-field__textarea { /* Woo ставит .woocommerce-invalid на обёртку поля */
   border-color: var(--input-border-error);
 }
 
 .form-field--error .select.nice-select,
+.woocommerce-invalid .select.nice-select,
 .form-field__select.wpcf7-not-valid + .select.nice-select { /* CF7 ставит класс на исходный select, он стоит перед .nice-select */
   border-color: var(--input-border-error);
 }
@@ -1544,7 +1601,7 @@ html:has(.form-dialog[open]) {
 }
 
 .form-dialog::backdrop {
-  background-color: var(--color-overlay);
+  background-color: var(--color-overlay, rgba(27, 48, 33, 0.45));
 }
 
 .form-dialog__body,

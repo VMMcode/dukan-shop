@@ -331,12 +331,12 @@
         </div>
       </div>
 
-      <section class="checkout" id="checkoutSection">
+      <section class="checkout-page" id="checkoutSection">
         <div class="container">
-          <h1 class="checkout__title">Оформление заказа</h1>
+          <h1 class="checkout-page__title">Оформление заказа</h1>
 
           <!-- Пустая корзина: показывается, когда удалены все товары -->
-          <div class="panel cart-empty" id="cartEmpty" hidden>
+          <div class="panel checkout-empty" id="cartEmpty" hidden>
             <span class="icon-box" aria-hidden="true">
               <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
@@ -360,18 +360,23 @@
           <form
             class="layout-aside"
             id="checkoutForm"
+            name="checkout"
+            method="post"
+            data-form="checkout"
+            data-success-url="order-received.html"
             data-min-order="1500"
             data-free-delivery-from="3000"
             data-delivery-cost="300"
             novalidate
           >
-            <div class="checkout__main">
+            <input type="hidden" name="payment_method" value="cod" />
+            <div class="checkout-page__main">
               <!-- Состав заказа -->
               <div class="panel">
                 <h2 class="panel__title">Состав заказа</h2>
 
                 <ul class="order-items" id="orderItemsList">
-                  <li class="order-items__item" data-price="450" data-qty="2">
+                  <li class="order-items__item" data-cart-item-key="demo-1" data-price="450" data-qty="2">
                     <article class="product-card product-card--order">
                       <div class="product-card__media">
                         <img
@@ -441,7 +446,7 @@
                     </article>
                   </li>
 
-                  <li class="order-items__item" data-price="590" data-qty="1">
+                  <li class="order-items__item" data-cart-item-key="demo-2" data-price="590" data-qty="1">
                     <article class="product-card product-card--order">
                       <div class="product-card__media">
                         <img
@@ -513,7 +518,7 @@
                     </article>
                   </li>
 
-                  <li class="order-items__item" data-price="650" data-qty="1">
+                  <li class="order-items__item" data-cart-item-key="demo-3" data-price="650" data-qty="1">
                     <article class="product-card product-card--order">
                       <div class="product-card__media">
                         <img
@@ -614,6 +619,7 @@
                     <select
                       class="form-field__select select"
                       id="districtSelect"
+                      name="billing_district"
                       required
                     >
                       <option value="" selected disabled>
@@ -639,6 +645,8 @@
                       class="form-field__input"
                       type="text"
                       id="addressInput"
+                      name="billing_address_1"
+                      autocomplete="address-line1"
                       placeholder="Например: ул. Ленина, д. 5, кв. 12"
                       required
                     />
@@ -652,6 +660,8 @@
                       class="form-field__input"
                       type="text"
                       id="entranceInput"
+                      name="billing_address_2"
+                      autocomplete="address-line2"
                       placeholder="Подъезд 2, домофон 12В, 4 этаж"
                     />
                   </div>
@@ -671,13 +681,15 @@
                 <div class="panel__row">
                   <div class="form-field">
                     <label class="form-field__label" for="nameInput"
-                      >Имя и&nbsp;фамилия</label
+                      >Имя</label
                     >
                     <input
                       class="form-field__input"
                       type="text"
                       id="nameInput"
-                      placeholder="Например: Иван Иванов"
+                      name="billing_first_name"
+                      autocomplete="given-name"
+                      placeholder="Например: Анна"
                       required
                     />
                   </div>
@@ -689,7 +701,10 @@
                       class="form-field__input"
                       type="tel"
                       id="phoneInput"
-                      placeholder="+7 999 999-99-99"
+                      name="billing_phone"
+                      inputmode="tel"
+                      autocomplete="tel"
+                      placeholder="+7 (___) ___-__-__"
                       required
                     />
                   </div>
@@ -705,6 +720,7 @@
                 <textarea
                   class="form-field__textarea"
                   id="commentInput"
+                  name="order_comments"
                   placeholder="Например: позвонить за час до доставки"
                 ></textarea>
               </div>
@@ -716,6 +732,7 @@
                     type="checkbox"
                     class="checkbox agreement__checkbox"
                     id="agreementCheckbox"
+                    name="dukan_pd_consent"
                     required
                   />
                   <span class="agreement__text">
@@ -727,7 +744,7 @@
               </div>
             </div>
 
-            <aside class="checkout__aside layout-aside__sticky">
+            <aside class="checkout-page__aside layout-aside__sticky" data-sticky-if-fits>
               <div class="panel checkout-summary">
                 <h2 class="text-h4 checkout-summary__title">Ваш заказ</h2>
 
@@ -744,7 +761,7 @@
                   <span id="summaryTotal" aria-live="polite" aria-atomic="true">0&nbsp;₽</span>
                 </div>
 
-                <p class="checkout-summary__warning" id="minOrderWarning" role="status" hidden>
+                <p class="checkout-summary__warning" id="minOrderWarning" role="status" tabindex="-1" hidden>
                   Минимальная сумма заказа&nbsp;— 1&nbsp;500&nbsp;₽. Добавьте товаров ещё на&nbsp;<span id="minOrderDiff">0&nbsp;₽</span>.
                 </p>
 
@@ -752,7 +769,6 @@
                   type="submit"
                   class="checkout-summary__submit btn btn--primary btn--lg"
                   id="submitOrderBtn"
-                  disabled
                 >
                   Оформить заказ
                 </button>
@@ -793,199 +809,6 @@
               </div>
             </aside>
           </form>
-        </div>
-      </section>
-
-      <!-- Экран "Заказ принят" -->
-      <section class="order-success" id="orderSuccess" hidden>
-        <div class="container">
-          <div class="order-success__inner">
-            <span class="order-success__icon">
-              <svg aria-hidden="true" focusable="false"
-                viewBox="0 0 24 24"
-                width="32"
-                height="32"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M8 12.5l2.5 2.5l5.5 -6" />
-              </svg>
-            </span>
-            <h1 class="order-success__title" id="orderSuccessTitle" tabindex="-1">Заказ принят</h1>
-            <p class="order-success__number">
-              Номер заказа: <strong id="orderNumber">№&nbsp;10234</strong>
-            </p>
-            <p class="order-success__sum">
-              Сумма заказа: <strong id="orderSum">0&nbsp;₽</strong>
-            </p>
-            <p class="order-success__text">
-              Мы свяжемся с&nbsp;вами для&nbsp;подтверждения перед отправкой партии.
-            </p>
-
-            <!-- Предложение создать аккаунт после оформления заказа -->
-            <div class="panel checkout-account" id="checkoutAccount">
-              <!-- Шаг 1: ввод/подтверждение номера телефона -->
-              <div
-                class="checkout-account__step checkout-account__step--phone"
-                id="signupPhoneStep"
-              >
-                <h2 class="checkout-account__title">
-                  Сохранить контакты для&nbsp;следующего заказа?
-                </h2>
-                <p class="checkout-account__text">
-                  В&nbsp;следующий раз не&nbsp;придётся заново вводить адрес и&nbsp;телефон.
-                </p>
-                <div class="form-field checkout-account__field checkout-account__panel">
-                  <label
-                    class="form-field__label visually-hidden"
-                    for="signupPhoneInput"
-                    >Телефон</label
-                  >
-                  <input
-                    class="form-field__input"
-                    type="tel"
-                    id="signupPhoneInput"
-                    placeholder="+7 999 999-99-99"
-                  />
-                </div>
-                <div class="checkout-account__panel">
-                  <label class="agreement">
-                    <input
-                      type="checkbox"
-                      class="checkbox agreement__checkbox"
-                      id="signupConsent"
-                      name="consent"
-                      required
-                    />
-                    <span class="agreement__text">
-                      Даю согласие на&nbsp;<a href="consent.html" class="agreement__link underline-link"
-                        >обработку персональных данных</a
-                      >
-                    </span>
-                  </label>
-                </div>
-                <div class="checkout-account__actions checkout-account__panel">
-                  <button
-                    type="button"
-                    class="btn btn--primary checkout-account__submit"
-                    id="signupRequestCodeBtn"
-                    disabled
-                  >
-                    Получить код
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn--outline checkout-account__skip"
-                    id="signupSkipBtn"
-                  >
-                    Не&nbsp;сейчас
-                  </button>
-                </div>
-              </div>
-
-              <!-- Шаг 2: ввод кода из SMS -->
-              <div
-                class="checkout-account__step checkout-account__step--otp"
-                id="signupOtpStep"
-                hidden
-              >
-                <p class="checkout-account__text">
-                  Код отправлен на&nbsp;номер
-                  <strong id="signupPhoneDisplay"></strong>
-                </p>
-                <div class="checkout-account__otp checkout-account__panel" id="signupOtpGroup">
-                  <input
-                    class="checkout-account__otp-input"
-                    id="signupOtpInput1"
-                    type="text"
-                    inputmode="numeric"
-                    maxlength="1"
-                    aria-label="Цифра кода, 1 из 4"
-                  />
-                  <input
-                    class="checkout-account__otp-input"
-                    id="signupOtpInput2"
-                    type="text"
-                    inputmode="numeric"
-                    maxlength="1"
-                    aria-label="Цифра кода, 2 из 4"
-                  />
-                  <input
-                    class="checkout-account__otp-input"
-                    id="signupOtpInput3"
-                    type="text"
-                    inputmode="numeric"
-                    maxlength="1"
-                    aria-label="Цифра кода, 3 из 4"
-                  />
-                  <input
-                    class="checkout-account__otp-input"
-                    id="signupOtpInput4"
-                    type="text"
-                    inputmode="numeric"
-                    maxlength="1"
-                    aria-label="Цифра кода, 4 из 4"
-                  />
-                </div>
-                <button
-                  type="button"
-                  class="btn btn--primary checkout-account__submit checkout-account__panel"
-                  id="signupConfirmBtn"
-                >
-                  Подтвердить
-                </button>
-                <button
-                  type="button"
-                  class="checkout-account__resend dot-link"
-                  id="signupResendBtn"
-                >
-                  Отправить код повторно
-                </button>
-              </div>
-
-              <!-- Шаг 3: аккаунт создан -->
-              <div
-                class="checkout-account__step checkout-account__step--done"
-                id="signupDoneStep"
-                hidden
-              >
-                <span class="checkout-account__icon">
-                  <svg aria-hidden="true" focusable="false"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M12 3l1.6 4.9L18.5 9.5l-4.9 1.6L12 16l-1.6-4.9L5.5 9.5l4.9-1.6L12 3z"
-                    />
-                    <path d="M5 4v3M3.5 5.5h3" />
-                    <path d="M19 16v3M17.5 17.5h3" />
-                  </svg>
-                </span>
-                <p class="checkout-account__text">
-                  Готово, аккаунт создан&nbsp;— в&nbsp;следующий раз оформление займёт
-                  меньше минуты.
-                </p>
-                <a
-                  href="#"
-                  class="btn btn--primary checkout-account__account-link checkout-account__panel"
-                  id="signupAccountLink"
-                  >Перейти в&nbsp;аккаунт</a
-                >
-              </div>
-            </div>
-
-            <a
-              href="catalog.html"
-              class="order-success__home btn btn--primary btn--lg"
-              >Перейти в&nbsp;каталог</a
-            >
-          </div>
         </div>
       </section>
     </main>
@@ -1139,6 +962,7 @@
       </div>
     </footer>
     <script src="nice-select2/nice-select2.js"></script>
+    <script src="maska/maska.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
