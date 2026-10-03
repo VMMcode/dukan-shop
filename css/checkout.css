@@ -67,6 +67,16 @@
   line-clamp: 1;
 }
 
+/* Под кнопкой удаления — не только название, но и строка производителя */
+.product-card--order .product-card__source {
+  padding-right: 2.5rem;
+}
+
+/* Степпер в строке заказа — высотой с зону кнопки удаления (40px) */
+.product-card--order .qty-stepper {
+  min-height: 2.5rem;
+}
+
 .product-card--order .product-card__footer {
   margin-top: var(--space-xs);
   align-items: center;
@@ -315,5 +325,9 @@
   .product-card--order .product-card__media {
     width: 34%;
     max-width: none;
+  }
+  .product-card--order .product-card__title {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }

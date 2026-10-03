@@ -17,11 +17,12 @@
     <meta name="description" content="Каталог фермерских продуктов Кавказа: мясо и птица, молочные продукты, колбасы, мёд, бакалея. Доставка по Москве в пределах МКАД, оплата при получении." />
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
     <header class="header">
       <!-- Top Bar -->
       <div class="header__top-bar">
         <div class="container header__top-container">
-          <nav class="header__top-nav">
+          <nav class="header__top-nav" aria-label="Основное меню">
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О&nbsp;нас</a>
@@ -43,7 +44,7 @@
 
           <div class="header__top-info">
             <div class="header__top-info-item header__top-info-item--location">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -61,7 +62,7 @@
               href="tel:+79999999999"
               class="header__top-info-item header__top-info-item--phone"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -82,7 +83,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -96,7 +97,7 @@
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
-            <svg
+            <svg aria-hidden="true" focusable="false"
               class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
@@ -115,8 +116,9 @@
           <!-- Поисковая строка (Десктоп) -->
           <form class="header__search" action="/search" method="GET">
             <input
-              type="text"
+              type="search"
               name="q"
+              aria-label="Поиск по каталогу"
               class="header__search-input"
               placeholder="Поиск по каталогу"
               autocomplete="off"
@@ -126,7 +128,7 @@
               class="header__search-btn"
               aria-label="Искать"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="20"
                 height="20"
@@ -143,7 +145,7 @@
           <!-- Иконки действий (Десктоп) -->
           <div class="header__actions">
             <a href="account.html" class="header__action-link" aria-label="Профиль">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
@@ -161,7 +163,7 @@
               class="header__cart-btn btn btn--primary"
               aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="22"
                 height="22"
@@ -182,6 +184,7 @@
 
           <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
           <button
+            type="button"
             class="header__burger-btn"
             id="burgerBtn"
             aria-label="Открыть меню"
@@ -287,7 +290,7 @@
 
       <!-- Мобильное выпадающее инфо-меню -->
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
-        <nav class="header__mobile-nav">
+        <nav class="header__mobile-nav" aria-label="Мобильное меню">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
             <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
@@ -312,7 +315,7 @@
     </header>
 
     <!-- Основной контент -->
-    <main class="main-content">
+    <main class="main-content" id="main" tabindex="-1">
       <div class="breadcrumbs-strip">
         <div class="container">
           <nav class="breadcrumbs" aria-label="Хлебные крошки">
@@ -320,9 +323,8 @@
               <li class="breadcrumbs__item">
                 <a href="index.html" class="breadcrumbs__link">Главная</a>
               </li>
-              <li class="breadcrumbs__sep">/</li>
               <li class="breadcrumbs__item">
-                <span class="breadcrumbs__current">Каталог</span>
+                <span class="breadcrumbs__current" aria-current="page">Каталог</span>
               </li>
             </ol>
           </nav>
@@ -333,7 +335,7 @@
         <div class="container">
           <div class="page-head">
             <h1 class="page-head__title">Каталог</h1>
-            <p class="page-head__subtitle">Свежие и&nbsp;натуральные продукты от&nbsp;фермеров Кабардино-Балкарии, Северной Осетии и&nbsp;Дагестана</p>
+            <p class="lead">Свежие и&nbsp;натуральные продукты от&nbsp;фермеров Кабардино-Балкарии, Северной Осетии и&nbsp;Дагестана</p>
           </div>
 
           <div class="catalog__layout">
@@ -341,7 +343,7 @@
             <aside class="filters" id="filters">
               <div class="filters__header">
                 <span class="filters__title">
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     class="filters__title-icon"
                     viewBox="0 0 24 24"
                     width="18"
@@ -360,7 +362,7 @@
                   Фильтры
                 </span>
                 <button type="button" class="filters__reset" id="filtersReset">
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="15"
                     height="15"
@@ -379,7 +381,7 @@
                   id="filtersClose"
                   aria-label="Закрыть фильтры"
                 >
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="20"
                     height="20"
@@ -400,7 +402,7 @@
                   aria-controls="filterCategoryPanel"
                 >
                   Категория
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     class="filters__accordion-chevron"
                     viewBox="0 0 24 24"
                     width="16"
@@ -456,7 +458,7 @@
                   aria-controls="filterRegionPanel"
                 >
                   Регион
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     class="filters__accordion-chevron"
                     viewBox="0 0 24 24"
                     width="16"
@@ -492,7 +494,7 @@
                   aria-controls="filterFarmerPanel"
                 >
                   Производитель
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     class="filters__accordion-chevron"
                     viewBox="0 0 24 24"
                     width="16"
@@ -593,7 +595,7 @@
                   aria-expanded="false"
                   aria-controls="filters"
                 >
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="18"
                     height="18"
@@ -616,15 +618,15 @@
                   <span class="catalog__filters-btn-label">Фильтры</span>
                 </button>
 
-                <label class="catalog__sort">
-                  <span class="catalog__sort-label">Сортировка:</span>
-                  <select class="catalog__sort-select select select--compact" aria-label="Сортировка">
+                <div class="catalog__sort">
+                  <label class="catalog__sort-label" for="sortSelect">Сортировка:</label>
+                  <select class="catalog__sort-select select select--compact" id="sortSelect" aria-label="Сортировка">
                     <option selected>По популярности</option>
                     <option>Сначала дешевле</option>
                     <option>Сначала дороже</option>
                     <option>Сначала новые</option>
                   </select>
-                </label>
+                </div>
 
                 <div
                   class="catalog__view-toggle"
@@ -638,7 +640,7 @@
                     aria-label="Сеткой"
                     aria-pressed="true"
                   >
-                    <svg
+                    <svg aria-hidden="true" focusable="false"
                       viewBox="0 0 24 24"
                       width="18"
                       height="18"
@@ -659,7 +661,7 @@
                     aria-label="Списком"
                     aria-pressed="false"
                   >
-                    <svg
+                    <svg aria-hidden="true" focusable="false"
                       viewBox="0 0 24 24"
                       width="18"
                       height="18"
@@ -673,6 +675,8 @@
                   </button>
                 </div>
               </div>
+
+              <h2 class="visually-hidden">Товары</h2>
 
               <ul class="catalog__grid">
                 <li>
@@ -688,7 +692,7 @@
                           <span class="icon-halal" aria-hidden="true"></span>
                         </span>
                         <span class="badge badge--pick" role="img" title="Выбор Дукан" aria-label="Выбор Дукан">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z" />
                           </svg>
@@ -715,9 +719,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Осетинский сыр» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -771,9 +775,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Бастурма из&nbsp;говядины» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -827,9 +831,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Свежие яйца» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -883,9 +887,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Майский мёд» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -939,9 +943,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Баранина» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -995,9 +999,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Домашние помидоры» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -1051,9 +1055,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Мясо кролика» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -1107,9 +1111,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Пшено» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -1163,9 +1167,9 @@
                         <button
                           class="product-card__add"
                           type="button"
-                          aria-label="Добавить в корзину"
+                          aria-label="Добавить «Осетинский пирог с&nbsp;картофелем и&nbsp;сыром» в корзину"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
                             height="16"
@@ -1193,7 +1197,7 @@
                   class="pagination__link pagination__link--disabled"
                   aria-label="Предыдущая страница"
                 >
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="18"
                     height="18"
@@ -1215,7 +1219,7 @@
                   class="pagination__link"
                   aria-label="Следующая страница"
                 >
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="18"
                     height="18"
@@ -1242,7 +1246,7 @@
         </div>
         <a href="checkout.html" class="link-btn btn btn--inverse">
           <span class="cart-bar__btn-label">Перейти к&nbsp;оформлению</span>
-          <svg
+          <svg aria-hidden="true" focusable="false"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -1257,9 +1261,9 @@
     <!-- Оверлей для закрытия меню/фильтров по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
     <!-- Мобильный Bottom Navigation Bar -->
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" aria-label="Быстрая навигация">
       <a href="index.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -1278,7 +1282,7 @@
         aria-expanded="false"
         aria-controls="catalogMenu"
       >
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -1295,7 +1299,7 @@
 
       <a href="checkout.html" class="bottom-nav__item">
         <div class="bottom-nav__icon-wrapper">
-          <svg
+          <svg aria-hidden="true" focusable="false"
             viewBox="0 0 24 24"
             width="20"
             height="20"
@@ -1313,7 +1317,7 @@
       </a>
 
       <a href="account.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -1337,7 +1341,7 @@
               <a href="index.html" class="logo footer__logo">
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
-                  alt="Логотип сайта"
+                  alt="Дукан — на главную"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
@@ -1345,7 +1349,7 @@
               </a>
             </div>
 
-            <nav class="footer__nav">
+            <nav class="footer__nav" aria-label="Меню в подвале">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
               <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>

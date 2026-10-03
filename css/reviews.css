@@ -195,8 +195,8 @@
 
 .star-input__stars {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: flex-start;
   width: fit-content;
 }
 
@@ -207,6 +207,8 @@
 }
 
 .star-input__star {
+  position: relative;
+  --tap-w: 100%;
   cursor: pointer;
   font-size: 1.75rem;
   line-height: 1;
@@ -214,10 +216,20 @@
   transition: color var(--duration-base) var(--ease-out);
 }
 
-.star-input__star:hover,
-.star-input__star:hover ~ .star-input__star,
-.star-input__radio:checked ~ .star-input__star {
+/* Выбрана оценка: звёзды до выбранной включительно — акцентные, после — серые */
+.star-input__stars:has(.star-input__radio:checked) .star-input__star {
   color: var(--color-accent);
+}
+.star-input__radio:checked ~ .star-input__radio + .star-input__star {
+  color: var(--color-border);
+}
+
+/* Наведение перебивает выбор: у правил та же специфичность, но они ниже в файле */
+.star-input__stars:has(.star-input__star:hover) .star-input__star {
+  color: var(--color-accent);
+}
+.star-input__stars .star-input__star:hover ~ .star-input__star {
+  color: var(--color-border);
 }
 
 .star-input__radio:focus-visible + .star-input__star {

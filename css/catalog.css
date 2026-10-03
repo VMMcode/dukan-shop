@@ -267,8 +267,9 @@
 
 /* --- Переключатель сетка/список --- */
 .catalog__view-toggle {
+  --view-gap: 0.25rem;
   display: flex;
-  gap: 0.25rem;
+  gap: var(--view-gap);
   padding: 0.25rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -276,6 +277,8 @@
 }
 
 .catalog__view-btn {
+  position: relative;
+  --tap-w: calc(100% + var(--view-gap));
   display: flex;
   align-items: center;
   justify-content: center;

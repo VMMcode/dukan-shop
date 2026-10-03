@@ -154,7 +154,7 @@
 /* Будущие шаги — приглушены */
 .order-tracker__step--upcoming .order-tracker__label,
 .order-tracker__step--upcoming .order-tracker__time {
-  color: var(--color-text-disabled);
+  color: var(--color-text-muted);
 }
 
 .order-tracker__note {

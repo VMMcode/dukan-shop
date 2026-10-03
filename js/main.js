@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('no-scroll', shouldLock);
   }
 
+  function setDrawerState(isOpen) {
+    mobileDrawer.hidden = !isOpen;
+    burgerBtn.setAttribute('aria-expanded', isOpen);
+    burgerBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+  }
+
   function setExpanded(isOpen) {
     catalogBtn.setAttribute('aria-expanded', isOpen);
     mobileCatalogBtn.setAttribute('aria-expanded', isOpen);
@@ -29,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isOpen = catalogMenu.hidden;
 
     if (isOpen) {
-      mobileDrawer.hidden = true;
-      burgerBtn.setAttribute('aria-expanded', false);
+      setDrawerState(false);
       measureHeaderHeight();
     }
 
@@ -42,9 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleDrawer() {
     const isOpen = mobileDrawer.hidden;
-    mobileDrawer.hidden = !isOpen;
+    setDrawerState(isOpen);
     overlay.hidden = !isOpen;
-    burgerBtn.setAttribute('aria-expanded', isOpen);
     lockScroll(isOpen);
 
     if (isOpen) {
@@ -55,10 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeAll() {
     catalogMenu.hidden = true;
-    mobileDrawer.hidden = true;
+    setDrawerState(false);
     overlay.hidden = true;
     setExpanded(false);
-    burgerBtn.setAttribute('aria-expanded', false);
     lockScroll(false);
   }
 
@@ -250,8 +253,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const newSrc = thumb.dataset.img;
         if (!newSrc) return;
         galleryMain.src = newSrc;
-        thumbs.forEach((t) => t.classList.remove('product-gallery__thumb--active'));
+        thumbs.forEach((t) => {
+          t.classList.remove('product-gallery__thumb--active');
+          t.removeAttribute('aria-current');
+        });
         thumb.classList.add('product-gallery__thumb--active');
+        thumb.setAttribute('aria-current', 'true');
       });
     });
   }
@@ -508,11 +515,72 @@ document.addEventListener('click', (event) => {
   event.stopPropagation();
 
   const inCart = addBtn.classList.toggle('product-card__add--in-cart');
+  const link = addBtn.closest('.product-card')?.querySelector('.product-card__link');
+  const title = link ? link.textContent.replace(/s+/g, ' ').trim() : '';
   addBtn.setAttribute(
     'aria-label',
-    inCart ? 'Убрать из корзины' : 'Добавить в корзину'
+    inCart ? `Убрать «${title}» из корзины` : `Добавить «${title}» в корзину`
   );
 });
+
+// --- nice-select2: ARIA (combobox + listbox) ---
+// После niceSelect.update() вызвать повторно: библиотека пересоздаёт разметку
+let selectUid = 0;
+function enhanceSelectA11y(select) {
+  const nice = select.nextElementSibling;
+  const list = nice && nice.querySelector('.list');
+  if (!list) return;
+
+  const search = nice.querySelector('.nice-select-search');
+  const label = select.id && document.querySelector(`label[for="${select.id}"]`);
+  const name = (label ? label.textContent : select.getAttribute('aria-label')) || '';
+  const listId = `${select.id || `select-${++selectUid}`}-listbox`;
+
+  if (search) {
+    search.placeholder = 'Найти товар'; // библиотека дописывает «...» к searchtext
+    search.setAttribute('aria-label', search.placeholder);
+  }
+  nice.setAttribute('role', 'combobox');
+  nice.setAttribute('aria-haspopup', 'listbox');
+  nice.setAttribute('aria-controls', listId);
+  nice.setAttribute('aria-label', name.replace(/\s+/g, ' ').replace(/[\s:*]+$/, ''));
+  list.id = listId;
+  list.setAttribute('role', 'listbox');
+  list.querySelectorAll('.option').forEach((li, i) => {
+    li.id = `${listId}-${i}`;
+    li.setAttribute('role', 'option');
+  });
+
+  function sync() {
+    const isOpen = nice.classList.contains('open');
+    const focused = isOpen && list.querySelector('.option.focus');
+    nice.setAttribute('aria-expanded', isOpen);
+    list.querySelectorAll('.option').forEach((li) => {
+      li.setAttribute('aria-selected', li.classList.contains('selected'));
+      li.setAttribute('aria-disabled', li.classList.contains('disabled'));
+    });
+    [nice, search].forEach((el) => {
+      if (!el) return;
+      if (focused) el.setAttribute('aria-activedescendant', focused.id);
+      else el.removeAttribute('aria-activedescendant');
+    });
+  }
+
+  // Enter при открытом списке без .focus-пункта роняет библиотеку (TypeError)
+  nice.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' || !nice.classList.contains('open') || nice.querySelector('.option.focus')) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }, true);
+  // Слушатель стоит после библиотечного: .focus к этому моменту уже переставлен
+  nice.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') e.preventDefault(); // иначе Enter в поле поиска отправляет форму
+    sync();
+  });
+  nice.addEventListener('input', sync);
+  new MutationObserver(sync).observe(nice, { attributes: true, attributeFilter: ['class'] });
+  sync();
+}
 
 // --- nice-select2: все селекты с классом .select ---
 // Исходный <select> не скрыт через display:none (см. .hidden-select в base.css),
@@ -531,6 +599,7 @@ function initSelects() {
 
     select.tabIndex = -1; // иначе Shift+Tab упирается в скрытый select
     select.addEventListener('focus', () => niceSelect.focus());
+    enhanceSelectA11y(select);
   });
 }
 

@@ -44,6 +44,44 @@ textarea::placeholder {
   border: 0;
 }
 
+/* --- Ссылка «Перейти к содержимому» (видна только при фокусе с клавиатуры) --- */
+.skip-link {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: calc(var(--z-bottom-nav) + 1);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* Фокус на main — программный (после skip-link), рамка не нужна */
+.main-content:focus {
+  outline: none;
+}
+
+/* --- Расширенная область нажатия: невидимый ::before по центру элемента.
+   Размер задают --tap-w / --tap-h, по умолчанию 40×40 --- */
+.product-card__add::before,
+.catalog__view-btn::before,
+.header__burger-btn::before,
+.header__search-btn::before,
+.star-input__star::before,
+.promo__pagination .swiper-pagination-bullet::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--tap-w, var(--tap-target));
+  height: var(--tap-h, var(--tap-target));
+  transform: translate(-50%, -50%);
+}
+
 /* Скроллбар — Webkit */
 ::-webkit-scrollbar {
   width: 10px;
@@ -348,8 +386,10 @@ h6 {
   margin-bottom: var(--space-lg);
 }
 
-.page-head__subtitle {
+/* --- Вводный абзац секции --- */
+.lead {
   font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   color: var(--color-text-muted);
 }
 
@@ -957,7 +997,8 @@ h6 {
   color: var(--color-text);
 }
 
-.breadcrumbs__sep {
+.breadcrumbs__item:not(:last-child)::after {
+  content: "/";
   color: var(--color-text-disabled);
 }
 
@@ -1166,6 +1207,12 @@ h6 {
   font-family: inherit;
   font-size: var(--fs-body);
 }
+
+.select.nice-select:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
 .select.nice-select:hover,
 .select.nice-select.open {
   border-color: var(--color-accent);

@@ -16,11 +16,12 @@
     <meta name="description" content="Фермерские продукты Кабардино-Балкарии, Северной Осетии и Дагестана с доставкой по Москве. Сыр, мясо, мёд, копчёности напрямую от хозяйств. Оплата наличными при получении." />
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
     <header class="header">
       <!-- Top Bar -->
       <div class="header__top-bar">
         <div class="container header__top-container">
-          <nav class="header__top-nav">
+          <nav class="header__top-nav" aria-label="Основное меню">
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О&nbsp;нас</a>
@@ -42,7 +43,7 @@
 
           <div class="header__top-info">
             <div class="header__top-info-item header__top-info-item--location">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -60,7 +61,7 @@
               href="tel:+79999999999"
               class="header__top-info-item header__top-info-item--phone"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -81,7 +82,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -95,7 +96,7 @@
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
-            <svg
+            <svg aria-hidden="true" focusable="false"
               class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
@@ -114,8 +115,9 @@
           <!-- Поисковая строка (Десктоп) -->
           <form class="header__search" action="/search" method="GET">
             <input
-              type="text"
+              type="search"
               name="q"
+              aria-label="Поиск по каталогу"
               class="header__search-input"
               placeholder="Поиск по каталогу"
               autocomplete="off"
@@ -125,7 +127,7 @@
               class="header__search-btn"
               aria-label="Искать"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="20"
                 height="20"
@@ -142,7 +144,7 @@
           <!-- Иконки действий (Десктоп) -->
           <div class="header__actions">
             <a href="account.html" class="header__action-link" aria-label="Профиль">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
@@ -160,7 +162,7 @@
               class="header__cart-btn btn btn--primary"
               aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="22"
                 height="22"
@@ -181,6 +183,7 @@
 
           <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
           <button
+            type="button"
             class="header__burger-btn"
             id="burgerBtn"
             aria-label="Открыть меню"
@@ -286,7 +289,7 @@
 
       <!-- Мобильное выпадающее инфо-меню -->
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
-        <nav class="header__mobile-nav">
+        <nav class="header__mobile-nav" aria-label="Мобильное меню">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
             <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
@@ -311,7 +314,7 @@
     </header>
 
     <!-- Основной контент -->
-    <main class="main-content">
+    <main class="main-content" id="main" tabindex="-1">
       <!-- Главный экран: начало -->
       <section
         class="hero"
@@ -346,7 +349,7 @@
             </div>
             <div class="hero__utp-item">
               <span class="hero__utp-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -373,7 +376,7 @@
             </div>
             <div class="hero__utp-item">
               <span class="hero__utp-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -399,7 +402,7 @@
             </div>
             <div class="hero__utp-item">
               <span class="hero__utp-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -431,6 +434,7 @@
       <!-- Промо-баннеры: начало -->
       <section class="promo">
         <div class="container">
+          <h2 class="visually-hidden">Акции и новинки</h2>
           <div class="promo__slider-wrap">
             <div class="swiper promo__slider">
               <div class="swiper-wrapper">
@@ -443,7 +447,7 @@
                     </p>
                     <a href="catalog.html" class="promo__btn link-btn btn btn--inverse">
                       Купить
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </a>
@@ -463,7 +467,7 @@
                     </p>
                     <a href="catalog.html" class="promo__btn link-btn btn btn--inverse">
                       Купить
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </a>
@@ -483,7 +487,7 @@
                     </p>
                     <a href="catalog.html" class="promo__btn link-btn btn btn--inverse">
                       Купить
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </a>
@@ -503,7 +507,7 @@
                     </p>
                     <a href="catalog.html" class="promo__btn link-btn btn btn--inverse">
                       Купить
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </a>
@@ -517,7 +521,7 @@
               </div>
             </div>
             <div class="swiper-button-prev promo__arrow promo__arrow--prev">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -533,7 +537,7 @@
               </svg>
             </div>
             <div class="swiper-button-next promo__arrow promo__arrow--next">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -557,6 +561,7 @@
       <!-- Категории продуктов: начало -->
       <section class="category">
         <div class="container">
+          <h2 class="visually-hidden">Категории продуктов</h2>
           <div class="category__inner">
             <ul class="category__list">
               <li>
@@ -655,7 +660,7 @@
               <h2 class="section-header__title">Выбор Дукан</h2>
               <a href="catalog.html" class="link-btn btn btn--outline">
                 Смотреть все
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -680,7 +685,7 @@
                         <span class="icon-halal" aria-hidden="true"></span>
                       </span>
                       <span class="badge badge--pick" role="img" title="Выбор Дукан" aria-label="Выбор Дукан">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                           <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z" />
                         </svg>
@@ -707,9 +712,9 @@
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить в корзину"
+                        aria-label="Добавить «Осетинский сыр» в корзину"
                       >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
@@ -763,9 +768,9 @@
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить в корзину"
+                        aria-label="Добавить «Бастурма из&nbsp;говядины» в корзину"
                       >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
@@ -817,9 +822,9 @@
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить в корзину"
+                        aria-label="Добавить «Свежие яйца» в корзину"
                       >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
@@ -871,9 +876,9 @@
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить в корзину"
+                        aria-label="Добавить «Майский мёд» в корзину"
                       >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
@@ -925,9 +930,9 @@
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить в корзину"
+                        aria-label="Добавить «Баранина» в корзину"
                       >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
@@ -979,9 +984,9 @@
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить в корзину"
+                        aria-label="Добавить «Домашние помидоры» в корзину"
                       >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
@@ -1033,9 +1038,9 @@
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить в корзину"
+                        aria-label="Добавить «Мясо кролика» в корзину"
                       >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
@@ -1085,9 +1090,9 @@
                       <button
                         class="product-card__add"
                         type="button"
-                        aria-label="Добавить в корзину"
+                        aria-label="Добавить «Пшено» в корзину"
                       >
-                        <svg
+                        <svg aria-hidden="true" focusable="false"
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
                           height="16"
@@ -1121,7 +1126,7 @@
               <h2 class="section-header__title">О&nbsp;нас</h2>
               <a href="about.html" class="link-btn btn btn--outline">
                 Подробнее
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -1132,7 +1137,7 @@
               </a>
             </div>
 
-            <p class="home-about__lead">
+            <p class="lead">
               «Дукан»&nbsp;— по-осетински «лавка». Мы привозим продукты напрямую от&nbsp;фермеров Кабардино-Балкарии, Северной Осетии и&nbsp;Дагестана&nbsp;— своим
               грузовиком, без&nbsp;складов и&nbsp;посредников. Без&nbsp;магазинов и&nbsp;соцсетей&nbsp;—
               только сайт и&nbsp;доставка до&nbsp;двери по&nbsp;Москве.
@@ -1141,7 +1146,7 @@
             <div class="home-about__grid">
               <div class="info-card">
                 <div class="icon-box">
-                  <svg
+                  <svg focusable="false"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -1163,7 +1168,7 @@
 
               <div class="info-card">
                 <div class="icon-box">
-                  <svg
+                  <svg focusable="false"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -1186,7 +1191,7 @@
 
               <div class="info-card">
                 <div class="icon-box">
-                  <svg
+                  <svg focusable="false"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -1208,7 +1213,7 @@
 
               <div class="info-card">
                 <div class="icon-box">
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -1238,7 +1243,7 @@
               <h2 class="section-header__title">Откуда наши продукты</h2>
               <a href="farmers.html" class="link-btn btn btn--outline">
                 Узнать больше
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -1248,7 +1253,7 @@
                 </svg>
               </a>
             </div>
-            <p class="regions__lead">
+            <p class="lead">
               Работаем с&nbsp;локальными производителями из&nbsp;республик Северного
               Кавказа. Поддерживаем малый бизнес и&nbsp;привозим в&nbsp;Москву настоящие
               продукты региона.
@@ -1316,7 +1321,7 @@
         </div>
         <a href="checkout.html" class="link-btn btn btn--inverse">
           <span class="cart-bar__btn-label">Перейти к&nbsp;оформлению</span>
-          <svg
+          <svg aria-hidden="true" focusable="false"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -1329,9 +1334,9 @@
     </main>
 
     <!-- Мобильный Bottom Navigation Bar -->
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" aria-label="Быстрая навигация">
       <a href="index.html" class="bottom-nav__item bottom-nav__item--active">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -1350,7 +1355,7 @@
         aria-expanded="false"
         aria-controls="catalogMenu"
       >
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -1367,7 +1372,7 @@
 
       <a href="checkout.html" class="bottom-nav__item">
         <div class="bottom-nav__icon-wrapper">
-          <svg
+          <svg aria-hidden="true" focusable="false"
             viewBox="0 0 24 24"
             width="20"
             height="20"
@@ -1385,7 +1390,7 @@
       </a>
 
       <a href="account.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -1410,7 +1415,7 @@
               <a href="index.html" class="logo footer__logo">
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
-                  alt="Логотип сайта"
+                  alt="Дукан — на главную"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
@@ -1418,7 +1423,7 @@
               </a>
             </div>
 
-            <nav class="footer__nav">
+            <nav class="footer__nav" aria-label="Меню в подвале">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
               <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>

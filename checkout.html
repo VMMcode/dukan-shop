@@ -17,11 +17,12 @@
     <meta name="description" content="Оформление заказа в магазине фермерских продуктов «Дукан». Оплата наличными курьеру при получении." />
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
     <header class="header">
       <!-- Top Bar -->
       <div class="header__top-bar">
         <div class="container header__top-container">
-          <nav class="header__top-nav">
+          <nav class="header__top-nav" aria-label="Основное меню">
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О&nbsp;нас</a>
@@ -43,7 +44,7 @@
 
           <div class="header__top-info">
             <div class="header__top-info-item header__top-info-item--location">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -61,7 +62,7 @@
               href="tel:+79999999999"
               class="header__top-info-item header__top-info-item--phone"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -82,7 +83,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -96,7 +97,7 @@
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
-            <svg
+            <svg aria-hidden="true" focusable="false"
               class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
@@ -115,8 +116,9 @@
           <!-- Поисковая строка (Десктоп) -->
           <form class="header__search" action="/search" method="GET">
             <input
-              type="text"
+              type="search"
               name="q"
+              aria-label="Поиск по каталогу"
               class="header__search-input"
               placeholder="Поиск по каталогу"
               autocomplete="off"
@@ -126,7 +128,7 @@
               class="header__search-btn"
               aria-label="Искать"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="20"
                 height="20"
@@ -143,7 +145,7 @@
           <!-- Иконки действий (Десктоп) -->
           <div class="header__actions">
             <a href="account.html" class="header__action-link" aria-label="Профиль">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
@@ -161,7 +163,7 @@
               class="header__cart-btn btn btn--primary"
               aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="22"
                 height="22"
@@ -182,6 +184,7 @@
 
           <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
           <button
+            type="button"
             class="header__burger-btn"
             id="burgerBtn"
             aria-label="Открыть меню"
@@ -287,7 +290,7 @@
 
       <!-- Мобильное выпадающее инфо-меню -->
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
-        <nav class="header__mobile-nav">
+        <nav class="header__mobile-nav" aria-label="Мобильное меню">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
             <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
@@ -312,7 +315,7 @@
     </header>
 
     <!-- Основной контент -->
-    <main class="main-content">
+    <main class="main-content" id="main" tabindex="-1">
       <div class="breadcrumbs-strip">
         <div class="container">
           <nav class="breadcrumbs" aria-label="Хлебные крошки">
@@ -320,9 +323,8 @@
               <li class="breadcrumbs__item">
                 <a href="index.html" class="breadcrumbs__link">Главная</a>
               </li>
-              <li class="breadcrumbs__sep">/</li>
               <li class="breadcrumbs__item">
-                <span class="breadcrumbs__current">Оформление заказа</span>
+                <span class="breadcrumbs__current" aria-current="page">Оформление заказа</span>
               </li>
             </ol>
           </nav>
@@ -355,7 +357,7 @@
                           class="order-items__remove"
                           aria-label="Удалить «Осетинский сыр» из заказа"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             viewBox="0 0 24 24"
                             width="18"
                             height="18"
@@ -425,7 +427,7 @@
                           class="order-items__remove"
                           aria-label="Удалить «Бастурма из говядины» из заказа"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             viewBox="0 0 24 24"
                             width="18"
                             height="18"
@@ -497,7 +499,7 @@
                           class="order-items__remove"
                           aria-label="Удалить «Майский мёд» из заказа"
                         >
-                          <svg
+                          <svg aria-hidden="true" focusable="false"
                             viewBox="0 0 24 24"
                             width="18"
                             height="18"
@@ -559,7 +561,7 @@
                 <h2 class="panel__title">Доставка</h2>
 
                 <p class="checkout-delivery__note">
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="16"
                     height="16"
@@ -710,10 +712,10 @@
                 </div>
                 <div class="checkout-summary__row checkout-summary__row--total">
                   <span>Итого</span>
-                  <span id="summaryTotal">0&nbsp;₽</span>
+                  <span id="summaryTotal" aria-live="polite" aria-atomic="true">0&nbsp;₽</span>
                 </div>
 
-                <p class="checkout-summary__warning" id="minOrderWarning" hidden>
+                <p class="checkout-summary__warning" id="minOrderWarning" role="status" hidden>
                   Минимальная сумма заказа&nbsp;— 1&nbsp;500&nbsp;₽. Добавьте товаров ещё на&nbsp;<span id="minOrderDiff">0</span>&nbsp;₽.
                 </p>
 
@@ -739,7 +741,7 @@
                 <h2 class="panel__title">Оплата</h2>
                 <div class="note-box">
                   <span class="note-box__icon">
-                    <svg
+                    <svg aria-hidden="true" focusable="false"
                       viewBox="0 0 24 24"
                       width="20"
                       height="20"
@@ -770,7 +772,7 @@
         <div class="container">
           <div class="order-success__inner">
             <span class="order-success__icon">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="32"
                 height="32"
@@ -921,7 +923,7 @@
                 hidden
               >
                 <span class="checkout-account__icon">
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="24"
                     height="24"
@@ -962,9 +964,9 @@
     <!-- Оверлей для закрытия меню по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
     <!-- Мобильный Bottom Navigation Bar -->
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" aria-label="Быстрая навигация">
       <a href="index.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -983,7 +985,7 @@
         aria-expanded="false"
         aria-controls="catalogMenu"
       >
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -1000,7 +1002,7 @@
 
       <a href="checkout.html" class="bottom-nav__item bottom-nav__item--active">
         <div class="bottom-nav__icon-wrapper">
-          <svg
+          <svg aria-hidden="true" focusable="false"
             viewBox="0 0 24 24"
             width="20"
             height="20"
@@ -1018,7 +1020,7 @@
       </a>
 
       <a href="account.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -1041,7 +1043,7 @@
               <a href="index.html" class="logo footer__logo">
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
-                  alt="Логотип сайта"
+                  alt="Дукан — на главную"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
@@ -1049,7 +1051,7 @@
               </a>
             </div>
 
-            <nav class="footer__nav">
+            <nav class="footer__nav" aria-label="Меню в подвале">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
               <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>

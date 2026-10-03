@@ -15,11 +15,6 @@
   min-width: 0;
 }
 
-.about-hero__lead {
-  font-size: var(--fs-body-lg);
-  color: var(--color-text-muted);
-}
-
 .about-hero__facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -77,11 +72,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-}
-
-.about-story__lead {
-  font-size: var(--fs-body-lg);
-  color: var(--color-text-muted);
 }
 
 .about-story__compare {

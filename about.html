@@ -60,11 +60,12 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
     <header class="header">
       <!-- Top Bar -->
       <div class="header__top-bar">
         <div class="container header__top-container">
-          <nav class="header__top-nav">
+          <nav class="header__top-nav" aria-label="Основное меню">
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О&nbsp;нас</a>
@@ -86,7 +87,7 @@
 
           <div class="header__top-info">
             <div class="header__top-info-item header__top-info-item--location">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -104,7 +105,7 @@
               href="tel:+79999999999"
               class="header__top-info-item header__top-info-item--phone"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -125,7 +126,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -139,7 +140,7 @@
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
-            <svg
+            <svg aria-hidden="true" focusable="false"
               class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
@@ -158,8 +159,9 @@
           <!-- Поисковая строка (Десктоп) -->
           <form class="header__search" action="/search" method="GET">
             <input
-              type="text"
+              type="search"
               name="q"
+              aria-label="Поиск по каталогу"
               class="header__search-input"
               placeholder="Поиск по каталогу"
               autocomplete="off"
@@ -169,7 +171,7 @@
               class="header__search-btn"
               aria-label="Искать"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="20"
                 height="20"
@@ -186,7 +188,7 @@
           <!-- Иконки действий (Десктоп) -->
           <div class="header__actions">
             <a href="account.html" class="header__action-link" aria-label="Профиль">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
@@ -204,7 +206,7 @@
               class="header__cart-btn btn btn--primary"
               aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="22"
                 height="22"
@@ -225,6 +227,7 @@
 
           <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
           <button
+            type="button"
             class="header__burger-btn"
             id="burgerBtn"
             aria-label="Открыть меню"
@@ -330,7 +333,7 @@
 
       <!-- Мобильное выпадающее инфо-меню -->
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
-        <nav class="header__mobile-nav">
+        <nav class="header__mobile-nav" aria-label="Мобильное меню">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
             <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
@@ -355,7 +358,7 @@
     </header>
 
     <!-- Основной контент -->
-    <main class="main-content">
+    <main class="main-content" id="main" tabindex="-1">
       <div class="breadcrumbs-strip">
         <div class="container">
           <nav class="breadcrumbs" aria-label="Хлебные крошки">
@@ -363,7 +366,6 @@
               <li class="breadcrumbs__item">
                 <a href="index.html" class="breadcrumbs__link">Главная</a>
               </li>
-              <li class="breadcrumbs__sep">/</li>
               <li class="breadcrumbs__item">
                 <span class="breadcrumbs__current" aria-current="page"
                   >О&nbsp;нас</span
@@ -379,14 +381,14 @@
         <div class="container about-hero__inner">
           <div class="about-hero__content">
             <h1 class="about-hero__title">О&nbsp;магазине «Дукан»</h1>
-            <p class="about-hero__lead">
+            <p class="lead">
               Фермерская лавка Кавказа в&nbsp;Москве&nbsp;— продукты напрямую из&nbsp;хозяйств,
               своей машиной и&nbsp;без&nbsp;перекупщиков
             </p>
             <ul class="about-hero__facts">
               <li class="info-card about-hero__fact">
                 <span class="icon-box about-hero__fact-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </span>
                 <span class="info-card__title about-hero__fact-value">3 республики</span>
                 <span class="info-card__text"
@@ -395,7 +397,7 @@
               </li>
               <li class="info-card about-hero__fact">
                 <span class="icon-box about-hero__fact-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 </span>
                 <span class="info-card__title about-hero__fact-value">Раз в&nbsp;неделю</span>
                 <span class="info-card__text"
@@ -404,7 +406,7 @@
               </li>
               <li class="info-card about-hero__fact">
                 <span class="icon-box about-hero__fact-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+                  <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
                 </span>
                 <span class="info-card__title about-hero__fact-value">0&nbsp;₽ предоплаты</span>
                 <span class="info-card__text"
@@ -434,14 +436,14 @@
           <div class="section-header">
             <h2 id="aboutStoryTitle" class="section-header__title">Кто мы</h2>
           </div>
-          <p class="about-story__lead">
+          <p class="lead">
             «Дукан»&nbsp;— это лавка, куда на&nbsp;Кавказе ходят за&nbsp;сыром, мясом и&nbsp;молоком
             к&nbsp;знакомому фермеру. Мы перенесли эту лавку в&nbsp;Москву: убрали всё
             лишнее и&nbsp;сократили путь от&nbsp;кавказской фермы до&nbsp;московского стола.
           </p>
           <div class="about-story__compare">
             <article class="info-card">
-              <span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></span>
+              <span class="icon-box" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6-10 4 6 3-4 5 8z"/></svg></span>
               <h3 class="info-card__title about-story__card-title">На&nbsp;Кавказе</h3>
               <p class="info-card__text">
                 Хорошие продукты не&nbsp;ищут на&nbsp;полках супермаркета. Сыр берут у&nbsp;соседки, которая варит его по&nbsp;бабушкиному рецепту, мясо&nbsp;— у&nbsp;знакомого фермера, чьё стадо пасётся на&nbsp;горных лугах. Здесь
@@ -449,7 +451,7 @@
               </p>
             </article>
             <article class="info-card info-card--muted">
-              <span class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><rect x="5" y="10" width="6" height="11"/><rect x="11" y="4" width="8" height="17"/><path d="M14 8h2M14 12h2M14 16h2"/></svg></span>
+              <span class="icon-box" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><rect x="5" y="10" width="6" height="11"/><rect x="11" y="4" width="8" height="17"/><path d="M14 8h2M14 12h2M14 16h2"/></svg></span>
               <h3 class="info-card__title about-story__card-title">В&nbsp;Москве</h3>
               <p class="info-card__text">
                 Такой возможности почти нет: между фермой и&nbsp;покупателем стоят
@@ -527,7 +529,7 @@
           <ul class="about-promises__list">
             <li class="info-card">
               <span class="icon-box" aria-hidden="true"
-                ><svg
+                ><svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -547,7 +549,7 @@
             </li>
             <li class="info-card">
               <span class="icon-box" aria-hidden="true"
-                ><svg
+                ><svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -565,7 +567,7 @@
             </li>
             <li class="info-card">
               <span class="icon-box" aria-hidden="true"
-                ><svg
+                ><svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -595,7 +597,7 @@
               </h2>
               <a href="farmers.html" class="link-btn btn btn--outline">
                 Все фермеры
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -605,7 +607,7 @@
                 </svg>
               </a>
             </div>
-            <p class="regions__lead">
+            <p class="lead">
               Сейчас мы работаем с&nbsp;хозяйствами трёх республик Северного Кавказа.
               У&nbsp;каждой&nbsp;— свои традиции и&nbsp;свои продукты.
             </p>
@@ -666,7 +668,7 @@
         <div class="container">
           <div class="farmer-invite__inner">
             <span class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+              <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
             </span>
             <div class="farmer-invite__content">
               <h2 id="farmerInviteTitle" class="farmer-invite__title">
@@ -716,9 +718,9 @@
     <!-- Оверлей для закрытия меню по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
     <!-- Мобильный Bottom Navigation Bar -->
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" aria-label="Быстрая навигация">
       <a href="index.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -737,7 +739,7 @@
         aria-expanded="false"
         aria-controls="catalogMenu"
       >
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -754,7 +756,7 @@
 
       <a href="checkout.html" class="bottom-nav__item">
         <div class="bottom-nav__icon-wrapper">
-          <svg
+          <svg aria-hidden="true" focusable="false"
             viewBox="0 0 24 24"
             width="20"
             height="20"
@@ -772,7 +774,7 @@
       </a>
 
       <a href="account.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -795,7 +797,7 @@
               <a href="index.html" class="logo footer__logo">
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
-                  alt="Логотип сайта"
+                  alt="Дукан — на главную"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
@@ -803,7 +805,7 @@
               </a>
             </div>
 
-            <nav class="footer__nav">
+            <nav class="footer__nav" aria-label="Меню в подвале">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
               <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>

@@ -17,11 +17,12 @@
     <meta name="description" content="Отзывы покупателей о фермерских продуктах Кавказа и доставке «Дукан» по Москве. Оставьте свой отзыв о товаре." />
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
     <header class="header">
       <!-- Top Bar -->
       <div class="header__top-bar">
         <div class="container header__top-container">
-          <nav class="header__top-nav">
+          <nav class="header__top-nav" aria-label="Основное меню">
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О&nbsp;нас</a>
@@ -43,7 +44,7 @@
 
           <div class="header__top-info">
             <div class="header__top-info-item header__top-info-item--location">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -61,7 +62,7 @@
               href="tel:+79999999999"
               class="header__top-info-item header__top-info-item--phone"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -82,7 +83,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -96,7 +97,7 @@
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
-            <svg
+            <svg aria-hidden="true" focusable="false"
               class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
@@ -115,8 +116,9 @@
           <!-- Поисковая строка (Десктоп) -->
           <form class="header__search" action="/search" method="GET">
             <input
-              type="text"
+              type="search"
               name="q"
+              aria-label="Поиск по каталогу"
               class="header__search-input"
               placeholder="Поиск по каталогу"
               autocomplete="off"
@@ -126,7 +128,7 @@
               class="header__search-btn"
               aria-label="Искать"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="20"
                 height="20"
@@ -143,7 +145,7 @@
           <!-- Иконки действий (Десктоп) -->
           <div class="header__actions">
             <a href="account.html" class="header__action-link" aria-label="Профиль">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
@@ -161,7 +163,7 @@
               class="header__cart-btn btn btn--primary"
               aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="22"
                 height="22"
@@ -182,6 +184,7 @@
 
           <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
           <button
+            type="button"
             class="header__burger-btn"
             id="burgerBtn"
             aria-label="Открыть меню"
@@ -287,7 +290,7 @@
 
       <!-- Мобильное выпадающее инфо-меню -->
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
-        <nav class="header__mobile-nav">
+        <nav class="header__mobile-nav" aria-label="Мобильное меню">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
             <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
@@ -312,7 +315,7 @@
     </header>
 
     <!-- Основной контент -->
-    <main class="main-content">
+    <main class="main-content" id="main" tabindex="-1">
       <div class="breadcrumbs-strip">
         <div class="container">
           <nav class="breadcrumbs" aria-label="Хлебные крошки">
@@ -320,9 +323,8 @@
               <li class="breadcrumbs__item">
                 <a href="index.html" class="breadcrumbs__link">Главная</a>
               </li>
-              <li class="breadcrumbs__sep">/</li>
               <li class="breadcrumbs__item">
-                <span class="breadcrumbs__current">Отзывы</span>
+                <span class="breadcrumbs__current" aria-current="page">Отзывы</span>
               </li>
             </ol>
           </nav>
@@ -333,7 +335,7 @@
         <div class="container">
           <div class="page-head">
             <h1 class="page-head__title">Отзывы</h1>
-            <p class="page-head__subtitle">
+            <p class="lead">
               Что говорят покупатели о&nbsp;продуктах и&nbsp;доставке «Дукан»
             </p>
           </div>
@@ -376,7 +378,7 @@
                       Осетинский сыр&nbsp;— как у&nbsp;бабушки в&nbsp;деревне, ничего общего с&nbsp;магазинным. Взяла ещё сулугуни, тоже отличный.
                     </p>
                     <a href="product.html" class="chip chip--link">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
                         <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
                       </svg>
@@ -403,7 +405,7 @@
                       третий раз подряд, всегда одинаково хорошо.
                     </p>
                     <a href="product.html" class="chip chip--link">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
                         <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
                       </svg>
@@ -451,7 +453,7 @@
                       Взял банку в&nbsp;подарок родителям&nbsp;— просили привезти ещё.
                     </p>
                     <a href="product.html" class="chip chip--link">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
                         <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
                       </svg>
@@ -479,7 +481,7 @@
                       и&nbsp;состав.
                     </p>
                     <a href="product.html" class="chip chip--link">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
                         <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
                       </svg>
@@ -506,7 +508,7 @@
                       помидоры чуть помялись при&nbsp;доставке, но&nbsp;на&nbsp;вкус не&nbsp;повлияло.
                     </p>
                     <a href="product.html" class="chip chip--link">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
                         <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
                       </svg>
@@ -554,7 +556,7 @@
                       что в&nbsp;карточке товара сразу видно, с&nbsp;какой фермы продукт.
                     </p>
                     <a href="product.html" class="chip chip--link">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.59 13.41L11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.82 0l4.6-4.6a2 2 0 0 0 0-2.82z" />
                         <circle cx="7.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" />
                       </svg>
@@ -630,26 +632,10 @@
                     class="star-input__radio"
                     type="radio"
                     name="reviewRating"
-                    id="rate5"
-                    value="5"
+                    id="rate1"
+                    value="1"
                   />
-                  <label class="star-input__star" for="rate5" aria-label="5 звёзд">★</label>
-                  <input
-                    class="star-input__radio"
-                    type="radio"
-                    name="reviewRating"
-                    id="rate4"
-                    value="4"
-                  />
-                  <label class="star-input__star" for="rate4" aria-label="4 звезды">★</label>
-                  <input
-                    class="star-input__radio"
-                    type="radio"
-                    name="reviewRating"
-                    id="rate3"
-                    value="3"
-                  />
-                  <label class="star-input__star" for="rate3" aria-label="3 звезды">★</label>
+                  <label class="star-input__star" for="rate1" aria-label="1 звезда">★</label>
                   <input
                     class="star-input__radio"
                     type="radio"
@@ -662,10 +648,26 @@
                     class="star-input__radio"
                     type="radio"
                     name="reviewRating"
-                    id="rate1"
-                    value="1"
+                    id="rate3"
+                    value="3"
                   />
-                  <label class="star-input__star" for="rate1" aria-label="1 звезда">★</label>
+                  <label class="star-input__star" for="rate3" aria-label="3 звезды">★</label>
+                  <input
+                    class="star-input__radio"
+                    type="radio"
+                    name="reviewRating"
+                    id="rate4"
+                    value="4"
+                  />
+                  <label class="star-input__star" for="rate4" aria-label="4 звезды">★</label>
+                  <input
+                    class="star-input__radio"
+                    type="radio"
+                    name="reviewRating"
+                    id="rate5"
+                    value="5"
+                  />
+                  <label class="star-input__star" for="rate5" aria-label="5 звёзд">★</label>
                 </div>
               </fieldset>
 
@@ -719,7 +721,7 @@
                   class="pagination__link pagination__link--disabled"
                   aria-label="Предыдущая страница"
                 >
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="18"
                     height="18"
@@ -738,7 +740,7 @@
                   class="pagination__link"
                   aria-label="Следующая страница"
                 >
-                  <svg
+                  <svg aria-hidden="true" focusable="false"
                     viewBox="0 0 24 24"
                     width="18"
                     height="18"
@@ -757,7 +759,7 @@
           <form class="panel owner-form" id="ownerForm" novalidate>
             <div class="owner-form__header">
               <span class="icon-box">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   width="20"
                   height="20"
@@ -846,9 +848,9 @@
     <!-- Оверлей для закрытия меню по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
     <!-- Мобильный Bottom Navigation Bar -->
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" aria-label="Быстрая навигация">
       <a href="index.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -867,7 +869,7 @@
         aria-expanded="false"
         aria-controls="catalogMenu"
       >
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -884,7 +886,7 @@
 
       <a href="checkout.html" class="bottom-nav__item">
         <div class="bottom-nav__icon-wrapper">
-          <svg
+          <svg aria-hidden="true" focusable="false"
             viewBox="0 0 24 24"
             width="20"
             height="20"
@@ -902,7 +904,7 @@
       </a>
 
       <a href="account.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -925,7 +927,7 @@
               <a href="index.html" class="logo footer__logo">
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
-                  alt="Логотип сайта"
+                  alt="Дукан — на главную"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
@@ -933,7 +935,7 @@
               </a>
             </div>
 
-            <nav class="footer__nav">
+            <nav class="footer__nav" aria-label="Меню в подвале">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
               <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>

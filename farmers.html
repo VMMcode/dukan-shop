@@ -48,11 +48,12 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
     <header class="header">
       <!-- Top Bar -->
       <div class="header__top-bar">
         <div class="container header__top-container">
-          <nav class="header__top-nav">
+          <nav class="header__top-nav" aria-label="Основное меню">
             <ul class="header__top-list">
               <li class="header__top-item">
                 <a href="about.html" class="header__top-link">О&nbsp;нас</a>
@@ -74,7 +75,7 @@
 
           <div class="header__top-info">
             <div class="header__top-info-item header__top-info-item--location">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -92,7 +93,7 @@
               href="tel:+79999999999"
               class="header__top-info-item header__top-info-item--phone"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="18"
                 height="18"
@@ -113,7 +114,7 @@
         <div class="container header__main-container">
           <!-- Логотип -->
           <a href="index.html" class="logo header__logo">
-            <img src="img/logo/dukan-logo.svg" alt="Логотип сайта" />
+            <img src="img/logo/dukan-logo.svg" alt="Дукан — на главную" />
             <span class="logo__subtitle header__logo-subtitle"
               >Продукты Северного Кавказа</span
             >
@@ -127,7 +128,7 @@
             aria-expanded="false"
             aria-controls="catalogMenu"
           >
-            <svg
+            <svg aria-hidden="true" focusable="false"
               class="catalog-menu__btn-icon"
               viewBox="0 0 24 24"
               width="20"
@@ -146,8 +147,9 @@
           <!-- Поисковая строка (Десктоп) -->
           <form class="header__search" action="/search" method="GET">
             <input
-              type="text"
+              type="search"
               name="q"
+              aria-label="Поиск по каталогу"
               class="header__search-input"
               placeholder="Поиск по каталогу"
               autocomplete="off"
@@ -157,7 +159,7 @@
               class="header__search-btn"
               aria-label="Искать"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="20"
                 height="20"
@@ -174,7 +176,7 @@
           <!-- Иконки действий (Десктоп) -->
           <div class="header__actions">
             <a href="account.html" class="header__action-link" aria-label="Профиль">
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
@@ -192,7 +194,7 @@
               class="header__cart-btn btn btn--primary"
               aria-label="Корзина, товаров: 3, сумма 2 140 ₽"
             >
-              <svg
+              <svg aria-hidden="true" focusable="false"
                 viewBox="0 0 24 24"
                 width="22"
                 height="22"
@@ -213,6 +215,7 @@
 
           <!-- Кнопка меню-бургер для информационных страниц (Мобилка) -->
           <button
+            type="button"
             class="header__burger-btn"
             id="burgerBtn"
             aria-label="Открыть меню"
@@ -318,7 +321,7 @@
 
       <!-- Мобильное выпадающее инфо-меню -->
       <div class="header__mobile-drawer" id="mobileDrawer" hidden>
-        <nav class="header__mobile-nav">
+        <nav class="header__mobile-nav" aria-label="Мобильное меню">
           <ul class="header__mobile-list">
             <li><a href="about.html" class="header__mobile-link">О&nbsp;нас</a></li>
             <li><a href="farmers.html" class="header__mobile-link">Наши фермеры</a></li>
@@ -343,7 +346,7 @@
     </header>
 
     <!-- Основной контент -->
-    <main class="main-content">
+    <main class="main-content" id="main" tabindex="-1">
       <div class="breadcrumbs-strip">
         <div class="container">
           <nav class="breadcrumbs" aria-label="Хлебные крошки">
@@ -351,7 +354,6 @@
               <li class="breadcrumbs__item">
                 <a href="index.html" class="breadcrumbs__link">Главная</a>
               </li>
-              <li class="breadcrumbs__sep">/</li>
               <li class="breadcrumbs__item">
                 <span class="breadcrumbs__current" aria-current="page"
                   >Наши фермеры</span
@@ -369,13 +371,13 @@
             <h1 id="farmersHeroTitle" class="farmers-hero__title">
               Фермеры Кавказа, чьи продукты мы привозим
             </h1>
-            <p class="farmers-hero__lead">
+            <p class="lead">
               Дукан привозит в&nbsp;Москву фермерские продукты с&nbsp;Северного Кавказа&nbsp;—
               напрямую из&nbsp;хозяйств Кабардино-Балкарии, Северной Осетии и&nbsp;Дагестана. На&nbsp;этой странице собраны республики, с&nbsp;которыми мы
               работаем, и&nbsp;фермеры, чьи продукты вы найдёте
               <a href="catalog.html" class="underline-link">в&nbsp;нашем каталоге</a>.
             </p>
-            <p class="farmers-hero__lead">
+            <p class="lead">
               Здесь можно узнать, чем живёт каждый регион, какие традиции стоят
               за&nbsp;его кухней и&nbsp;кто производит то, что приезжает к&nbsp;вам домой. Мы
               считаем, что покупатель вправе знать, откуда его еда, поэтому у&nbsp;каждого товара на&nbsp;сайте указаны хозяйство и&nbsp;республика, а&nbsp;о&nbsp;самих
@@ -385,7 +387,7 @@
             <ul class="farmers-hero__list">
               <li class="info-card">
                 <span class="icon-box" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
@@ -399,7 +401,7 @@
               </li>
               <li class="info-card">
                 <span class="icon-box" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="10" />
                     <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                     <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -413,7 +415,7 @@
               </li>
               <li class="info-card">
                 <span class="icon-box" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                     <polyline points="14 2 14 8 20 8" />
                     <path d="M9 15l2 2 4-4" />
@@ -471,8 +473,8 @@
                   />
                 </div>
                 <div class="farmers-panel__info">
-                  <h2 class="farmers-panel__title">Кабардино-Балкария</h2>
-                  <p class="farmers-panel__text">
+                  <h3 class="farmers-panel__title">Кабардино-Балкария</h3>
+                  <p class="lead">
                     Кабардино-Балкария лежит у&nbsp;подножия Эльбруса: горные
                     пастбища, чистая ледниковая вода и&nbsp;мягкий климат предгорий.
                     Здесь крепкие традиции молочного и&nbsp;мясного животноводства&nbsp;—
@@ -498,11 +500,11 @@
                       <img src="img/logo/logo-dade.svg" alt="Семейная ферма Дадэ, Кабардино-Балкария" class="farm-card__img" loading="lazy" />
                     </div>
                     <div class="farm-card__body">
-                      <h3 class="farm-card__title">
+                      <h4 class="farm-card__title">
                         <a href="farmer.html" class="farm-card__link">Семейная ферма Дадэ</a>
-                      </h3>
+                      </h4>
                       <p class="farm-card__location">
-                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        <svg focusable="false" class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
                         с.&nbsp;Шалушка, Чегемский район
                       </p>
                       <p class="farm-card__text">Айран, сметана и&nbsp;сыр ручной работы по&nbsp;семейным рецептам.</p>
@@ -511,7 +513,7 @@
                       </ul>
                       <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
                         Смотреть хозяйство
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                       </span>
                     </div>
                   </article>
@@ -522,11 +524,11 @@
                       <img src="img/logo/logo-bashorov.webp" alt="Мясной дом Башоровъ, Кабардино-Балкария" class="farm-card__img" loading="lazy" />
                     </div>
                     <div class="farm-card__body">
-                      <h3 class="farm-card__title">
+                      <h4 class="farm-card__title">
                         <a href="farmer.html" class="farm-card__link">Мясной дом Башоровъ</a>
-                      </h3>
+                      </h4>
                       <p class="farm-card__location">
-                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        <svg focusable="false" class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
                         Прохладненский район
                       </p>
                       <p class="farm-card__text">Халяльные колбасы и&nbsp;деликатесы полного цикла&nbsp;— с&nbsp;2006&nbsp;года.</p>
@@ -536,7 +538,7 @@
                       </ul>
                       <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
                         Смотреть хозяйство
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                       </span>
                     </div>
                   </article>
@@ -544,12 +546,12 @@
                 <li class="farmers-panel__item">
                   <a href="#partners" class="farm-invite">
                     <span class="icon-box" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                      <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
                     </span>
                     <span class="farm-invite__text">Вы фермер из&nbsp;Кабардино-Балкарии? Расскажите о&nbsp;своём хозяйстве</span>
                     <span class="farm-invite__cta link-btn btn btn--outline">
                       Оставить заявку
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                     </span>
                   </a>
                 </li>
@@ -568,8 +570,8 @@
                   />
                 </div>
                 <div class="farmers-panel__info">
-                  <h2 class="farmers-panel__title">Северная Осетия</h2>
-                  <p class="farmers-panel__text">
+                  <h3 class="farmers-panel__title">Северная Осетия</h3>
+                  <p class="lead">
                     Северная Осетия&nbsp;— край горных ущелий и&nbsp;альпийских лугов, где
                     скотоводство и&nbsp;сыроделие веками были основой жизни.
                     Осетинский сыр здесь делают почти в&nbsp;каждой семье, и&nbsp;без&nbsp;него
@@ -595,11 +597,11 @@
                       <span class="farm-cover__name" aria-hidden="true">Алания продукт</span>
                     </div>
                     <div class="farm-card__body">
-                      <h3 class="farm-card__title">
+                      <h4 class="farm-card__title">
                         <a href="farmer.html" class="farm-card__link">Алания продукт</a>
-                      </h3>
+                      </h4>
                       <p class="farm-card__location">
-                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        <svg focusable="false" class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
                         Северная Осетия
                       </p>
                       <p class="farm-card__text">Осетинский сыр по&nbsp;старинному рецепту&nbsp;— с&nbsp;2017&nbsp;года.</p>
@@ -608,7 +610,7 @@
                       </ul>
                       <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
                         Смотреть хозяйство
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                       </span>
                     </div>
                   </article>
@@ -616,12 +618,12 @@
                 <li class="farmers-panel__item">
                   <a href="#partners" class="farm-invite">
                     <span class="icon-box" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                      <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
                     </span>
                     <span class="farm-invite__text">Вы фермер из&nbsp;Северной Осетии? Расскажите о&nbsp;своём хозяйстве</span>
                     <span class="farm-invite__cta link-btn btn btn--outline">
                       Оставить заявку
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                     </span>
                   </a>
                 </li>
@@ -640,8 +642,8 @@
                   />
                 </div>
                 <div class="farmers-panel__info">
-                  <h2 class="farmers-panel__title">Дагестан</h2>
-                  <p class="farmers-panel__text">
+                  <h3 class="farmers-panel__title">Дагестан</h3>
+                  <p class="lead">
                     Дагестан&nbsp;— одна из&nbsp;главных животноводческих республик страны. Здесь до&nbsp;сих пор жива традиция отгонного скотоводства: летом стада пасутся на&nbsp;высокогорных лугах, зимой спускаются на&nbsp;равнину, и&nbsp;круглый год животные питаются подножным кормом. Отсюда&nbsp;— нежная горная баранина и&nbsp;овечьи сыры, рецепты которых в&nbsp;сёлах передают из&nbsp;поколения в&nbsp;поколение.
                   </p>
                   <p class="farmers-panel__label">Чем славится</p>
@@ -664,11 +666,11 @@
                       <span class="farm-cover__name" aria-hidden="true">Сыроварня «Мишель»</span>
                     </div>
                     <div class="farm-card__body">
-                      <h3 class="farm-card__title">
+                      <h4 class="farm-card__title">
                         <a href="farmer.html" class="farm-card__link">Сыроварня «Мишель»</a>
-                      </h3>
+                      </h4>
                       <p class="farm-card__location">
-                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        <svg focusable="false" class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
                         г.&nbsp;Махачкала
                       </p>
                       <p class="farm-card__text">Овечий высокогорный сыр&nbsp;— золото конкурса «Лучший сыр России».</p>
@@ -677,7 +679,7 @@
                       </ul>
                       <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
                         Смотреть хозяйство
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                       </span>
                     </div>
                   </article>
@@ -689,11 +691,11 @@
                       <span class="farm-cover__name" aria-hidden="true">Семья Магомедовых</span>
                     </div>
                     <div class="farm-card__body">
-                      <h3 class="farm-card__title">
+                      <h4 class="farm-card__title">
                         <a href="farmer.html" class="farm-card__link">Семья Магомедовых</a>
-                      </h3>
+                      </h4>
                       <p class="farm-card__location">
-                        <svg class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                        <svg focusable="false" class="farm-card__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
                         с.&nbsp;Танты, Акушинский район
                       </p>
                       <p class="farm-card__text">Брынза по&nbsp;семейному рецепту&nbsp;— больше 20&nbsp;лет.</p>
@@ -702,7 +704,7 @@
                       </ul>
                       <span class="farm-card__more link-btn btn btn--primary" aria-hidden="true">
                         Смотреть хозяйство
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                       </span>
                     </div>
                   </article>
@@ -710,12 +712,12 @@
                 <li class="farmers-panel__item">
                   <a href="#partners" class="farm-invite">
                     <span class="icon-box" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                      <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
                     </span>
                     <span class="farm-invite__text">Вы фермер из&nbsp;Дагестана? Расскажите о&nbsp;своём хозяйстве</span>
                     <span class="farm-invite__cta link-btn btn btn--outline">
                       Оставить заявку
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                      <svg focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                     </span>
                   </a>
                 </li>
@@ -742,19 +744,19 @@
                 <h3 class="farmers-join__list-title">Что даёт Дукан</h3>
                 <ul class="farmers-join__list">
                   <li class="farmers-join__item">
-                    <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span class="check-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
                     <span>Свою машину с&nbsp;холодильным оборудованием&nbsp;— забираем продукты прямо с&nbsp;фермы.</span>
                   </li>
                   <li class="farmers-join__item">
-                    <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span class="check-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
                     <span>Регулярные продажи в&nbsp;Москве каждую неделю.</span>
                   </li>
                   <li class="farmers-join__item">
-                    <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span class="check-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
                     <span>Ваше хозяйство на&nbsp;сайте под&nbsp;своим именем&nbsp;— покупатели знают, кто делает продукт.</span>
                   </li>
                   <li class="farmers-join__item">
-                    <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span class="check-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
                     <span>Никакой рекламы и&nbsp;маркетинга с&nbsp;вашей стороны.</span>
                   </li>
                 </ul>
@@ -764,19 +766,19 @@
                 <h3 class="farmers-join__list-title">Что нужно от&nbsp;вас</h3>
                 <ul class="farmers-join__list">
                   <li class="farmers-join__item">
-                    <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span class="check-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
                     <span>Стабильное качество и&nbsp;честный состав.</span>
                   </li>
                   <li class="farmers-join__item">
-                    <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span class="check-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
                     <span>Документы на&nbsp;продукцию: декларации соответствия, для&nbsp;мяса и&nbsp;молока&nbsp;— ветеринарные документы в&nbsp;«Меркурии».</span>
                   </li>
                   <li class="farmers-join__item">
-                    <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span class="check-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
                     <span>Фасовка и&nbsp;маркировка на&nbsp;ферме.</span>
                   </li>
                   <li class="farmers-join__item">
-                    <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
+                    <span class="check-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6" /></svg></span>
                     <span>Готовность к&nbsp;регулярным поставкам.</span>
                   </li>
                 </ul>
@@ -834,9 +836,9 @@
     <!-- Оверлей для закрытия меню по клику вне элемента -->
     <div class="overlay" id="overlay" hidden></div>
     <!-- Мобильный Bottom Navigation Bar -->
-    <nav class="bottom-nav">
+    <nav class="bottom-nav" aria-label="Быстрая навигация">
       <a href="index.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -855,7 +857,7 @@
         aria-expanded="false"
         aria-controls="catalogMenu"
       >
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -872,7 +874,7 @@
 
       <a href="checkout.html" class="bottom-nav__item">
         <div class="bottom-nav__icon-wrapper">
-          <svg
+          <svg aria-hidden="true" focusable="false"
             viewBox="0 0 24 24"
             width="20"
             height="20"
@@ -890,7 +892,7 @@
       </a>
 
       <a href="account.html" class="bottom-nav__item">
-        <svg
+        <svg aria-hidden="true" focusable="false"
           viewBox="0 0 24 24"
           width="20"
           height="20"
@@ -913,7 +915,7 @@
               <a href="index.html" class="logo footer__logo">
                 <img
                   src="img/logo/dukan-logo-inverse.svg"
-                  alt="Логотип сайта"
+                  alt="Дукан — на главную"
                 />
                 <span class="logo__subtitle"
                   >Фермерские продукты Кавказа с&nbsp;доставкой по&nbsp;Москве</span
@@ -921,7 +923,7 @@
               </a>
             </div>
 
-            <nav class="footer__nav">
+            <nav class="footer__nav" aria-label="Меню в подвале">
               <span class="footer__col-title">Меню</span>
               <a href="catalog.html" class="footer__link dot-link">Каталог</a>
               <a href="about.html" class="footer__link dot-link">О&nbsp;нас</a>

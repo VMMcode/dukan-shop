@@ -11,11 +11,6 @@
   gap: var(--space-md);
 }
 
-.farmers-hero__lead {
-  font-size: var(--fs-body-lg);
-  color: var(--color-text-muted);
-}
-
 .farmers-hero__subtitle {
   margin-top: var(--space-xs);
   color: var(--color-text);
@@ -144,11 +139,6 @@
   line-height: var(--lh-h2);
   font-weight: var(--fw-h2);
   color: var(--color-accent);
-}
-
-.farmers-panel__text {
-  font-size: var(--fs-body-lg);
-  color: var(--color-text-muted);
 }
 
 .farmers-panel__label {

@@ -42,11 +42,6 @@
   height: 1rem;
 }
 
-.farmer-hero__lead {
-  font-size: var(--fs-body-lg);
-  color: var(--color-text-muted);
-}
-
 .farmer-hero__tags {
   display: flex;
   flex-wrap: wrap;
@@ -63,11 +58,6 @@
   gap: var(--space-md);
 }
 
-.farmer-about__text {
-  font-size: var(--fs-body-lg);
-  color: var(--color-text-muted);
-}
-
 .farmer-about__list {
   display: grid;
   grid-template-columns: 1fr;
@@ -82,11 +72,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-}
-
-.farmer-produce__lead {
-  font-size: var(--fs-body-lg);
-  color: var(--color-text-muted);
 }
 
 .farmer-produce__list {
