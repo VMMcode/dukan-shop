@@ -210,7 +210,7 @@
 
 /* --- Экран "Заказ принят" --- */
 .order-success {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-md) 0 var(--space-2xl);
 }
 
 .order-success__inner {
