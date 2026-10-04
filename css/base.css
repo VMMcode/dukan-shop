@@ -1728,7 +1728,7 @@ html:has(.form-dialog[open]) {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(var(--space-sm));
+    transform: translateY(var(--space-md));
   }
 }
 

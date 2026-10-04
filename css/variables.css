@@ -145,9 +145,11 @@
 
   /* --- Animation --- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1); /* плавный разгон и торможение, для появления блоков */
   --duration-fast: 150ms;
   --duration-base: 300ms;
   --duration-slow: 400ms;
+  --duration-slower: 800ms;
 
   /* --- Липкие элементы: отступ от шапки и нижний зазор --- */
   --sticky-top: calc(var(--header-height, 0px) + var(--space-md) + var(--wp-admin--admin-bar--height, 0px));

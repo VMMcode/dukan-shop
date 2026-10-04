@@ -109,7 +109,7 @@
 }
 
 .farmers-panel--entering {
-  animation: fade-up var(--duration-base) var(--ease-out);
+  animation: fade-up var(--duration-slower) var(--ease-soft) both;
 }
 
 .farmers-panel__top {
